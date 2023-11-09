@@ -1,4 +1,4 @@
-Animal Crossing (USA) [![Discord Badge]][discord]
+Animal Crossing (USA) ![DOL Progress] ![REL Progress] [![Discord Badge]][discord]
 =============
 
 <!--
@@ -11,19 +11,19 @@ Code progress URL:
 https://progress.decomp.club/data/[project]/[version]/all/?mode=shield&measure=code
 URL encoded then appended to: https://img.shields.io/endpoint?label=Code&url=
 -->
-[Progress]: https://img.shields.io/endpoint?label=Code&url=https%3A%2F%2Fprogress.decomp.club%2Fdata%2Fdnm%2FGAFE01%2Fall%2F%3Fmode%3Dshield%26measure%3Dcode
+[Progress]: https://img.shields.io/endpoint?label=Code&url=https%3A%2F%2Fprogress.decomp.club%2Fdata%2Fanimalcrossing%2Fus%2Fall%2F%3Fmode%3Dshield%26measure%3Dcode
 <!---
 DOL progress URL:
 https://progress.decomp.club/data/[project]/[version]/dol/?mode=shield&measure=code
 URL encoded then appended to: https://img.shields.io/endpoint?label=DOL&url=
 -->
-[DOL Progress]: https://img.shields.io/endpoint?label=DOL&url=https%3A%2F%2Fprogress.decomp.club%2Fdata%2Fdnm%2FGAFE01%2Fdol%2F%3Fmode%3Dshield%26measure%3Dcode
+[DOL Progress]: https://img.shields.io/endpoint?label=DOL&url=https%3A%2F%2Fprogress.decomp.club%2Fdata%2Fanimalcrossing%2Fus%2Fdol%2F%3Fmode%3Dshield%26measure%3Dcode
 <!--
 REL progress URL:
 https://progress.decomp.club/data/[project]/[version]/modules/?mode=shield&measure=code
 URL encoded then appended to: https://img.shields.io/endpoint?label=RELs&url=
 -->
-[RELs Progress]: https://img.shields.io/endpoint?label=RELs&url=https%3A%2F%2Fprogress.decomp.club%2Fdata%2Fdnm%2FGAFE01%2Fmodules%2F%3Fmode%3Dshield%26measure%3Dcode
+[REL Progress]: https://img.shields.io/endpoint?label=REL&url=https%3A%2F%2Fprogress.decomp.club%2Fdata%2Fanimalcrossing%2Fus%2Frel%2F%3Fmode%3Dshield%26measure%3Dcode
 <!--
 Replace with your Discord server's ID and invite URL.
 -->
