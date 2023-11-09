@@ -1,0 +1,20 @@
+# See config.example.yml for documentation.
+object: orig/GAFE01/sys/main.dol
+hash: 2ae8f56e7791d37e165bd5900921f2269f9515bf
+name: static
+symbols: config/GAFE01/symbols.txt
+splits: config/GAFE01/splits.txt
+mw_comment_version: 10 #1.3.2
+symbols_known: true
+fill_gaps: false
+
+# Generated with:
+# map: orig/GAFE01/files/static.map
+# common_start: 0x8020D78C
+
+modules:
+- object: orig/GAFE01/files/foresta.rel
+  hash: c59d278ad8542bb05d6cbb632f60a0db05bef203
+  symbols: config/GAFE01/foresta/symbols.txt
+  splits: config/GAFE01/foresta/splits.txt
+  # map: orig/GAFE01/files/foresta.map
