@@ -27,7 +27,7 @@ from tools.project import (
 # Game versions
 DEFAULT_VERSION = 0
 VERSIONS = [
-    "GAFE01",	# USA
+    "GAFE01",  # USA
 ]
 
 if len(VERSIONS) > 1:
@@ -118,7 +118,7 @@ if not is_windows():
 
 # Tool versions
 config.compilers_tag = "20231018"
-config.dtk_tag = "v0.5.7"
+config.dtk_tag = "v0.5.8"
 config.sjiswrap_tag = "v1.1.1"
 config.wibo_tag = "0.6.9"
 
@@ -129,7 +129,7 @@ config.ldflags = [
     "-proc gekko",
     "-fp hardware",
     "-nodefaults",
-    "-nostdlib"
+    "-nostdlib",
 ]
 
 # Base flags, common to most GC/Wii games.
@@ -153,7 +153,7 @@ cflags_base = [
     "-str reuse",
     "-i include",
     "-i libc",
-	"-enc SJIS",
+    "-multibyte",
     f"-DVERSION={version_num}",
 ]
 
@@ -170,7 +170,7 @@ cflags_runtime = [
     "-str reuse,pool,readonly",
     "-gccinc",
     "-common off",
-	"-inline auto",
+    "-inline auto",
 ]
 
 # REL flags
