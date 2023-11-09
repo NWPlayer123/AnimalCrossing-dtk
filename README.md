@@ -1,4 +1,4 @@
-Animal Crossing (USA) ![DOL Progress] ![REL Progress] [![Discord Badge]][discord]
+Animal Crossing Decompilation ![REL Progress] ![DOL Progress] [![Discord Badge]][discord]
 =============
 
 <!--
