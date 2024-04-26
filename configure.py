@@ -13,6 +13,7 @@
 ###
 
 import argparse
+import yaml
 import sys
 from pathlib import Path
 from typing import Any, Dict, List
@@ -404,32 +405,77 @@ config.libs = [
     },
 ]
 
+
+
+# Define our custom asset processing scripts
 config.custom_build_rules = [
     {
         "name": "convert_pal16",
         "command": "$python tools/converters/pal16dis.py $in $out",
         "description": "CONVERT $palette"
     },
+    {
+        "name": "convert_vtx",
+        "command": "$python tools/converters/vtxdis.py $in $out",
+        "description": "CONVERT $vtxdata"
+    },
 ]
 config.custom_build_steps = []
 
+# Grab the specific GameID so we can format our strings properly
 version = VERSIONS[version_num]
-palettes = [
-    "ef_coin_gold_pal",
-    "ef_coin_silver_pal",
-]
 
-for palette in palettes:
-    config.custom_build_steps.append({
-        "type": "pre-compile",
-        "rule": "convert_pal16",
-        "inputs": f"build/{version}/bin/assets/{palette}.bin",
-        "outputs": f"build/{version}/include/assets/{palette}.inc",
-        "variables": {
-            "palette": f"{palette}",
-        },
-    })
+# This generates the build steps needed for preprocessing
+def emit_build_rule(asset):
+    match asset["type"]:
+        case "pal16":
+            symbol = asset["symbol"]
+            binary_path = asset["binary"]
+            include_path = binary_path.replace(".bin", ".inc")
 
+            config.custom_build_steps.append({
+                "type": "pre-compile",
+                "rule": "convert_pal16",
+                "inputs": f"build/{version}/bin/{binary_path}",
+                "outputs": f"build/{version}/include/{include_path}",
+                "variables": {
+                    "palette": f"{symbol}",
+                },
+            })
+
+        case "vtx":
+            symbol = asset["symbol"]
+            binary_path = asset["binary"]
+            include_path = binary_path.replace(".bin", ".inc")
+
+            config.custom_build_steps.append({
+                "type": "pre-compile",
+                "rule": "convert_vtx",
+                "inputs": f"build/{version}/bin/{binary_path}",
+                "outputs": f"build/{version}/include/{include_path}",
+                "variables": {
+                    "vtxdata": f"{symbol}",
+                },
+            })
+
+        case _:
+            print("Unknown asset type: " + asset["type"])
+
+# Parse the config and create the build rules for all our assets
+yaml_data = yaml.safe_load(open(f"config/{version}/config.yml"))
+
+for asset in yaml_data.get("extract", []):
+    if "type" in asset:
+        emit_build_rule(asset)
+
+for module in yaml_data.get("modules", []):
+    for asset in module.get("extract", []):
+        if "type" in asset:
+            emit_build_rule(asset)
+
+
+
+# configure script options
 if args.mode == "configure":
     # Write build.ninja and objdiff.json
     generate_build(config)
