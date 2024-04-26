@@ -658,13 +658,13 @@ static Gfx* vtx_DL_table[mNT_ITEM_TYPE_NUM] = {
 };
 
 /* Clip */
-#include "../src/ac_handOverItem_clip.c_inc"
+#include "../src/actor/ac_handOverItem_clip.c_inc"
 
 /* Move */
-#include "../src/ac_handOverItem_move.c_inc"
+#include "../src/actor/ac_handOverItem_move.c_inc"
 
 /* Draw */
-#include "../src/ac_handOverItem_draw.c_inc"
+#include "../src/actor/ac_handOverItem_draw.c_inc"
 
 static void aHOI_actor_ct(ACTOR* actorx, GAME* game) {
   aHOI_init_clip_area(actorx, game);

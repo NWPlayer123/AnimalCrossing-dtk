@@ -132,8 +132,8 @@ ACTOR_PROFILE My_Room_Profile = {
 };
 // clang-format on
 
-#include "../src/ac_furniture_data.c_inc"
-#include "../src/ac_my_room_data.c_inc"
+#include "../src/actor/ac_furniture_data.c_inc"
+#include "../src/actor/ac_my_room_data.c_inc"
 
 typedef struct my_room_work_s {
     FTR_ACTOR* ftr_actor_list;
@@ -1462,7 +1462,7 @@ static int aMR_GetSceneFurnitureMax(void) {
     return 3;
 }
 
-#include "../src/ac_my_room_msg_ctrl.c_inc"
+#include "../src/actor/ac_my_room_msg_ctrl.c_inc"
 
 static void aMR_SecureFurnitureRam(ACTOR* actorx) {
     l_aMR_work.ftr_actor_list = (FTR_ACTOR*)zelda_malloc(l_aMR_work.list_size * sizeof(FTR_ACTOR));
@@ -1938,7 +1938,7 @@ static int aMR_PickupFtrLayer(void) {
     return mCoBG_LAYER0;
 }
 
-#include "../src/ac_my_room_goki.c_inc"
+#include "../src/actor/ac_my_room_goki.c_inc"
 
 static void aMR_LeafStartPos(xyz_t* pos) {
     static xyz_t leaf_start0 = { 0.0f, 0.0f, 0.0f };
@@ -2020,9 +2020,9 @@ static void My_Room_Actor_dt(ACTOR* actorx, GAME* game) {
     }
 }
 
-#include "../src/ac_my_room_melody.c_inc"
-#include "../src/ac_my_room_move.c_inc"
-#include "../src/ac_my_room_draw.c_inc"
+#include "../src/actor/ac_my_room_melody.c_inc"
+#include "../src/actor/ac_my_room_move.c_inc"
+#include "../src/actor/ac_my_room_draw.c_inc"
 
 static void aMR_RedmaFtrBank(void) {
     int i;

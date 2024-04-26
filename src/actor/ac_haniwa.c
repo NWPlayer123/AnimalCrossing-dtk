@@ -94,7 +94,7 @@ static void aHNW_actor_dt(ACTOR* actor, GAME* game) {
   ClObjPipe_dt(game, &haniwa->col_pipe);
 }
 
-#include "../src/ac_haniwa_move.c_inc"
+#include "../src/actor/ac_haniwa_move.c_inc"
 
 static void aHNW_actor_draw(ACTOR* actor, GAME* game) {
   static Gfx hnw_tex_model[] = {

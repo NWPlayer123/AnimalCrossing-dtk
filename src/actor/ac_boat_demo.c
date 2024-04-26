@@ -31,13 +31,8 @@ ACTOR_PROFILE Boat_Demo_Profile = {
 static mDemo_Clip_c aBTD_clip;
 
 #ifndef __INTELLISENSE__
-static u8 aBTD_island_prg[] = {
 #include "assets/aBTD_island_prg.inc"
-};
-
-static u8 aBTD_island_ldr[] = {
 #include "assets/aBTD_island_ldr.inc"
-};
 #else
 extern u8 aBTD_island_prg[];
 extern u8 aBTD_island_ldr[];
@@ -70,6 +65,6 @@ static void aBTD_actor_dt(ACTOR* actorx, GAME* game) {
   }
 }
 
-#include "../src/ac_boat_demo_move.c_inc"
+#include "../src/actor/ac_boat_demo_move.c_inc"
 
 #pragma pop

@@ -343,7 +343,7 @@ static void aQMgr_move_own_errand_seed(QUEST_MANAGER_ACTOR* manager, aQMgr_regis
 static void aQMgr_move_own_errand_letter(QUEST_MANAGER_ACTOR* manager, aQMgr_regist_c* regist);
 static void aQMgr_move_own_errand_hello(QUEST_MANAGER_ACTOR* manager, aQMgr_regist_c* regist);
 
-static void aQMgr_contest_check_limit(QUEST_MANAGER_ACTOR* manager, aQMgr_regist_c* regist) ;
+static void aQMgr_actor_contest_check_limit(QUEST_MANAGER_ACTOR* manager, aQMgr_regist_c* regist) ;
 static int aQMgr_actor_check_fin_fruit(mQst_base_c* quest_info, Animal_c* animal);
 static int aQMgr_actor_check_fin_soccer(mQst_base_c* quest_info, Animal_c* animal);
 static void aQMgr_actor_contest_snowman_clear(QUEST_MANAGER_ACTOR* manager, aQMgr_regist_c* regist);
@@ -378,13 +378,13 @@ static aQMgr_CHECK_LIMIT_PROC l_errand_proc[mQst_ERRAND_NUM] = {
 };
 
 static aQMgr_CHECK_LIMIT_PROC l_contest_proc[mQst_CONTEST_KIND_NUM] = {
-    &aQMgr_contest_check_limit,
-    &aQMgr_contest_check_limit,
+    &aQMgr_actor_contest_check_limit,
+    &aQMgr_actor_contest_check_limit,
     &aQMgr_actor_contest_snowman_clear,
     &aQMgr_actor_contest_flower_clear,
-    &aQMgr_contest_check_limit,
+    &aQMgr_actor_contest_check_limit,
     &aQMgr_actor_contest_insect_clear,
-    &aQMgr_contest_check_limit
+    &aQMgr_actor_contest_check_limit
 };
 
 static aQMgr_CHECK_FINISH_PROC l_contest_check[mQst_CONTEST_KIND_NUM] = {
@@ -1033,8 +1033,8 @@ static int aQMgr_talk_common_proc(QUEST_MANAGER_ACTOR* manager, int proc) {
     return (*common_proc[proc])(manager);
 }
 
-#include "../src/ac_quest_errand.c_inc"
-#include "../src/ac_quest_contest.c_inc"
+#include "../src/actor/ac_quest_errand.c_inc"
+#include "../src/actor/ac_quest_contest.c_inc"
 
 static void aQMgr_clear_talk_wait_info(aQMgr_talk_wait_info_c* wait_info) {
     bzero(wait_info, sizeof(aQMgr_talk_wait_info_c));

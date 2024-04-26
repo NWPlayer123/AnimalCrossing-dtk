@@ -1332,7 +1332,7 @@ static void aMR_MngFtrContactAction(ACTOR* actorx, GAME* game) {
     }
 }
 
-#include "../src/ac_my_room_action.c_inc"
+#include "../src/actor/ac_my_room_action.c_inc"
 
 static f32 aMR_GetDistXZ(const xyz_t* pos0, const xyz_t* pos1) {
     f32 diff_x = pos0->x - pos1->x;

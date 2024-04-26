@@ -4,7 +4,7 @@ static void aQMgr_actor_check_limit_and_clear_quest(mQst_contest_c* contest) {
     }
 }
 
-static void aQMgr_contest_check_limit(QUEST_MANAGER_ACTOR* manager, aQMgr_regist_c* regist) {
+static void aQMgr_actor_contest_check_limit(QUEST_MANAGER_ACTOR* manager, aQMgr_regist_c* regist) {
     aQMgr_actor_check_limit_and_clear_quest((mQst_contest_c*)regist->quest_info);
 }
 

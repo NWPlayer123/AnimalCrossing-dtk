@@ -20,6 +20,19 @@ modules:
   # map: orig/GAFE01/files/foresta.map
 
   extract:
+  #ac_boat_demo
+  - symbol: aBTD_island_prg
+    header: assets/aBTD_island_prg.inc
+
+  - symbol: aBTD_island_ldr
+    header: assets/aBTD_island_ldr.inc
+
+  #ac_mbg
+  - symbol: mbg_v
+    binary: assets/mbg_v.bin
+    type: vtx
+    
+  #ef_coin
   - symbol: ef_coin_gold_pal
     binary: assets/ef_coin_gold_pal.bin
     type: pal16
