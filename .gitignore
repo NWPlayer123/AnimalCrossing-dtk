@@ -1,3 +1,4 @@
+# dtk-template ignore
 __pycache__
 .idea
 .vscode
@@ -11,4 +12,9 @@ orig/*/*
 !orig/*/.gitkeep
 /*.txt
 ctx.c
+
+# This is for saving IDB files into
 ida
+
+# Ignore the N64 SDK headers since we download them
+include/PR
