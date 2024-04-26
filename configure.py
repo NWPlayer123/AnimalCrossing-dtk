@@ -219,6 +219,7 @@ cflags_rel = [
     "-d F3DEX_GBI_2",
 
     # Project-specific stuff
+    "-d MUST_MATCH",
     #"-d IS_REL",
     #"-d OPTIMIZED_SQRTF",
 ]
@@ -401,6 +402,23 @@ config.libs = [
             Object(Matching, "effect/ef_yukidama.c"),
             Object(Matching, "effect/ef_yukidaruma.c"),
             Object(Matching, "effect/ef_yukihane.c"),
+        ],
+    },
+    {
+        "lib": "system",
+        "mw_version": config.linker_version,
+        "cflags": cflags_rel,
+        "host": False,
+        "objects": [
+            Object(Matching, "system/sys_dynamic.c"),
+            Object(Matching, "system/sys_math.c"),
+            Object(Matching, "system/sys_math3d.c"),
+            Object(Matching, "system/sys_math_atan.c"),
+            Object(Matching, "system/sys_matrix.c"),
+            Object(Matching, "system/sys_romcheck.c"),
+            Object(Matching, "system/sys_stacks.c"),
+            Object(Matching, "system/sys_ucode.c"),
+            Object(Matching, "system/sys_vimgr.c"),
         ],
     },
 ]

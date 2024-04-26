@@ -11,7 +11,7 @@ executor.o:
 	.data       start:0x00000000 end:0x00000080
 	.bss        start:0x00000000 end:0x00000008
 
-sys_vimgr.o:
+system/sys_vimgr.c:
 	.text       start:0x00000150 end:0x00000170
 
 c_keyframe.o:
@@ -592,28 +592,28 @@ padmgr.o:
 	.data       start:0x00011C38 end:0x00011C50
 	.bss        start:0x0009A878 end:0x0009ACE0
 
-sys_math.o:
+system/sys_math.c:
 	.text       start:0x00098698 end:0x0009879C
 	.rodata     start:0x00002560 end:0x00002570
 
-sys_math3d.o:
+system/sys_math3d.c:
 	.text       start:0x0009879C end:0x0009BDC4
 	.rodata     start:0x00002570 end:0x000025B0
 	.data       start:0x00011C50 end:0x00011C68
 	.bss        start:0x0009ACE0 end:0x0009AEA8
 
-sys_math_atan.o:
+system/sys_math_atan.c:
 	.text       start:0x0009BDC4 end:0x0009BFDC
 	.rodata     start:0x000025B0 end:0x000025C8
 	.data       start:0x00011C68 end:0x00012470
 
-sys_matrix.o:
+system/sys_matrix.c:
 	.text       start:0x0009BFDC end:0x0009E890
 	.rodata     start:0x000025C8 end:0x00002600
 	.data       start:0x00012470 end:0x000124F0
 	.bss        start:0x0009AEA8 end:0x0009AEB0
 
-sys_stacks.o:
+system/sys_stacks.c:
 	.text       start:0x0009E890 end:0x0009E890
 	.bss        start:0x0009AEB0 end:0x0009EEB0
 
@@ -622,7 +622,7 @@ zurumode.o:
 	.data       start:0x000124F0 end:0x00012530
 	.bss        start:0x0009EEB0 end:0x0009EEC0
 
-sys_ucode.o:
+system/sys_ucode.c:
 	.text       start:0x0009ED60 end:0x0009EDA0
 	.data       start:0x00012530 end:0x00012540
 	.bss        start:0x0009EEC0 end:0x0009EEE0
@@ -3362,7 +3362,7 @@ effect/ef_yukihane.c:
 	.rodata     start:0x0000BF30 end:0x0000BF50
 	.data       start:0x000867D0 end:0x00086808
 
-sys_dynamic.o:
+system/sys_dynamic.c:
 	.text       start:0x002B7CE0 end:0x002B7CE0
 	.bss        start:0x000E6C38 end:0x00107060
 
@@ -3374,7 +3374,7 @@ m_select.o:
 first_game.o:
 	.text       start:0x002B9A00 end:0x002B9AA4
 
-sys_romcheck.o:
+system/sys_romcheck.c:
 	.text       start:0x002B9AA4 end:0x002B9AE4
 
 m_play.o:
