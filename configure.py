@@ -165,7 +165,7 @@ cflags_base = [
     '-pragma "cats off"',
     
     #default compiler flags
-    "-W all",
+    #"-W all",
     "-O4,p",
     #"-inline auto",
     '-pragma "warn_notinlined off"',
@@ -203,9 +203,9 @@ cflags_static = [
 # REL flags
 cflags_rel = [
     *cflags_base,
-    
+
     # Disable padding warnings
-    '-W "warn_padding off"'
+    '-pragma "warn_padding off"',
     "-inline on",
     "-once",
     "-use_lmw_stmw off",
@@ -282,7 +282,7 @@ config.libs = [
             Object(Matching, "effect/ef_car_blight.c"),
             Object(Matching, "effect/ef_car_light.c"),
             Object(Matching, "effect/ef_clacker.c"),
-            Object(NonMatching, "effect/ef_coin.c"),
+            Object(Matching, "effect/ef_coin.c"),
             Object(NonMatching, "effect/ef_dash_asimoto.c"),
             Object(NonMatching, "effect/ef_dig_hole.c"),
             Object(NonMatching, "effect/ef_dig_mud.c"),
@@ -403,6 +403,32 @@ config.libs = [
         ],
     },
 ]
+
+config.custom_build_rules = [
+    {
+        "name": "convert_pal16",
+        "command": "$python tools/converters/pal16dis.py $in $out",
+        "description": "CONVERT $palette"
+    },
+]
+config.custom_build_steps = []
+
+version = VERSIONS[version_num]
+palettes = [
+    "ef_coin_gold_pal",
+    "ef_coin_silver_pal",
+]
+
+for palette in palettes:
+    config.custom_build_steps.append({
+        "type": "pre-compile",
+        "rule": "convert_pal16",
+        "inputs": f"build/{version}/bin/assets/{palette}.bin",
+        "outputs": f"build/{version}/include/assets/{palette}.inc",
+        "variables": {
+            "palette": f"{palette}",
+        },
+    })
 
 if args.mode == "configure":
     # Write build.ninja and objdiff.json

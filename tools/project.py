@@ -478,10 +478,18 @@ def generate_build_ninja(
 
     # Add all build steps needed before we compile (e.g. processing assets)
     n.comment("Custom build steps (pre-compile)")
+    custom_implicit = []
     for steps in config.custom_build_steps or {}:
         if steps["type"].lower() == "pre-compile":
+            outputs = steps.get("outputs")
+
+            if isinstance(outputs, list):
+                custom_implicit.extend(outputs)
+            else:
+                custom_implicit.append(outputs)
+
             n.build(
-                outputs=steps.get("outputs"),
+                outputs=outputs,
                 rule=steps.get("rule"),
                 inputs=steps.get("inputs", None),
                 implicit=steps.get("implicit", None),
@@ -492,6 +500,7 @@ def generate_build_ninja(
                 dyndep=steps.get("dyndep", None),
             )
             n.newline()
+    n.newline()
 
     ###
     # Source files
@@ -543,7 +552,7 @@ def generate_build_ninja(
                     outputs=elf_path,
                     rule="link",
                     inputs=self.inputs,
-                    implicit=[self.ldscript, *mwld_implicit],
+                    implicit=[self.ldscript, *mwld_implicit, *custom_implicit],
                     implicit_outputs=elf_map,
                     variables={"ldflags": elf_ldflags},
                 )
@@ -801,6 +810,7 @@ def generate_build_ninja(
                     dyndep=steps.get("dyndep", None),
                 )
                 n.newline()
+        n.newline()
 
         ###
         # Link
@@ -825,6 +835,7 @@ def generate_build_ninja(
                     dyndep=steps.get("dyndep", None),
                 )
                 n.newline()
+        n.newline()
 
         ###
         # Generate DOL
@@ -916,6 +927,7 @@ def generate_build_ninja(
                     dyndep=steps.get("dyndep", None),
                 )
                 n.newline()
+        n.newline()
 
         ###
         # Helper rule for building all source files
