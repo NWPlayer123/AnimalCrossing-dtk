@@ -1033,117 +1033,117 @@ ac_snowman.o:
 	.rodata     start:0x00004B18 end:0x00004C48
 	.data       start:0x000413E8 end:0x000414C8
 
-ac_t_anrium1.o:
+actor/tool/ac_t_anrium1.c:
 	.text       start:0x001374A8 end:0x001375FC
 	.data       start:0x000414C8 end:0x00041508
 
-ac_t_bag1.o:
+actor/tool/ac_t_bag1.c:
 	.text       start:0x001375FC end:0x00137750
 	.data       start:0x00041508 end:0x00041548
 
-ac_t_bag2.o:
+actor/tool/ac_t_bag2.c:
 	.text       start:0x00137750 end:0x001378A4
 	.data       start:0x00041548 end:0x00041588
 
-ac_t_biscus1.o:
+actor/tool/ac_t_biscus1.c:
 	.text       start:0x001378A4 end:0x001379F8
 	.data       start:0x00041588 end:0x000415C8
 
-ac_t_biscus2.o:
+actor/tool/ac_t_biscus2.c:
 	.text       start:0x001379F8 end:0x00137B4C
 	.data       start:0x000415C8 end:0x00041608
 
-ac_t_biscus3.o:
+actor/tool/ac_t_biscus3.c:
 	.text       start:0x00137B4C end:0x00137CA0
 	.data       start:0x00041608 end:0x00041648
 
-ac_t_biscus4.o:
+actor/tool/ac_t_biscus4.c:
 	.text       start:0x00137CA0 end:0x00137DF4
 	.data       start:0x00041648 end:0x00041688
 
-ac_t_cobra1.o:
+actor/tool/ac_t_cobra1.c:
 	.text       start:0x00137DF4 end:0x00137F48
 	.data       start:0x00041688 end:0x000416C8
 
-ac_t_cracker.o:
+actor/tool/ac_t_cracker.c:
 	.text       start:0x00137F48 end:0x001381AC
 	.rodata     start:0x00004C48 end:0x00004C50
 	.data       start:0x000416C8 end:0x00041728
 
-ac_t_flag.o:
+actor/tool/ac_t_flag.c:
 	.text       start:0x001381AC end:0x0013858C
 	.rodata     start:0x00004C50 end:0x00004C68
 	.data       start:0x00041728 end:0x00041750
 
-ac_t_hanabi.o:
+actor/tool/ac_t_hanabi.c:
 	.text       start:0x0013858C end:0x001387F4
 	.rodata     start:0x00004C68 end:0x00004C70
 	.data       start:0x00041750 end:0x000417B0
 
-ac_t_hasu1.o:
+actor/tool/ac_t_hasu1.c:
 	.text       start:0x001387F4 end:0x00138948
 	.data       start:0x000417B0 end:0x000417F0
 
-ac_t_hat1.o:
+actor/tool/ac_t_hat1.c:
 	.text       start:0x00138948 end:0x00138A9C
 	.data       start:0x000417F0 end:0x00041830
 
-ac_t_hat2.o:
+actor/tool/ac_t_hat2.c:
 	.text       start:0x00138A9C end:0x00138BF0
 	.data       start:0x00041830 end:0x00041870
 
-ac_t_hat3.o:
+actor/tool/ac_t_hat3.c:
 	.text       start:0x00138BF0 end:0x00138D44
 	.data       start:0x00041870 end:0x000418B0
 
-ac_t_keitai.o:
+actor/tool/ac_t_keitai.c:
 	.text       start:0x00138D44 end:0x001390A0
 	.rodata     start:0x00004C70 end:0x00004C80
 	.data       start:0x000418B0 end:0x00041958
 
-ac_t_npc_sao.o:
+actor/tool/ac_t_npc_sao.c:
 	.text       start:0x001390A0 end:0x0013934C
 	.rodata     start:0x00004C80 end:0x00004C98
 	.data       start:0x00041958 end:0x00041998
 
-ac_t_pistol.o:
+actor/tool/ac_t_pistol.c:
 	.text       start:0x0013934C end:0x001395B0
 	.rodata     start:0x00004C98 end:0x00004CA0
 	.data       start:0x00041998 end:0x000419F8
 
-ac_t_rei1.o:
+actor/tool/ac_t_rei1.c:
 	.text       start:0x001395B0 end:0x00139704
 	.data       start:0x000419F8 end:0x00041A38
 
-ac_t_rei2.o:
+actor/tool/ac_t_rei2.c:
 	.text       start:0x00139704 end:0x00139858
 	.data       start:0x00041A38 end:0x00041A78
 
-ac_t_tama.o:
+actor/tool/ac_t_tama.c:
 	.text       start:0x00139858 end:0x00139A1C
 	.rodata     start:0x00004CA0 end:0x00004CB0
 	.data       start:0x00041A78 end:0x00041AE0
 
-ac_t_tumbler.o:
+actor/tool/ac_t_tumbler.c:
 	.text       start:0x00139A1C end:0x00139C7C
 	.rodata     start:0x00004CB0 end:0x00004CB8
 	.data       start:0x00041AE0 end:0x00041B40
 
-ac_t_umbrella.o:
+actor/tool/ac_t_umbrella.c:
 	.text       start:0x00139C7C end:0x0013A220
 	.rodata     start:0x00004CB8 end:0x00004CD0
 	.data       start:0x00041B40 end:0x00041E10
 
-ac_t_utiwa.o:
+actor/tool/ac_t_utiwa.c:
 	.text       start:0x0013A220 end:0x0013A484
 	.rodata     start:0x00004CD0 end:0x00004CD8
 	.data       start:0x00041E10 end:0x00041E70
 
-ac_t_zinnia1.o:
+actor/tool/ac_t_zinnia1.c:
 	.text       start:0x0013A484 end:0x0013A5D8
 	.data       start:0x00041E70 end:0x00041EB0
 
-ac_t_zinnia2.o:
+actor/tool/ac_t_zinnia2.c:
 	.text       start:0x0013A5D8 end:0x0013A72C
 	.data       start:0x00041EB0 end:0x00041EF0
 
