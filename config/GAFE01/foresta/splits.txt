@@ -1235,39 +1235,39 @@ bg_xmas_item.o:
 	.data       start:0x0004B810 end:0x0004E810
 	.bss        start:0x000A3AB8 end:0x000A3F48
 
-ef_effect_control.o:
+effect/ef_effect_control.c:
 	.text       start:0x0015D1CC end:0x0015DCCC
 	.text       start:0x0015DCCC end:0x0015E9B4
 	.rodata     start:0x00005108 end:0x00005168
 	.data       start:0x0004E810 end:0x0004EAD0
 	.bss        start:0x000A3F48 end:0x000A6410
 
-ef_lamp_light.o:
+effect/ef_lamp_light.c:
 	.text       start:0x0015E9B4 end:0x0015EC84
 	.rodata     start:0x00005168 end:0x00005178
 	.data       start:0x0004EAD0 end:0x0004EB28
 
-ef_room_sunshine.o:
+effect/ef_room_sunshine.c:
 	.text       start:0x0015EC84 end:0x0015F4DC
 	.rodata     start:0x00005178 end:0x000051C0
 	.data       start:0x0004EB28 end:0x0004EB50
 
-ef_room_sunshine_police.o:
+effect/ef_room_sunshine_police.c:
 	.text       start:0x0015F4DC end:0x0015FCE4
 	.rodata     start:0x000051C0 end:0x00005210
 	.data       start:0x0004EB50 end:0x0004EB78
 
-ef_room_sunshine_posthouse.o:
+effect/ef_room_sunshine_posthouse.c:
 	.text       start:0x0015FCE4 end:0x0016045C
 	.rodata     start:0x00005210 end:0x00005258
 	.data       start:0x0004EB78 end:0x0004EBA0
 
-ef_room_sunshine_museum.o:
+effect/ef_room_sunshine_museum.c:
 	.text       start:0x0016045C end:0x00160C94
 	.rodata     start:0x00005258 end:0x000052A8
 	.data       start:0x0004EBA0 end:0x0004EBC8
 
-ef_room_sunshine_minsect.o:
+effect/ef_room_sunshine_minsect.c:
 	.text       start:0x00160C94 end:0x00161914
 	.rodata     start:0x000052A8 end:0x000052F8
 	.data       start:0x0004EBC8 end:0x0004EBF0
@@ -2753,611 +2753,611 @@ ac_weather_leaf.o:
 	.rodata     start:0x0000A988 end:0x0000A9E0
 	.data       start:0x00084928 end:0x00084948
 
-ef_ami_mizu.o:
+effect/ef_ami_mizu.c:
 	.text       start:0x00294610 end:0x002949F4
 	.rodata     start:0x0000A9E0 end:0x0000AA18
 	.data       start:0x00084948 end:0x00084960
 
-ef_anahikari.o:
+effect/ef_anahikari.c:
 	.text       start:0x002949F4 end:0x00294CD0
 	.rodata     start:0x0000AA18 end:0x0000AA30
 	.data       start:0x00084960 end:0x00084988
 
-ef_ase.o:
+effect/ef_ase.c:
 	.text       start:0x00294CD0 end:0x00294E3C
 	.rodata     start:0x0000AA30 end:0x0000AA38
 	.data       start:0x00084988 end:0x000849A0
 
-ef_ase2.o:
+effect/ef_ase2.c:
 	.text       start:0x00294E3C end:0x00295000
 	.rodata     start:0x0000AA38 end:0x0000AA48
 	.data       start:0x000849A0 end:0x000849C8
 
-ef_ase_ch.o:
+effect/ef_ase_ch.c:
 	.text       start:0x00295000 end:0x00295248
 	.rodata     start:0x0000AA48 end:0x0000AA60
 	.data       start:0x000849C8 end:0x00084A08
 
-ef_break_axe.o:
+effect/ef_break_axe.c:
 	.text       start:0x00295248 end:0x00296484
 	.rodata     start:0x0000AA60 end:0x0000AB00
 	.data       start:0x00084A08 end:0x00084A20
 
-ef_bubu.o:
+effect/ef_bubu.c:
 	.text       start:0x00296484 end:0x002965D0
 	.rodata     start:0x0000AB00 end:0x0000AB08
 	.data       start:0x00084A20 end:0x00084A38
 
-ef_buruburu.o:
+effect/ef_buruburu.c:
 	.text       start:0x002965D0 end:0x002967C0
 	.rodata     start:0x0000AB08 end:0x0000AB18
 	.data       start:0x00084A38 end:0x00084A68
 
-ef_bush_happa.o:
+effect/ef_bush_happa.c:
 	.text       start:0x002967C0 end:0x00297034
 	.rodata     start:0x0000AB18 end:0x0000AB78
 	.data       start:0x00084A68 end:0x00084A80
 
-ef_bush_yuki.o:
+effect/ef_bush_yuki.c:
 	.text       start:0x00297034 end:0x00297314
 	.rodata     start:0x0000AB78 end:0x0000ABA0
 	.data       start:0x00084A80 end:0x00084A98
 
-ef_car_blight.o:
+effect/ef_car_blight.c:
 	.text       start:0x00297314 end:0x00297724
 	.rodata     start:0x0000ABA0 end:0x0000ABB8
 	.data       start:0x00084A98 end:0x00084B70
 
-ef_car_light.o:
+effect/ef_car_light.c:
 	.text       start:0x00297724 end:0x002978F4
 	.rodata     start:0x0000ABB8 end:0x0000ABC0
 	.data       start:0x00084B70 end:0x00084B88
 
-ef_clacker.o:
+effect/ef_clacker.c:
 	.text       start:0x002978F4 end:0x00297DB8
 	.rodata     start:0x0000ABC0 end:0x0000ABE8
 	.data       start:0x00084B88 end:0x00084BC0
 
-ef_coin.o:
+effect/ef_coin.c:
 	.text       start:0x00297DB8 end:0x00298544
 	.rodata     start:0x0000ABE8 end:0x0000AC40
 	.data       start:0x00084BC0 end:0x00084C28
 
-ef_dash_asimoto.o:
+effect/ef_dash_asimoto.c:
 	.text       start:0x00298544 end:0x00298D88
 	.rodata     start:0x0000AC40 end:0x0000AC58
 	.data       start:0x00084C28 end:0x00084CB0
 
-ef_dig_hole.o:
+effect/ef_dig_hole.c:
 	.text       start:0x00298D88 end:0x00299668
 	.rodata     start:0x0000AC58 end:0x0000ACC0
 	.data       start:0x00084CB0 end:0x00084D20
 
-ef_dig_mud.o:
+effect/ef_dig_mud.c:
 	.text       start:0x00299668 end:0x00299CC4
 	.rodata     start:0x0000ACC0 end:0x0000AD10
 	.data       start:0x00084D20 end:0x00084D68
 
-ef_dig_scoop.o:
+effect/ef_dig_scoop.c:
 	.text       start:0x00299CC4 end:0x0029A560
 	.rodata     start:0x0000AD10 end:0x0000AD30
 	.data       start:0x00084D68 end:0x00084D80
 
-ef_douzou_light.o:
+effect/ef_douzou_light.c:
 	.text       start:0x0029A560 end:0x0029A82C
 	.rodata     start:0x0000AD30 end:0x0000AD48
 	.data       start:0x00084D80 end:0x00084D98
 
-ef_doyon.o:
+effect/ef_doyon.c:
 	.text       start:0x0029A82C end:0x0029ADC0
 	.rodata     start:0x0000AD48 end:0x0000ADA0
 	.data       start:0x00084D98 end:0x00084DB0
 
-ef_dust.o:
+effect/ef_dust.c:
 	.text       start:0x0029ADC0 end:0x0029B50C
 	.rodata     start:0x0000ADA0 end:0x0000AE18
 	.data       start:0x00084DB0 end:0x00084E50
 
-ef_flash.o:
+effect/ef_flash.c:
 	.text       start:0x0029B50C end:0x0029BA08
 	.rodata     start:0x0000AE18 end:0x0000AE50
 	.data       start:0x00084E50 end:0x00084F30
 
-ef_footprint.o:
+effect/ef_footprint.c:
 	.text       start:0x0029BA08 end:0x0029BF74
 	.rodata     start:0x0000AE50 end:0x0000AE80
 	.data       start:0x00084F30 end:0x00084F70
 
-ef_furo_yuge.o:
+effect/ef_furo_yuge.c:
 	.text       start:0x0029BF74 end:0x0029C528
 	.rodata     start:0x0000AE80 end:0x0000AEB0
 	.data       start:0x00084F70 end:0x00084FE0
 
-ef_gimonhu.o:
+effect/ef_gimonhu.c:
 	.text       start:0x0029C528 end:0x0029C824
 	.rodata     start:0x0000AEB0 end:0x0000AED8
 	.data       start:0x00084FE0 end:0x000850C8
 
-ef_goki.o:
+effect/ef_goki.c:
 	.text       start:0x0029C824 end:0x0029CDE4
 	.rodata     start:0x0000AED8 end:0x0000AF38
 	.data       start:0x000850C8 end:0x000850E0
 
-ef_ha.o:
+effect/ef_ha.c:
 	.text       start:0x0029CDE4 end:0x0029D1A4
 	.rodata     start:0x0000AF38 end:0x0000AF60
 	.data       start:0x000850E0 end:0x00085100
 
-ef_halloween.o:
+effect/ef_halloween.c:
 	.text       start:0x0029D1A4 end:0x0029D3AC
 	.rodata     start:0x0000AF60 end:0x0000AF70
 	.data       start:0x00085100 end:0x00085118
 
-ef_halloween_smoke.o:
+effect/ef_halloween_smoke.c:
 	.text       start:0x0029D3AC end:0x0029D630
 	.rodata     start:0x0000AF70 end:0x0000AF80
 	.data       start:0x00085118 end:0x00085160
 
-ef_hanabi_botan1.o:
+effect/ef_hanabi_botan1.c:
 	.text       start:0x0029D630 end:0x0029DCB0
 	.rodata     start:0x0000AF80 end:0x0000AFE0
 	.data       start:0x00085160 end:0x00085260
 
-ef_hanabi_botan2.o:
+effect/ef_hanabi_botan2.c:
 	.text       start:0x0029DCB0 end:0x0029E430
 	.rodata     start:0x0000AFE0 end:0x0000B040
 	.data       start:0x00085260 end:0x00085358
 
-ef_hanabi_dummy.o:
+effect/ef_hanabi_dummy.c:
 	.text       start:0x0029E430 end:0x0029E710
 	.rodata     start:0x0000B040 end:0x0000B060
 	.data       start:0x00085358 end:0x00085388
 
-ef_hanabi_hoshi.o:
+effect/ef_hanabi_hoshi.c:
 	.text       start:0x0029E710 end:0x0029ED90
 	.rodata     start:0x0000B060 end:0x0000B0C0
 	.data       start:0x00085388 end:0x00085488
 
-ef_hanabi_set.o:
+effect/ef_hanabi_set.c:
 	.text       start:0x0029ED90 end:0x0029F220
 	.rodata     start:0x0000B0C0 end:0x0000B0F8
 	.data       start:0x00085488 end:0x000855D0
 
-ef_hanabi_switch.o:
+effect/ef_hanabi_switch.c:
 	.text       start:0x0029F220 end:0x0029F5A0
 	.rodata     start:0x0000B0F8 end:0x0000B108
 	.data       start:0x000855D0 end:0x000855E8
 
-ef_hanabi_yanagi.o:
+effect/ef_hanabi_yanagi.c:
 	.text       start:0x0029F5A0 end:0x0029FCC8
 	.rodata     start:0x0000B108 end:0x0000B168
 	.data       start:0x000855E8 end:0x000856E0
 
-ef_hanabira.o:
+effect/ef_hanabira.c:
 	.text       start:0x0029FCC8 end:0x002A01D0
 	.rodata     start:0x0000B168 end:0x0000B1A0
 	.data       start:0x000856E0 end:0x00085708
 
-ef_hanatiri.o:
+effect/ef_hanatiri.c:
 	.text       start:0x002A01D0 end:0x002A0374
 	.data       start:0x00085708 end:0x00085720
 
-ef_hirameki_den.o:
+effect/ef_hirameki_den.c:
 	.text       start:0x002A0374 end:0x002A0674
 	.rodata     start:0x0000B1A0 end:0x0000B1B0
 	.data       start:0x00085720 end:0x00085740
 
-ef_hirameki_hikari.o:
+effect/ef_hirameki_hikari.c:
 	.text       start:0x002A0674 end:0x002A0888
 	.rodata     start:0x0000B1B0 end:0x0000B1C8
 	.data       start:0x00085740 end:0x00085758
 
-ef_ikigire.o:
+effect/ef_ikigire.c:
 	.text       start:0x002A0888 end:0x002A0A04
 	.rodata     start:0x0000B1C8 end:0x0000B1D8
 	.data       start:0x00085758 end:0x00085770
 
-ef_impact_star.o:
+effect/ef_impact_star.c:
 	.text       start:0x002A0A04 end:0x002A0FC8
 	.rodata     start:0x0000B1D8 end:0x0000B218
 	.data       start:0x00085770 end:0x00085788
 
-ef_kagu_happa.o:
+effect/ef_kagu_happa.c:
 	.text       start:0x002A0FC8 end:0x002A1504
 	.rodata     start:0x0000B218 end:0x0000B268
 	.data       start:0x00085788 end:0x000857A0
 
-ef_kamifubuki.o:
+effect/ef_kamifubuki.c:
 	.text       start:0x002A1504 end:0x002A1C08
 	.rodata     start:0x0000B268 end:0x0000B2C0
 	.data       start:0x000857A0 end:0x000857E0
 
-ef_kangaeru.o:
+effect/ef_kangaeru.c:
 	.text       start:0x002A1C08 end:0x002A1C08
 	.text       start:0x002A1C08 end:0x002A2254
 	.rodata     start:0x0000B2C0 end:0x0000B310
 	.data       start:0x000857E0 end:0x000857F8
 
-ef_kantanhu.o:
+effect/ef_kantanhu.c:
 	.text       start:0x002A2254 end:0x002A2514
 	.rodata     start:0x0000B310 end:0x0000B338
 	.data       start:0x000857F8 end:0x000858E0
 
-ef_kasamizu.o:
+effect/ef_kasamizu.c:
 	.text       start:0x002A2514 end:0x002A26B8
 	.data       start:0x000858E0 end:0x00085908
 
-ef_kasamizutama.o:
+effect/ef_kasamizutama.c:
 	.text       start:0x002A26B8 end:0x002A2994
 	.rodata     start:0x0000B338 end:0x0000B350
 	.data       start:0x00085908 end:0x00085948
 
-ef_kaze.o:
+effect/ef_kaze.c:
 	.text       start:0x002A2994 end:0x002A2E20
 	.rodata     start:0x0000B350 end:0x0000B380
 	.data       start:0x00085948 end:0x00085960
 
-ef_kaze_happa.o:
+effect/ef_kaze_happa.c:
 	.text       start:0x002A2E20 end:0x002A3370
 	.rodata     start:0x0000B380 end:0x0000B3C0
 	.data       start:0x00085960 end:0x00085978
 
-ef_kigae.o:
+effect/ef_kigae.c:
 	.text       start:0x002A3370 end:0x002A3598
 	.rodata     start:0x0000B3C0 end:0x0000B3D0
 	.data       start:0x00085978 end:0x00085990
 
-ef_kigae_light.o:
+effect/ef_kigae_light.c:
 	.text       start:0x002A3598 end:0x002A396C
 	.rodata     start:0x0000B3D0 end:0x0000B3E8
 	.data       start:0x00085990 end:0x000859A8
 
-ef_kikuzu.o:
+effect/ef_kikuzu.c:
 	.text       start:0x002A396C end:0x002A3ED0
 	.rodata     start:0x0000B3E8 end:0x0000B420
 	.data       start:0x000859A8 end:0x000859C0
 
-ef_killer.o:
+effect/ef_killer.c:
 	.text       start:0x002A3ED0 end:0x002A4574
 	.rodata     start:0x0000B420 end:0x0000B460
 	.data       start:0x000859C0 end:0x00085A90
 
-ef_kisha_kemuri.o:
+effect/ef_kisha_kemuri.c:
 	.text       start:0x002A4574 end:0x002A4898
 	.rodata     start:0x0000B460 end:0x0000B488
 	.data       start:0x00085A90 end:0x00085AA8
 
-ef_konpu.o:
+effect/ef_konpu.c:
 	.text       start:0x002A4898 end:0x002A5080
 	.rodata     start:0x0000B488 end:0x0000B510
 	.data       start:0x00085AA8 end:0x00085B00
 
-ef_kpun.o:
+effect/ef_kpun.c:
 	.text       start:0x002A5080 end:0x002A55C0
 	.rodata     start:0x0000B510 end:0x0000B550
 	.data       start:0x00085B00 end:0x00085C00
 
-ef_kyousou_onpu.o:
+effect/ef_kyousou_onpu.c:
 	.text       start:0x002A55C0 end:0x002A56C4
 	.data       start:0x00085C00 end:0x00085C18
 
-ef_lovelove.o:
+effect/ef_lovelove.c:
 	.text       start:0x002A56C4 end:0x002A5834
 	.rodata     start:0x0000B550 end:0x0000B558
 	.data       start:0x00085C18 end:0x00085C30
 
-ef_lovelove2.o:
+effect/ef_lovelove2.c:
 	.text       start:0x002A5834 end:0x002A5C24
 	.rodata     start:0x0000B558 end:0x0000B588
 	.data       start:0x00085C30 end:0x00085C48
 
-ef_lovelove_heart.o:
+effect/ef_lovelove_heart.c:
 	.text       start:0x002A5C24 end:0x002A6008
 	.rodata     start:0x0000B588 end:0x0000B5B8
 	.data       start:0x00085C48 end:0x00085C60
 
-ef_make_hem.o:
+effect/ef_make_hem.c:
 	.text       start:0x002A6008 end:0x002A6E64
 	.rodata     start:0x0000B5B8 end:0x0000B600
 	.data       start:0x00085C60 end:0x00085CB8
 
-ef_mizutama.o:
+effect/ef_mizutama.c:
 	.text       start:0x002A6E64 end:0x002A7470
 	.rodata     start:0x0000B600 end:0x0000B628
 	.data       start:0x00085CB8 end:0x00085D68
 
-ef_motiyuge.o:
+effect/ef_motiyuge.c:
 	.text       start:0x002A7470 end:0x002A7820
 	.rodata     start:0x0000B628 end:0x0000B648
 	.data       start:0x00085D68 end:0x00085D90
 
-ef_muka.o:
+effect/ef_muka.c:
 	.text       start:0x002A7820 end:0x002A7AFC
 	.rodata     start:0x0000B648 end:0x0000B670
 	.data       start:0x00085D90 end:0x00085DA8
 
-ef_naku.o:
+effect/ef_naku.c:
 	.text       start:0x002A7AFC end:0x002A7D20
 	.rodata     start:0x0000B670 end:0x0000B688
 	.data       start:0x00085DA8 end:0x00085DC0
 
-ef_namida.o:
+effect/ef_namida.c:
 	.text       start:0x002A7D20 end:0x002A8114
 	.rodata     start:0x0000B688 end:0x0000B6B8
 	.data       start:0x00085DC0 end:0x00085DD8
 
-ef_neboke.o:
+effect/ef_neboke.c:
 	.text       start:0x002A8114 end:0x002A8330
 	.data       start:0x00085DD8 end:0x00085DF0
 
-ef_neboke_akubi.o:
+effect/ef_neboke_akubi.c:
 	.text       start:0x002A8330 end:0x002A8774
 	.rodata     start:0x0000B6B8 end:0x0000B6F8
 	.data       start:0x00085DF0 end:0x00085E10
 
-ef_neboke_awa.o:
+effect/ef_neboke_awa.c:
 	.text       start:0x002A8774 end:0x002A8774
 	.text       start:0x002A8774 end:0x002A8C14
 	.rodata     start:0x0000B6F8 end:0x0000B738
 	.data       start:0x00085E10 end:0x00085E28
 
-ef_night13_moon.o:
+effect/ef_night13_moon.c:
 	.text       start:0x002A8C14 end:0x002A92AC
 	.rodata     start:0x0000B738 end:0x0000B7A0
 	.data       start:0x00085E28 end:0x00085E40
 
-ef_night15_moon.o:
+effect/ef_night15_moon.c:
 	.text       start:0x002A92AC end:0x002A9920
 	.rodata     start:0x0000B7A0 end:0x0000B800
 	.data       start:0x00085E40 end:0x00085E58
 
-ef_ongen.o:
+effect/ef_ongen.c:
 	.text       start:0x002A9920 end:0x002A9AF8
 	.data       start:0x00085E58 end:0x00085E90
 
-ef_otikomi.o:
+effect/ef_otikomi.c:
 	.text       start:0x002A9AF8 end:0x002A9AF8
 	.text       start:0x002A9AF8 end:0x002AA238
 	.rodata     start:0x0000B800 end:0x0000B858
 	.data       start:0x00085E90 end:0x00085EB8
 
-ef_otosiana.o:
+effect/ef_otosiana.c:
 	.text       start:0x002AA238 end:0x002AA3A8
 	.data       start:0x00085EB8 end:0x00085ED8
 
-ef_pun.o:
+effect/ef_pun.c:
 	.text       start:0x002AA3A8 end:0x002AA57C
 	.rodata     start:0x0000B858 end:0x0000B860
 	.data       start:0x00085ED8 end:0x00085EF0
 
-ef_pun_sekimen.o:
+effect/ef_pun_sekimen.c:
 	.text       start:0x002AA57C end:0x002AA778
 	.rodata     start:0x0000B860 end:0x0000B878
 	.data       start:0x00085EF0 end:0x00085F08
 
-ef_pun_yuge.o:
+effect/ef_pun_yuge.c:
 	.text       start:0x002AA778 end:0x002AABF4
 	.rodata     start:0x0000B878 end:0x0000B8A8
 	.data       start:0x00085F08 end:0x00085F78
 
-ef_reset_hole.o:
+effect/ef_reset_hole.c:
 	.text       start:0x002AABF4 end:0x002AB1C4
 	.rodata     start:0x0000B8A8 end:0x0000B8C8
 	.data       start:0x00085F78 end:0x00085FA0
 
-ef_sandsplash.o:
+effect/ef_sandsplash.c:
 	.text       start:0x002AB1C4 end:0x002AB694
 	.rodata     start:0x0000B8C8 end:0x0000B910
 	.data       start:0x00085FA0 end:0x00085FD8
 
-ef_shock.o:
+effect/ef_shock.c:
 	.text       start:0x002AB694 end:0x002AB91C
 	.rodata     start:0x0000B910 end:0x0000B928
 	.data       start:0x00085FD8 end:0x00086060
 
-ef_shooting.o:
+effect/ef_shooting.c:
 	.text       start:0x002AB91C end:0x002ABC78
 	.rodata     start:0x0000B928 end:0x0000B948
 	.data       start:0x00086060 end:0x00086078
 
-ef_shooting_kira.o:
+effect/ef_shooting_kira.c:
 	.text       start:0x002ABC78 end:0x002AC2B8
 	.rodata     start:0x0000B948 end:0x0000B978
 	.data       start:0x00086078 end:0x000860A0
 
-ef_shooting_set.o:
+effect/ef_shooting_set.c:
 	.text       start:0x002AC2B8 end:0x002AC8E8
 	.rodata     start:0x0000B978 end:0x0000B9C8
 	.data       start:0x000860A0 end:0x000860B8
 
-ef_siawase_hana.o:
+effect/ef_siawase_hana.c:
 	.text       start:0x002AC8E8 end:0x002ACB44
 	.rodata     start:0x0000B9C8 end:0x0000B9D0
 	.data       start:0x000860B8 end:0x000860D0
 
-ef_siawase_hana_ch.o:
+effect/ef_siawase_hana_ch.c:
 	.text       start:0x002ACB44 end:0x002ACFC4
 	.rodata     start:0x0000B9D0 end:0x0000B9F0
 	.data       start:0x000860D0 end:0x00086108
 
-ef_siawase_hikari.o:
+effect/ef_siawase_hikari.c:
 	.text       start:0x002ACFC4 end:0x002AD2EC
 	.rodata     start:0x0000B9F0 end:0x0000BA00
 	.data       start:0x00086108 end:0x00086120
 
-ef_sibuki.o:
+effect/ef_sibuki.c:
 	.text       start:0x002AD2EC end:0x002AD620
 	.rodata     start:0x0000BA00 end:0x0000BA20
 	.data       start:0x00086120 end:0x00086150
 
-ef_situren.o:
+effect/ef_situren.c:
 	.text       start:0x002AD620 end:0x002ADAAC
 	.rodata     start:0x0000BA20 end:0x0000BA58
 	.data       start:0x00086150 end:0x00086168
 
-ef_slip.o:
+effect/ef_slip.c:
 	.text       start:0x002ADAAC end:0x002AE098
 	.rodata     start:0x0000BA58 end:0x0000BA70
 	.data       start:0x00086168 end:0x00086180
 
-ef_slip_footprint.o:
+effect/ef_slip_footprint.c:
 	.text       start:0x002AE098 end:0x002AE544
 	.rodata     start:0x0000BA70 end:0x0000BA90
 	.data       start:0x00086180 end:0x000861C0
 
-ef_soba_yuge.o:
+effect/ef_soba_yuge.c:
 	.text       start:0x002AE544 end:0x002AEC10
 	.rodata     start:0x0000BA90 end:0x0000BAC0
 	.data       start:0x000861C0 end:0x00086230
 
-ef_steam.o:
+effect/ef_steam.c:
 	.text       start:0x002AEC10 end:0x002AF048
 	.rodata     start:0x0000BAC0 end:0x0000BAF0
 	.data       start:0x00086230 end:0x00086288
 
-ef_string.o:
+effect/ef_string.c:
 	.text       start:0x002AF048 end:0x002AF1D8
 	.rodata     start:0x0000BAF0 end:0x0000BB08
 	.data       start:0x00086288 end:0x000862D8
 
-ef_suisou_awa.o:
+effect/ef_suisou_awa.c:
 	.text       start:0x002AF1D8 end:0x002AF95C
 	.rodata     start:0x0000BB08 end:0x0000BB68
 	.data       start:0x000862D8 end:0x00086330
 
-ef_swing_axe.o:
+effect/ef_swing_axe.c:
 	.text       start:0x002AF95C end:0x002AFD48
 	.data       start:0x00086330 end:0x00086348
 
-ef_swing_net.o:
+effect/ef_swing_net.c:
 	.text       start:0x002AFD48 end:0x002B03EC
 	.rodata     start:0x0000BB68 end:0x0000BB88
 	.data       start:0x00086348 end:0x00086360
 
-ef_swing_rod.o:
+effect/ef_swing_rod.c:
 	.text       start:0x002B03EC end:0x002B0584
 	.data       start:0x00086360 end:0x00086378
 
-ef_taberu.o:
+effect/ef_taberu.c:
 	.text       start:0x002B0584 end:0x002B07D4
 	.rodata     start:0x0000BB88 end:0x0000BBA0
 	.data       start:0x00086378 end:0x000863A0
 
-ef_takurami.o:
+effect/ef_takurami.c:
 	.text       start:0x002B07D4 end:0x002B0C38
 	.rodata     start:0x0000BBA0 end:0x0000BBE0
 	.data       start:0x000863A0 end:0x000863C0
 
-ef_takurami_kira.o:
+effect/ef_takurami_kira.c:
 	.text       start:0x002B0C38 end:0x002B0FA8
 	.rodata     start:0x0000BBE0 end:0x0000BC08
 	.data       start:0x000863C0 end:0x000863D8
 
-ef_tamaire.o:
+effect/ef_tamaire.c:
 	.text       start:0x002B0FA8 end:0x002B1AB8
 	.rodata     start:0x0000BC08 end:0x0000BC70
 	.data       start:0x000863D8 end:0x000863F8
 
-ef_tape.o:
+effect/ef_tape.c:
 	.text       start:0x002B1AB8 end:0x002B205C
 	.rodata     start:0x0000BC70 end:0x0000BCB0
 	.data       start:0x000863F8 end:0x00086410
 
-ef_tent_lamp.o:
+effect/ef_tent_lamp.c:
 	.text       start:0x002B205C end:0x002B2364
 	.rodata     start:0x0000BCB0 end:0x0000BCD8
 	.data       start:0x00086410 end:0x00086428
 
-ef_tumble.o:
+effect/ef_tumble.c:
 	.text       start:0x002B2364 end:0x002B2C38
 	.rodata     start:0x0000BCD8 end:0x0000BCF0
 	.data       start:0x00086428 end:0x000864A0
 
-ef_tumble_bodyprint.o:
+effect/ef_tumble_bodyprint.c:
 	.text       start:0x002B2C38 end:0x002B318C
 	.rodata     start:0x0000BCF0 end:0x0000BD10
 	.data       start:0x000864A0 end:0x000864B8
 
-ef_tumble_dust.o:
+effect/ef_tumble_dust.c:
 	.text       start:0x002B318C end:0x002B383C
 	.rodata     start:0x0000BD10 end:0x0000BD70
 	.data       start:0x000864B8 end:0x00086510
 
-ef_turi_hamon.o:
+effect/ef_turi_hamon.c:
 	.text       start:0x002B383C end:0x002B3DA0
 	.rodata     start:0x0000BD70 end:0x0000BDE0
 	.data       start:0x00086510 end:0x00086528
 
-ef_turi_hane0.o:
+effect/ef_turi_hane0.c:
 	.text       start:0x002B3DA0 end:0x002B3FB8
 	.rodata     start:0x0000BDE0 end:0x0000BDF8
 	.data       start:0x00086528 end:0x00086560
 
-ef_turi_hane1.o:
+effect/ef_turi_hane1.c:
 	.text       start:0x002B3FB8 end:0x002B4174
 	.rodata     start:0x0000BDF8 end:0x0000BE00
 	.data       start:0x00086560 end:0x00086598
 
-ef_turi_mizu.o:
+effect/ef_turi_mizu.c:
 	.text       start:0x002B4174 end:0x002B486C
 	.rodata     start:0x0000BE00 end:0x0000BE18
 	.data       start:0x00086598 end:0x000865B0
 
-ef_turi_suiteki.o:
+effect/ef_turi_suiteki.c:
 	.text       start:0x002B486C end:0x002B4CCC
 	.rodata     start:0x0000BE18 end:0x0000BE48
 	.data       start:0x000865B0 end:0x000865E0
 
-ef_turn_asimoto.o:
+effect/ef_turn_asimoto.c:
 	.text       start:0x002B4CCC end:0x002B54D4
 	.rodata     start:0x0000BE48 end:0x0000BE50
 	.data       start:0x000865E0 end:0x000865F8
 
-ef_turn_footprint.o:
+effect/ef_turn_footprint.c:
 	.text       start:0x002B54D4 end:0x002B5938
 	.rodata     start:0x0000BE50 end:0x0000BE70
 	.data       start:0x000865F8 end:0x00086638
 
-ef_uranai.o:
+effect/ef_uranai.c:
 	.text       start:0x002B5938 end:0x002B5CA4
 	.rodata     start:0x0000BE70 end:0x0000BE88
 	.data       start:0x00086638 end:0x00086650
 
-ef_wait_asimoto.o:
+effect/ef_wait_asimoto.c:
 	.text       start:0x002B5CA4 end:0x002B5DBC
 	.data       start:0x00086650 end:0x00086668
 
-ef_walk_asimoto.o:
+effect/ef_walk_asimoto.c:
 	.text       start:0x002B5DBC end:0x002B6260
 	.rodata     start:0x0000BE88 end:0x0000BEA0
 	.data       start:0x00086668 end:0x00086690
 
-ef_warau.o:
+effect/ef_warau.c:
 	.text       start:0x002B6260 end:0x002B6468
 	.rodata     start:0x0000BEA0 end:0x0000BEA8
 	.data       start:0x00086690 end:0x000866D8
 
-ef_yajirushi.o:
+effect/ef_yajirushi.c:
 	.text       start:0x002B6468 end:0x002B66AC
 	.rodata     start:0x0000BEA8 end:0x0000BEB0
 	.data       start:0x000866D8 end:0x000866F0
 
-ef_young_tree.o:
+effect/ef_young_tree.c:
 	.text       start:0x002B66AC end:0x002B7044
 	.rodata     start:0x0000BEB0 end:0x0000BEF0
 	.data       start:0x000866F0 end:0x00086708
 
-ef_yukidama.o:
+effect/ef_yukidama.c:
 	.text       start:0x002B7044 end:0x002B766C
 	.rodata     start:0x0000BEF0 end:0x0000BF20
 	.data       start:0x00086708 end:0x000867A8
 
-ef_yukidaruma.o:
+effect/ef_yukidaruma.c:
 	.text       start:0x002B766C end:0x002B7A10
 	.rodata     start:0x0000BF20 end:0x0000BF30
 	.data       start:0x000867A8 end:0x000867D0
 
-ef_yukihane.o:
+effect/ef_yukihane.c:
 	.text       start:0x002B7A10 end:0x002B7CE0
 	.rodata     start:0x0000BF30 end:0x0000BF50
 	.data       start:0x000867D0 end:0x00086808

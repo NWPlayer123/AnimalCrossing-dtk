@@ -18,3 +18,10 @@ modules:
   symbols: config/GAFE01/foresta/symbols.txt
   splits: config/GAFE01/foresta/splits.txt
   # map: orig/GAFE01/files/foresta.map
+  
+  extract:
+  - symbol: ef_coin_gold_pal
+    binary: assets/ef_coin_gold_pal.bin
+
+  - symbol: ef_coin_silver_pal
+    binary: assets/ef_coin_silver_pal.bin
