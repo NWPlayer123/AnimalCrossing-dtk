@@ -536,6 +536,15 @@ config.libs = [
         ],
     },
     {
+        "lib": "furniture",
+        "mw_version": config.linker_version,
+        "cflags": cflags_rel,
+        "host": False,
+        "objects": [
+            Object(Matching, "f_furniture.c"),
+        ],
+    },
+    {
         "lib": "system",
         "mw_version": config.linker_version,
         "cflags": cflags_rel,
