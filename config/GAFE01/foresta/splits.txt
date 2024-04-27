@@ -23,58 +23,58 @@ evw_anime.o:
 	.rodata     start:0x00000048 end:0x00000060
 	.data       start:0x00000080 end:0x00000098
 
-m_all_grow.o:
+game/m_all_grow.c:
 	.text       start:0x00003428 end:0x00004010
 	.rodata     start:0x00000060 end:0x00000088
 	.data       start:0x00000098 end:0x00000100
 	.bss        start:0x00000008 end:0x00000028
 
-m_actor.o:
+game/m_actor.c:
 	.text       start:0x00004010 end:0x00005EF4
 	.rodata     start:0x00000088 end:0x000000C8
 	.data       start:0x00000100 end:0x00000128
 	.bss        start:0x00000028 end:0x00000068
 
-m_actor_dlftbls.o:
+game/m_actor_dlftbls.c:
 	.text       start:0x00005EF4 end:0x00005F14
 	.data       start:0x00000128 end:0x00001FE8
 	.bss        start:0x00000068 end:0x00000070
 
-m_actor_shadow.o:
+game/m_actor_shadow.c:
 	.text       start:0x00005F14 end:0x00006E6C
 	.rodata     start:0x000000C8 end:0x00000128
 	.data       start:0x00001FE8 end:0x00002048
 
-m_banti.o:
+game/m_banti.c:
 	.text       start:0x00006E6C end:0x000085B0
 	.rodata     start:0x00000128 end:0x00000180
 	.data       start:0x00002048 end:0x00002158
 	.bss        start:0x00000070 end:0x000004C0
 
-m_bg_tex.o:
+game/m_bg_tex.c:
 	.text       start:0x000085B0 end:0x000085B0
 	.bss        start:0x000004C0 end:0x000088C0
 
-m_bg_item.o:
+game/m_bg_item.c:
 	.text       start:0x000085B0 end:0x00008750
 	.rodata     start:0x00000180 end:0x00000190
 	.bss        start:0x000088C0 end:0x000088C8
 
-m_bgm.o:
+game/m_bgm.c:
 	.text       start:0x00008750 end:0x0000CEE8
 	.rodata     start:0x00000190 end:0x000001D8
 	.data       start:0x00002158 end:0x00002318
 	.bss        start:0x000088C8 end:0x00008BE0
 
-m_calendar.o:
+game/m_calendar.c:
 	.text       start:0x0000CEE8 end:0x0000D7AC
 
-m_camera2.o:
+game/m_camera2.c:
 	.text       start:0x0000D7AC end:0x000131A4
 	.rodata     start:0x000001D8 end:0x000005C8
 	.data       start:0x00002318 end:0x00002360
 
-m_choice.o:
+game/m_choice.c:
 	.text       start:0x000131A4 end:0x00013380
 	.text       start:0x00013380 end:0x00014338
 	.text       start:0x00014338 end:0x000143F4
@@ -87,13 +87,13 @@ m_choice.o:
 	.data       start:0x00002360 end:0x00003460
 	.bss        start:0x00008BE0 end:0x00008C50
 
-m_clip.o:
+game/m_clip.c:
 	.text       start:0x0001515C end:0x00015188
 
-m_cockroach.o:
+game/m_cockroach.c:
 	.text       start:0x00015188 end:0x000157D8
 
-m_collision_bg.o:
+game/m_collision_bg.c:
 	.text       start:0x000157D8 end:0x00019FE8
 	.text       start:0x00019FE8 end:0x0001B1D0
 	.text       start:0x0001B1D0 end:0x0001C8EC
@@ -109,41 +109,41 @@ m_collision_bg.o:
 	.data       start:0x00003460 end:0x00003D08
 	.bss        start:0x00008C50 end:0x0000BC10
 
-m_collision_obj.o:
+game/m_collision_obj.c:
 	.text       start:0x00024270 end:0x0002587C
 	.rodata     start:0x00000A88 end:0x00000AC0
 	.data       start:0x00003D08 end:0x00003DD8
 	.bss        start:0x0000BC10 end:0x0000BC40
 
-m_common_data.o:
+game/m_common_data.c:
 	.text       start:0x0002587C end:0x00025940
 	.bss        start:0x0000BC40 end:0x00039840
 
-m_controller.o:
+game/m_controller.c:
 	.text       start:0x00025940 end:0x00025E78
 	.rodata     start:0x00000AC0 end:0x00000AF0
 
-m_debug.o:
+game/m_debug.c:
 	.text       start:0x00025E78 end:0x00025EF0
 	.bss        start:0x00039840 end:0x00039848
 
-m_debug_display.o:
+game/m_debug_display.c:
 	.text       start:0x00025EF0 end:0x0002633C
 	.data       start:0x00003DD8 end:0x00003E28
 	.bss        start:0x00039848 end:0x00039850
 
-m_debug_hayakawa.o:
+game/m_debug_hayakawa.c:
 	.text       start:0x0002633C end:0x00027140
 	.rodata     start:0x00000AF0 end:0x00000B30
 	.data       start:0x00003E28 end:0x00003E58
 
-m_debug_mode.o:
+game/m_debug_mode.c:
 	.text       start:0x00027140 end:0x0002820C
 	.rodata     start:0x00000B30 end:0x00000B48
 	.data       start:0x00003E58 end:0x00004288
 	.bss        start:0x00039850 end:0x0003A658
 
-m_demo.o:
+game/m_demo.c:
 	.text       start:0x0002820C end:0x0002A298
 	.rodata     start:0x00000B48 end:0x00000CA0
 	.data       start:0x00004288 end:0x00004418
@@ -152,11 +152,11 @@ m_demo.o:
 m_diary.o:
 	.text       start:0x0002A298 end:0x0002A338
 
-m_eappli.o:
+game/m_eappli.c:
 	.text       start:0x0002A338 end:0x0002A6B8
 	.bss        start:0x0003A990 end:0x0003AD90
 
-m_event.o:
+game/m_event.c:
 	.text       start:0x0002A6B8 end:0x0002F268
 	.rodata     start:0x00000CA0 end:0x00000CD8
 	.data       start:0x00004418 end:0x00004DF8
@@ -167,50 +167,50 @@ m_event_map_npc.o:
 	.rodata     start:0x00000CD8 end:0x00000CE0
 	.data       start:0x00004DF8 end:0x000055A0
 
-m_fbdemo.o:
+game/m_fbdemo.c:
 	.text       start:0x000300A8 end:0x00030814
 	.rodata     start:0x00000CE0 end:0x00000D00
 	.data       start:0x000055A0 end:0x000055D0
 
-m_fbdemo_triforce.o:
+game/m_fbdemo_triforce.c:
 	.text       start:0x00030814 end:0x00030C58
 	.rodata     start:0x00000D00 end:0x00000D40
 
-m_fbdemo_wipe1.o:
+game/m_fbdemo_wipe1.c:
 	.text       start:0x00030C58 end:0x00031050
 	.rodata     start:0x00000D40 end:0x00000D60
 	.data       start:0x000055D0 end:0x00006058
 
-m_fbdemo_fade.o:
+game/m_fbdemo_fade.c:
 	.text       start:0x00031050 end:0x00031260
 	.rodata     start:0x00000D60 end:0x00000D78
 	.data       start:0x00006058 end:0x000060A0
 
-m_field_assessment.o:
+game/m_field_assessment.c:
 	.text       start:0x00031260 end:0x0003201C
 	.rodata     start:0x00000D78 end:0x00000D80
 	.data       start:0x000060A0 end:0x00006120
 	.bss        start:0x0003AFD0 end:0x0003AFE0
 
-m_field_make.o:
+game/m_field_make.c:
 	.text       start:0x0003201C end:0x00034AC0
 	.rodata     start:0x00000D80 end:0x00000DA8
 	.data       start:0x00006120 end:0x00006928
 	.bss        start:0x0003AFE0 end:0x0003B2C8
 
-m_field_info.o:
+game/m_field_info.c:
 	.text       start:0x00034AC0 end:0x0003B3F0
 	.rodata     start:0x00000DA8 end:0x00000E08
 	.data       start:0x00006928 end:0x00006C80
 	.bss        start:0x0003B2C8 end:0x0003B410
 
-m_fishrecord.o:
+game/m_fishrecord.c:
 	.text       start:0x0003B3F0 end:0x0003C320
 	.rodata     start:0x00000E08 end:0x00000E20
 	.data       start:0x00006C80 end:0x00006C88
 	.bss        start:0x0003B410 end:0x0003B418
 
-m_flashrom.o:
+game/m_flashrom.c:
 	.text       start:0x0003C320 end:0x0003C850
 	.text       start:0x0003C850 end:0x0003DB80
 	.text       start:0x0003DB80 end:0x0003DB88
@@ -222,7 +222,7 @@ m_flashrom.o:
 	.data       start:0x00006C88 end:0x00006D98
 	.bss        start:0x0003B418 end:0x0003B470
 
-m_font.o:
+game/m_font.c:
 	.text       start:0x0003F1E4 end:0x0003F4BC
 	.text       start:0x0003F4BC end:0x0003F4D0
 	.text       start:0x0003F4D0 end:0x000410D4
@@ -232,93 +232,93 @@ m_font.o:
 	.data       start:0x00006D98 end:0x00006FD0
 	.bss        start:0x0003B470 end:0x0003B4B0
 
-m_fuusen.o:
+game/m_fuusen.c:
 	.text       start:0x00041338 end:0x00041660
 	.rodata     start:0x00000FF8 end:0x00001028
 	.bss        start:0x0003B4B0 end:0x0003B4C0
 
-m_game_dlftbls.o:
+game/m_game_dlftbls.c:
 	.text       start:0x00041660 end:0x00041660
 	.data       start:0x00006FD0 end:0x000071B0
 
-m_huusui_room.o:
+game/m_huusui_room.c:
 	.text       start:0x00041660 end:0x000416C0
 
-m_handbill.o:
+game/m_handbill.c:
 	.text       start:0x000416C0 end:0x00042BE0
 	.rodata     start:0x00001028 end:0x00001218
 	.data       start:0x000071B0 end:0x000071C8
 	.bss        start:0x0003B4C0 end:0x0003B968
 
-m_home.o:
+game/m_home.c:
 	.text       start:0x00042BE0 end:0x000433E0
 	.data       start:0x000071C8 end:0x00007E40
 
-m_house.o:
+game/m_house.c:
 	.text       start:0x000433E0 end:0x000435D8
 
-m_land.o:
+game/m_land.c:
 	.text       start:0x000435D8 end:0x00043A10
 	.rodata     start:0x00001218 end:0x00001220
 	.bss        start:0x0003B968 end:0x0003B980
 
-m_island.o:
+game/m_island.c:
 	.text       start:0x00043A10 end:0x000457C0
 	.data       start:0x00007E40 end:0x00007E88
 	.bss        start:0x0003B980 end:0x0003D2A8
 
-m_item_name.o:
+game/m_item_name.c:
 	.text       start:0x000457C0 end:0x00045A1C
 	.data       start:0x00007E88 end:0x00008848
 
-m_kabu_manager.o:
+game/m_kabu_manager.c:
 	.text       start:0x00045A1C end:0x00045FD8
 	.rodata     start:0x00001220 end:0x00001260
 	.data       start:0x00008848 end:0x00008878
 
-m_kankyo.o:
+game/m_kankyo.c:
 	.text       start:0x00045FD8 end:0x0004999C
 	.text       start:0x0004999C end:0x0004A864
 	.rodata     start:0x00001260 end:0x000013E0
 	.data       start:0x00008878 end:0x00009170
 	.bss        start:0x0003D2A8 end:0x0003D358
 
-m_lib.o:
+game/m_lib.c:
 	.text       start:0x0004A864 end:0x0004B6B8
 	.rodata     start:0x000013E0 end:0x00001420
 
-m_lights.o:
+game/m_lights.c:
 	.text       start:0x0004B6B8 end:0x0004C268
 	.rodata     start:0x00001420 end:0x00001478
 	.bss        start:0x0003D358 end:0x0003D4E0
 
-m_malloc.o:
+game/m_malloc.c:
 	.text       start:0x0004C268 end:0x0004C464
 	.bss        start:0x0003D4E0 end:0x0003D510
 
-m_mail.o:
+game/m_mail.c:
 	.text       start:0x0004C464 end:0x0004CF88
 	.data       start:0x00009170 end:0x000091C0
 	.bss        start:0x0003D510 end:0x0003D6A8
 
-m_mail_check.o:
+game/m_mail_check.c:
 	.text       start:0x0004CF88 end:0x0004CFA8
 
-m_mail_password_check.o:
+game/m_mail_password_check.c:
 	.text       start:0x0004CFA8 end:0x0004CFA8
 	.text       start:0x0004CFA8 end:0x0004E9F4
 	.data       start:0x000091C0 end:0x00009CD8
 
-m_mark_room.o:
+game/m_mark_room.c:
 	.text       start:0x0004E9F4 end:0x0004EF68
 	.rodata     start:0x00001478 end:0x00001488
 
-m_melody.o:
+game/m_melody.c:
 	.text       start:0x0004EF68 end:0x0004F1BC
 	.data       start:0x00009CD8 end:0x00009D00
 	.bss        start:0x0003D6A8 end:0x0003D6C0
 
-m_msg.o:
+game/m_msg.c:
 	.text       start:0x0004F1BC end:0x0004F4E8
 	.text       start:0x0004F4E8 end:0x0004FE88
 	.text       start:0x0004FE88 end:0x00051BC0
@@ -337,63 +337,63 @@ m_msg.o:
 	.data       start:0x00009D00 end:0x0000CD80
 	.bss        start:0x0003D6C0 end:0x0003E240
 
-m_museum.o:
+game/m_museum.c:
 	.text       start:0x00055F80 end:0x00057218
 	.rodata     start:0x000016D8 end:0x000016F0
 	.data       start:0x0000CD80 end:0x0000CE08
 	.bss        start:0x0003E240 end:0x0003E380
 
-m_museum_display.o:
+game/m_museum_display.c:
 	.text       start:0x00057218 end:0x00057DE8
 	.data       start:0x0000CE08 end:0x0000CEF8
 
-m_mushroom.o:
+game/m_mushroom.c:
 	.text       start:0x00057DE8 end:0x00058E00
 	.rodata     start:0x000016F0 end:0x00001700
 	.data       start:0x0000CEF8 end:0x0000CF30
 	.bss        start:0x0003E380 end:0x0003E7A0
 
-m_name_table.o:
+game/m_name_table.c:
 	.text       start:0x00058E00 end:0x00059644
 	.rodata     start:0x00001700 end:0x00001718
 	.data       start:0x0000CF30 end:0x0000D6C0
 
-m_needlework.o:
+game/m_needlework.c:
 	.text       start:0x00059644 end:0x00059CD4
 	.data       start:0x0000D6C0 end:0x0000D930
 	.bss        start:0x0003E7A0 end:0x0003E9C0
 
-m_notice.o:
+game/m_notice.c:
 	.text       start:0x00059CD4 end:0x00059CD4
 	.text       start:0x00059CD4 end:0x0005B098
 	.rodata     start:0x00001718 end:0x00001758
 	.data       start:0x0000D930 end:0x0000D9E8
 	.bss        start:0x0003E9C0 end:0x0003EA80
 
-m_npc.o:
+game/m_npc.c:
 	.text       start:0x0005B098 end:0x000672C8
 	.rodata     start:0x00001758 end:0x00001790
 	.data       start:0x0000D9E8 end:0x0000E138
 	.bss        start:0x0003EA80 end:0x00042488
 
-m_npc_schedule.o:
+game/m_npc_schedule.c:
 	.text       start:0x000672C8 end:0x000675E8
 	.data       start:0x0000E138 end:0x0000E2F0
 
-m_npc_walk.o:
+game/m_npc_walk.c:
 	.text       start:0x000675E8 end:0x00068640
 	.rodata     start:0x00001790 end:0x000017A0
 	.data       start:0x0000E2F0 end:0x0000E4A0
 	.bss        start:0x00042488 end:0x000424D8
 
-m_olib.o:
+game/m_olib.c:
 	.text       start:0x00068640 end:0x0006878C
 	.rodata     start:0x000017A0 end:0x000017B0
 
-m_pause.o:
+game/m_pause.c:
 	.text       start:0x0006878C end:0x00068844
 
-m_player_call.o:
+game/m_player_call.c:
 	.text       start:0x00068844 end:0x00068A44
 	.data       start:0x0000E4A0 end:0x0000E4C8
 	.bss        start:0x000424D8 end:0x000424E8
@@ -404,74 +404,74 @@ m_player_lib.o:
 	.data       start:0x0000E4C8 end:0x0000E998
 	.bss        start:0x000424E8 end:0x00042580
 
-m_police_box.o:
+game/m_police_box.c:
 	.text       start:0x0006E5F8 end:0x0006EB90
 	.rodata     start:0x00001F68 end:0x00001F78
 	.data       start:0x0000E998 end:0x0000E9F0
 
-m_post_office.o:
+game/m_post_office.c:
 	.text       start:0x0006EB90 end:0x0006FCD4
 	.data       start:0x0000E9F0 end:0x0000EA00
 
-m_private.o:
+game/m_private.c:
 	.text       start:0x0006FCD4 end:0x000726E8
 	.rodata     start:0x00001F78 end:0x00001FA8
 	.data       start:0x0000EA00 end:0x0000EB30
 	.bss        start:0x00042580 end:0x00044AF0
 
-m_quest.o:
+game/m_quest.c:
 	.text       start:0x000726E8 end:0x00074878
 	.rodata     start:0x00001FA8 end:0x00001FB8
 	.data       start:0x0000EB30 end:0x0000EB98
 	.bss        start:0x00044AF0 end:0x00044B28
 
-m_random_field.o:
+game/m_random_field.c:
 	.text       start:0x00074878 end:0x00074E3C
 	.rodata     start:0x00001FB8 end:0x00001FE0
 	.data       start:0x0000EB98 end:0x0000F088
 
-m_rcp.o:
+game/m_rcp.c:
 	.text       start:0x00074E3C end:0x00075A5C
 	.data       start:0x0000F088 end:0x0000F410
 	.bss        start:0x00044B28 end:0x00044B30
 
-m_room_type.o:
+game/m_room_type.c:
 	.text       start:0x00075A5C end:0x000776F0
 	.rodata     start:0x00001FE0 end:0x00002010
 	.data       start:0x0000F410 end:0x00010190
 	.bss        start:0x00044B30 end:0x00044B48
 
-m_scene_ftr.o:
+game/m_scene_ftr.c:
 	.text       start:0x000776F0 end:0x000777D4
 
-m_shop.o:
+game/m_shop.c:
 	.text       start:0x000777D4 end:0x0007BB84
 	.text       start:0x0007BB84 end:0x0007BF98
 	.rodata     start:0x00002010 end:0x00002070
 	.data       start:0x00010190 end:0x000106F8
 	.bss        start:0x00044B48 end:0x00044B60
 
-m_soncho.o:
+game/m_soncho.c:
 	.text       start:0x0007BF98 end:0x0007DC18
 	.rodata     start:0x00002070 end:0x00002080
 	.data       start:0x000106F8 end:0x00010870
 
-m_start_data_init.o:
+game/m_start_data_init.c:
 	.text       start:0x0007DC18 end:0x0007EA88
 	.rodata     start:0x00002080 end:0x00002090
 	.data       start:0x00010870 end:0x000108D0
 
-m_string.o:
+game/m_string.c:
 	.text       start:0x0007EA88 end:0x0007EFE8
 	.bss        start:0x00044B60 end:0x00044C40
 
-m_submenu.o:
+game/m_submenu.c:
 	.text       start:0x0007EFE8 end:0x00080368
 	.rodata     start:0x00002090 end:0x00002098
 	.data       start:0x000108D0 end:0x00010980
 	.bss        start:0x00044C40 end:0x00044C48
 
-m_scene.o:
+game/m_scene.c:
 	.text       start:0x00080368 end:0x00081280
 	.rodata     start:0x00002098 end:0x000020B0
 	.data       start:0x00010980 end:0x000109C8
@@ -480,53 +480,53 @@ m_scene_table.o:
 	.text       start:0x00081280 end:0x00081280
 	.data       start:0x000109C8 end:0x00010DD8
 
-m_skin_matrix.o:
+game/m_skin_matrix.c:
 	.text       start:0x00081280 end:0x0008190C
 	.rodata     start:0x000020B0 end:0x000020B8
 
-m_snowman.o:
+game/m_snowman.c:
 	.text       start:0x0008190C end:0x00081CEC
 	.rodata     start:0x000020B8 end:0x000020D0
 
-m_titledemo.o:
+game/m_titledemo.c:
 	.text       start:0x00081CEC end:0x00082180
 	.rodata     start:0x000020D0 end:0x000020F0
 	.data       start:0x00010DD8 end:0x00010DF0
 	.bss        start:0x00044C48 end:0x00044C50
 
-m_train_control.o:
+game/m_train_control.c:
 	.text       start:0x00082180 end:0x00083134
 	.rodata     start:0x000020F0 end:0x00002150
 	.data       start:0x00010DF0 end:0x00010E78
 
-m_time.o:
+game/m_time.c:
 	.text       start:0x00083134 end:0x00083BB0
 	.rodata     start:0x00002150 end:0x00002178
 	.data       start:0x00010E78 end:0x00010F38
 	.bss        start:0x00044C50 end:0x00044C60
 
-m_view.o:
+game/m_view.c:
 	.text       start:0x00083BB0 end:0x00084B60
 	.rodata     start:0x00002178 end:0x000021A8
 
-m_watch_my_step.o:
+game/m_watch_my_step.c:
 	.text       start:0x00084B60 end:0x000862C8
 	.rodata     start:0x000021A8 end:0x00002278
 	.data       start:0x00010F38 end:0x00010F70
 	.bss        start:0x00044C60 end:0x00044CC0
 
-m_roll_lib.o:
+game/m_roll_lib.c:
 	.text       start:0x000862C8 end:0x00087448
 	.rodata     start:0x00002278 end:0x000022D8
 
-m_card.o:
+game/m_card.c:
 	.text       start:0x00087448 end:0x0009345C
 	.text       start:0x0009345C end:0x00093588
 	.rodata     start:0x000022D8 end:0x000022F0
 	.data       start:0x00010F70 end:0x00011798
 	.bss        start:0x00044CC0 end:0x00098880
 
-m_cpak.o:
+game/m_cpak.c:
 	.text       start:0x00093588 end:0x000935CC
 	.data       start:0x00011798 end:0x000117A0
 	.bss        start:0x00098880 end:0x000988D8
@@ -534,7 +534,7 @@ m_cpak.o:
 s_cpak.o:
 	.text       start:0x000935CC end:0x000935D4
 
-m_vibctl.o:
+game/m_vibctl.c:
 	.text       start:0x000935D4 end:0x00093E48
 	.rodata     start:0x000022F0 end:0x00002468
 	.bss        start:0x000988D8 end:0x000989F8
@@ -1273,12 +1273,12 @@ effect/ef_room_sunshine_minsect.c:
 	.data       start:0x0004EBC8 end:0x0004EBF0
 	.bss        start:0x000A6410 end:0x000A6418
 
-m_huusui_room_ovl.o:
+game/m_huusui_room_ovl.c:
 	.text       start:0x00161914 end:0x00161EBC
 	.rodata     start:0x000052F8 end:0x00005368
 	.data       start:0x0004EBF0 end:0x0004F5F0
 
-m_mark_room_ovl.o:
+game/m_mark_room_ovl.c:
 	.text       start:0x00161EBC end:0x0016387C
 	.rodata     start:0x00005368 end:0x00005370
 	.data       start:0x0004F5F0 end:0x00051080
@@ -1426,7 +1426,7 @@ m_player.o:
 	.rodata     start:0x00005370 end:0x00007C70
 	.data       start:0x00051080 end:0x00051418
 
-m_random_field_ovl.o:
+game/m_random_field_ovl.c:
 	.text       start:0x00198BB0 end:0x0019B128
 	.rodata     start:0x00007C70 end:0x00007C78
 	.data       start:0x00051418 end:0x00051B70
@@ -1456,7 +1456,7 @@ actor/ac_fuusen.c:
 	.rodata     start:0x00007D88 end:0x00007E38
 	.data       start:0x00051C90 end:0x00051E20
 
-m_mail_check_ovl.o:
+game/m_mail_check_ovl.c:
 	.text       start:0x0019EDC4 end:0x0019F590
 	.data       start:0x00051E20 end:0x00052540
 
@@ -1464,7 +1464,7 @@ actor/ac_dummy.c:
 	.text       start:0x0019F590 end:0x0019F5A0
 	.data       start:0x00052540 end:0x00052568
 
-m_all_grow_ovl.o:
+game/m_all_grow_ovl.c:
 	.text       start:0x0019F5A0 end:0x001A5098
 	.rodata     start:0x00007E38 end:0x00007EB0
 	.data       start:0x00052568 end:0x00052808
@@ -2522,19 +2522,19 @@ m_address_ovl.o:
 	.data       start:0x0007A2E0 end:0x0007A690
 	.bss        start:0x000E3700 end:0x000E38E8
 
-m_bank_ovl.o:
+game/m_bank_ovl.c:
 	.text       start:0x0025363C end:0x0025446C
 	.rodata     start:0x00009BF8 end:0x00009C30
 	.data       start:0x0007A690 end:0x0007A6E0
 	.bss        start:0x000E38E8 end:0x000E3900
 
-m_birthday_ovl.o:
+game/m_birthday_ovl.c:
 	.text       start:0x0025446C end:0x00254BEC
 	.rodata     start:0x00009C30 end:0x00009C58
 	.data       start:0x0007A6E0 end:0x0007A760
 	.bss        start:0x000E3900 end:0x000E3908
 
-m_board_ovl.o:
+game/m_board_ovl.c:
 	.text       start:0x00254BEC end:0x00254BEC
 	.text       start:0x00254BEC end:0x00256534
 	.rodata     start:0x00009C58 end:0x00009CC8
@@ -2547,7 +2547,7 @@ m_calendar_ovl.o:
 	.rodata     start:0x00009CC8 end:0x00009D30
 	.data       start:0x0007B380 end:0x0007B5B0
 
-m_catalog_ovl.o:
+game/m_catalog_ovl.c:
 	.text       start:0x00258FAC end:0x0025BF4C
 	.rodata     start:0x00009D30 end:0x00009E30
 	.data       start:0x0007B5B0 end:0x0007E338
@@ -2588,13 +2588,13 @@ m_design_ovl.o:
 	.data       start:0x0007E610 end:0x0007F3B8
 	.bss        start:0x000E4720 end:0x000E4E00
 
-m_editEndChk_ovl.o:
+game/m_editEndChk_ovl.c:
 	.text       start:0x002677BC end:0x002681F0
 	.rodata     start:0x0000A060 end:0x0000A0A0
 	.data       start:0x0007F3B8 end:0x0007F4D8
 	.bss        start:0x000E4E00 end:0x000E4E08
 
-m_editor_ovl.o:
+game/m_editor_ovl.c:
 	.text       start:0x002681F0 end:0x002681F0
 	.text       start:0x002681F0 end:0x0026C124
 	.rodata     start:0x0000A0A0 end:0x0000A108
@@ -2607,13 +2607,13 @@ m_gba_ovl.o:
 	.data       start:0x0007FB68 end:0x0007FBA0
 	.bss        start:0x000E4E40 end:0x000E4E48
 
-m_hand_ovl.o:
+game/m_hand_ovl.c:
 	.text       start:0x0026CE5C end:0x0026F758
 	.rodata     start:0x0000A128 end:0x0000A1B8
 	.data       start:0x0007FBA0 end:0x0007FD60
 	.bss        start:0x000E4E48 end:0x000E51C0
 
-m_haniwaPortrait_ovl.o:
+game/m_haniwaPortrait_ovl.c:
 	.text       start:0x0026F758 end:0x0026FBA0
 	.rodata     start:0x0000A1B8 end:0x0000A1E8
 	.bss        start:0x000E51C0 end:0x000E52E0
@@ -2625,7 +2625,7 @@ m_haniwa_ovl.o:
 	.data       start:0x0007FD60 end:0x0007FEB0
 	.bss        start:0x000E52E0 end:0x000E5320
 
-m_hboard_ovl.o:
+game/m_hboard_ovl.c:
 	.text       start:0x00270820 end:0x00270820
 	.text       start:0x00270820 end:0x002710F0
 	.rodata     start:0x0000A220 end:0x0000A258
@@ -2650,7 +2650,7 @@ m_mailbox_ovl.o:
 	.data       start:0x000804A8 end:0x000804C0
 	.bss        start:0x000E5C90 end:0x000E5CA8
 
-m_map_ovl.o:
+game/m_map_ovl.c:
 	.text       start:0x00275C54 end:0x00275C54
 	.text       start:0x00275C54 end:0x002777AC
 	.rodata     start:0x0000A3C8 end:0x0000A450
@@ -2663,7 +2663,7 @@ m_mscore_ovl.o:
 	.data       start:0x00080B08 end:0x00080E38
 	.bss        start:0x000E5CC8 end:0x000E5CF0
 
-m_music_ovl.o:
+game/m_music_ovl.c:
 	.text       start:0x00278A50 end:0x002794C0
 	.rodata     start:0x0000A4D8 end:0x0000A518
 	.data       start:0x00080E38 end:0x00080E50
@@ -2674,20 +2674,20 @@ m_needlework_ovl.o:
 	.rodata     start:0x0000A518 end:0x0000A548
 	.data       start:0x00080E50 end:0x00080EC8
 
-m_notice_ovl.o:
+game/m_notice_ovl.c:
 	.text       start:0x0027A818 end:0x0027A818
 	.text       start:0x0027A818 end:0x0027C2A8
 	.rodata     start:0x0000A548 end:0x0000A5D0
 	.data       start:0x00080EC8 end:0x00080FE0
 	.bss        start:0x000E5D10 end:0x000E5DE8
 
-m_repay_ovl.o:
+game/m_repay_ovl.c:
 	.text       start:0x0027C2A8 end:0x0027CE54
 	.rodata     start:0x0000A5D0 end:0x0000A610
 	.data       start:0x00080FE0 end:0x00081050
 	.bss        start:0x000E5DE8 end:0x000E5E00
 
-m_submenu_ovl.o:
+game/m_submenu_ovl.c:
 	.text       start:0x0027CE54 end:0x0027F424
 	.rodata     start:0x0000A610 end:0x0000A6A0
 	.data       start:0x00081050 end:0x00082428
@@ -2699,26 +2699,26 @@ m_tag_ovl.o:
 	.data       start:0x00082428 end:0x00083E20
 	.bss        start:0x000E6808 end:0x000E6BD0
 
-m_timeIn_ovl.o:
+game/m_timeIn_ovl.c:
 	.text       start:0x0028F11C end:0x0028F11C
 	.text       start:0x0028F11C end:0x002900C8
 	.rodata     start:0x0000A7A0 end:0x0000A7F8
 	.data       start:0x00083E20 end:0x00083EE8
 	.bss        start:0x000E6BD0 end:0x000E6BF0
 
-m_warning_ovl.o:
+game/m_warning_ovl.c:
 	.text       start:0x002900C8 end:0x00290858
 	.rodata     start:0x0000A7F8 end:0x0000A818
 	.data       start:0x00083EE8 end:0x000847D0
 	.bss        start:0x000E6BF0 end:0x000E6BF8
 
-m_passwordMake_ovl.o:
+game/m_passwordMake_ovl.c:
 	.text       start:0x00290858 end:0x00290FE8
 	.rodata     start:0x0000A818 end:0x0000A850
 	.data       start:0x000847D0 end:0x00084818
 	.bss        start:0x000E6BF8 end:0x000E6C10
 
-m_passwordChk_ovl.o:
+game/m_passwordChk_ovl.c:
 	.text       start:0x00290FE8 end:0x00291694
 	.rodata     start:0x0000A850 end:0x0000A888
 	.data       start:0x00084818 end:0x00084850
@@ -3366,7 +3366,7 @@ system/sys_dynamic.c:
 	.text       start:0x002B7CE0 end:0x002B7CE0
 	.bss        start:0x000E6C38 end:0x00107060
 
-m_select.o:
+game/m_select.c:
 	.text       start:0x002B7CE0 end:0x002B9A00
 	.rodata     start:0x0000BF50 end:0x0000BF58
 	.data       start:0x00086808 end:0x000871D0
@@ -3377,7 +3377,7 @@ first_game.o:
 system/sys_romcheck.c:
 	.text       start:0x002B9AA4 end:0x002B9AE4
 
-m_play.o:
+game/m_play.c:
 	.text       start:0x002B9AE4 end:0x002BB388
 	.rodata     start:0x0000BF58 end:0x0000BF60
 	.data       start:0x000871D0 end:0x00087458
@@ -3387,7 +3387,7 @@ second_game.o:
 	.text       start:0x002BB388 end:0x002BB5A0
 	.bss        start:0x002332A0 end:0x002332A8
 
-m_trademark.o:
+game/m_trademark.c:
 	.text       start:0x002BB5A0 end:0x002BBDA0
 	.rodata     start:0x0000BF60 end:0x0000BF68
 	.data       start:0x00087458 end:0x00087618
@@ -3407,7 +3407,7 @@ famicom_emu.o:
 	.data       start:0x00087698 end:0x000877B0
 	.bss        start:0x002332A8 end:0x002332B8
 
-m_prenmi.o:
+game/m_prenmi.c:
 	.text       start:0x002BD654 end:0x002BD95C
 	.rodata     start:0x0000C0B8 end:0x0000C0E0
 

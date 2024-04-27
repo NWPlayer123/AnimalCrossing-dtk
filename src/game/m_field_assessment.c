@@ -227,7 +227,6 @@ static int mFAs_CheckBlockNum(int* block_num, int block_x, int block_z, int fail
 }
 
 /* @nonmatching - something going on with the stack causing an extra 0 register to be allocated */
-#ifndef MUST_MATCH
 static int mFAs_GetFieldGoodBlockNum_common(int* condition_num, int* block_x, int* block_z, int* block_num) {
   int perfect_block_num;
   mFI_unit_c dump_unit;
@@ -406,13 +405,6 @@ static int mFAs_GetFieldGoodBlockNum_common(int* condition_num, int* block_x, in
 
   return perfect_block_num;
 }
-#else
-#include "orderfloats/80641fd8_80641fdc.inc"
-
-static asm int mFAs_GetFieldGoodBlockNum_common(int* condition_num, int* block_x, int* block_z, int* block_num) {
-  #include "asm/803a1ae8.s"
-}
-#endif
 
 static int mFAs_GetFieldGoodBlockNum() {
   int block_x = 0;

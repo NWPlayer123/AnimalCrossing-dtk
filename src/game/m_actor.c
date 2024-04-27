@@ -20,15 +20,6 @@
 #include "m_common_data.h"
 
 #ifdef MUST_MATCH
-#include "ppcdis.h"
-
-void _savefpr_29();
-void _restfpr_29();
-// #include "orderstrings/8064d600_8064d604.inc"
-static char lbl_8064d600[] = "";
-#endif
-
-#ifdef MUST_MATCH
 /* @unused | necessary for proper float ordering*/
 extern void __declspec(section "forcestrip") projection_pos_set(GAME_PLAY* play, xyz_t* pos, xyz_t* proj_pos,
                                                                 f32* proj_w) {

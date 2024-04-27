@@ -10,10 +10,6 @@
 #include "m_scene_table.h"
 #include "m_common_data.h"
 
-#ifdef MUST_MATCH
-#include "ppcdis.h"
-#endif
-
 static void Camera2_main_Normal_AdjustDistanceAndDirection(GAME_PLAY* play, f32* dist, s_xyz* dir);
 static void Camera2_change_main_index(GAME_PLAY* play);
 
@@ -852,8 +848,6 @@ static int Camera2_Check_MicPosFix() {
   return data[scene];
 }
 
-#ifndef MUST_MATCH
-/* @nonmatching - regswaps */
 static void Camera2_SetMicPos(GAME_PLAY* play) {
   PLAYER_ACTOR* player = get_player_actor_withoutCheck(play);
   Camera2* camera = &play->camera;
@@ -921,51 +915,6 @@ static void Camera2_SetMicPos(GAME_PLAY* play) {
     }
   }
 }
-#else
-#pragma force_active on
-
-extern f32 lbl_80641440;
-REL_SYMBOL_AT(lbl_80641440, 0x80641440);
-
-/*
-extern f32 lbl_8064158c;
-REL_SYMBOL_AT(lbl_8064158c, 0x8064158c);
-
-extern f32 lbl_80641590;
-REL_SYMBOL_AT(lbl_80641590, 0x80641590);
-
-extern f32 lbl_80641594;
-REL_SYMBOL_AT(lbl_80641594, 0x80641594);
-
-extern f32 lbl_80641598;
-REL_SYMBOL_AT(lbl_80641598, 0x80641598);
-
-extern f32 lbl_8064159c;
-REL_SYMBOL_AT(lbl_8064159c, 0x8064159c);
-
-extern f32 lbl_806415a0;
-REL_SYMBOL_AT(lbl_806415a0, 0x806415a0);
-
-extern f32 lbl_806415a4;
-REL_SYMBOL_AT(lbl_806415a4, 0x806415a4);
-
-extern f32 lbl_806415a8;
-REL_SYMBOL_AT(lbl_806415a8, 0x806415a8);
-
-extern f32 lbl_806415ac;
-REL_SYMBOL_AT(lbl_806415ac, 0x806415ac);
-*/
-
-#pragma force_active reset
-
-#include "jumptable/8064f824.inc"
-#include "orderfloats/8064158c_806415b0.inc"
-
-static asm void Camera2_SetMicPos(GAME_PLAY* play) {
-  #include "asm/8037f2e8.s"
-}
-
-#endif
 
 extern int Camera2NormalState_get(GAME_PLAY* play) {
   Camera2* camera = &play->camera;
@@ -1960,8 +1909,6 @@ static void Camera2_Door_SetCenterPos(GAME_PLAY* play, int step) {
   center_vel_p->z = center_p->z - start_center.z;
 }
 
-#ifndef MUST_MATCH
-/* @nonmatching - minor control flow order issue at beginning */
 static void Camera2_Door_SetEyePos(GAME_PLAY* play, int step) {
   Camera2* camera = &play->camera;
   xyz_t* center_p;
@@ -2004,28 +1951,6 @@ static void Camera2_Door_SetEyePos(GAME_PLAY* play, int step) {
 
   Camera2_PolaPosCalc(eye_p, dir->x + (u16)SHT_MIN_S, dir->y + (u16)SHT_MIN_S, center_p, *dist_p);
 }
-#else
-
-#pragma push
-#pragma force_active on
-
-//extern const f32 lbl_80641614;
-//REL_SYMBOL_AT(lbl_80641614, 0x80641614);
-
-extern const f64 lbl_80641450;
-REL_SYMBOL_AT(lbl_80641450, 0x80641450);
-
-extern const f32 lbl_80641484;
-REL_SYMBOL_AT(lbl_80641484, 0x80641484);
-
-#pragma pop
-
-#include "orderfloats/80641614_80641618.inc"
-
-static asm void Camera2_Door_SetEyePos(GAME_PLAY* play, int step) {
-  #include "asm/803815c4.s"
-}
-#endif
 
 static void Camera2_Door_MorphCounterProc(GAME_PLAY* play) {
   int morph_counter = play->camera.main_data.door.morph_counter;

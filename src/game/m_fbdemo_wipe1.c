@@ -9,9 +9,7 @@ Vtx wipe1_v[] = {
 #include "assets/wipe1_v.inc"
 };
 
-u8 g_wipe1_txt[] = {
 #include "assets/g_wipe1_txt.inc"
-};
 
 Gfx wipe1_modelT[] = {
     gsDPPipeSync(),

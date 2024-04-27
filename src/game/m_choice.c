@@ -15,21 +15,6 @@ static void mChoice_MainSetup(mChoice_c* choice, GAME* game);
 static u32 Choice_table_rom_start = 0;
 static u32 Choice_rom_start = 0;
 
-#ifdef MUST_MATCH
-/* Force assetrip to detect these assets. They're used in a .c_inc file. */
-static u8 unused_con_waku_swaku3_tex[] = {
-  #ifndef __INTELLISENSE__
-  #include "assets/con_waku_swaku3_tex.inc"
-  #endif
-};
-
-static Vtx unused_con_sentaku2_v[] = {
-  #ifndef __INTELLISENSE__
-  #include "assets/con_sentaku2_v.inc"
-  #endif
-};
-#endif
-
 static void mChoice_MainSetup_Hide(mChoice_c*, GAME*);
 static void mChoice_MainSetup_Appear(mChoice_c*, GAME*);
 static void mChoice_MainSetup_Normal(mChoice_c*, GAME*);
@@ -112,10 +97,10 @@ extern void mChoice_ct(mChoice_c* choice, GAME* game) {
 
 extern void mChoice_dt(mChoice_c* choice, GAME* game) {  }
 
-#include "../src/m_choice_main.c_inc"
-#include "../src/m_choice_sound.c_inc"
-#include "../src/m_choice_main_hide.c_inc"
-#include "../src/m_choice_main_appear.c_inc"
-#include "../src/m_choice_main_normal.c_inc"
-#include "../src/m_choice_main_disappear.c_inc"
-#include "../src/m_choice_draw.c_inc"
+#include "../src/game/m_choice_main.c_inc"
+#include "../src/game/m_choice_sound.c_inc"
+#include "../src/game/m_choice_main_hide.c_inc"
+#include "../src/game/m_choice_main_appear.c_inc"
+#include "../src/game/m_choice_main_normal.c_inc"
+#include "../src/game/m_choice_main_disappear.c_inc"
+#include "../src/game/m_choice_draw.c_inc"

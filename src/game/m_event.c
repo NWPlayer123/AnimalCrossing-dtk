@@ -35,6 +35,8 @@ typedef union ymdh {
   u32 raw;
 } mEv_ymdh_u;
 
+void mEv_clear_rumor();
+
 extern void mEv_ClearSpecialEvent(mEv_special_c* special_event) {
   special_event->type = -1;
   bzero(&special_event->event, sizeof(mEv_special_u));
@@ -313,7 +315,7 @@ extern void mEv_GetEventWeather(s16* weather, s16* intensity) {
   }
 }
 
-#include "m_event_schedule.c_inc"
+#include "../src/game/m_event_schedule.c_inc"
 
 static int event_rumor_table[] = {
   mEv_EVENT_RUMOR_NEW_YEARS_DAY,
@@ -2950,12 +2952,12 @@ extern void mEv_toland_clear_common() {
     keep_flags[i] = 0;
   }
 
-  mem_clear(Common_GetPointer(event_common), sizeof(Common_Get(event_common)), 0);
-  mem_clear(Common_GetPointer(special_event_common), sizeof(Common_Get(special_event_common)), 0);
+  mem_clear((u8*)Common_GetPointer(event_common), sizeof(Common_Get(event_common)), 0);
+  mem_clear((u8*)Common_GetPointer(special_event_common), sizeof(Common_Get(special_event_common)), 0);
 }
 
 extern void mGH_animal_return_init() {
-  mem_clear(Save_GetPointer(return_animal), sizeof(Save_Get(return_animal)), 0);
+  mem_clear((u8*)Save_GetPointer(return_animal), sizeof(Save_Get(return_animal)), 0);
   Save_Get(return_animal).npc_id = EMPTY_NO; // ??
 }
 
@@ -3043,7 +3045,7 @@ extern void mMC_mask_cat_init() {
   MaskCat_c* mask_cat = Save_GetPointer(mask_cat);
   u8 cloth_no = mask_cat->cloth_no;
 
-  mem_clear(mask_cat, sizeof(Save_Get(mask_cat)), 0);
+  mem_clear((u8*)mask_cat, sizeof(Save_Get(mask_cat)), 0);
   mPr_ClearPersonalID(&mask_cat->design.creator_pid);
   Save_Get(mask_cat).cloth_no = cloth_no;
 }
@@ -3056,10 +3058,10 @@ extern int mMC_check_birth() {
   if (Save_Get(mask_cat).talk_idx >= mMC_TALK_IDX_MAX) {
     /* Talked more than the maximum amount of times allowed */
     mMC_mask_cat_init();
-    return TRUE;
+    return FALSE;
   }
 
-  return FALSE;
+  return TRUE;
 }
 
 extern int mMC_check_birth_day() {

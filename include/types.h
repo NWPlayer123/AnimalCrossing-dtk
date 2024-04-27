@@ -112,6 +112,8 @@ typedef u32 unknown;
 #endif
 
 #if !defined(__INTELLISENSE__) && defined(MUST_MATCH)
+    #define ORDER_BSS_DATA static asm void order_bss()
+    #define ORDER_BSS(s) lis r3, s@ha
     #define BSS_ORDER_GROUP_START FORCESTRIP ORDER_BSS_DATA {
     #define BSS_ORDER_GROUP_END }
     #define BSS_ORDER_ITEM(v) ORDER_BSS(v)

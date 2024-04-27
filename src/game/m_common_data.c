@@ -2,6 +2,7 @@
 
 #include "libultra/libultra.h"
 
+common_data_t common_data;
 
 extern void common_data_reinit(){
 

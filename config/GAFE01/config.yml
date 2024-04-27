@@ -245,3 +245,20 @@ modules:
   - symbol: int_nog_flower_c_pal
     binary: assets/int_nog_flower_c_pal.bin
     type: pal16
+
+  #m_choice
+  - symbol: con_waku_swaku3_tex
+    header: assets/con_waku_swaku3_tex.inc
+
+  - symbol: con_sentaku2_v
+    binary: assets/con_sentaku2_v.bin
+    type: vtx
+
+  #m_fbdemo_wipe1
+  - symbol: wipe1_v
+    binary: assets/wipe1_v.bin
+    type: vtx
+
+  - symbol: g_wipe1_txt
+    header: assets/g_wipe1_txt.inc
+  
