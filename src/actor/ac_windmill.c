@@ -36,6 +36,6 @@ static void aWIN_actor_dt(ACTOR* actor, GAME* game) {
     cKF_SkeletonInfo_R_dt(&windmill->keyframe);
 }
 
-#include "../src/ac_windmill_move.c_inc"
+#include "../src/actor/ac_windmill_move.c_inc"
 
-#include "../src/ac_windmill_draw.c_inc"
+#include "../src/actor/ac_windmill_draw.c_inc"

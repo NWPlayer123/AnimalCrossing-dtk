@@ -116,6 +116,6 @@ static void aTOU_actor_dt(ACTOR* actor, GAME* game) {
     light->actor_class.world.position.z += 20.0f;
 }
 
-#include "../src/ac_toudai_move.c_inc"
+#include "../src/actor/ac_toudai_move.c_inc"
 
-#include "../src/ac_toudai_draw.c_inc"
+#include "../src/actor/ac_toudai_draw.c_inc"

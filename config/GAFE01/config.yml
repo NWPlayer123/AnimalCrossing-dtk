@@ -8,6 +8,8 @@ mw_comment_version: 10 #1.3.2
 symbols_known: true
 fill_gaps: false
 
+force_active: ["_savegpr_14", "_restgpr_14"] # Needed to fix references to __save_gpr/__restore_gpr
+
 # Generated with:
 # map: orig/GAFE01/files/static.map
 # common_start: 0x8020D78C
@@ -31,6 +33,52 @@ modules:
   - symbol: mbg_v
     binary: assets/mbg_v.bin
     type: vtx
+
+  #ac_koinobori
+  - symbol: aKOI_obj_e_koinobori_a_pal
+    binary: assets/aKOI_obj_e_koinobori_a_pal.bin
+    type: pal16
+
+  - symbol: obj_e_koinobori_b_pal
+    binary: assets/obj_e_koinobori_b_pal.bin
+    type: pal16
+
+  #ac_lotus
+  - symbol: aLOT_obj_01_lotus_pal
+    binary: assets/aLOT_obj_01_lotus_pal.bin
+    type: pal16
+
+  - symbol: obj_02_lotus_pal
+    binary: assets/obj_02_lotus_pal.bin
+    type: pal16
+
+  - symbol: obj_03_lotus_pal
+    binary: assets/obj_03_lotus_pal.bin
+    type: pal16
+
+  - symbol: obj_04_lotus_pal
+    binary: assets/obj_04_lotus_pal.bin
+    type: pal16
+
+  - symbol: obj_05_lotus_pal
+    binary: assets/obj_05_lotus_pal.bin
+    type: pal16
+
+  - symbol: obj_06_lotus_pal
+    binary: assets/obj_06_lotus_pal.bin
+    type: pal16
+
+  - symbol: obj_07_lotus_pal
+    binary: assets/obj_07_lotus_pal.bin
+    type: pal16
+
+  - symbol: obj_08_lotus_pal
+    binary: assets/obj_08_lotus_pal.bin
+    type: pal16
+
+  - symbol: obj_09_lotus_pal
+    binary: assets/obj_09_lotus_pal.bin
+    type: pal16
     
   #ef_coin
   - symbol: ef_coin_gold_pal

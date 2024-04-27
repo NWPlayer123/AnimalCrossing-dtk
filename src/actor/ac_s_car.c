@@ -57,6 +57,6 @@ static void aSCR_actor_dt(ACTOR* actor, GAME* game) {
     }
 }
 
-#include "../src/ac_s_car_move.c_inc"
+#include "../src/actor/ac_s_car_move.c_inc"
 
-#include "../src/ac_s_car_draw.c_inc"
+#include "../src/actor/ac_s_car_draw.c_inc"

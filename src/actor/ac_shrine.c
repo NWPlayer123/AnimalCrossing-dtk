@@ -115,6 +115,6 @@ static void aSHR_actor_dt(ACTOR* actorx, GAME* game) {
   cKF_SkeletonInfo_R_dt(&shrine->structure_class.keyframe);
 }
 
-#include "../src/ac_shrine_clip.c_inc"
-#include "../src/ac_shrine_move.c_inc"
-#include "../src/ac_shrine_draw.c_inc"
+#include "../src/actor/ac_shrine_clip.c_inc"
+#include "../src/actor/ac_shrine_move.c_inc"
+#include "../src/actor/ac_shrine_draw.c_inc"

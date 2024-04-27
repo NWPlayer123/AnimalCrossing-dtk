@@ -59,5 +59,5 @@ static bIT_ShadowData_c aRSV_kappa_shadow_data = {
     4, aRSV_shadow_vtx_fix_flg_table, 60.0f, obj_attention_shadow_v, obj_attention_shadowT_model,
 };
 
-#include "../src/ac_reserve_move.c_inc"
-#include "../src/ac_reserve_draw.c_inc"
+#include "../src/actor/ac_reserve_move.c_inc"
+#include "../src/actor/ac_reserve_draw.c_inc"

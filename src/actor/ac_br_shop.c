@@ -111,5 +111,5 @@ static void aBRS_actor_dt(ACTOR* actor, GAME* game) {
     }
 }
 
-#include "../src/ac_br_shop_move.c_inc"
-#include "../src/ac_br_shop_draw.c_inc"
+#include "../src/actor/ac_br_shop_move.c_inc"
+#include "../src/actor/ac_br_shop_draw.c_inc"

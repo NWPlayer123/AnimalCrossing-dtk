@@ -93,6 +93,6 @@ static void aKKR_actor_dt(ACTOR* actor, GAME* game) {
     change_FGUnit(kamakura, 0);
 }
 
-#include "../src/ac_kamakura_move.c_inc"
+#include "../src/actor/ac_kamakura_move.c_inc"
 
-#include "../src/ac_kamakura_draw.c_inc"
+#include "../src/actor/ac_kamakura_draw.c_inc"

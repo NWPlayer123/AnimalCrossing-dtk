@@ -47,6 +47,6 @@ static void aYAT_actor_ct(ACTOR* actor, GAME* game) {
     aYAT_set_bgOffset(yatai, yatai->arg0 + 2);
 }
 
-#include "../src/ac_yatai_move.c_inc"
+#include "../src/actor/ac_yatai_move.c_inc"
 
-#include "../src/ac_yatai_draw.c_inc"
+#include "../src/actor/ac_yatai_draw.c_inc"

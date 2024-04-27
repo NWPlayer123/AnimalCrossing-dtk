@@ -75,6 +75,6 @@ static void aTUK_actor_dt(ACTOR* actor, GAME* game) {
   cKF_SkeletonInfo_R_dt(&tukimi->keyframe);
 }
 
-#include "../src/ac_tukimi_move.c_inc"
+#include "../src/actor/ac_tukimi_move.c_inc"
 
-#include "../src/ac_tukimi_draw.c_inc"
+#include "../src/actor/ac_tukimi_draw.c_inc"

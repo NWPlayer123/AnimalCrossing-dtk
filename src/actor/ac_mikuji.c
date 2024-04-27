@@ -48,5 +48,5 @@ static void aMIK_actor_ct(ACTOR* actor, GAME* game)
     aMIK_set_bgOffset((MIKUJI_ACTOR*)actor, 1);
 }
 
-#include "../src/ac_mikuji_move.c_inc"
-#include "../src/ac_mikuji_draw.c_inc"
+#include "../src/actor/ac_mikuji_move.c_inc"
+#include "../src/actor/ac_mikuji_draw.c_inc"

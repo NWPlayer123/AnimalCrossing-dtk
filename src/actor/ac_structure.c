@@ -25,7 +25,7 @@ ACTOR_PROFILE Structure_Profile = { mAc_PROFILE_STRUCTURE,
 static u8 aSTR_overlay[aSTR_ACTOR_TBL_COUNT][aSTR_OVERLAY_SIZE];
 static STRUCTURE_ACTOR aSTR_actor_cl[aSTR_ACTOR_TBL_COUNT];
 
-#include "../src/ac_structure_clip.c_inc"
+#include "../src/actor/ac_structure_clip.c_inc"
 
 static void aSTR_actor_ct(ACTOR* actor, GAME* game) {
     STRUCTURE_CONTROL_ACTOR* structure = (STRUCTURE_CONTROL_ACTOR*)actor;

@@ -208,5 +208,5 @@ static void aMHS_actor_dt(ACTOR* actorx, GAME* game) {
     actorx->world.position.z -= 20.0f;
 }
 
-#include "../src/ac_my_house_move.c_inc"
-#include "../src/ac_my_house_draw.c_inc"
+#include "../src/actor/ac_my_house_move.c_inc"
+#include "../src/actor/ac_my_house_draw.c_inc"

@@ -29,6 +29,6 @@ ACTOR_PROFILE FallSESW_Profile = {
     NULL,
 };
 
-#include "../src/ac_fallSESW_move.c_inc"
+#include "../src/actor/ac_fallSESW_move.c_inc"
 
-#include "../src/ac_fallSESW_draw.c_inc"
+#include "../src/actor/ac_fallSESW_draw.c_inc"

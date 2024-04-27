@@ -86,6 +86,6 @@ static void aPBOX_actor_ct(ACTOR* actor, GAME* game) {
     }
 }
 
-#include "../src/ac_police_box_move.c_inc"
+#include "../src/actor/ac_police_box_move.c_inc"
 
-#include "../src/ac_police_box_draw.c_inc"
+#include "../src/actor/ac_police_box_draw.c_inc"

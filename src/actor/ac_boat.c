@@ -132,7 +132,7 @@ static void aBT_actor_dt(ACTOR* actorx, GAME* game) {
   mCoBG_DeleteBoatCollision(actorx);
 }
 
-#include "../src/ac_boat_move.c_inc"
+#include "../src/actor/ac_boat_move.c_inc"
 
 static u32 aBT_calc_furrow_alpha(BOAT_ACTOR* boat_actor) {
   f32 speed = boat_actor->actor_class.speed;

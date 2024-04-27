@@ -60,6 +60,6 @@ static void aTR1_actor_dt(ACTOR* actor, GAME* game){
     cKF_SkeletonInfo_R_dt(&train1->keyframe);
 }
 
-#include "../src/ac_train1_move.c_inc"
+#include "../src/actor/ac_train1_move.c_inc"
 
-#include "../src/ac_train1_draw.c_inc"
+#include "../src/actor/ac_train1_draw.c_inc"

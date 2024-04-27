@@ -112,6 +112,6 @@ static void aPOFF_actor_dt(ACTOR* actor, GAME* game) {
     actor->world.position.z -= 20.0f;
 }
 
-#include "../src/ac_post_office_move.c_inc"
+#include "../src/actor/ac_post_office_move.c_inc"
 
-#include "../src/ac_post_office_draw.c_inc"
+#include "../src/actor/ac_post_office_draw.c_inc"

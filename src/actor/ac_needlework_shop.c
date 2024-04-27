@@ -102,6 +102,6 @@ static void aNW_actor_dt(ACTOR* actor, GAME* game) {
     actor->world.position.z -= 20.0f;
 }
 
-#include "../src/ac_needlework_shop_move.c_inc"
+#include "../src/actor/ac_needlework_shop_move.c_inc"
 
-#include "../src/ac_needlework_shop_draw.c_inc"
+#include "../src/actor/ac_needlework_shop_draw.c_inc"

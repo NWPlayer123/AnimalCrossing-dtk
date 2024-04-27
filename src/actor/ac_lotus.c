@@ -7,39 +7,6 @@
 #include "m_common_data.h"
 #include "m_player_lib.h"
 
-#ifdef MUST_MATCH
-#ifndef __INTELLISENSE__
-/* Force assetrip to detect these assets. They're used in a .c_inc file. */
-FORCESTRIP static u16 __hack_pal0[] = {
-  #include "assets/aLOT_obj_01_lotus_pal.inc"
-};
-FORCESTRIP static u16 __hack_pal1[] = {
-  #include "assets/obj_02_lotus_pal.inc"
-};
-FORCESTRIP static u16 __hack_pal3[] = {
-  #include "assets/obj_03_lotus_pal.inc"
-};
-FORCESTRIP static u16 __hack_pal4[] = {
-  #include "assets/obj_04_lotus_pal.inc"
-};
-FORCESTRIP static u16 __hack_pal5[] = {
-  #include "assets/obj_05_lotus_pal.inc"
-};
-FORCESTRIP static u16 __hack_pal6[] = {
-  #include "assets/obj_06_lotus_pal.inc"
-};
-FORCESTRIP static u16 __hack_pal7[] = {
-  #include "assets/obj_07_lotus_pal.inc"
-};
-FORCESTRIP static u16 __hack_pal8[] = {
-  #include "assets/obj_08_lotus_pal.inc"
-};
-FORCESTRIP static u16 __hack_pal9[] = {
-  #include "assets/obj_09_lotus_pal.inc"
-};
-#endif
-#endif
-
 enum {
   aLOT_ACTION_WAIT1,
   aLOT_ACTION_WAIT2,
@@ -111,6 +78,6 @@ static void aLOT_actor_dt(ACTOR* actor, GAME* game) {
     cKF_SkeletonInfo_R_dt(&lotus->structure_class.keyframe);
 }
 
-#include "../src/ac_lotus_move.c_inc"
+#include "../src/actor/ac_lotus_move.c_inc"
 
-#include "../src/ac_lotus_draw.c_inc"
+#include "../src/actor/ac_lotus_draw.c_inc"

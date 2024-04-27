@@ -84,4 +84,4 @@ void aEMJ_actor_draw(ACTOR* actor, GAME* game) {
     Common_Get(clip.npc_clip)->draw_proc(actor,game);
 }
 
-#include "../src/ac_ev_majin_move.c_inc"
+#include "../src/actor/ac_ev_majin_move.c_inc"

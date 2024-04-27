@@ -124,6 +124,6 @@ static void aBGY_actor_dt(ACTOR* actor, GAME* game) {
     cKF_SkeletonInfo_R_dt(&buggy->keyframe);
 }
 
-#include "../src/ac_buggy_move.c_inc"
+#include "../src/actor/ac_buggy_move.c_inc"
 
-#include "../src/ac_buggy_draw.c_inc"
+#include "../src/actor/ac_buggy_draw.c_inc"

@@ -105,6 +105,6 @@ static void aGOZ_actor_ct(ACTOR* actor, GAME* game) {
     aGOZ_set_bgOffset(goza, 1);
 }
 
-#include "../src/ac_goza_move.c_inc"
+#include "../src/actor/ac_goza_move.c_inc"
 
-#include "../src/ac_goza_draw.c_inc"
+#include "../src/actor/ac_goza_draw.c_inc"

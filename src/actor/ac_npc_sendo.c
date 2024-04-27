@@ -82,4 +82,4 @@ static void aSEN_actor_draw(ACTOR* actorx, GAME* game) {
   (*Common_Get(clip).npc_clip->draw_proc)(actorx, game);
 }
 
-#include "../src/ac_npc_sendo_move.c_inc"
+#include "../src/actor/ac_npc_sendo_move.c_inc"
