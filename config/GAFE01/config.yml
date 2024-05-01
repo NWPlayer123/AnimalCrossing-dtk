@@ -261,4 +261,9 @@ modules:
 
   - symbol: g_wipe1_txt
     header: assets/g_wipe1_txt.inc
-  
+
+#TODO: duplicated symbols
+#extract:
+#gam_win1
+#- symbol: att_win_waku3_tex
+#  header: assets/bootdata/att_win1_waku3_tex.inc

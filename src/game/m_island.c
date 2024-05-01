@@ -750,7 +750,6 @@ static void mISL_toHole(mActor_name_t* fg, u16* deposit, int bx, int bz) {
 }
 
 /* @nonmatching */
-#ifndef MUST_MATCH
 extern void mISL_agb_to_gc(Island_c* gc, Island_agb_c* agb) {
     int island_x_blocks[mISL_FG_BLOCK_X_NUM];
     int i;
@@ -783,8 +782,3 @@ extern void mISL_agb_to_gc(Island_c* gc, Island_agb_c* agb) {
         }
     }
 }
-#else
-extern asm void mISL_agb_to_gc(Island_c* gc, Island_agb_c* agb) {
-#include "asm/803b5948.s"
-}
-#endif
