@@ -1,8 +1,6 @@
 #ifndef TYPES_H
 #define TYPES_H
 
-//#include "../tools/ppcdis/include/ppcdis.h"
-
 #ifdef IS_REL
 //#pragma section const_type sconst_type ".rodata" ".rodata" data_mode=far_abs code_mode=pc_rel
 #endif
@@ -57,7 +55,7 @@ typedef u32 unknown;
 #ifndef ATTRIBUTE_ALIGN
 #if defined(__MWERKS__) || defined(__GNUC__)
 #define ATTRIBUTE_ALIGN(num) __attribute__((aligned(num)))
-#elif defined(_MSC_VER)
+#elif defined(_MSC_VER) || defined(__clang__)
 #define ATTRIBUTE_ALIGN(num)
 #else
 #error unknown compiler

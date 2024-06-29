@@ -47,9 +47,9 @@ typedef struct {
     Gfx* sel_gfx1;
 } mCL_win_data_c;
 
-#include "../src/ac_furniture_profile_data.c_inc" /* furniture quality */
-#include "../src/m_catalog_ovl_paper_data.c_inc"
-#include "../src/m_catalog_ovl_data.c_inc"
+#include "../src/actor/ac_furniture_profile_data.c_inc" /* furniture quality */
+#include "../src/game/m_catalog_ovl_paper_data.c_inc"
+#include "../src/game/m_catalog_ovl_data.c_inc"
 
 #define mCL_ITEM_INFO(list) \
     { (list), ARRAY_COUNT(list) }
@@ -527,8 +527,8 @@ static void mCL_move_Move(Submenu* submenu, mSM_MenuInfo_c* menu_info) {
 static void mCL_move_Play(Submenu* submenu, mSM_MenuInfo_c* menu_info) {
     mCL_Ovl_c* catalog_ovl = submenu->overlay->catalog_ovl;
 
-    if (menu_info->_2C == FALSE) {
-        menu_info->_2C = TRUE;
+    if (menu_info->open_flag == FALSE) {
+        menu_info->open_flag = TRUE;
         submenu->overlay->tag_ovl->chg_tag_func_proc(submenu, 14, 0, 0, 0.0f, 0.0f);
     } else if (catalog_ovl->page_timer != 0) {
         catalog_ovl->page_timer--;

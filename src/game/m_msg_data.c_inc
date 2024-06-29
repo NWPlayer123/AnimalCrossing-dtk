@@ -1,14 +1,6 @@
-static u8 con_kaiwa2_w1_tex[] ATTRIBUTE_ALIGN(32) = {
-  #include "assets/msg/con_kaiwa2_w1_tex.inc"
-};
-
-static u8 con_kaiwa2_w2_tex[] ATTRIBUTE_ALIGN(32) = {
-  #include "assets/msg/con_kaiwa2_w2_tex.inc"
-};
-
-static u8 con_kaiwa2_w3_tex[] ATTRIBUTE_ALIGN(32) = {
-  #include "assets/msg/con_kaiwa2_w3_tex.inc"
-};
+#include "assets/msg/con_kaiwa2_w1_tex.inc"
+#include "assets/msg/con_kaiwa2_w2_tex.inc"
+#include "assets/msg/con_kaiwa2_w3_tex.inc"
 
 static Vtx con_kaiwa2_v[] = {
   #include "assets/msg/con_kaiwa2_v.inc"
@@ -59,9 +51,7 @@ static Gfx con_kaiwa2_modelT[] = {
   gsSPEndDisplayList(),
 };
 
-static u8 con_namefuti_TXT[] ATTRIBUTE_ALIGN(32) = {
-  #include "assets/msg/con_namefuti_TXT.inc"
-};
+#include "assets/msg/con_namefuti_TXT.inc"
 
 static Vtx con_kaiwaname_v[] = {
   #include "assets/msg/con_kaiwaname_v.inc"

@@ -41,6 +41,7 @@ parser.add_argument(
     nargs="?",
 )
 parser.add_argument(
+    "-v",
     "--version",
     choices=VERSIONS,
     type=str.upper,
@@ -105,10 +106,16 @@ parser.add_argument(
     action="store_true",
     help="print verbose output",
 )
+parser.add_argument(
+    "--non-matching",
+    dest="non_matching",
+    action="store_true",
+    help="builds equivalent (but non-matching) or modded objects",
+)
 args = parser.parse_args()
 
 config = ProjectConfig()
-config.version = args.version
+config.version = str(args.version)
 version_num = VERSIONS.index(config.version)
 
 # Apply arguments
@@ -118,6 +125,7 @@ config.binutils_path = args.binutils
 config.compilers_path = args.compilers
 config.debug = args.debug
 config.generate_map = args.map
+config.non_matching = args.non_matching
 config.sjiswrap_path = args.sjiswrap
 if not is_windows():
     config.wrapper = args.wrapper
@@ -127,9 +135,9 @@ if args.no_asm:
 # Tool versions
 config.binutils_tag = "2.42-1"
 config.compilers_tag = "20231018"
-config.dtk_tag = "v0.7.6"
+config.dtk_tag = "v0.9.0"
 config.sjiswrap_tag = "v1.1.1"
-config.wibo_tag = "0.6.13"
+config.wibo_tag = "0.6.14"
 
 # Project
 config.config_path = Path("config") / config.version / "config.yml"
@@ -146,36 +154,33 @@ config.ldflags = [
     "-fp hardware",
     "-W off",
 ]
+# Use for any additional files that should cause a re-configure when modified
+config.reconfig_deps = []
 
 # Base flags, common to most GC/Wii games.
 # Generally leave untouched, with overrides added below.
 cflags_base = [
-    #define the platform
+    # Define the platform
     "-nodefaults",
     "-proc gekko",
     "-align powerpc",
     "-enum int",
-    
-    # for multibyte
+    # For Multibyte
     "-multibyte",
     "-char unsigned",
-    
-    #platform specific
+    # Platform specific
     "-fp hardware",
     "-Cpp_exceptions off",
     '-pragma "cats off"',
-    
-    #default compiler flags
-    #"-W all",
+    # Default compiler flags (turn off if needed)
+    # "-W all",
     "-O4,p",
-    #"-inline auto",
+    # "-inline auto",
     '-pragma "warn_notinlined off"',
-    
-    #helpful linking stuff
+    # Helpful linker flags
     "-maxerrors 1",
     "-nosyspath",
-    
-    #dtk-specific includes
+    # dtk-specific includes
     "-i include",
     f"-i build/{config.version}/include",
     f"-DVERSION={version_num}",
@@ -183,7 +188,7 @@ cflags_base = [
 
 # Debug flags
 if config.debug:
-    cflags_base.extend(["-sym on", "-D_DEBUG=1"])
+    cflags_base.extend(["-sym on", "-DDEBUG=1"])
 else:
     cflags_base.append("-DNDEBUG=1")
 
@@ -192,36 +197,35 @@ cflags_runtime = [
     *cflags_base,
     "-use_lmw_stmw on",
     "-str reuse,pool,readonly",
-    #"-gccinc",
+    "-gccinc",
     "-common off",
+    "-inline auto",
 ]
 
-# Game-specific flags
+# DOL flags
 cflags_static = [
     *cflags_base,
+    "-O4,s",
+    "-sdata 8",
+    "-sdata2 8",
+    "-inline on",
+    "-d _LANGUAGE_C",
+    "-d F3DEX_GBI_2",
+    "-d MUST_MATCH"
 ]
 
 # REL flags
 cflags_rel = [
     *cflags_base,
-
-    # Disable padding warnings
-    '-pragma "warn_padding off"',
-    "-inline on",
-    "-once",
-    "-use_lmw_stmw off",
     "-O4,s",
     "-sdata 0",
     "-sdata2 0",
-
-    # These are needed for the N64 SDK
+    # Needed for N64 SDK
     "-d _LANGUAGE_C",
     "-d F3DEX_GBI_2",
-
     # Project-specific stuff
     "-d MUST_MATCH",
-    #"-d IS_REL",
-    #"-d OPTIMIZED_SQRTF",
+    "-d IS_REL",
 ]
 
 config.linker_version = "GC/1.3.2r"
@@ -242,32 +246,62 @@ def DolphinLib(lib_name: str, objects: List[Object]) -> Dict[str, Any]:
 def Rel(lib_name: str, objects: List[Object]) -> Dict[str, Any]:
     return {
         "lib": lib_name,
-        "mw_version": "GC/1.3.2r",
+        "mw_version": "GC/1.3.2",
         "cflags": cflags_rel,
         "host": True,
         "objects": objects,
     }
 
 
-Matching = True
-NonMatching = False
+Matching = True  # Object matches and should be linked
+NonMatching = False  # Object does not match and should not be linked
+Equivalent = (
+    config.non_matching
+)  # Object should be linked when configured with --non-matching
 
 config.warn_missing_config = False
 config.warn_missing_source = False
 config.libs = [
     {
-        "lib": "Runtime.PPCEABI.H",
-        "mw_version": config.linker_version,
-        "cflags": cflags_runtime,
+        "lib": "foresta",
+        "mw_version": "GC/1.3.2r",
+        "cflags": cflags_rel,
         "host": False,
         "objects": [
-            Object(NonMatching, "Runtime.PPCEABI.H/global_destructor_chain.c"),
-            Object(NonMatching, "Runtime.PPCEABI.H/__init_cpp_exceptions.cpp"),
+            Object(Matching, "audio.c"),
+            Object(Matching, "bg_cherry_item.c"),
+            Object(Matching, "bg_item.c"),
+            Object(Matching, "bg_police_item.c"),
+            Object(Matching, "bg_post_item.c"),
+            Object(Matching, "bg_winter_item.c"),
+            Object(Matching, "bg_xmas_item.c"),
+            Object(Matching, "c_keyframe.c"),
+            Object(Matching, "ev_cherry_manager.c"),
+            Object(Matching, "evw_anime.c"),
+            Object(Matching, "executor.c"),
+            Object(Matching, "f_furniture.c"),
+            Object(Matching, "famicom_emu.c"),
+            Object(Matching, "first_game.c"),
+            Object(Matching, "game.c"),
+            Object(Matching, "gamealloc.c"),
+            Object(Matching, "gfxalloc.c"),
+            Object(Matching, "graph.c"),
+            Object(Matching, "irqmgr.c"),
+            Object(Matching, "lb_reki.c"),
+            Object(Matching, "lb_rtc.c"),
+            Object(Matching, "main.c"),
+            Object(Matching, "player_select.c"),
+            Object(Matching, "PreRender.c"),
+            Object(Matching, "save_menu.c"),
+            Object(Matching, "second_game.c"),
+            Object(Matching, "THA_GA.c"),
+            Object(Matching, "TwoHeadArena.c"),
+            Object(Matching, "zurumode.c"),
         ],
     },
     {
         "lib": "actor",
-        "mw_version": config.linker_version,
+        "mw_version": "GC/1.3.2r",
         "cflags": cflags_rel,
         "host": False,
         "objects": [
@@ -305,6 +339,15 @@ config.libs = [
             Object(Matching, "actor/ac_groundhog_control.c"),
             Object(Matching, "actor/ac_handOverItem.c"),
             Object(Matching, "actor/ac_haniwa.c"),
+            Object(Matching, "actor/ac_ins_amenbo.c"),
+            Object(Matching, "actor/ac_ins_batta.c"),
+            Object(Matching, "actor/ac_ins_chou.c"),
+            Object(Matching, "actor/ac_ins_dango.c"),
+            Object(Matching, "actor/ac_ins_goki.c"),
+            Object(Matching, "actor/ac_ins_hitodama.c"),
+            Object(Matching, "actor/ac_ins_ka.c"),
+            Object(Matching, "actor/ac_ins_kabuto.c"),
+            Object(Matching, "actor/ac_insect.c"),
             Object(Matching, "actor/ac_kago.c"),
             Object(Matching, "actor/ac_kamakura.c"),
             Object(Matching, "actor/ac_koinobori.c"),
@@ -364,7 +407,7 @@ config.libs = [
     },
     {
         "lib": "actor_tool",
-        "mw_version": config.linker_version,
+        "mw_version": "GC/1.3.2r",
         "cflags": cflags_rel,
         "host": False,
         "objects": [
@@ -397,8 +440,8 @@ config.libs = [
         ],
     },
     {
-        "lib": "effects",
-        "mw_version": config.linker_version,
+        "lib": "effect",
+        "mw_version": "GC/1.3.2r",
         "cflags": cflags_rel,
         "host": False,
         "objects": [
@@ -424,7 +467,6 @@ config.libs = [
             Object(NonMatching, "effect/ef_doyon.c"),
             Object(NonMatching, "effect/ef_dust.c"),
             Object(Matching, "effect/ef_effect_control.c"),
-            Object(NonMatching, "effect/ef_effect_lib.c"),
             Object(Matching, "effect/ef_flash.c"),
             Object(Matching, "effect/ef_footprint.c"),
             Object(NonMatching, "effect/ef_furo_yuge.c"),
@@ -433,7 +475,6 @@ config.libs = [
             Object(NonMatching, "effect/ef_ha.c"),
             Object(NonMatching, "effect/ef_halloween.c"),
             Object(NonMatching, "effect/ef_halloween_smoke.c"),
-            Object(NonMatching, "effect/ef_hanabira.c"),
             Object(NonMatching, "effect/ef_hanabi_botan1.c"),
             Object(NonMatching, "effect/ef_hanabi_botan2.c"),
             Object(NonMatching, "effect/ef_hanabi_dummy.c"),
@@ -441,6 +482,7 @@ config.libs = [
             Object(NonMatching, "effect/ef_hanabi_set.c"),
             Object(NonMatching, "effect/ef_hanabi_switch.c"),
             Object(NonMatching, "effect/ef_hanabi_yanagi.c"),
+            Object(NonMatching, "effect/ef_hanabira.c"),
             Object(NonMatching, "effect/ef_hanatiri.c"),
             Object(NonMatching, "effect/ef_hirameki_den.c"),
             Object(NonMatching, "effect/ef_hirameki_hikari.c"),
@@ -536,17 +578,8 @@ config.libs = [
         ],
     },
     {
-        "lib": "furniture",
-        "mw_version": config.linker_version,
-        "cflags": cflags_rel,
-        "host": False,
-        "objects": [
-            Object(Matching, "f_furniture.c"),
-        ],
-    },
-    {
         "lib": "game",
-        "mw_version": config.linker_version,
+        "mw_version": "GC/1.3.2r",
         "cflags": cflags_rel,
         "host": False,
         "objects": [
@@ -554,18 +587,18 @@ config.libs = [
             Object(Matching, "game/m_actor_dlftbls.c"),
             Object(Matching, "game/m_actor_shadow.c"),
             Object(Matching, "game/m_all_grow.c"),
-            Object(NonMatching, "game/m_all_grow_ovl.c"),
-            Object(NonMatching, "game/m_bank_ovl.c"),
+            Object(Matching, "game/m_all_grow_ovl.c"),
+            Object(Matching, "game/m_bank_ovl.c"),
             Object(Matching, "game/m_banti.c"),
             Object(Matching, "game/m_bg_item.c"),
             Object(Matching, "game/m_bg_tex.c"),
             Object(Matching, "game/m_bgm.c"),
-            Object(NonMatching, "game/m_birthday_ovl.c"),
+            Object(Matching, "game/m_birthday_ovl.c"),
             Object(NonMatching, "game/m_board_ovl.c"),
             Object(Matching, "game/m_calendar.c"),
-            Object(NonMatching, "game/m_camera2.c"),
+            Object(Matching, "game/m_camera2.c"),
             Object(NonMatching, "game/m_card.c"),
-            Object(NonMatching, "game/m_catalog_ovl.c"),
+            Object(Matching, "game/m_catalog_ovl.c"),
             Object(Matching, "game/m_choice.c"),
             Object(Matching, "game/m_clip.c"),
             Object(Matching, "game/m_cockroach.c"),
@@ -573,21 +606,21 @@ config.libs = [
             Object(Matching, "game/m_collision_obj.c"),
             Object(Matching, "game/m_common_data.c"),
             Object(Matching, "game/m_controller.c"),
-            Object(NonMatching, "game/m_cpak.c"),
+            Object(Matching, "game/m_cpak.c"),
             Object(Matching, "game/m_debug.c"),
             Object(Matching, "game/m_debug_display.c"),
             Object(Matching, "game/m_debug_hayakawa.c"),
             Object(Matching, "game/m_debug_mode.c"),
             Object(Matching, "game/m_demo.c"),
             Object(Matching, "game/m_eappli.c"),
-            Object(NonMatching, "game/m_editEndChk_ovl.c"),
-            Object(NonMatching, "game/m_editor_ovl.c"),
+            Object(Matching, "game/m_editEndChk_ovl.c"),
+            Object(Matching, "game/m_editor_ovl.c"),
             Object(NonMatching, "game/m_event.c"),
             Object(Matching, "game/m_fbdemo.c"),
             Object(Matching, "game/m_fbdemo_fade.c"),
             Object(Matching, "game/m_fbdemo_triforce.c"),
             Object(Matching, "game/m_fbdemo_wipe1.c"),
-            Object(NonMatching, "game/m_field_assessment.c"),
+            Object(Matching, "game/m_field_assessment.c"),
             Object(Matching, "game/m_field_info.c"),
             Object(Matching, "game/m_field_make.c"),
             Object(Matching, "game/m_fishrecord.c"),
@@ -595,84 +628,85 @@ config.libs = [
             Object(Matching, "game/m_font.c"),
             Object(Matching, "game/m_fuusen.c"),
             Object(Matching, "game/m_game_dlftbls.c"),
-            Object(NonMatching, "game/m_hand_ovl.c"),
+            Object(Matching, "game/m_hand_ovl.c"),
             Object(NonMatching, "game/m_handbill.c"),
-            Object(NonMatching, "game/m_haniwaPortrait_ovl.c"),
-            Object(NonMatching, "game/m_hboard_ovl.c"),
+            Object(Matching, "game/m_haniwaPortrait_ovl.c"),
+            Object(Matching, "game/m_hboard_ovl.c"),
             Object(Matching, "game/m_home.c"),
             Object(Matching, "game/m_house.c"),
             Object(Matching, "game/m_huusui_room.c"),
-            Object(NonMatching, "game/m_huusui_room_ovl.c"),
+            Object(Matching, "game/m_huusui_room_ovl.c"),
+            Object(Matching, "game/m_inventory_ovl.c"),
             Object(NonMatching, "game/m_island.c"),
-            Object(NonMatching, "game/m_item_name.c"),
-            Object(NonMatching, "game/m_kabu_manager.c"),
-            Object(NonMatching, "game/m_kankyo.c"),
+            Object(Matching, "game/m_item_name.c"),
+            Object(Matching, "game/m_kabu_manager.c"),
+            Object(Matching, "game/m_kankyo.c"),
             Object(Matching, "game/m_land.c"),
-            Object(NonMatching, "game/m_lib.c"),
-            Object(NonMatching, "game/m_lights.c"),
-            Object(NonMatching, "game/m_mail.c"),
-            Object(NonMatching, "game/m_mail_check.c"),
-            Object(NonMatching, "game/m_mail_check_ovl.c"),
-            Object(NonMatching, "game/m_mail_password_check.c"),
-            Object(NonMatching, "game/m_malloc.c"),
-            Object(NonMatching, "game/m_map_ovl.c"),
-            Object(NonMatching, "game/m_mark_room.c"),
-            Object(NonMatching, "game/m_mark_room_ovl.c"),
-            Object(NonMatching, "game/m_melody.c"),
-            Object(NonMatching, "game/m_msg.c"),
-            Object(NonMatching, "game/m_museum.c"),
-            Object(NonMatching, "game/m_museum_display.c"),
-            Object(NonMatching, "game/m_mushroom.c"),
+            Object(Matching, "game/m_lib.c"),
+            Object(Matching, "game/m_lights.c"),
+            Object(Matching, "game/m_mail.c"),
+            Object(Matching, "game/m_mail_check.c"),
+            Object(Matching, "game/m_mail_check_ovl.c"),
+            Object(Matching, "game/m_mail_password_check.c"),
+            Object(Matching, "game/m_malloc.c"),
+            Object(Matching, "game/m_map_ovl.c"),
+            Object(Matching, "game/m_mark_room.c"),
+            Object(Matching, "game/m_mark_room_ovl.c"),
+            Object(Matching, "game/m_melody.c"),
+            Object(Matching, "game/m_msg.c"),
+            Object(Matching, "game/m_museum.c"),
+            Object(Matching, "game/m_museum_display.c"),
+            Object(Matching, "game/m_mushroom.c"),
             Object(NonMatching, "game/m_music_ovl.c"),
-            Object(NonMatching, "game/m_name_table.c"),
-            Object(NonMatching, "game/m_needlework.c"),
+            Object(Matching, "game/m_name_table.c"),
+            Object(Matching, "game/m_needlework.c"),
             Object(NonMatching, "game/m_notice.c"),
-            Object(NonMatching, "game/m_notice_ovl.c"),
-            Object(NonMatching, "game/m_npc.c"),
-            Object(NonMatching, "game/m_npc_schedule.c"),
-            Object(NonMatching, "game/m_npc_walk.c"),
-            Object(NonMatching, "game/m_olib.c"),
-            Object(NonMatching, "game/m_passwordChk_ovl.c"),
-            Object(NonMatching, "game/m_passwordMake_ovl.c"),
-            Object(NonMatching, "game/m_pause.c"),
-            Object(NonMatching, "game/m_play.c"),
-            Object(NonMatching, "game/m_player_call.c"),
-            Object(NonMatching, "game/m_police_box.c"),
-            Object(NonMatching, "game/m_post_office.c"),
-            Object(NonMatching, "game/m_prenmi.c"),
-            Object(NonMatching, "game/m_private.c"),
-            Object(NonMatching, "game/m_quest.c"),
-            Object(NonMatching, "game/m_random_field.c"),
-            Object(NonMatching, "game/m_random_field_ovl.c"),
-            Object(NonMatching, "game/m_rcp.c"),
-            Object(NonMatching, "game/m_repay_ovl.c"),
-            Object(NonMatching, "game/m_roll_lib.c"),
-            Object(NonMatching, "game/m_room_type.c"),
-            Object(NonMatching, "game/m_scene.c"),
-            Object(NonMatching, "game/m_scene_ftr.c"),
-            Object(NonMatching, "game/m_select.c"),
+            Object(Matching, "game/m_notice_ovl.c"),
+            Object(Matching, "game/m_npc.c"),
+            Object(Matching, "game/m_npc_schedule.c"),
+            Object(Matching, "game/m_npc_walk.c"),
+            Object(Matching, "game/m_olib.c"),
+            Object(Matching, "game/m_passwordChk_ovl.c"),
+            Object(Matching, "game/m_passwordMake_ovl.c"),
+            Object(Matching, "game/m_pause.c"),
+            Object(Matching, "game/m_play.c"),
+            Object(Matching, "game/m_player_call.c"),
+            Object(Matching, "game/m_police_box.c"),
+            Object(Matching, "game/m_post_office.c"),
+            Object(Matching, "game/m_prenmi.c"),
+            Object(Matching, "game/m_private.c"),
+            Object(Matching, "game/m_quest.c"),
+            Object(Matching, "game/m_random_field.c"),
+            Object(Matching, "game/m_random_field_ovl.c"),
+            Object(Matching, "game/m_rcp.c"),
+            Object(Matching, "game/m_repay_ovl.c"),
+            Object(Matching, "game/m_roll_lib.c"),
+            Object(Matching, "game/m_room_type.c"),
+            Object(Matching, "game/m_scene.c"),
+            Object(Matching, "game/m_scene_ftr.c"),
+            Object(Matching, "game/m_select.c"),
             Object(NonMatching, "game/m_shop.c"),
-            Object(NonMatching, "game/m_skin_matrix.c"),
-            Object(NonMatching, "game/m_snowman.c"),
-            Object(NonMatching, "game/m_soncho.c"),
-            Object(NonMatching, "game/m_start_data_init.c"),
-            Object(NonMatching, "game/m_string.c"),
-            Object(NonMatching, "game/m_submenu.c"),
-            Object(NonMatching, "game/m_submenu_ovl.c"),
-            Object(NonMatching, "game/m_time.c"),
-            Object(NonMatching, "game/m_timeIn_ovl.c"),
+            Object(Matching, "game/m_skin_matrix.c"),
+            Object(Matching, "game/m_snowman.c"),
+            Object(Matching, "game/m_soncho.c"),
+            Object(Matching, "game/m_start_data_init.c"),
+            Object(Matching, "game/m_string.c"),
+            Object(Matching, "game/m_submenu.c"),
+            Object(Matching, "game/m_submenu_ovl.c"),
+            Object(Matching, "game/m_time.c"),
+            Object(Matching, "game/m_timeIn_ovl.c"),
             Object(NonMatching, "game/m_titledemo.c"),
-            Object(NonMatching, "game/m_trademark.c"),
+            Object(Matching, "game/m_trademark.c"),
             Object(NonMatching, "game/m_train_control.c"),
-            Object(NonMatching, "game/m_vibctl.c"),
-            Object(NonMatching, "game/m_view.c"),
-            Object(NonMatching, "game/m_warning_ovl.c"),
+            Object(Matching, "game/m_vibctl.c"),
+            Object(Matching, "game/m_view.c"),
+            Object(Matching, "game/m_warning_ovl.c"),
             Object(NonMatching, "game/m_watch_my_step.c"),
         ],
     },
     {
         "lib": "system",
-        "mw_version": config.linker_version,
+        "mw_version": "GC/1.3.2r",
         "cflags": cflags_rel,
         "host": False,
         "objects": [
@@ -687,8 +721,97 @@ config.libs = [
             Object(Matching, "system/sys_vimgr.c"),
         ],
     },
+    {
+        "lib": "dvderr",
+        "mw_version": config.linker_version,
+        "cflags": [
+            *cflags_base,
+            "-O4,s",
+            "-sdata 0",
+            "-sdata2 0",
+            "-inline on",
+            "-d _LANGUAGE_C",
+            "-d F3DEX_GBI_2",
+            "-d MUST_MATCH",
+            "-pool off",
+        ],
+        "host": False,
+        "src_dir": "src/static",
+        "objects": [
+            Object(Matching, "dvderr.c"),
+        ],
+    },
+    {
+        "lib": "Runtime.PPCEABI.H",
+        "mw_version": config.linker_version,
+        "cflags": cflags_runtime,
+        "host": False,
+        "objects": [
+            Object(NonMatching, "Runtime.PPCEABI.H/global_destructor_chain.c"),
+            Object(NonMatching, "Runtime.PPCEABI.H/__init_cpp_exceptions.cpp"),
+        ],
+    },
+    {
+        "lib": "Famicom",
+        "mw_version": "GC/1.3.2r",
+        "cflags": [
+            *cflags_base,
+            "-O4,s",
+            "-sdata 0",
+            "-sdata2 0",
+            "-d _LANGUAGE_C_PLUS_PLUS",
+            "-d MUST_MATCH",
+        ],
+        "host": False,
+        "src_dir": "src/static",
+        "objects": [
+            Object(NonMatching, "Famicom/famicom.cpp"), #Almost perfect, needs C++ work
+            Object(Matching, "Famicom/famicom_nesinfo.cpp"),
+        ],
+    },
+    {
+        "lib": "libc64",
+        "mw_version": config.linker_version,
+        "cflags": cflags_static,
+        "host": False,
+        "src_dir": "src/static",
+        "objects": [
+            Object(NonMatching, "libc64/__osMalloc.c"),
+            Object(Matching, "libc64/aprintf.c"),
+            Object(Matching, "libc64/malloc.c"),
+            Object(Matching, "libc64/math64.c"),
+            Object(Matching, "libc64/qrand.c"),
+            Object(Matching, "libc64/sleep.c"),
+            Object(Matching, "libc64/sprintf.c"),
+        ],
+    },
+    {
+        "lib": "libforest",
+        "mw_version": config.linker_version,
+        "cflags": cflags_static,
+        "host": False,
+        "src_dir": "src/static",
+        "objects": [
+            #emu64 is problematic, needs better settings, and dtk doesn't recognize the .cc extension
+            Object(Matching, "libforest/fault.c"),
+            Object(Matching, "libforest/osreport.c"),
+            Object(Matching, "libforest/ReconfigBATs.c"),
+        ],
+    },
+    {
+        "lib": "libu64",
+        "mw_version": config.linker_version,
+        "cflags": cflags_static,
+        "host": False,
+        "src_dir": "src/static",
+        "objects": [
+            Object(Matching, "libu64/debug.c"),
+            Object(Matching, "libu64/gfxprint.c"),
+            Object(Matching, "libu64/gfxprint_data.c"),
+            Object(Matching, "libu64/pad.c"),
+        ],
+    },
 ]
-
 
 
 # Define our custom asset processing scripts
@@ -696,18 +819,19 @@ config.custom_build_rules = [
     {
         "name": "convert_pal16",
         "command": "$python tools/converters/pal16dis.py $in $out",
-        "description": "CONVERT $palette"
+        "description": "CONVERT $palette",
     },
     {
         "name": "convert_vtx",
         "command": "$python tools/converters/vtxdis.py $in $out",
-        "description": "CONVERT $vtxdata"
+        "description": "CONVERT $vtxdata",
     },
 ]
 config.custom_build_steps = []
 
 # Grab the specific GameID so we can format our strings properly
 version = VERSIONS[version_num]
+
 
 # This generates the build steps needed for preprocessing
 def emit_build_rule(asset):
@@ -717,33 +841,38 @@ def emit_build_rule(asset):
             binary_path = asset["binary"]
             include_path = binary_path.replace(".bin", ".inc")
 
-            config.custom_build_steps.append({
-                "type": "pre-compile",
-                "rule": "convert_pal16",
-                "inputs": f"build/{version}/bin/{binary_path}",
-                "outputs": f"build/{version}/include/{include_path}",
-                "variables": {
-                    "palette": f"{symbol}",
-                },
-            })
+            config.custom_build_steps.append(
+                {
+                    "type": "pre-compile",
+                    "rule": "convert_pal16",
+                    "inputs": f"build/{version}/bin/{binary_path}",
+                    "outputs": f"build/{version}/include/{include_path}",
+                    "variables": {
+                        "palette": f"{symbol}",
+                    },
+                }
+            )
 
         case "vtx":
             symbol = asset["symbol"]
             binary_path = asset["binary"]
             include_path = binary_path.replace(".bin", ".inc")
 
-            config.custom_build_steps.append({
-                "type": "pre-compile",
-                "rule": "convert_vtx",
-                "inputs": f"build/{version}/bin/{binary_path}",
-                "outputs": f"build/{version}/include/{include_path}",
-                "variables": {
-                    "vtxdata": f"{symbol}",
-                },
-            })
+            config.custom_build_steps.append(
+                {
+                    "type": "pre-compile",
+                    "rule": "convert_vtx",
+                    "inputs": f"build/{version}/bin/{binary_path}",
+                    "outputs": f"build/{version}/include/{include_path}",
+                    "variables": {
+                        "vtxdata": f"{symbol}",
+                    },
+                }
+            )
 
         case _:
             print("Unknown asset type: " + asset["type"])
+
 
 # Parse the config and create the build rules for all our assets
 yaml_data = yaml.safe_load(open(f"config/{version}/config.yml"))
@@ -758,8 +887,6 @@ for module in yaml_data.get("modules", []):
             emit_build_rule(asset)
 
 
-
-# configure script options
 if args.mode == "configure":
     # Write build.ninja and objdiff.json
     generate_build(config)

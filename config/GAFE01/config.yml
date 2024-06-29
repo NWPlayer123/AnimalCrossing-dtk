@@ -4,23 +4,133 @@ hash: 2ae8f56e7791d37e165bd5900921f2269f9515bf
 name: static
 symbols: config/GAFE01/symbols.txt
 splits: config/GAFE01/splits.txt
-mw_comment_version: 10 #1.3.2
+#map: orig/GAFE01/files/static.map
+common_start: 0x8020D78C
+mw_comment_version: 10
+write_asm: false
 symbols_known: true
 fill_gaps: false
 
 force_active: ["_savegpr_14", "_restgpr_14"] # Needed to fix references to __save_gpr/__restore_gpr
 
-# Generated with:
-# map: orig/GAFE01/files/static.map
-# common_start: 0x8020D78C
+extract:
+#dvderr.c
+- symbol: ctl_att_w1_tex
+  header: assets/ctl_att_w1_tex.inc
+  
+- symbol: ctl_att_w2_tex
+  header: assets/ctl_att_w2_tex.inc
+  
+- symbol: ctl_att_w3_tex
+  header: assets/ctl_att_w3_tex.inc
+  
+- symbol: ctl_att_w4_tex
+  header: assets/ctl_att_w4_tex.inc
+  
+- symbol: ctl_att_w5_tex
+  header: assets/ctl_att_w5_tex.inc
+  
+- symbol: ctl_att_w6_tex
+  header: assets/ctl_att_w6_tex.inc
+
+- symbol: dvd_keikoku_moji1_1_tex
+  header: assets/dvd_keikoku_moji1_1_tex.inc
+  
+- symbol: dvd_keikoku_moji1_2_tex
+  header: assets/dvd_keikoku_moji1_2_tex.inc
+  
+- symbol: dvd_keikoku_moji1_3_tex
+  header: assets/dvd_keikoku_moji1_3_tex.inc
+  
+- symbol: dvd_keikoku_moji1_4_tex
+  header: assets/dvd_keikoku_moji1_4_tex.inc
+  
+- symbol: dvd_keikoku_moji2_tex
+  header: assets/dvd_keikoku_moji2_tex.inc
+  
+- symbol: dvd_keikoku_moji2_2_tex
+  header: assets/dvd_keikoku_moji2_2_tex.inc
+  
+- symbol: dvd_keikoku_moji2_3_tex
+  header: assets/dvd_keikoku_moji2_3_tex.inc
+  
+- symbol: dvd_keikoku_moji3_1_tex
+  header: assets/dvd_keikoku_moji3_1_tex.inc
+  
+- symbol: dvd_keikoku_moji3_2_tex
+  header: assets/dvd_keikoku_moji3_2_tex.inc
+  
+- symbol: dvd_keikoku_moji3_3_tex
+  header: assets/dvd_keikoku_moji3_3_tex.inc
+  
+- symbol: dvd_keikoku_moji4_tex
+  header: assets/dvd_keikoku_moji4_tex.inc
+  
+- symbol: dvd_keikoku_moji5_tex
+  header: assets/dvd_keikoku_moji5_tex.inc
+
+- symbol: dvd_keikoku_moji6_2_tex
+  header: assets/dvd_keikoku_moji6_2_tex.inc
+
+- symbol: dvd_keikoku_moji6_3_tex
+  header: assets/dvd_keikoku_moji6_3_tex.inc
+
+- symbol: dvd_keikoku_moji6_tex
+  header: assets/dvd_keikoku_moji6_tex.inc
+
+- symbol: dvd_keikoku_moji6_1_tex
+  header: assets/dvd_keikoku_moji6_1_tex.inc
+
+- symbol: dvd_keikoku_moji6_new1_tex
+  header: assets/dvd_keikoku_moji6_new1_tex.inc
+
+- symbol: dvd_keikoku_moji6_new2_tex
+  header: assets/dvd_keikoku_moji6_new2_tex.inc
+
+- symbol: dvd_keikoku_moji7_tex
+  header: assets/dvd_keikoku_moji7_tex.inc
+
+- symbol: dvd_keikoku_moji8_tex
+  header: assets/dvd_keikoku_moji8_tex.inc
+
+- symbol: dvd_keikoku_moji10_tex
+  header: assets/dvd_keikoku_moji10_tex.inc
+
+- symbol: dvd_keikoku_moji11_tex
+  header: assets/dvd_keikoku_moji11_tex.inc
+
+- symbol: dvd_keikoku_moji12_tex
+  header: assets/dvd_keikoku_moji12_tex.inc
+
+- symbol: dvd_keikoku_moji9_tex
+  header: assets/dvd_keikoku_moji9_tex.inc
+
+- symbol: dvd_keikoku1_v
+  binary: assets/dvd_keikoku1_v.bin
+  type: vtx
+
+- symbol: dvd_keikoku2_v
+  binary: assets/dvd_keikoku2_v.bin
+  type: vtx
+
+- symbol: dvd_keikoku3_v
+  binary: assets/dvd_keikoku3_v.bin
+  type: vtx
+
+- symbol: dvd_keikoku4_v
+  binary: assets/dvd_keikoku4_v.bin
+  type: vtx
+
+- symbol: dvd_keikoku5_v
+  binary: assets/dvd_keikoku5_v.bin
+  type: vtx
 
 modules:
 - object: orig/GAFE01/files/foresta.rel
   hash: c59d278ad8542bb05d6cbb632f60a0db05bef203
   symbols: config/GAFE01/foresta/symbols.txt
   splits: config/GAFE01/foresta/splits.txt
-  # map: orig/GAFE01/files/foresta.map
-
+  #map: orig/GAFE01/files/foresta.map
   extract:
   #ac_boat_demo
   - symbol: aBTD_island_prg
@@ -262,8 +372,23 @@ modules:
   - symbol: g_wipe1_txt
     header: assets/g_wipe1_txt.inc
 
-#TODO: duplicated symbols
-#extract:
-#gam_win1
-#- symbol: att_win_waku3_tex
-#  header: assets/bootdata/att_win1_waku3_tex.inc
+  #m_msg
+  - symbol: con_kaiwa2_w1_tex
+    header: assets/msg/con_kaiwa2_w1_tex.inc
+
+  - symbol: con_kaiwa2_w2_tex
+    header: assets/msg/con_kaiwa2_w2_tex.inc
+
+  - symbol: con_kaiwa2_w3_tex
+    header: assets/msg/con_kaiwa2_w3_tex.inc
+
+  - symbol: con_kaiwa2_v
+    binary: assets/msg/con_kaiwa2_v.bin
+    type: vtx
+
+  - symbol: con_namefuti_TXT
+    header: assets/msg/con_namefuti_TXT.inc
+
+  - symbol: con_kaiwaname_v
+    binary: assets/msg/con_kaiwaname_v.bin
+    type: vtx

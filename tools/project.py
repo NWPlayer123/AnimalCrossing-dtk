@@ -71,6 +71,7 @@ class ProjectConfig:
         self.sjiswrap_path: Optional[Path] = None  # If None, download
 
         # Project config
+        self.non_matching: bool = False
         self.build_rels: bool = True  # Build REL files
         self.check_sha_path: Optional[Path] = None  # Path to version.sha1
         self.config_path: Optional[Path] = None  # Path to config.yml
@@ -89,6 +90,9 @@ class ProjectConfig:
         ] = None  # Object name for generating empty RELs
         self.shift_jis = (
             True  # Convert source files from UTF-8 to Shift JIS automatically
+        )
+        self.reconfig_deps: Optional[List[Path]] = (
+            None  # Additional re-configuration dependency files
         )
         self.custom_build_rules: Optional[List[Dict[str, Any]]] = None # Custom ninja build rules
         self.custom_build_steps: Optional[List[Dict[str, Any]]] = None # Custom build steps
@@ -592,6 +596,7 @@ def generate_build_ninja(
                 )
             n.newline()
 
+    link_outputs: List[Path] = []
     if build_config:
         link_steps: List[LinkStep] = []
         used_compiler_versions: Set[str] = set()
@@ -817,6 +822,7 @@ def generate_build_ninja(
         ###
         for step in link_steps:
             step.write(n)
+            link_outputs.append(step.output())
         n.newline()
 
         # Add all build steps needed after linking and before GC/Wii native format generation
@@ -966,7 +972,7 @@ def generate_build_ninja(
             outputs=ok_path,
             rule="check",
             inputs=config.check_sha_path,
-            implicit=[dtk, *map(lambda step: step.output(), link_steps)],
+            implicit=[dtk, *link_outputs],
         )
         n.newline()
 
@@ -1066,6 +1072,7 @@ def generate_build_ninja(
             configure_script,
             python_lib,
             python_lib_dir / "ninja_syntax.py",
+            *(config.reconfig_deps or [])
         ],
     )
     n.newline()
@@ -1075,7 +1082,10 @@ def generate_build_ninja(
     ###
     n.comment("Default rule")
     if build_config:
-        n.default(progress_path)
+        if config.non_matching:
+            n.default(link_outputs)
+        else:
+            n.default(progress_path)
     else:
         n.default(build_config_path)
 
@@ -1125,20 +1135,20 @@ def generate_objdiff_config(
         "GC/2.5": "mwcc_247_105",
         "GC/2.6": "mwcc_247_107",
         "GC/2.7": "mwcc_247_108",
-        "GC/3.0": "mwcc_41_60831",
-        # "GC/3.0a3": "mwcc_41_51213",
+        "GC/3.0a3": "mwcc_41_51213",
         "GC/3.0a3.2": "mwcc_41_60126",
-        # "GC/3.0a3.3": "mwcc_41_60209",
-        # "GC/3.0a3.4": "mwcc_42_60308",
-        # "GC/3.0a5": "mwcc_42_60422",
+        "GC/3.0a3.3": "mwcc_41_60209",
+        "GC/3.0a3.4": "mwcc_42_60308",
+        "GC/3.0a5": "mwcc_42_60422",
         "GC/3.0a5.2": "mwcc_41_60831",
+        "GC/3.0": "mwcc_41_60831",
+        "Wii/1.0RC1": "mwcc_42_140",
         "Wii/0x4201_127": "mwcc_42_142",
-        # "Wii/1.0": "mwcc_43_145",
-        # "Wii/1.0RC1": "mwcc_42_140",
         "Wii/1.0a": "mwcc_42_142",
+        "Wii/1.0": "mwcc_43_145",
         "Wii/1.1": "mwcc_43_151",
         "Wii/1.3": "mwcc_43_172",
-        # "Wii/1.5": "mwcc_43_188",
+        "Wii/1.5": "mwcc_43_188",
         "Wii/1.6": "mwcc_43_202",
         "Wii/1.7": "mwcc_43_213",
     }
@@ -1330,7 +1340,7 @@ def calculate_progress(config: ProjectConfig) -> None:
         print(f"    Data: {unit.data_progress} / {unit.data_total} bytes")
         if config.progress_use_fancy:
             print(
-                "\nYou have {} out of {} {} and collected {} out of {} {}.".format(
+                "\nYou have {} out of {} {} and {} out of {} {}.".format(
                     math.floor(code_frac * unit.code_fancy_frac),
                     unit.code_fancy_frac,
                     unit.code_fancy_item,

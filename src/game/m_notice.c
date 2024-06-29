@@ -240,7 +240,7 @@ extern void mNtc_notice_write(mNtc_board_post_c* new_post) {
 
     /* delete first post and move all others down one */
     for (i = 0; i < mNtc_BOARD_POST_COUNT - 1; i++) {
-      mem_copy(post, post + 1, sizeof(mNtc_board_post_c));
+      mem_copy((u8*)post, (u8*)(post + 1), sizeof(mNtc_board_post_c));
       post++;
     }
 

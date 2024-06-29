@@ -67,6 +67,8 @@ ACTOR_PROFILE Animal_Logo_Profile = {
   NULL
 };
 
+
+// TODO: once proper building is possible, fix this
 #include "../src/actor/ac_animal_logo_misc.c"
 
 static void aAL_setupAction(ANIMAL_LOGO_ACTOR* actor, GAME* game, int action);

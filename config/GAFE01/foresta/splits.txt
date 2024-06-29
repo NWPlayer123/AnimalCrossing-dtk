@@ -6,7 +6,7 @@ Sections:
 	.data       type:data align:32
 	.bss        type:bss align:32
 
-executor.o:
+executor.c:
 	.text       start:0x00000000 end:0x00000150
 	.data       start:0x00000000 end:0x00000080
 	.bss        start:0x00000000 end:0x00000008
@@ -14,11 +14,11 @@ executor.o:
 system/sys_vimgr.c:
 	.text       start:0x00000150 end:0x00000170
 
-c_keyframe.o:
+c_keyframe.c:
 	.text       start:0x00000170 end:0x000029E4
 	.rodata     start:0x00000000 end:0x00000048
 
-evw_anime.o:
+evw_anime.c:
 	.text       start:0x000029E4 end:0x00003428
 	.rodata     start:0x00000048 end:0x00000060
 	.data       start:0x00000080 end:0x00000098
@@ -539,50 +539,50 @@ game/m_vibctl.c:
 	.rodata     start:0x000022F0 end:0x00002468
 	.bss        start:0x000988D8 end:0x000989F8
 
-PreRender.o:
+PreRender.c:
 	.text       start:0x00093E48 end:0x00094838
 	.rodata     start:0x00002468 end:0x00002488
 
-THA_GA.o:
+THA_GA.c:
 	.text       start:0x00094838 end:0x00094898
 
-TwoHeadArena.o:
+TwoHeadArena.c:
 	.text       start:0x00094898 end:0x000949C0
 
-game.o:
+game.c:
 	.text       start:0x000949C0 end:0x000950C8
 	.rodata     start:0x00002488 end:0x00002498
 	.data       start:0x000117A0 end:0x000117A8
 	.bss        start:0x000989F8 end:0x00098A28
 
-gamealloc.o:
+gamealloc.c:
 	.text       start:0x000950C8 end:0x00095208
 
-gfxalloc.o:
+gfxalloc.c:
 	.text       start:0x00095208 end:0x00095270
 
-graph.o:
+graph.c:
 	.text       start:0x00095270 end:0x00095C20
 	.data       start:0x000117A8 end:0x000117B0
 	.bss        start:0x00098A28 end:0x00098DA0
 
-irqmgr.o:
+irqmgr.c:
 	.text       start:0x00095C20 end:0x000961D8
 	.data       start:0x000117B0 end:0x000117D0
 	.bss        start:0x00098DA0 end:0x0009A4F0
 
-lb_rtc.o:
+lb_rtc.c:
 	.text       start:0x000961D8 end:0x00097284
 	.rodata     start:0x00002498 end:0x00002540
 	.data       start:0x000117D0 end:0x000117D8
 	.bss        start:0x0009A4F0 end:0x0009A500
 
-lb_reki.o:
+lb_reki.c:
 	.text       start:0x00097284 end:0x00097840
 	.rodata     start:0x00002540 end:0x00002560
 	.data       start:0x000117D8 end:0x00011C10
 
-main.o:
+main.c:
 	.text       start:0x00097840 end:0x00097A4C
 	.data       start:0x00011C10 end:0x00011C38
 	.bss        start:0x0009A500 end:0x0009A878
@@ -617,7 +617,7 @@ system/sys_stacks.c:
 	.text       start:0x0009E890 end:0x0009E890
 	.bss        start:0x0009AEB0 end:0x0009EEB0
 
-zurumode.o:
+zurumode.c:
 	.text       start:0x0009E890 end:0x0009ED60
 	.data       start:0x000124F0 end:0x00012530
 	.bss        start:0x0009EEB0 end:0x0009EEC0
@@ -1182,7 +1182,7 @@ ac_uki.o:
 	.rodata     start:0x00004DB0 end:0x00004E78
 	.data       start:0x00042358 end:0x00042768
 
-bg_cherry_item.o:
+bg_cherry_item.c:
 	.text       start:0x0013F96C end:0x0013FBCC
 	.text       start:0x0013FBCC end:0x0013FF40
 	.text       start:0x0013FF40 end:0x00146BD8
@@ -1192,7 +1192,7 @@ bg_cherry_item.o:
 	.data       start:0x00042768 end:0x000456E0
 	.bss        start:0x000A2CE8 end:0x000A3178
 
-bg_item.o:
+bg_item.c:
 	.text       start:0x00146D0C end:0x00146F50
 	.text       start:0x00146F50 end:0x001472C4
 	.text       start:0x001472C4 end:0x0014DF5C
@@ -1202,7 +1202,7 @@ bg_item.o:
 	.data       start:0x000456E0 end:0x00048638
 	.bss        start:0x000A3178 end:0x000A3608
 
-bg_police_item.o:
+bg_police_item.c:
 	.text       start:0x0014E090 end:0x0014E090
 	.text       start:0x0014E090 end:0x0014E444
 	.text       start:0x0014E444 end:0x0014E5E8
@@ -1210,12 +1210,12 @@ bg_police_item.o:
 	.data       start:0x00048638 end:0x00048860
 	.bss        start:0x000A3608 end:0x000A3628
 
-bg_post_item.o:
+bg_post_item.c:
 	.text       start:0x0014E5E8 end:0x0014E754
 	.rodata     start:0x00004FC0 end:0x00004FC8
 	.data       start:0x00048860 end:0x00048898
 
-bg_winter_item.o:
+bg_winter_item.c:
 	.text       start:0x0014E754 end:0x0014EA48
 	.text       start:0x0014EA48 end:0x0014EDBC
 	.text       start:0x0014EDBC end:0x00155A54
@@ -1225,7 +1225,7 @@ bg_winter_item.o:
 	.data       start:0x00048898 end:0x0004B810
 	.bss        start:0x000A3628 end:0x000A3AB8
 
-bg_xmas_item.o:
+bg_xmas_item.c:
 	.text       start:0x00155B88 end:0x00155E60
 	.text       start:0x00155E60 end:0x001561D4
 	.text       start:0x001561D4 end:0x0015CE6C
@@ -1432,7 +1432,7 @@ game/m_random_field_ovl.c:
 	.data       start:0x00051418 end:0x00051B70
 	.bss        start:0x000A6910 end:0x000A6C20
 
-ev_cherry_manager.o:
+ev_cherry_manager.c:
 	.text       start:0x0019B128 end:0x0019B15C
 	.data       start:0x00051B70 end:0x00051B98
 
@@ -2112,7 +2112,7 @@ ac_ev_turkey.o:
 	.rodata     start:0x00008B40 end:0x00008BA0
 	.data       start:0x000756D0 end:0x00075780
 
-ac_insect.o:
+actor/ac_insect.c:
 	.text       start:0x0022409C end:0x00224140
 	.text       start:0x00224140 end:0x00224A9C
 	.text       start:0x00224A9C end:0x00225538
@@ -2121,32 +2121,32 @@ ac_insect.o:
 	.data       start:0x00075780 end:0x00075D00
 	.bss        start:0x000C0B08 end:0x000C5F78
 
-ac_ins_amenbo.o:
+actor/ac_ins_amenbo.c:
 	.text       start:0x002259CC end:0x002260E0
 	.rodata     start:0x00008C10 end:0x00008C68
 	.data       start:0x00075D00 end:0x00075D30
 
-ac_ins_batta.o:
+actor/ac_ins_batta.c:
 	.text       start:0x002260E0 end:0x00227460
 	.rodata     start:0x00008C68 end:0x00008D00
 	.data       start:0x00075D30 end:0x00075DB8
 
-ac_ins_dango.o:
+actor/ac_ins_dango.c:
 	.text       start:0x00227460 end:0x00228150
 	.rodata     start:0x00008D00 end:0x00008D48
 	.data       start:0x00075DB8 end:0x00075E08
 
-ac_ins_chou.o:
+actor/ac_ins_chou.c:
 	.text       start:0x00228150 end:0x00229784
 	.rodata     start:0x00008D48 end:0x00008DC8
 	.data       start:0x00075E08 end:0x00075EC8
 
-ac_ins_goki.o:
+actor/ac_ins_goki.c:
 	.text       start:0x00229784 end:0x0022A640
 	.rodata     start:0x00008DC8 end:0x00008E30
 	.data       start:0x00075EC8 end:0x00075F60
 
-ac_ins_hitodama.o:
+actor/ac_ins_hitodama.c:
 	.text       start:0x0022A640 end:0x0022B0AC
 	.rodata     start:0x00008E30 end:0x00008EA8
 	.data       start:0x00075F60 end:0x00075FB0
@@ -2156,12 +2156,12 @@ ac_ins_hotaru.o:
 	.rodata     start:0x00008EA8 end:0x00008F48
 	.data       start:0x00075FB0 end:0x00076050
 
-ac_ins_ka.o:
+actor/ac_ins_ka.c:
 	.text       start:0x0022BECC end:0x0022C744
 	.rodata     start:0x00008F48 end:0x00008F90
 	.data       start:0x00076050 end:0x00076080
 
-ac_ins_kabuto.o:
+actor/ac_ins_kabuto.c:
 	.text       start:0x0022C744 end:0x0022CF4C
 	.rodata     start:0x00008F90 end:0x00008FC8
 	.data       start:0x00076080 end:0x000760E0
@@ -2631,7 +2631,7 @@ game/m_hboard_ovl.c:
 	.rodata     start:0x0000A220 end:0x0000A258
 	.data       start:0x0007FEB0 end:0x0007FEC8
 
-m_inventory_ovl.o:
+game/m_inventory_ovl.c:
 	.text       start:0x002710F0 end:0x002710F0
 	.text       start:0x002710F0 end:0x00274B54
 	.rodata     start:0x0000A258 end:0x0000A368
@@ -3371,7 +3371,7 @@ game/m_select.c:
 	.rodata     start:0x0000BF50 end:0x0000BF58
 	.data       start:0x00086808 end:0x000871D0
 
-first_game.o:
+first_game.c:
 	.text       start:0x002B9A00 end:0x002B9AA4
 
 system/sys_romcheck.c:
@@ -3383,7 +3383,7 @@ game/m_play.c:
 	.data       start:0x000871D0 end:0x00087458
 	.bss        start:0x00107060 end:0x002332A0
 
-second_game.o:
+second_game.c:
 	.text       start:0x002BB388 end:0x002BB5A0
 	.bss        start:0x002332A0 end:0x002332A8
 
@@ -3392,17 +3392,17 @@ game/m_trademark.c:
 	.rodata     start:0x0000BF60 end:0x0000BF68
 	.data       start:0x00087458 end:0x00087618
 
-player_select.o:
+player_select.c:
 	.text       start:0x002BBDA0 end:0x002BC7B4
 	.rodata     start:0x0000BF68 end:0x0000BF98
 	.data       start:0x00087618 end:0x00087680
 
-save_menu.o:
+save_menu.c:
 	.text       start:0x002BC7B4 end:0x002BD0F4
 	.rodata     start:0x0000BF98 end:0x0000C0B8
 	.data       start:0x00087680 end:0x00087698
 
-famicom_emu.o:
+famicom_emu.c:
 	.text       start:0x002BD0F4 end:0x002BD654
 	.data       start:0x00087698 end:0x000877B0
 	.bss        start:0x002332A8 end:0x002332B8
@@ -3411,7 +3411,7 @@ game/m_prenmi.c:
 	.text       start:0x002BD654 end:0x002BD95C
 	.rodata     start:0x0000C0B8 end:0x0000C0E0
 
-audio.o:
+audio.c:
 	.text       start:0x002BD95C end:0x002BE6C4
 	.rodata     start:0x0000C0E0 end:0x0000C100
 	.data       start:0x000877B0 end:0x00087840

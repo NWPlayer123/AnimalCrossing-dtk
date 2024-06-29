@@ -9,37 +9,16 @@
 #include "dolphin/gx.h"
 
 /* imports */
-static u8 dvd_keikoku_moji1_1_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/dvd_keikoku_moji1_1_tex.inc"
-};
-static u8 dvd_keikoku_moji1_2_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/dvd_keikoku_moji1_2_tex.inc"
-};
-static u8 dvd_keikoku_moji1_3_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/dvd_keikoku_moji1_3_tex.inc"
-};
-static u8 dvd_keikoku_moji1_4_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/dvd_keikoku_moji1_4_tex.inc"
-};
-
-static u8 ctl_att_w1_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/ctl_att_w1_tex.inc"
-};
-static u8 ctl_att_w2_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/ctl_att_w2_tex.inc"
-};
-static u8 ctl_att_w3_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/ctl_att_w3_tex.inc"
-};
-static u8 ctl_att_w4_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/ctl_att_w4_tex.inc"
-};
-static u8 ctl_att_w5_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/ctl_att_w5_tex.inc"
-};
-static u8 ctl_att_w6_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/ctl_att_w6_tex.inc"
-};
 
 static Vtx dvd_keikoku1_v[] = {
 #include "assets/dvd_keikoku1_v.inc"
@@ -175,15 +154,9 @@ static Gfx keikoku1_dvd_att_winT_model[] = {
   gsSPEndDisplayList(),
 };
 
-static u8 dvd_keikoku_moji2_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/dvd_keikoku_moji2_tex.inc"
-};
-static u8 dvd_keikoku_moji2_2_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/dvd_keikoku_moji2_2_tex.inc"
-};
-static u8 dvd_keikoku_moji2_3_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/dvd_keikoku_moji2_3_tex.inc"
-};
 
 static Vtx dvd_keikoku2_v[] = {
 #include "assets/dvd_keikoku2_v.inc"
@@ -302,18 +275,10 @@ static Gfx keikoku2_dvd_att_winT_model[] = {
   gsSPEndDisplayList(),
 };
 
-static u8 dvd_keikoku_moji4_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/dvd_keikoku_moji4_tex.inc"
-};
-static u8 dvd_keikoku_moji3_1_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/dvd_keikoku_moji3_1_tex.inc"
-};
-static u8 dvd_keikoku_moji3_2_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/dvd_keikoku_moji3_2_tex.inc"
-};
-static u8 dvd_keikoku_moji3_3_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/dvd_keikoku_moji3_3_tex.inc"
-};
 
 static Vtx dvd_keikoku3_v[] = {
 #include "assets/dvd_keikoku3_v.inc"
@@ -451,27 +416,13 @@ static Gfx keikoku3_dvd_att_winT_model[] = {
   gsSPEndDisplayList(),
 };
 
-static u8 dvd_keikoku_moji5_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/dvd_keikoku_moji5_tex.inc"
-};
-static u8 dvd_keikoku_moji6_2_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/dvd_keikoku_moji6_2_tex.inc"
-};
-static u8 dvd_keikoku_moji6_3_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/dvd_keikoku_moji6_3_tex.inc"
-};
-static u8 dvd_keikoku_moji6_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/dvd_keikoku_moji6_tex.inc"
-};
-static u8 dvd_keikoku_moji6_1_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/dvd_keikoku_moji6_1_tex.inc"
-};
-static u8 dvd_keikoku_moji6_new1_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/dvd_keikoku_moji6_new1_tex.inc"
-};
-static u8 dvd_keikoku_moji6_new2_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/dvd_keikoku_moji6_new2_tex.inc"
-};
 
 static Vtx dvd_keikoku4_v[] = {
 #include "assets/dvd_keikoku4_v.inc"
@@ -618,24 +569,12 @@ static Gfx keikoku4_dvd_att_winT_model[] = {
   gsSPEndDisplayList(),
 };
 
-static u8 dvd_keikoku_moji7_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/dvd_keikoku_moji7_tex.inc"
-};
-static u8 dvd_keikoku_moji8_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/dvd_keikoku_moji8_tex.inc"
-};
-static u8 dvd_keikoku_moji10_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/dvd_keikoku_moji10_tex.inc"
-};
-static u8 dvd_keikoku_moji11_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/dvd_keikoku_moji11_tex.inc"
-};
-static u8 dvd_keikoku_moji12_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/dvd_keikoku_moji12_tex.inc"
-};
-static u8 dvd_keikoku_moji9_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/dvd_keikoku_moji9_tex.inc"
-};
 
 static Vtx dvd_keikoku5_v[] = {
 #include "assets/dvd_keikoku5_v.inc"
@@ -848,7 +787,7 @@ static void dvderr_draw_NoDisk() {
   gSPDisplayList(this->gfx_p++, keikoku2_dvd_att_moji_model);
 }
 
-static void dvderr_draw_WrongDisk() {
+void dvderr_draw_WrongDisk() {
   gSPDisplayList(this->gfx_p++, keikoku3_dvd_att_winT_model);
   gSPDisplayList(this->gfx_p++, keikoku3_dvd_att_moji_model);
 }

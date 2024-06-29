@@ -35,6 +35,12 @@ typedef enum audio_sound_effects {
     NA_SE_LIGHT_ON,
     NA_SE_LIGHT_OFF,
 
+    NA_SE_25 = 0x25,
+    NA_SE_26 = 0x26,
+
+    NA_SE_MENU_PAUSE = 0x30,
+    NA_SE_31 = 0x31,
+
     NA_SE_DRAWER_SHUT = 0x3A,
 
     NA_SE_ITEM_GET = 0x40,
@@ -57,6 +63,7 @@ typedef enum audio_sound_effects {
     NA_SE_60 = 0x60,
 
     NA_SE_GASAGOSO = 0x69,
+    NA_SE_6A = 0x6A,
 
     NA_SE_TOILE_CHAIR_STANDUP = 0x72,
 
@@ -67,8 +74,14 @@ typedef enum audio_sound_effects {
     NA_SE_STONECOIN_ROLL = 0x7D,
     NA_SE_STONECOIN_DRAG = 0x7E,
 
+    NA_SE_A8 = 0xA8,
+
+    NA_SE_CF = 0xCF,
+
     NA_SE_ROD_STROKE = 0x109,
     NA_SE_ROD_BACK,
+
+    NA_SE_EAT = 0x113,
 
     NA_SE_WEAR = 0x11C,
 

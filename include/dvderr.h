@@ -37,6 +37,7 @@ typedef struct dvderr_work_s {
 } dvderr_work;
 
 extern int dvderr_draw();
+extern void dvderr_draw_WrongDisk();
 extern void dvderr_init();
 
 #ifdef __cplusplus

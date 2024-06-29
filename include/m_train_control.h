@@ -2,6 +2,7 @@
 #define M_TRAIN_CONTROL_H
 
 #include "types.h"
+#include "game_h.h"
 #include "m_play_h.h"
 
 #ifdef __cplusplus

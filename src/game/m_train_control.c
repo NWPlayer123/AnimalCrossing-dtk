@@ -71,7 +71,7 @@ static void mTRC_KishaStatusLevel(GAME_PLAY* play, xyz_t pos, f32 speed) {
   distance2 = sqrtf(x * x + y * y + z * z);
   unsigned_angle2 = (int)angle2;
 
-  sAdos_KishaStatusLevel(speed, Common_GetPointer(train_coming_flag), unsigned_angle, distance, Common_GetPointer(train_exists_flag), unsigned_angle2, distance2);
+  sAdos_KishaStatusLevel(speed, (u32)Common_GetPointer(train_coming_flag), unsigned_angle, distance, (u32)Common_GetPointer(train_exists_flag), unsigned_angle2, distance2);
 }
 
 static void mTRC_KishaStatusTrg(u8 state) {
@@ -455,7 +455,7 @@ static void mTRC_trainSet(GAME_PLAY* play) {
       train_actor = Actor_info_fgName_search(&play->actor_info, TRAIN0, ACTOR_PART_ITEM);
       if (train_actor == NULL) {
         /* spawn train actor since it doesn't exist */
-        train_actor = (*Common_Get(clip.structure_clip)->setup_actor_proc)(play, TRAIN0, -1, x, 740.0f);
+        train_actor = (ACTOR*)(*Common_Get(clip.structure_clip)->setup_actor_proc)((GAME*)play, TRAIN0, -1, x, 740.0f);
 
         /* for whatever reason, train actor didn't spawn, so exit */
         if (train_actor == NULL) {
@@ -473,7 +473,7 @@ static void mTRC_trainSet(GAME_PLAY* play) {
       x -= 250.0f;
       caboose_actor = Actor_info_fgName_search(&play->actor_info, TRAIN1, ACTOR_PART_ITEM);
       if (caboose_actor == NULL) {
-        caboose_actor = (*Common_Get(clip.structure_clip)->setup_actor_proc)(play, TRAIN1, -1, x, 740.0f);
+        caboose_actor = (ACTOR*)(*Common_Get(clip.structure_clip)->setup_actor_proc)((GAME*)play, TRAIN1, -1, x, 740.0f);
         if (caboose_actor == NULL) {
           Actor_delete(train_actor);
           return;

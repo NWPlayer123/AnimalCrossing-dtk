@@ -1,16 +1,16 @@
 Sections:
-	.init       type:code
-	extab       type:rodata
-	extabindex  type:rodata
-	.text       type:code
-	.ctors      type:rodata
-	.dtors      type:rodata
-	.rodata     type:rodata
-	.data       type:data
-	.bss        type:bss
-	.sdata      type:data
-	.sbss       type:bss
-	.sdata2     type:rodata
+	.init       type:code align:4
+	extab       type:rodata align:32
+	extabindex  type:rodata align:32
+	.text       type:code align:32
+	.ctors      type:rodata align:16
+	.dtors      type:rodata align:16
+	.rodata     type:rodata align:32
+	.data       type:data align:4
+	.bss        type:bss align:16
+	.sdata      type:data align:32
+	.sbss       type:bss align:16
+	.sdata2     type:rodata align:4
 
 os.a/__start.c:
 	.init       start:0x80003100 end:0x80003354
@@ -37,7 +37,7 @@ initial_menu.o:
 	.data       start:0x800B0608 end:0x800B0A60
 	.bss        start:0x800E2640 end:0x800E2790
 
-dvderr.o:
+dvderr.c:
 	.text       start:0x80007E58 end:0x800083F8
 	.rodata     start:0x800A97F8 end:0x800A9838
 	.data       start:0x800B0A60 end:0x800B9140
@@ -395,7 +395,7 @@ Famicom.a/ks_nes_draw.cpp:
 	.rodata     start:0x800AA948 end:0x800AA9A8
 	.data       start:0x800D8690 end:0x800D8778
 
-Famicom.a/famicom.cpp:
+Famicom/famicom.cpp:
 	.text       start:0x80041614 end:0x80046770
 	.text       start:0x80046770 end:0x80046840
 	.text       start:0x80046840 end:0x80046888
@@ -405,7 +405,7 @@ Famicom.a/famicom.cpp:
 	.data       start:0x800D8778 end:0x800D99A0
 	.bss        start:0x801EF540 end:0x801F6BD8
 
-Famicom.a/famicom_nesinfo.cpp:
+Famicom/famicom_nesinfo.cpp:
 	.text       start:0x800468FC end:0x80047E40
 	.rodata     start:0x800AAA30 end:0x800AAB60
 	.data       start:0x800D99A0 end:0x800DA9C8
@@ -450,63 +450,63 @@ libforest.a/emu64.c:
 	.sbss       start:0x802185B8 end:0x80218618
 	.sdata2     start:0x80219060 end:0x80219118
 
-libforest.a/osreport.c:
+libforest/osreport.c:
 	.text       start:0x8005A654 end:0x8005A92C
 	.data       start:0x800DC6D8 end:0x800DC738
 	.bss        start:0x80206F08 end:0x80206F20
 	.sbss       start:0x80218618 end:0x80218628
 
-libforest.a/fault.c:
+libforest/fault.c:
 	.text       start:0x8005A92C end:0x8005ADAC
 	.data       start:0x800DC738 end:0x800DC7C8
 	.bss        start:0x80206F20 end:0x80206F30
 	.sbss       start:0x80218628 end:0x80218630
 
-libforest.a/ReconfigBATs.c:
+libforest/ReconfigBATs.c:
 	.text       start:0x8005ADAC end:0x8005AED4
 
-libu64.a/debug.c:
+libu64/debug.c:
 	.text       start:0x8005AED4 end:0x8005AF30
 	.data       start:0x800DC7C8 end:0x800DC7F0
 
-libu64.a/gfxprint.c:
+libu64/gfxprint.c:
 	.text       start:0x8005AF30 end:0x8005B9A8
 	.data       start:0x800DC7F0 end:0x800DC810
 	.sbss       start:0x80218630 end:0x80218638
 
-libu64.a/gfxprint_data.c:
+libu64/gfxprint_data.c:
 	.text       start:0x8005B9A8 end:0x8005B9A8
 	.data       start:0x800DC810 end:0x800DD090
 
-libu64.a/pad.c:
+libu64/pad.c:
 	.text       start:0x8005B9A8 end:0x8005BA2C
 
-libc64.a/__osMalloc.c:
+libc64/__osMalloc.c:
 	.text       start:0x8005BA2C end:0x8005CBDC
 	.data       start:0x800DD090 end:0x800DD360
 	.sdata      start:0x80217DD0 end:0x80217DE8
 	.sbss       start:0x80218638 end:0x80218640
 
-libc64.a/aprintf.c:
+libc64/aprintf.c:
 	.text       start:0x8005CBDC end:0x8005CC14
 
-libc64.a/math64.c:
+libc64/math64.c:
 	.text       start:0x8005CC14 end:0x8005CCCC
 	.sdata2     start:0x80219118 end:0x80219130
 
-libc64.a/qrand.c:
+libc64/qrand.c:
 	.text       start:0x8005CCCC end:0x8005CD64
 	.sdata      start:0x80217DE8 end:0x80217DF0
 	.sbss       start:0x80218640 end:0x80218648
 	.sdata2     start:0x80219130 end:0x80219138
 
-libc64.a/sleep.c:
+libc64/sleep.c:
 	.text       start:0x8005CD64 end:0x8005CE18
 
-libc64.a/sprintf.c:
+libc64/sprintf.c:
 	.text       start:0x8005CE18 end:0x8005CF08
 
-libc64.a/malloc.c:
+libc64/malloc.c:
 	.text       start:0x8005CF08 end:0x8005D01C
 	.bss        start:0x80206F30 end:0x80206F60
 

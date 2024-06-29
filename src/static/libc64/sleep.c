@@ -1,4 +1,5 @@
-#include "sleep.h"
+#include "libc64/sleep.h"
+#include "libultra/os_timer.h"
 #include "dolphin/os/OSAlarm.h"
 #include "dolphin/os/OSTimer.h"
 #include "dolphin/os/OSThread.h"
@@ -14,5 +15,5 @@ void csleep(OSTime c){
 }
 
 void msleep(u32 ms){
-    csleep((OS_MSEC_TO_TICKS((OSTime)ms)));
+    csleep(OSMillisecondsToTicks((u64)ms));
 }

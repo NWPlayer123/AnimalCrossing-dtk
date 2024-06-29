@@ -19,53 +19,28 @@ static mMsg_Window_c mMsg_window;
 typedef int (*mMsg_CONTROL_CODE_PROC)(mMsg_Window_c*, int*);
 typedef void (*mMsg_MAIN_PROC)(mMsg_Window_c*, GAME*);
 
-/* HACK - assetrip only sees top-level C file includes */
-#ifdef MUST_MATCH
-#ifndef __INTELLISENSE__
-/* Force assetrip to detect these assets. They're used in a .c_inc file. */
-FORCESTRIP static u8 __unused_msg0[] = {
-#include "assets/msg/con_kaiwa2_w1_tex.inc"
-};
-FORCESTRIP static u8 __unused_msg1[] = {
-#include "assets/msg/con_kaiwa2_w2_tex.inc"
-};
-FORCESTRIP static u8 __unused_msg2[] = {
-#include "assets/msg/con_kaiwa2_w3_tex.inc"
-};
-FORCESTRIP static Vtx __unused_msg3[] = {
-#include "assets/msg/con_kaiwa2_v.inc"
-};
-FORCESTRIP static u8 __unused_msg4[] = {
-#include "assets/msg/con_namefuti_TXT.inc"
-};
-FORCESTRIP static Vtx __unused_msg5[] = {
-#include "assets/msg/con_kaiwaname_v.inc"
-};
-#endif
-#endif
-
 static void mMsg_MainSetup_Window(mMsg_Window_c* msg_p, GAME* game);
 static int mMsg_end_to_disappear(mMsg_Window_c* msg_p);
 
-#include "../src/m_msg_ctrl.c_inc"
+#include "../src/game/m_msg_ctrl.c_inc"
 
 static void mMsg_sound_MessageSpeedForce(f32 timer);
 static void mMsg_sound_MessageStatus(u8 status);
 
-#include "../src/m_msg_main.c_inc"
-#include "../src/m_msg_sound.c_inc"
-#include "../src/m_msg_hide.c_inc"
-#include "../src/m_msg_appear.c_inc"
-#include "../src/m_msg_normal.c_inc"
-#include "../src/m_msg_cursol.c_inc"
-#include "../src/m_msg_disappear.c_inc"
-#include "../src/m_msg_appear_wait.c_inc"
-#include "../src/m_msg_wait.c_inc"
-#include "../src/m_msg_disappear_wait.c_inc"
+#include "../src/game/m_msg_main.c_inc"
+#include "../src/game/m_msg_sound.c_inc"
+#include "../src/game/m_msg_hide.c_inc"
+#include "../src/game/m_msg_appear.c_inc"
+#include "../src/game/m_msg_normal.c_inc"
+#include "../src/game/m_msg_cursol.c_inc"
+#include "../src/game/m_msg_disappear.c_inc"
+#include "../src/game/m_msg_appear_wait.c_inc"
+#include "../src/game/m_msg_wait.c_inc"
+#include "../src/game/m_msg_disappear_wait.c_inc"
 
-#include "../src/m_msg_data.c_inc"
-#include "../src/m_msg_draw_window.c_inc"
-#include "../src/m_msg_draw_font.c_inc"
+#include "../src/game/m_msg_data.c_inc"
+#include "../src/game/m_msg_draw_window.c_inc"
+#include "../src/game/m_msg_draw_font.c_inc"
 
 static void mMsg_MainSetup_Window(mMsg_Window_c* msg_p, GAME* game) {
     static mMsg_MAIN_PROC proc[mMsg_INDEX_NUM] = {

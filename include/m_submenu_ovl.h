@@ -18,7 +18,7 @@
 #include "m_board_ovl_h.h"
 #include "m_diary_ovl_h.h"
 #include "m_address_ovl_h.h"
-#include "m_editEndChk_h.h"
+#include "m_editEndChk_ovl_h.h"
 #include "m_haniwaPortrait_ovl_h.h"
 #include "m_timeIn_ovl_h.h"
 #include "m_repay_ovl_h.h"
@@ -28,6 +28,7 @@
 #include "m_catalog_ovl_h.h"
 #include "m_hand_ovl_h.h"
 #include "m_inventory_ovl_h.h"
+#include "m_player.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -43,14 +44,39 @@ enum {
     mSM_OVL_PROC_NUM
 };
 
-// TODO: fill this out
+#define mSM_OVL_FLAG_NONE (0)
+#define mSM_OVL_FLAG_0 (1 << 0)
+#define mSM_OVL_FLAG_USE_ITEM (1 << 1)
+#define mSM_OVL_FLAG_USE_TAG (1 << 2)
+#define mSM_OVL_FLAG_USE_HAND (1 << 3)
+#define mSM_OVL_FLAG_USE_HANIWA_PORTRAIT (1 << 4)
+
+typedef void (*mSM_OVL_CT_PROC)(Submenu*);
+typedef void (*mSM_OVL_DT_PROC)(Submenu*);
+typedef void (*mSM_OVL_SET_PROC)(Submenu*);
+
+typedef struct submenu_ovl_dlftbl_s {
+    int _00;
+    int _04;
+    u8* seg_start;
+    u8* seg_end;
+    mSM_OVL_CT_PROC ct_proc;
+    mSM_OVL_DT_PROC dt_proc;
+    mSM_OVL_SET_PROC set_proc;
+    int in_ram_flag;
+} mSM_Ovl_dlftbl_c;
+
 typedef struct submenu_segment_s {
     int _00;
-    s16 _04;
-    s16 _06;
-    s16 _08;
-    s16 _0A;
-    u8 _0C[0x54 - 0x0C];
+    s16 player_main_anime_idx;
+    s16 player_item_anime_idx;
+    s16 change_player_main_anime_idx;
+    s16 player_anime_timer;
+    s16 player_umbrella_bank_idx;
+    s16 umbrella_ids[2];
+    s8 player_part_table[mPlayer_JOINT_NUM + 1];
+    int dlftbl_loaded_num;
+    mSM_Ovl_dlftbl_c* dlftbl_loaded_tbl[8];
 } mSM_Segment_c;
 
 typedef struct submenu_menu_info_s {
@@ -67,11 +93,11 @@ typedef struct submenu_menu_info_s {
     f32 speed[2];
 
     char* _28;
-    int _2C;
+    int open_flag;
 
     int next_proc_status;
     s16 move_drt;
-    u16 _36;
+    s16 move_flag;
 
     int data0;
     int data1;
@@ -181,7 +207,7 @@ struct submenu_overlay_s {
 
 extern void mSM_menu_ovl_init(Submenu* submenu);
 extern void mSM_draw_original(Submenu* submenu, GRAPH* graph, f32 pos_x, f32 pos_y, f32 scale, mActor_name_t item,
-                              int shadow_flag);
+                              int color_flag);
 
 #ifdef __cplusplus
 }

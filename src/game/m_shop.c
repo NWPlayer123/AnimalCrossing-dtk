@@ -2717,15 +2717,6 @@ extern void mSP_SelectRandomItemToAGB() {
     }
   }
 }
-#else
-const xyz_t lbl_806432b4 = {0.0f, 0.0f, 0.0f};
-REL_SYMBOL_AT(lbl_806432b4, 0x806432b4)
-
-#include "orderfloats/806432c0_806432c8.inc"
-
-extern asm void mSP_SelectRandomItemToAGB() {
-  #include "asm/803ebb44.s"
-}
 #endif
 
 extern const char* mSP_ShopStatus2String(int status) {
@@ -2758,4 +2749,4 @@ extern mActor_name_t mSP_GetRandomStationToyItemNo() {
   return mRmTp_FtrIdx2FtrItemNo(0x42A + RANDOM(15), mRmTp_DIRECT_SOUTH);
 }
 
-#include "../src/m_item_debug.c"
+#include "../src/game/m_item_debug.c"
