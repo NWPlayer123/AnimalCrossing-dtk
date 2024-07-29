@@ -32,8 +32,8 @@ void aEMJ_actor_ct(ACTOR* actor, GAME* game) {
         majin->npc_class.schedule.schedule_proc = aEMJ_schedule_proc;
         Common_Get(clip.npc_clip)->ct_proc(actor, game, &ct_data);
         majin->npc_class.head.lock_flag = 1;
-        majin->npc_class.talk_info.default_turn_animation = 0x4E;
-        majin->npc_class.talk_info.default_animation = 0x4E;
+        majin->npc_class.talk_info.default_turn_animation = aNPC_ANIM_WAIT_R1;
+        majin->npc_class.talk_info.default_animation = aNPC_ANIM_WAIT_R1;
         majin->npc_class.talk_info.turn = 2;
     }
 }
@@ -48,7 +48,7 @@ void aEMJ_actor_dt(ACTOR* actor, GAME* game) {
         Common_Get(clip.groundhog_control_clip)->groundhog_npc_actor = NULL;
     }
     Common_Get(clip.npc_clip)->dt_proc(actor, game);
-    Common_Get(clip.effect_clip)->effect_kill_proc(0x5D, 0xFFFF);
+    Common_Get(clip.effect_clip)->effect_kill_proc(eEC_EFFECT_RESET_HOLE, RSV_NO);
 }
 
 void aEMJ_actor_init(ACTOR* actor, GAME* game) {
@@ -56,7 +56,7 @@ void aEMJ_actor_init(ACTOR* actor, GAME* game) {
 }
 
 void aEMJ_set_animation(ACTOR* actor, int idx) {
-    static s16 animeSeqNo[] = { 79, 78, 80 };
+    static s16 animeSeqNo[] = { aNPC_ANIM_APPEAR1, aNPC_ANIM_WAIT_R1, aNPC_ANIM_GO_UG1 };
 
     Common_Get(clip.npc_clip)->animation_init_proc(actor, animeSeqNo[idx], 0);
 }

@@ -280,7 +280,7 @@ static void aTUMB_actor_draw(ACTOR* actor, GAME* game) {
         { e_umb31_model, kasa_umb31_model }, { e_umb32_model, kasa_umb32_model }, { e_umb_w_model, kasa_umb_w_model },
         { e_umb_w_model, kasa_umb_w_model }, { e_umb_w_model, kasa_umb_w_model }, { e_umb_w_model, kasa_umb_w_model },
         { e_umb_w_model, kasa_umb_w_model }, { e_umb_w_model, kasa_umb_w_model }, { e_umb_w_model, kasa_umb_w_model },
-        { e_umb_w_model, kasa_umb_w_model }
+        { e_umb_w_model, kasa_umb_w_model },
     };
 
     UMBRELLA_ACTOR* umbrella;
@@ -324,8 +324,8 @@ static void aTUMB_actor_draw(ACTOR* actor, GAME* game) {
 
     gSPMatrix(gfx++, _Matrix_to_Mtx_new(graph), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
 
-    if (tool_name >= TOOL_UMBRELLA32) {
-        umbrella_name = tool_name - TOOL_UMBRELLA32;
+    if (tool_name >= TOOL_ORG_UMBRELLA0) {
+        umbrella_name = tool_name - TOOL_ORG_UMBRELLA0;
         if (parent->part == ACTOR_PART_PLAYER) {
             umbrella_name = (umbrella_name & 7);
             gSPSegment(gfx++, G_MWO_SEGMENT_8, mNW_PaletteIdx2Palette(Player_Palette_Get(umbrella_name)));

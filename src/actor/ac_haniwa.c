@@ -46,22 +46,22 @@ static StatusData_c AcHaniwaStatusData = { 0, 20, 30, 0, 254 };
 static void aHNW_actor_ct(ACTOR* actor, GAME* game) {
     HANIWA_ACTOR* haniwa = (HANIWA_ACTOR*)actor;
     ClObjPipe_c* pipe;
-    cKF_SkeletonInfo_R_c* keyframe = &haniwa->keyframe;
+    cKF_SkeletonInfo_R_c* keyframe = &haniwa->common_actor_class.anime.keyframe;
     GAME_PLAY* play = (GAME_PLAY*)game;
 
     cKF_SkeletonInfo_R_ct(keyframe, &cKF_bs_r_hnw, NULL, haniwa->keyframe_work_area, haniwa->keyframe_morph_area);
 
-    pipe = &haniwa->col_pipe;
+    pipe = &haniwa->common_actor_class.col_pipe;
     ClObjPipe_ct(game, pipe);
     ClObjPipe_set5(game, pipe, actor, &AcHaniwaCoInfoData);
-    CollisionCheck_Status_set3(&haniwa->actor_class.status_data, &AcHaniwaStatusData);
+    CollisionCheck_Status_set3(&haniwa->common_actor_class.actor_class.status_data, &AcHaniwaStatusData);
 
     {
         Object_Bank_c* bank = &play->object_exchange.banks[actor->data_bank_id];
         haniwa->bank_ram_start = bank->ram_start;
     }
 
-    haniwa->animation_state = 2;
+    haniwa->common_actor_class.anime.anime_no = 2;
     haniwa->house_idx = actor->npc_id - ACTOR_PROP_HANIWA0;
     actor->talk_distance = 43.0f;
 }
@@ -74,8 +74,8 @@ static void aHNW_actor_dt(ACTOR* actor, GAME* game) {
         mBGMPsComp_delete_ps_demo(0x41, 0x168);
     }
 
-    cKF_SkeletonInfo_R_dt(&haniwa->keyframe);
-    ClObjPipe_dt(game, &haniwa->col_pipe);
+    cKF_SkeletonInfo_R_dt(&haniwa->common_actor_class.anime.keyframe);
+    ClObjPipe_dt(game, &haniwa->common_actor_class.col_pipe);
 }
 
 #include "../src/actor/ac_haniwa_move.c_inc"
@@ -87,7 +87,7 @@ static void aHNW_actor_draw(ACTOR* actor, GAME* game) {
     };
 
     HANIWA_ACTOR* haniwa = (HANIWA_ACTOR*)actor;
-    cKF_SkeletonInfo_R_c* keyframe = &haniwa->keyframe;
+    cKF_SkeletonInfo_R_c* keyframe = &haniwa->common_actor_class.anime.keyframe;
     GRAPH* g = game->graph;
     Mtx* m;
 

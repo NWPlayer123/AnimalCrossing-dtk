@@ -2,6 +2,8 @@
 #define _DOLPHIN_OS
 
 #include "types.h"
+#include "dolphin/os/OSAlloc.h"
+#include "dolphin/os/OSCache.h"
 #include "dolphin/os/OSContext.h"
 #include "dolphin/os/OSInterrupt.h"
 #include "dolphin/os/OSMessage.h"

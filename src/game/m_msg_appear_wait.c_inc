@@ -27,7 +27,7 @@ static void mMsg_Main_Appear_wait(mMsg_Window_c* msg_p, GAME* game) {
   mMsg_MainSetup_Window(msg_p, game);
 }
 
-static void mMsg_MainSetup_Appear_Wait(mMsg_Window_c* msg_p, GAME* game) {
+static void mMsg_MainSetup_Appear_wait(mMsg_Window_c* msg_p, GAME* game) {
   mMsg_Request_MainAppearWait_Data_c* request_data = &msg_p->request_data.request_main_appear_wait;
   mMsg_MainAppearWait_Data_c* main_data = &msg_p->main_data.main_appear_wait;
 

@@ -228,7 +228,7 @@ extern void sAdo_SetRhythmInfo(TempoBeat_c* rhythm) {
     Na_SetRhythmInfo(rhythm);
 }
 
-extern int sAdo_InstCountGet() {
+extern s8 sAdo_InstCountGet() {
 
     return Na_InstCountGet();
 }
@@ -306,9 +306,8 @@ extern void sAdos_GetKappaCounter(void* p) {
     Na_GetKappaCounter(p);
 }
 
-extern void sAdos_GetStaffRollInfo(void* p) {
-
-    Na_GetStaffRollInfo(p);
+extern void sAdos_GetStaffRollInfo(StaffRollInfo_c* info) {
+    Na_GetStaffRollInfo(info);
 }
 
 extern void sAdos_TTKK_ARM(u8 mode) {

@@ -22,7 +22,7 @@ typedef struct {
     void* addr;
     Gloadblock loadblock;
     Gloadtile loadtile;
-    Gsetimg_new setimg;
+    Gsetimg2 setimg2;
 } tmem_t;
 
 typedef struct {

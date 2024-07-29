@@ -261,7 +261,7 @@ extern void player_select_init(GAME* game) {
     player_select->land_exist = FALSE;
 
     if (mFRm_CheckSaveData() == TRUE) {
-        Private_c* private_p = Save_Get(private);
+        Private_c* private_p = Save_Get(private_data);
         for (i = 0; i < PLAYER_NUM; i++) {
             u8* name = player_select->player_names[i];
 

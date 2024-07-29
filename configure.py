@@ -138,7 +138,7 @@ if args.no_asm:
 # Tool versions
 config.binutils_tag = "2.42-1"
 config.compilers_tag = "20231018"
-config.dtk_tag = "v0.9.0"
+config.dtk_tag = "v0.9.2"
 config.sjiswrap_tag = "v1.1.1"
 config.wibo_tag = "0.6.11"
 
@@ -293,6 +293,7 @@ config.libs = [
             Object(Matching, "lb_reki.c"),
             Object(Matching, "lb_rtc.c"),
             Object(Matching, "main.c"),
+            Object(Matching, "padmgr.c"),
             Object(Matching, "player_select.c"),
             Object(Matching, "PreRender.c"),
             Object(Matching, "save_menu.c"),
@@ -351,6 +352,7 @@ config.libs = [
             Object(Matching, "actor/ac_ins_ka.c"),
             Object(Matching, "actor/ac_ins_kabuto.c"),
             Object(Matching, "actor/ac_insect.c"),
+            Object(Matching, "actor/ac_intro_demo.c"),
             Object(Matching, "actor/ac_kago.c"),
             Object(Matching, "actor/ac_kamakura.c"),
             Object(Matching, "actor/ac_koinobori.c"),
@@ -369,6 +371,10 @@ config.libs = [
             Object(Matching, "actor/ac_needlework_shop.c"),
             Object(Matching, "actor/ac_npc_curator.c"),
             Object(Matching, "actor/ac_npc_engineer.c"),
+            Object(Matching, "actor/ac_npc_guide.c"),
+            Object(Matching, "actor/ac_npc_guide2.c"),
+            Object(Matching, "actor/ac_npc_rcn_guide.c"),
+            Object(Matching, "actor/ac_npc_rcn_guide2.c"),
             Object(Matching, "actor/ac_npc_rtc.c"),
             Object(Matching, "actor/ac_npc_sendo.c"),
             Object(Matching, "actor/ac_police_box.c"),
@@ -387,6 +393,7 @@ config.libs = [
             Object(Matching, "actor/ac_set_ovl_gyoei.c"),
             Object(Matching, "actor/ac_set_ovl_insect.c"),
             Object(Matching, "actor/ac_shop.c"),
+            Object(Matching, "actor/ac_shop_design.c"),
             Object(Matching, "actor/ac_shrine.c"),
             Object(Matching, "actor/ac_structure.c"),
             Object(Matching, "actor/ac_tama.c"),
@@ -640,7 +647,7 @@ config.libs = [
             Object(Matching, "game/m_huusui_room.c"),
             Object(Matching, "game/m_huusui_room_ovl.c"),
             Object(Matching, "game/m_inventory_ovl.c"),
-            Object(NonMatching, "game/m_island.c"),
+            Object(Matching, "game/m_island.c"),
             Object(Matching, "game/m_item_name.c"),
             Object(Matching, "game/m_kabu_manager.c"),
             Object(Matching, "game/m_kankyo.c"),

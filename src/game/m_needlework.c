@@ -18,7 +18,7 @@ static void mNW_InitMyOriginalPallet(int player_no) {
     int i;
 
     for (i = 0; i < mPr_ORIGINAL_DESIGN_COUNT; i++) {
-        Save_Set(private[player_no & 3].my_org[i & 7].palette, pal_table[i]);
+        Save_Set(private_data[player_no & 3].my_org[i & 7].palette, pal_table[i]);
     }
 }
 
@@ -33,7 +33,7 @@ static void mNW_InitMyOriginalName(int player_no) {
     player_no &= 3;
     for (i = 0; i < mPr_ORIGINAL_DESIGN_COUNT; i++) {
         /* TODO: define for the string index? */
-        mString_Load_StringFromRom(Save_Get(private[player_no].my_org[i & 7].name), mNW_ORIGINAL_DESIGN_NAME_LEN,
+        mString_Load_StringFromRom(Save_Get(private_data[player_no].my_org[i & 7].name), mNW_ORIGINAL_DESIGN_NAME_LEN,
                                    0x6DF + i);
     }
 }
@@ -49,7 +49,7 @@ static void mNW_InitMyOriginalTexture(int player_no) {
     player_no &= 3;
     for (i = 0; i < mNW_DEFAULT_ORIGINAL_TEX_NUM; i++) {
         _JW_GetResourceAram(JW_GetAramAddress(27) + i * mNW_DESIGN_TEX_SIZE,
-                            Save_Get(private[player_no].my_org[i & 7].design.data), mNW_DESIGN_TEX_SIZE);
+                            Save_Get(private_data[player_no].my_org[i & 7].design.data), mNW_DESIGN_TEX_SIZE);
     }
 }
 
@@ -77,7 +77,7 @@ extern void mNW_InitOneMyOriginal(int player_no) {
     mNW_InitMyOriginalTexture(player_no & 3);
 
     for (i = mNW_DEFAULT_ORIGINAL_TEX_NUM; i < mPr_ORIGINAL_DESIGN_COUNT; i++) {
-        mNW_InitOriginalData(Save_Get(private[player_no].my_org + (i & 7)));
+        mNW_InitOriginalData(Save_Get(private_data[player_no].my_org + (i & 7)));
     }
 }
 
@@ -396,7 +396,7 @@ extern void mNW_InitOriginalData(mNW_original_design_c* design) {
  **/
 extern void mNW_InitPrivateOriginalData(int player_no) {
     int i;
-    Private_c* private = Save_Get(private + player_no);
+    Private_c* private = Save_Get(private_data + player_no);
 
     for (i = 0; i < mPr_ORIGINAL_DESIGN_COUNT; i++) {
         private->my_org_no_table[i] = i;

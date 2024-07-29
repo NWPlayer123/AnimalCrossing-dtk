@@ -707,7 +707,7 @@ static void dvderr_draw_NoDisk() {
     gSPDisplayList(this->gfx_p++, keikoku2_dvd_att_moji_model);
 }
 
-void dvderr_draw_WrongDisk() {
+extern void dvderr_draw_WrongDisk() {
     gSPDisplayList(this->gfx_p++, keikoku3_dvd_att_winT_model);
     gSPDisplayList(this->gfx_p++, keikoku3_dvd_att_moji_model);
 }

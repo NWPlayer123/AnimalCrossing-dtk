@@ -405,7 +405,7 @@ static void mMP_set_house_data(mMP_Overlay_c* map_ovl, mSM_MenuInfo_c* menu) {
 
     mMP_ResidentInfo_c* resident_p = &map_ovl->player_info[0];
     mMP_LabelInfo_c* player_block_label = &map_ovl->label_info[1][2];
-    Private_c* priv = Save_Get(private);
+    Private_c* priv = Save_Get(private_data);
     mMP_HousePos_c* house_pos2;
     Animal_c* animal = Save_Get(animals);
     int residents;

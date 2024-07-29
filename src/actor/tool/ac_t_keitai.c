@@ -6,15 +6,6 @@
 #include "m_rcp.h"
 #include "m_common_data.h"
 
-enum {
-    aTKT_ACTION_WAIT,
-    aTKT_ACTION_TAKEOUT,
-    aTKT_ACTION_PUTAWAY,
-    aTKT_ACTION_DESTRUCT,
-    aTKT_ACTION_TAKEOUT2,
-    aTKT_ACTION_DELETED // Placeholder. Unknown use.
-};
-
 extern cKF_Animation_R_c cKF_ba_r_tol_keitai_1_keitai_on1;
 extern cKF_Animation_R_c cKF_ba_r_tol_keitai_1_keitai_off1;
 extern cKF_Skeleton_R_c cKF_bs_r_tol_keitai_1;
@@ -22,24 +13,26 @@ extern cKF_Skeleton_R_c cKF_bs_r_tol_keitai_1;
 KEITAI_ACTION_ANIM aTKT_anm_dt[6] = {
     { &cKF_ba_r_tol_keitai_1_keitai_on1, 1.0f, 1.0f },   { &cKF_ba_r_tol_keitai_1_keitai_on1, 1.0f, 68.0f },
     { &cKF_ba_r_tol_keitai_1_keitai_off1, 1.0f, 61.0f }, { &cKF_ba_r_tol_keitai_1_keitai_off1, 1.0f, 61.0f },
-    { &cKF_ba_r_tol_keitai_1_keitai_on1, 1.0f, 68.0f },  { NULL, 0.0f, 0.0f }
+    { &cKF_ba_r_tol_keitai_1_keitai_on1, 1.0f, 68.0f },  { NULL, 0.0f, 0.0f },
 };
 
 static void aTKT_actor_ct(ACTOR* actor, GAME* game);
 static void aTKT_actor_move(ACTOR* actor, GAME* game);
 static void aTKT_actor_draw(ACTOR* actor, GAME* game);
 
-ACTOR_PROFILE T_Keitai_Profile = { mAc_PROFILE_T_KEITAI,
-                                   ACTOR_PART_BG,
-                                   ACTOR_STATE_NO_DRAW_WHILE_CULLED | ACTOR_STATE_NO_MOVE_WHILE_CULLED,
-                                   EMPTY_NO,
-                                   ACTOR_OBJ_BANK_KEITAI,
-                                   sizeof(KEITAI_ACTOR),
-                                   &aTKT_actor_ct,
-                                   NONE_ACTOR_PROC,
-                                   &aTKT_actor_move,
-                                   &aTKT_actor_draw,
-                                   NULL };
+ACTOR_PROFILE T_Keitai_Profile = {
+    mAc_PROFILE_T_KEITAI,
+    ACTOR_PART_BG,
+    ACTOR_STATE_NO_DRAW_WHILE_CULLED | ACTOR_STATE_NO_MOVE_WHILE_CULLED,
+    EMPTY_NO,
+    ACTOR_OBJ_BANK_KEITAI,
+    sizeof(KEITAI_ACTOR),
+    &aTKT_actor_ct,
+    NONE_ACTOR_PROC,
+    &aTKT_actor_move,
+    &aTKT_actor_draw,
+    NULL,
+};
 
 static void aTKT_setupAction(KEITAI_ACTOR* actor, int action);
 
@@ -47,7 +40,7 @@ static void aTKT_actor_ct(ACTOR* actor, GAME* game) {
     KEITAI_ACTOR* keitai = (KEITAI_ACTOR*)actor;
     cKF_SkeletonInfo_R_ct(&keitai->keyframe, &cKF_bs_r_tol_keitai_1, NULL, keitai->work, keitai->morph);
     keitai->bank_ram_start = ((GAME_PLAY*)game)->object_exchange.banks[actor->data_bank_id].ram_start;
-    aTKT_setupAction(keitai, aTKT_ACTION_TAKEOUT);
+    aTKT_setupAction(keitai, aTOL_ACTION_TAKEOUT);
 }
 
 static void aTKT_calc_scale(ACTOR* actor, int idx) {
@@ -108,14 +101,15 @@ static void aTKT_s_takeout(ACTOR* actor) {
 }
 
 static void aTKT_setupAction(KEITAI_ACTOR* keitai, int action) {
-    static KEITAI_PROC action_process[] = { (KEITAI_PROC)none_proc1, aTKT_takeout,   aTKT_putaway,
-                                            aTKT_destruct,           aTKT_s_takeout, NULL };
+    static KEITAI_PROC process[] = {
+        (KEITAI_PROC)none_proc1, aTKT_takeout, aTKT_putaway, aTKT_destruct, aTKT_s_takeout, NULL,
+    };
 
     KEITAI_ACTION_ANIM* action_anim;
     f32 starting_frame;
     f32 ending_frame;
 
-    keitai->action_proc = action_process[action];
+    keitai->action_proc = process[action];
     keitai->action = action;
     keitai->tools_class.work0 = action;
 

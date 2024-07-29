@@ -207,7 +207,7 @@ static s32 zurumode_update() {
 }
 
 static void zurumode_callback(void* param) {
-    zerucheck_key_check(&zuruKeyCheck, (u32)(((padmgr*)param)->n64_pads[1].button));
+    zerucheck_key_check(&zuruKeyCheck, (u32)(((padmgr*)param)->cur_pads[1].button));
     if (APPNMI_DEBUGMODE_GET() || (APPNMI_TESTMODE_GET() && (padmgr_isConnectedController(1) != 0)) ||
         (zuruKeyCheck.zurumode_enabled != 0)) {
         APPNMI_ZURUMODE_SET();

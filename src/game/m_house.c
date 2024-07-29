@@ -62,7 +62,7 @@ extern int mHS_get_pl_no_detail(int home_no) {
     if (mPr_NullCheckPersonalID(&home->ownerID) == FALSE) {
         int i;
         for (i = 0; i < PLAYER_NUM; i++) {
-            if (mPr_CheckCmpPersonalID(&home->ownerID, Save_GetPointer(private[i].player_ID))) {
+            if (mPr_CheckCmpPersonalID(&home->ownerID, Save_GetPointer(private_data[i].player_ID))) {
                 return i;
             }
         }

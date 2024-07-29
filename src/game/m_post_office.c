@@ -185,7 +185,7 @@ static int mPO_delivery_mail_with_order_ftr_sub(int house_no, PersonalID_c* pid,
 }
 
 static void mPO_delivery_mail_with_order_ftr(int house_no, int player_no) {
-    Private_c* priv = Save_GetPointer(private[player_no]);
+    Private_c* priv = Save_GetPointer(private_data[player_no]);
 
     if (priv->exists == TRUE) {
         mPr_catalog_order_c* order = priv->catalog_orders;
@@ -226,7 +226,7 @@ static int mPO_delivery_mail_with_ticket_sub(int house_no, PersonalID_c* pid, mA
 
 static void mPO_delivery_mail_with_ticket(int house_no, int player_no) {
     mActor_name_t ticket;
-    Private_c* priv = Save_GetPointer(private[player_no]);
+    Private_c* priv = Save_GetPointer(private_data[player_no]);
 
     if (priv->exists == TRUE) {
         int ticket_num = priv->inventory.lotto_ticket_mail_storage;

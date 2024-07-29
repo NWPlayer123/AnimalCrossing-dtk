@@ -86,7 +86,7 @@ typedef struct Save_s {
     /* 0x00001A */ u16
         copy_protect; /* 'unique' value between [1, 65520] used for copy protection (see mCD_get_land_copyProtect) */
     /* 0x00001C */ u8 pad_1C[4];
-    /* 0x000020 */ Private_c private[PLAYER_NUM];                        /* player data */
+    /* 0x000020 */ Private_c private_data[PLAYER_NUM];                   /* player data */
     /* 0x009120 */ mLd_land_info_c land_info;                            /* town name & id */
     /* 0x00912C */ mNtc_board_post_c noticeboard[mNtc_BOARD_POST_COUNT]; /* noticeboard posts */
     /* 0x009CE4 */ u8 pad_9CE4[4];
@@ -243,7 +243,7 @@ typedef struct common_data_s {
     /* 0x028598 */ int event_keep_flags[4];
     /* 0x0285A8 */ u8 _285A8[0x0285BE - 0x0285A8];
     /* 0x0285BE */ s8 player_actor_exists;
-    /* 0x0285BF */ s8 payment_completed_type;
+    /* 0x0285BF */ s8 complete_payment_type;
     /* 0x0285C0 */ s8 player_decoy_flag;
     /* 0x0285C1 */ u8 _285C1;
     /* 0x0285C2 */ u8 make_npc2_actor;

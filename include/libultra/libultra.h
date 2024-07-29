@@ -9,6 +9,7 @@
 #include "libultra/shutdown.h"
 #include "libultra/os_timer.h"
 #include "libultra/os_thread.h"
+#include "libultra/os_pi.h"
 #include "libultra/initialize.h"
 #include "libc/math.h" /* TODO: sins and coss belong in libultra */
 

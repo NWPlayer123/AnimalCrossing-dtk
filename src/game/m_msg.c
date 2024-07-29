@@ -45,7 +45,7 @@ static void mMsg_sound_MessageStatus(u8 status);
 static void mMsg_MainSetup_Window(mMsg_Window_c* msg_p, GAME* game) {
     static mMsg_MAIN_PROC proc[mMsg_INDEX_NUM] = {
         &mMsg_MainSetup_Hide,      &mMsg_MainSetup_Appear,      &mMsg_MainSetup_Normal, &mMsg_MainSetup_Cursol,
-        &mMsg_MainSetup_Disappear, &mMsg_MainSetup_Appear_Wait, &mMsg_MainSetup_Wait,   &mMsg_MainSetup_Disappear_wait,
+        &mMsg_MainSetup_Disappear, &mMsg_MainSetup_Appear_wait, &mMsg_MainSetup_Wait,   &mMsg_MainSetup_Disappear_wait,
     };
 
     int idx = msg_p->requested_main_index;

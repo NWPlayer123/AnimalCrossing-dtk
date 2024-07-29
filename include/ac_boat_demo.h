@@ -50,7 +50,7 @@ enum {
 
 typedef struct boat_demo_s BOAT_DEMO_ACTOR;
 
-#define aBTD_GET_DEMO_ACTOR() (BOAT_DEMO_ACTOR*)(Common_Get(clip).demo_clip2->class)
+#define aBTD_GET_DEMO_ACTOR() (BOAT_DEMO_ACTOR*)(Common_Get(clip).demo_clip2->demo_class)
 
 typedef void (*aBTD_PROC)(BOAT_DEMO_ACTOR*, GAME_PLAY*);
 

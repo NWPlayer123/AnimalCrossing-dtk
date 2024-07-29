@@ -1109,7 +1109,7 @@ extern void mSP_ShopItsumoChirashi(int house_no, int shop_level, mActor_name_t i
                 default: {
                     if (free_mail_idx >= 0) {
                         mPr_CopyPersonalID(&leaflet.header.recipient.personalID,
-                                           &Save_Get(private[mHS_get_pl_no(house_no) & 3]).player_ID);
+                                           &Save_Get(private_data[mHS_get_pl_no(house_no) & 3]).player_ID);
                         leaflet.header.recipient.type = mMl_NAME_TYPE_PLAYER;
 
                         mMl_copy_mail(Save_Get(homes[house_no]).mailbox + free_mail_idx, &leaflet);
@@ -1232,7 +1232,7 @@ extern void mSP_SetRenewalChiraswhi_AppoDay() {
                 leaflet.content.paper_type = ITM_PAPER55; // simple paper
 
                 mPr_CopyPersonalID(&leaflet.header.recipient.personalID,
-                                   &Save_Get(private[mHS_get_pl_no(i) & 3]).player_ID);
+                                   &Save_Get(private_data[mHS_get_pl_no(i) & 3]).player_ID);
                 leaflet.header.recipient.type = mMl_NAME_TYPE_PLAYER;
 
                 mMl_copy_mail(Save_Get(homes[i]).mailbox + free_mail_idx, &leaflet);
@@ -2114,14 +2114,14 @@ static mActor_name_t mSP_GetNonePossessionItem_InList(mActor_name_t* list, int c
 static mActor_name_t mSP_GetNonePossessionItem_InLotteryFurniture(int player_no) {
     return mSP_GetNonePossessionItem_InList(mSP_ftr_list[mSP_LIST_LOTTERY], mSP_KIND_FURNITURE,
                                             (player_no >= 0 && player_no < PLAYER_NUM)
-                                                ? Save_Get(private[player_no]).furniture_collected_bitfield
+                                                ? Save_Get(private_data[player_no]).furniture_collected_bitfield
                                                 : Common_Get(now_private)->furniture_collected_bitfield);
 }
 
 static mActor_name_t mSP_GetNonePossessionItem_InEventFurniture(int player_no) {
     return mSP_GetNonePossessionItem_InList(mSP_ftr_list[mSP_LIST_EVENT], mSP_KIND_FURNITURE,
                                             (player_no >= 0 && player_no < PLAYER_NUM)
-                                                ? Save_Get(private[player_no]).furniture_collected_bitfield
+                                                ? Save_Get(private_data[player_no]).furniture_collected_bitfield
                                                 : Common_Get(now_private)->furniture_collected_bitfield);
 }
 
@@ -2129,7 +2129,7 @@ static mActor_name_t mSP_GetNonePossessionItem_InEventFurniture(int player_no) {
 static mActor_name_t mSP_GetNonePossessionItem_InEventWall(int player_no) {
     return mSP_GetNonePossessionItem_InList(mSP_ftr_list[mSP_LIST_EVENT], mSP_KIND_WALLPAPER,
                                             (player_no >= 0 && player_no < PLAYER_NUM)
-                                                ? Save_Get(private[player_no]).wall_collected_bitfield
+                                                ? Save_Get(private_data[player_no]).wall_collected_bitfield
                                                 : Common_Get(now_private)->wall_collected_bitfield);
 }
 
@@ -2137,7 +2137,7 @@ static mActor_name_t mSP_GetNonePossessionItem_InEventWall(int player_no) {
 static mActor_name_t mSP_GetNonePossessionItem_InEventCarpet(int player_no) {
     return mSP_GetNonePossessionItem_InList(mSP_ftr_list[mSP_LIST_EVENT], mSP_KIND_CARPET,
                                             (player_no >= 0 && player_no < PLAYER_NUM)
-                                                ? Save_Get(private[player_no]).carpet_collected_bitfield
+                                                ? Save_Get(private_data[player_no]).carpet_collected_bitfield
                                                 : Common_Get(now_private)->carpet_collected_bitfield);
 }
 
@@ -2150,7 +2150,7 @@ static mActor_name_t mSP_GetNonePossessionItem_InABCFurniture(int player_no) {
 
     return mSP_GetNonePossessionItem_InList(
         mSP_GetItemList(mSP_ftr_list, abc_priorities, mSP_LISTTYPE_ABC), mSP_KIND_FURNITURE,
-        (player_no >= 0 && player_no < PLAYER_NUM) ? Save_Get(private[player_no]).furniture_collected_bitfield
+        (player_no >= 0 && player_no < PLAYER_NUM) ? Save_Get(private_data[player_no]).furniture_collected_bitfield
                                                    : Common_Get(now_private)->furniture_collected_bitfield);
 }
 

@@ -143,6 +143,8 @@ s32 DVDGetTransferredSize(DVDFileInfo* fileInfo);
 DVDDiskID* DVDGetCurrentDiskID();
 BOOL DVDCompareDiskID(DVDDiskID* id1, DVDDiskID* id2);
 DVDLowCallback DVDLowClearCallback();
+BOOL DVDPrepareStreamAsync(DVDFileInfo* fileInfo, u32 length, u32 offset, DVDCallback callback);
+s32 DVDCancelStream(DVDCommandBlock* block);
 
 BOOL DVDCheckDisk();
 

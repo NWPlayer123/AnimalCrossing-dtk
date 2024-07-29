@@ -30,7 +30,7 @@ extern void mMsm_GetMuseumMailName(Mail_nm_c* name) {
 }
 
 static void mMsm_OrderInformationMail() {
-    Private_c* priv = Save_Get(private);
+    Private_c* priv = Save_Get(private_data);
     int i;
 
     for (i = 0; i < PLAYER_NUM; i++) {
@@ -43,7 +43,7 @@ static void mMsm_OrderInformationMail() {
 }
 
 extern void mMsm_SendInformationMail() {
-    Private_c* priv = Save_Get(private);
+    Private_c* priv = Save_Get(private_data);
     int i;
 
     for (i = 0; i < PLAYER_NUM; i++) {
@@ -215,7 +215,7 @@ static void mMsm_SendResultMail() {
     // static u8 present_name[mIN_ITEM_NAME_LEN]; /* TODO: reversed bss order */
 
     int send_num[PLAYER_NUM];
-    Private_c* priv_p = Save_Get(private);
+    Private_c* priv_p = Save_Get(private_data);
     Private_c* priv = priv_p;
     mActor_name_t present;
     u8 send_flags = 0b1111;
@@ -333,7 +333,7 @@ extern void mMsm_SendMuseumMail(Mail_c* mail) {
                 int priv_idx = mPr_GetPrivateIdx(&sender_name->personalID);
 
                 if (priv_idx != -1) {
-                    priv = Save_Get(private + priv_idx);
+                    priv = Save_Get(private_data + priv_idx);
                 }
             }
 
@@ -598,7 +598,7 @@ static void mMsm_SetPrivateCompMail(Private_c* priv, int flag) {
 }
 
 static int mMsm_CheckSendCompMail() {
-    Private_c* priv = Save_Get(private);
+    Private_c* priv = Save_Get(private_data);
     int res = FALSE;
     int i;
 
@@ -616,7 +616,7 @@ static int mMsm_CheckSendCompMail() {
 }
 
 static void mMsm_SetSendCompMail() {
-    Private_c* priv = Save_Get(private);
+    Private_c* priv = Save_Get(private_data);
     int i;
 
     for (i = 0; i < PLAYER_NUM; i++) {
@@ -637,7 +637,7 @@ extern void mMsm_SetCompMail() {
 }
 
 extern void mMsm_SendCompMail() {
-    Private_c* priv = Save_Get(private);
+    Private_c* priv = Save_Get(private_data);
     int state_flags;
     int i;
 

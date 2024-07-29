@@ -164,7 +164,7 @@ extern int mEv_CheckArbeit() {
     return res;
 }
 
-extern int mFI_CheckFirstJob() {
+extern int mEv_CheckFirstJob() {
     u32 player_no = Common_Get(player_no);
     int res = FALSE;
 
@@ -512,8 +512,6 @@ static lbRTC_day_t m_weekday2day(lbRTC_month_t month, u8 day_enc) {
 
     return day;
 }
-
-static lbRTC_weekday_t weekday1st[lbRTC_MONTHS_MAX];
 
 extern int mEv_weekday2day(lbRTC_month_t month, int week, int weekday) {
     lbRTC_time_c* rtc_time = Common_GetPointer(time.rtc_time);
@@ -1664,7 +1662,7 @@ static void update_schedule_today(Event_c* event) {
     mEv_schedule_c sched;
     lbRTC_time_c* rtc_time = Common_GetPointer(time.rtc_time);
     mEv_schedule_c* sched_p = &sched;
-    Private_c* priv = &Save_Get(private[Common_Get(player_no)]);
+    Private_c* priv = &Save_Get(private_data[Common_Get(player_no)]);
     int i;
     int type;
 
@@ -2783,12 +2781,12 @@ extern void mEv_toland_clear_common() {
         keep_flags[i] = 0;
     }
 
-    mem_clear(Common_GetPointer(event_common), sizeof(Common_Get(event_common)), 0);
-    mem_clear(Common_GetPointer(special_event_common), sizeof(Common_Get(special_event_common)), 0);
+    mem_clear((u8*)Common_GetPointer(event_common), sizeof(Common_Get(event_common)), 0);
+    mem_clear((u8*)Common_GetPointer(special_event_common), sizeof(Common_Get(special_event_common)), 0);
 }
 
 extern void mGH_animal_return_init() {
-    mem_clear(Save_GetPointer(return_animal), sizeof(Save_Get(return_animal)), 0);
+    mem_clear((u8*)Save_GetPointer(return_animal), sizeof(Save_Get(return_animal)), 0);
     Save_Get(return_animal).npc_id = EMPTY_NO; // ??
 }
 
@@ -2824,7 +2822,7 @@ extern int mGH_check_birth() {
 extern void mGH_check_delete() {
     lbRTC_time_c* rtc_time = Common_GetPointer(time.rtc_time);
     Anmret_c* return_animal = Save_GetPointer(return_animal);
-    Private_c* priv = Save_Get(private);
+    Private_c* priv = Save_Get(private_data);
 
     if (return_animal->npc_id != EMPTY_NO) {
         if (Save_Get(npc_force_go_home) == TRUE) {
@@ -2867,7 +2865,7 @@ extern void mMC_mask_cat_init() {
     MaskCat_c* mask_cat = Save_GetPointer(mask_cat);
     u8 cloth_no = mask_cat->cloth_no;
 
-    mem_clear(mask_cat, sizeof(Save_Get(mask_cat)), 0);
+    mem_clear((u8*)mask_cat, sizeof(Save_Get(mask_cat)), 0);
     mPr_ClearPersonalID(&mask_cat->design.creator_pid);
     Save_Get(mask_cat).cloth_no = cloth_no;
 }

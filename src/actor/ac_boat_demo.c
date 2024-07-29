@@ -14,7 +14,8 @@ static void aBTD_actor_ct(ACTOR* actorx, GAME* game);
 static void aBTD_actor_dt(ACTOR* actorx, GAME* game);
 static void aBTD_actor_move(ACTOR* actorx, GAME* game);
 
-ACTOR_PROFILE Boat_Demo_Profile = { mAc_PROFILE_BOAT_DEMO,
+ACTOR_PROFILE Boat_Demo_Profile = {
+    mAc_PROFILE_BOAT_DEMO,
                                     ACTOR_PART_CONTROL,
                                     ACTOR_STATE_CAN_MOVE_IN_DEMO_SCENES | ACTOR_STATE_NO_MOVE_WHILE_CULLED,
                                     EMPTY_NO,
@@ -24,7 +25,8 @@ ACTOR_PROFILE Boat_Demo_Profile = { mAc_PROFILE_BOAT_DEMO,
                                     &aBTD_actor_dt,
                                     &aBTD_actor_move,
                                     mActor_NONE_PROC1,
-                                    NULL };
+    NULL,
+};
 
 static mDemo_Clip_c aBTD_clip;
 
@@ -44,7 +46,7 @@ static void aBTD_actor_ct(ACTOR* actorx, GAME* game) {
 
     Common_Get(clip).demo_clip2 = &aBTD_clip;
     bzero(&aBTD_clip, sizeof(aBTD_clip));
-    Common_Get(clip).demo_clip2->class = boat_demo;
+    Common_Get(clip).demo_clip2->demo_class = boat_demo;
     Common_Get(clip).demo_clip2->type = mDemo_CLIP_TYPE_BOAT_DEMO;
     boat_demo->island_gba_loader_p = aBTD_island_ldr;
     boat_demo->island_gba_program_p = aBTD_island_prg;

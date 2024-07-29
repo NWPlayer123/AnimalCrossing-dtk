@@ -329,7 +329,7 @@ static void mMl_send_postoffice_mail() {
     // static u8 free_str[16]; // TODO: fix bss ordering
     static u8 debug_name[PLAYER_NAME_LEN] = { 0x91, 0x92, 0x93, 0x94, 0x95, 0x91, 0x00, 0x00 };
 
-    Private_c* priv = Save_Get(private);
+    Private_c* priv = Save_Get(private_data);
     mMl_PostOffice_Info_c* po_info;
     int town_name_len;
     int i;

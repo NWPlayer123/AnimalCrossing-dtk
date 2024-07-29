@@ -347,7 +347,7 @@ extern void mHm_SetDefaultPlayerRoomData(int home_no) {
  * @param player_no Index of the player whose id will be used
  **/
 extern void mHm_InitHomeInfo(mHm_hs_c* home, int player_no) {
-    mPr_CopyPersonalID(&home->ownerID, Save_GetPointer(private[player_no].player_ID));
+    mPr_CopyPersonalID(&home->ownerID, Save_GetPointer(private_data[player_no].player_ID));
 }
 
 /**
@@ -482,7 +482,7 @@ extern void mHm_CheckRehouseOrder() {
     }
 
     for (i = 0; i < PLAYER_NUM; i++) {
-        u32* state_flags = Save_GetPointer(private[i].state_flags);
+        u32* state_flags = Save_GetPointer(private_data[i].state_flags);
         *state_flags &= (~0x200); /* TODO: these need an enum/defines */
     }
 }

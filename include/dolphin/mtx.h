@@ -7,6 +7,8 @@
 extern "C" {
 #endif
 
+#define MTX_PS
+
 /////////////// TYPE DEFINES ///////////////
 #define MTXDegToRad(a) ((a) * 0.01745329252f)
 
@@ -50,6 +52,9 @@ void PSMTXScale(GC_Mtx mtx, f32 xS, f32 yS, f32 zS);
 void PSMTXScaleApply(const GC_Mtx src, GC_Mtx dest, f32 xS, f32 yS, f32 zS);
 void PSMTXQuat(GC_Mtx mtx, const PSQuaternion* quat);
 
+void PSVECNormalize(const Vec* src, Vec* dst);
+void PSMTXMultVec(const GC_Mtx m, const Vec* src, Vec* dst);
+
 ////////////////////////////////////////////
 
 //// PAIRED SINGLE MATRIX VEC FUNCTIONS ////
@@ -79,6 +84,29 @@ static inline void MTXSetPosition(GC_Mtx mtx, const Vec* pos) {
 }
 
 ////////////////////////////////////////////
+
+#ifdef MTX_PS
+#define MTXIdentity PSMTXIdentity
+#define MTXCopy PSMTXCopy
+#define MTXConcat PSMTXConcat
+#define MTXConcatArray PSMTXConcatArray
+#define MTXTranspose PSMTXTranspose
+#define MTXInverse PSMTXInverse
+#define MTXInvXpose PSMTXInvXpose
+
+#define MTXScale PSMTXScale
+#define MTXTrans PSMTXTrans
+
+#define MTXMultVec PSMTXMultVec
+#else
+#define MTXIdentity C_MTXIdentity
+#define MTXCopy C_MTXCopy
+#define MTXConcat C_MTXConcat
+#define MTXConcatArray C_MTXConcatArray
+#define MTXTranspose C_MTXTranspose
+#define MTXInverse C_MTXInverse
+#define MTXInvXpose C_MTXInvXpose
+#endif
 
 #ifdef __cplusplus
 }

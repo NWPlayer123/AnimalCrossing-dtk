@@ -44,7 +44,14 @@ typedef enum {
     TOOL_UMBRELLA29,
     TOOL_UMBRELLA30,
     TOOL_UMBRELLA31,
-    TOOL_UMBRELLA32,
+    TOOL_ORG_UMBRELLA0,
+    TOOL_ORG_UMBRELLA1,
+    TOOL_ORG_UMBRELLA2,
+    TOOL_ORG_UMBRELLA3,
+    TOOL_ORG_UMBRELLA4,
+    TOOL_ORG_UMBRELLA5,
+    TOOL_ORG_UMBRELLA6,
+    TOOL_ORG_UMBRELLA7,
     TOOL_KEITAI,
     TOOL_UTIWA,
     TOOL_HANABI,
@@ -56,8 +63,21 @@ typedef enum {
     TOOL_TAMA1,
     TOOL_TAMA2,
     TOOL_TAMA3,
-    TOOL_TAMA4
+    TOOL_TAMA4,
+
+    aTOL_NUM
 } ToolName;
+
+enum {
+    aTOL_ACTION_WAIT,
+    aTOL_ACTION_TAKEOUT,
+    aTOL_ACTION_PUTAWAY,
+    aTOL_ACTION_DESTRUCT,
+    aTOL_ACTION_S_TAKEOUT,
+    aTOL_ACTION_SPECIAL,
+
+    aTOL_ACTION_NUM
+};
 
 typedef struct tools_s {
     /* 0x000 */ ACTOR actor_class;
@@ -70,8 +90,8 @@ typedef struct tools_s {
     /* 0x1C8 */ int work2;
 } TOOLS_ACTOR;
 
-typedef TOOLS_ACTOR* (*ToolBirthProc)(int, int, TOOLS_ACTOR*, GAME_PLAY*, s16, int*);
-typedef int (*ToolChgRequestModeProc)(ACTOR*, TOOLS_ACTOR*, int);
+typedef ACTOR* (*ToolBirthProc)(int, int, ACTOR*, GAME*, s16, int*);
+typedef int (*ToolChgRequestModeProc)(ACTOR*, ACTOR*, int);
 
 typedef struct ToolClip {
     ToolBirthProc aTOL_birth_proc;

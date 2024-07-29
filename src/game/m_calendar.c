@@ -137,7 +137,7 @@ static int mCD_GetIntervalMonths(lbRTC_year_t y0, lbRTC_month_t m0, lbRTC_year_t
 }
 
 extern void mCD_calendar_clear(int player_no) {
-    Private_c* priv = Save_Get(private);
+    Private_c* priv = Save_Get(private_data);
 
     if (player_no == -1) {
         player_no = Common_Get(player_no);
@@ -178,7 +178,7 @@ extern void mCD_calendar_check_delete(int player_no, lbRTC_year_t year, lbRTC_mo
     }
 
     if (player_no != mPr_FOREIGNER) {
-        mCD_player_calendar_c* calendar = &Save_Get(private[player_no]).calendar;
+        mCD_player_calendar_c* calendar = &Save_Get(private_data[player_no]).calendar;
 
         if (calendar->year == 0) {
             mCD_calendar_clear(-1);
@@ -216,7 +216,7 @@ extern void mCD_calendar_event_on(lbRTC_year_t year, lbRTC_month_t month, lbRTC_
         mCD_player_calendar_c* calendar;
 
         mCD_calendar_check_delete(-1, year, month, day);
-        calendar = &Save_Get(private[Common_Get(player_no)]).calendar;
+        calendar = &Save_Get(private_data[Common_Get(player_no)]).calendar;
 
         switch (event) {
             case 11: {
@@ -293,7 +293,7 @@ extern int mCD_calendar_event_check(lbRTC_year_t year, lbRTC_month_t month, lbRT
         int interval = (rtc_time->month - month) + (rtc_time->year - year) * lbRTC_MONTHS_MAX;
 
         if (interval >= 0 && interval < lbRTC_MONTHS_MAX) {
-            mCD_player_calendar_c* calendar = &Save_Get(private[player_no]).calendar;
+            mCD_player_calendar_c* calendar = &Save_Get(private_data[player_no]).calendar;
 
             switch (event) {
                 case 11: {

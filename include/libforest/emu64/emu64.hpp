@@ -1,5 +1,5 @@
-#ifndef EMU64_H
-#define EMU64_H
+#ifndef EMU64_HPP
+#define EMU64_HPP
 
 #include "types.h"
 #include "va_args.h"
@@ -9,6 +9,8 @@
 #include "dolphin/os/__ppc_eabi_init.h"
 #include "dolphin/gx.h"
 #include "dolphin/mtx.h"
+#include "sys_ucode.h"
+#include "libforest/emu64/emu64_wrapper.h"
 #include "sys_ucode.h"
 
 #ifdef EMU64_DEBUG
@@ -69,6 +71,61 @@
 #define EMU64_DIRTY_FLAG_TEX_MTX 31
 #define NUM_DIRTY_FLAGS 32
 
+#define AFLAGS_RUN_MODE 0
+#define AFLAGS_SETUP_ALL_TEVSTAGES 1
+#define AFLAGS_DECAL_OFFSET_MODE 2 /* 0 = default, 1 = <, 2 = >=, n = off */
+#define AFLAGS_SET_DIRTY_FLAGS 3
+#define AFLAGS_SKIP_ALPHA_COMPARE 4
+#define AFLAGS_SKIP_TEXTURE_CONV 5
+#define AFLAGS_PRINT_COMMAND_INFO 6
+#define AFLAGS_FORCE_ZMODE_COMPARE_FUNC_LEQUAL 7
+#define AFLAGS_FORCE_PIPE_SYNC 8
+#define AFLAGS_SKIP_TILE_SETUP 9
+#define AFLAGS_LIGHT_DISABLE_DIFFUSION 10
+#define AFLAGS_PROJECTION_CALC_W 11
+#ifdef ANIMAL_FOREST_PLUS
+#define AFLAGS_FORCE_TEV_CYCLEFLAGS 11
+#endif
+#define AFLAGS_COMBINE_AUTO 12
+#define AFLAGS_DISABLED_TEXOBJS 13
+#ifdef ANIMAL_FOREST_PLUS
+#define AFLAGS_DECAL_OFFSETZ_VALUE 14
+#define AFLAGS_SKIP_PROJECTION_TRANSFORM 15
+#else
+#define AFLAGS_SKIP_W_CALCULATION 14
+#define AFLAGS_USE_GUVECMULT 15
+#endif
+#define AFLAGS_SKIP_TRI2_COUNT_VERTS 16
+#define AFLAGS_FORCE_VTX_FLAG_COPY 17
+#define ALFAGS_TEV_ALPHA_KONST 18
+#define AFLAGS_MIN_POLYGONS 19
+#define AFLAGS_MAX_POLYGONS 20
+#define AFLAGS_SET_CULLMODE 21
+#define AFLAGS_WIREFRAME 22 /* Draws wireframe over polygons */
+#define AFLAGS_SKIP_COMBINE_TEV 27
+#define AFLAGS_FORCE_TEV_COMBINE_MODE 28 /* 1 = force shade, 2 = force d1 = ENV, Ad1 = ONE */
+#define AFLAGS_SKIP_MTX_NORMALIZATION 23
+#define AFLAGS_COPY_POSITION_MTX 25
+#define AFLAGS_SKIP_COMBINE_TEV 27
+#define AFLAGS_FORCE_TEV_COMBINE_MODE 28 /* 1 = force shade, 2 = force d1 = ENV, Ad1 = ONE */
+#define AFLAGS_JUTREPORT_SEGMENT_STATS 29
+#define AFLAGS_VTX_NORMAL_MODIFY_TYPE 37
+#define AFLAGS_OVERRIDE_TEXEDGEALPHA 39
+#define AFLAGS_DO_TEXTURE_LINEAR_CONVERT 48
+#define AFLAGS_FORCE_WRAPMODE_REPEAT 49
+#define AFLAGS_SKIP_DRAW_RECTANGLE 50
+#define AFLAGS_FORCE_G_CYC_COPY 51
+#define AFLAGS_TEX_GEN_LOD_MODE 52
+#define AFLAGS_DITHERMODE 59
+#define AFLAGS_TEXMTX_LEFT_ADJUST 64
+#define AFLAGS_TEXMTX_TOP_ADJUST 65
+#define AFLAGS_LIGHT_FORCE_ATTN_MODE 72
+#define AFLAGS_LIGHT_POSITION_MULTIPLIER 73
+#define AFLAGS_LIGHT_MOVE_TO_MODEL_SPACE 74
+#define AFLAGS_LIGHT_OVERRIDE_ATTN_K0 75
+#define AFLAGS_LIGHT_OVERRIDE_ATTN_K1 76
+#define AFLAGS_LIGHT_OVERRIDE_ATTN_K2 77
+
 #define EMU64_TLUT_IA16 0x0000
 #define EMU64_TLUT_RGBA5551 0x8000
 
@@ -77,6 +134,59 @@ namespace std {
 typedef struct __va_list_struct __tag_va_List;
 }
 
+float fastcast_float(register unsigned char* s) {
+    register float f;
+
+#ifdef __MWERKS__ // clang-format off
+    asm {
+        psq_l f, 0(s), 1, 2
+    }
+#endif // clang-format on
+
+    return f;
+}
+
+float fastcast_float(register unsigned short* s) {
+    register float f;
+
+#ifdef __MWERKS__ // clang-format off
+    asm {
+        psq_l f, 0(s), 1, 3
+    }
+#endif // clang-format on
+
+    return f;
+}
+
+float fastcast_float(register signed char* s) {
+    register float f;
+
+#ifdef __MWERKS__ // clang-format off
+    asm {
+        psq_l f, 0(s), 1, 4
+    }
+#endif // clang-format on
+
+    return f;
+}
+
+float fastcast_float(register short* s) {
+    register float f;
+
+#ifdef __MWERKS__ // clang-format off
+    asm {
+        psq_l f, 0(s), 1, 5
+    }
+#endif // clang-format on
+
+    return f;
+}
+
+#define number(n) ARRAY_COUNT(n)
+
+void guMtxNormalize(GC_Mtx mtx);
+void N64Mtx_to_DOLMtx(const Mtx* n64, MtxP gc);
+
 typedef union {
     GXColor color;
     struct {
@@ -84,7 +194,7 @@ typedef union {
         u8 g;
         u8 b;
         u8 a;
-    };
+    } rgba;
     u32 raw;
 } EmuColor;
 
@@ -133,6 +243,12 @@ typedef struct {
     u8 pad;
 } emu64_texture_info;
 
+typedef union GXTexFmts {
+    GXTexFmt texfmt;
+    GXCITexFmt citexfmt;
+    u32 raw;
+} GXTexFmts;
+
 static inline void get_blk_wd_ht(unsigned int siz, unsigned int* blk_wd, unsigned int* blk_ht) {
     static u8 blk_tbl[4][2] = {
         { 8, 8 }, // G_IM_SIZ_4b
@@ -148,11 +264,18 @@ static inline void get_blk_wd_ht(unsigned int siz, unsigned int* blk_wd, unsigne
 extern void get_dol_wd_ht(unsigned int siz, unsigned int in_wd, unsigned int in_ht, unsigned int* wd, unsigned int* ht);
 
 static inline unsigned int rgba5551_to_rgb5a3(unsigned int rgba5551) {
-    if ((rgba5551 & 1)) {
-        return 0x8000 | (rgba5551 >> 1); // no transparency so simply swap
-    } else {
-        return ((rgba5551 >> 3) & 0xF0) | ((rgba5551 >> 4) & ~0xFF) | ((rgba5551 >> 2) & 0x0F);
+    unsigned int rgb5a3;
+
+    switch (rgba5551 & 1) {
+        default:
+            rgb5a3 = 0x8000 | (rgba5551 >> 1); // no transparency so simply swap
+            break;
+        case 0:
+            rgb5a3 = ((rgba5551 >> 4) & ~0xFF) | ((rgba5551 >> 3) & 0xF0) | ((rgba5551 >> 2) & 0x0F);
+            break;
     }
+
+    return rgb5a3;
 }
 
 static inline unsigned int get_dol_tex_siz(unsigned int siz, unsigned int in_wd, unsigned int in_ht) {
@@ -163,41 +286,33 @@ static inline unsigned int get_dol_tex_siz(unsigned int siz, unsigned int in_wd,
     return ((wd * ht) << siz) / 2;
 }
 
-static inline unsigned int get_dol_tlut_size(unsigned int count) {
-    return ALIGN_NEXT(count * sizeof(u16), 32);
+static inline unsigned int get_dol_tlut_siz(unsigned int count) {
+    unsigned int siz = count * sizeof(u16);
+    return ALIGN_NEXT(siz, 32);
 }
-
-#define AFLAGS_COMBINE_AUTO 12
-#define ALFAGS_TEV_ALPHA_KONST 18
-#define AFLAGS_2TRIS 22 /* Draws the current polygon as two triangles */
-#define AFLAGS_SKIP_COMBINE_TEV 27
-#define AFLAGS_FORCE_TEV_COMBINE_MODE 28 /* 1 = force shade, 2 = force d1 = ENV, Ad1 = ONE */
 
 class aflags_c {
   public:
-#ifndef EMU64_DEBUG
-
-    int getMaxArray() {
+#ifdef AFLAGS_DEBUG
+    static u32 getMaxArray() {
         return AFLAGS_MAX;
     }
-    void set(u32 idx, u8 val) {
+    void set(unsigned int idx, u8 val) {
         this->flags[idx] = val;
     } /* @fabricated */
-    int operator[](u32 idx) {
+    u8 operator[](unsigned int idx) {
         return this->flags[idx];
     } /* @fabricated */
 
 #else
-
-    int getMaxArray() {
+    static u32 getMaxArray() {
         return AFLAGS_MAX;
     }
-    void set(u32 idx, u8 val) {
+    void set(unsigned int idx, u8 val) {
     }
-    int operator[](u32 idx) {
+    u8 operator[](unsigned int idx) {
         return 0;
     }
-
 #endif
 
   private:
@@ -307,6 +422,7 @@ class Texture {
     u8 n64_bpp;
 };
 
+#define EMU64_PRINTF_ENABLED_FLAG (1 << 0)
 #define EMU64_PRINTF_FLAG (1 << 1)
 #define EMU64_PRINTF1_FLAG (1 << 2)
 #define EMU64_PRINTF2_FLAG (1 << 3)
@@ -378,11 +494,150 @@ class emu64_print {
 
 #define EMU64_ASSERT(cond) EMU64_PANICLINE(cond, __LINE__)
 
+class emu64_print {
+  public:
+    void Printf(const char* fmt, ...) {
+        va_list list;
+
+        if ((this->print_flags & EMU64_PRINTF_FLAG)) {
+            va_start(list, fmt);
+            this->Vprintf(fmt, list);
+            va_end(list);
+        }
+    }
+
+    void Printf0(const char* fmt, ...) {
+        va_list list;
+
+        va_start(list, fmt);
+        this->Vprintf(fmt, list);
+        va_end(list);
+    }
+
+    void Printf1(const char* fmt, ...) {
+        va_list list;
+
+        if ((this->print_flags & EMU64_PRINTF1_FLAG)) {
+            va_start(list, fmt);
+            this->Vprintf(fmt, list);
+            va_end(list);
+        }
+    }
+
+    void Printf2(const char* fmt, ...) {
+        va_list list;
+
+        if ((this->print_flags & EMU64_PRINTF2_FLAG)) {
+            va_start(list, fmt);
+            this->Vprintf(fmt, list);
+            va_end(list);
+        }
+    }
+
+    void Printf3(const char* fmt, ...) {
+        va_list list;
+
+        if ((this->print_flags & EMU64_PRINTF3_FLAG)) {
+            va_start(list, fmt);
+            this->Vprintf(fmt, list);
+            va_end(list);
+        }
+    }
+
+  protected:
+    u8 print_flags;
+
+  private:
+    void Vprintf(const char* fmt, std::__tag_va_List* va_list) {
+        vprintf(fmt, va_list);
+    }
+};
+
+#define EMU64_ASSERTLINE(cond, line)        \
+    if (!(cond)) {                          \
+        this->panic(#cond, __FILE__, line); \
+    }
+
+#define EMU64_PRINTF(msg, ...) this->Printf0(msg, __VA_ARGS__);
+
+#ifdef EMU64_DEBUG
+#define EMU64_WARN(msg)         \
+    if (this->print_commands) { \
+        this->Printf1(msg);     \
+    }
+#define EMU64_WARNF(msg, ...)            \
+    if (this->print_commands) {          \
+        this->Printf1(msg, __VA_ARGS__); \
+    }
+
+#define EMU64_LOG(msg)          \
+    if (this->print_commands) { \
+        this->Printf2(msg);     \
+    }
+#define EMU64_LOGF(msg, ...)             \
+    if (this->print_commands) {          \
+        this->Printf2(msg, __VA_ARGS__); \
+    }
+
+#define EMU64_INFO(msg)         \
+    if (this->print_commands) { \
+        this->Printf3(msg);     \
+    }
+#define EMU64_INFOF(msg, ...)            \
+    if (this->print_commands) {          \
+        this->Printf3(msg, __VA_ARGS__); \
+    }
+
+#define EMU64_ASSERTLINE_DEBUG(cond, line) EMU64_ASSERTLINE(cond, line)
+#else
+#define EMU64_WARN(msg)
+#define EMU64_WARNF(msg, ...)
+
+#define EMU64_LOG(msg)
+#define EMU64_LOGF(msg, ...)
+
+#define EMU64_INFO(msg)
+#define EMU64_INFOF(msg, ...)
+
+#define EMU64_ASSERTLINE_DEBUG(cond, line) \
+    do {                                   \
+    } while (0)
+#endif
+
+#define EMU64_ASSERT(cond) EMU64_ASSERTLINE(cond, __LINE__)
+
+#define EMU64_PRINT_MEMBER(member)                        \
+    do {                                                  \
+        this->Printf0(#member " = %u\n", this->##member); \
+    } while (0)
+
+#ifdef EMU64_DEBUG
+#define EMU64_TIMED_SEGMENT_BEGIN()       \
+    {                                     \
+        u32 __timer_start = osGetCount(); \
+        do {                              \
+        } while (0)
+#define EMU64_TIMED_SEGMENT_END(stat)              \
+    this->#stat += (osGetCount() - __timer_start); \
+    (void)__timer_start;                           \
+    }                                              \
+    do {                                           \
+    } while (0)
+#else
+#define EMU64_TIMED_SEGMENT_BEGIN()
+#define EMU64_TIMED_SEGMENT_END(stat)
+#endif
+
+#define EMU64_CAN_DRAW_POLYGON()         \
+    (aflags[AFLAGS_MAX_POLYGONS] == 0 || \
+     (aflags[AFLAGS_MIN_POLYGONS] <= this->polygons && this->polygons < aflags[AFLAGS_MAX_POLYGONS]))
+
 class emu64 : public emu64_print {
   public:
     void emu64_init();
+    void emu64_cleanup();
     void printInfo();
-    void panic(char* fmt, char* file, int line);
+    void panic(char* msg, char* file, int line);
 
     void emu64_change_ucode(void* ucode_p);
     void texconv_tile(u8* addr, u8* converted_addr, unsigned int wd, unsigned int fmt, unsigned int siz,
@@ -395,25 +650,117 @@ class emu64 : public emu64_print {
     void tlutconv_ia16(u16* src_ia16_p, u16* dst_ia16_p, unsigned int count);
     u8* texconv_tile_new(u8* addr, unsigned int wd, unsigned int fmt, unsigned int siz, unsigned int start_wd,
                          unsigned int start_ht, unsigned int end_wd, unsigned int end_ht, unsigned int line_siz);
+    /* @weak */
+    u8* texconv_block_new(u8* addr, unsigned int wd, unsigned int ht, unsigned int fmt, unsigned int size,
+                          unsigned int line_siz) {
+        return this->texconv_tile_new(addr, wd, fmt, size, 0, 0, wd - 1, ht - 1, line_siz);
+    }
     u16* tlutconv_new(u16* tlut, unsigned int tlut_fmt, unsigned int count);
     void tlutconv(u16* src_tlut, u16* dst_tlut, unsigned int count, unsigned int tlut_fmt);
     int replace_combine_to_tev(Gfx* g);
     int combine_auto();
     int combine_tev();
     void combine_manual();
+    void combine();
+    void zmode();
+    void blend_mode();
+    void alpha_compare();
+    void cullmode();
+    void texture_gen(int tile);
+    void texture_matrix();
+    void disp_matrix(GC_Mtx mtx);
+    const char* segchk(u32 seg);
     const char* combine_name(u32 param, u32 type);
     const char* combine_alpha(int param, int type);
+    const char* combine_tev_color_name(u32 color_param);
+    const char* combine_tev_alpha_name(u32 alpha_param);
+    void print_geomflags(u32 flags);
+    void show_render(u32 data);
+    void show_vtx(Vtx* vtx, int count, int begin);
     void print_combine(u64 combine);
+    void print_combine_tev(u64 combine_tev);
+    void print_guMtxXFM1F_dol2(MtxP mtx, GXProjectionType type, float x, float y, float z);
+    u32 seg2k0(u32 seg);
+    void setup_texture_tile(int tile);
+    void setup_1tri_2tri_1quad(unsigned int vtx_idx);
+    void draw_1tri_2tri_1quad(unsigned int n_verts, ...);
+    void fill_rectangle(float x0, float y0, float x1, float y1);
+    void draw_rectangle(Gtexrect2* rect);
+    void dirty_check(int tile, int n_tiles, int do_texture_matrix);
+    void set_position(unsigned int v);
+    void set_position3(unsigned int v0, unsigned int v1, unsigned int v2);
+    void set_position4(unsigned int v0, unsigned int v1, unsigned int v2, unsigned int v3);
+
+    /* F3DEX2_AC opcodes */
+    void dl_G_SPNOOP();
+    void dl_G_DL();
+    void dl_G_RDPHALF_1();
+    void dl_G_TEXRECT();
+    void dl_G_LOAD_UCODE();
+    void dl_G_ENDDL();
+    void dl_G_SETTILE();
+    void dl_G_SETTILE_DOLPHIN();
+    void dl_G_LOADTILE();
+    void dl_G_LOADBLOCK();
+    void dl_G_SETTILESIZE();
+    void dl_G_LOADTLUT();
+    void dl_G_SETCOMBINE_NOTEV();
+    void dl_G_SETCOMBINE();
+    void dl_G_SETCOMBINE_TEV();
+    void dl_G_SETOTHERMODE_H();
+    void dl_G_SETOTHERMODE_L();
+    void dl_G_RDPSETOTHERMODE(); /* gsDPSetOtherMode */
+    void dl_G_SETSCISSOR();
+    void dl_G_FILLRECT();
+    void dl_G_SETCIMG();
+    void dl_G_SETZIMG();
+    void dl_G_SETTIMG();
+    void dl_G_SETENVCOLOR();
+    void dl_G_SETBLENDCOLOR();
+    void dl_G_SETFOGCOLOR();
+    void dl_G_SETFILLCOLOR();
+    void dl_G_SETTEXEDGEALPHA();
+    void dl_G_SETPRIMDEPTH();
+    void dl_G_SETPRIMCOLOR();
+    void dl_G_RDPFULLSYNC();
+    void dl_G_RDPPIPESYNC();
+    void dl_G_RDPTILESYNC();
+    void dl_G_RDPLOADSYNC();
+    void dl_G_NOOP();
+    void dl_G_MTX();
+    void dl_G_VTX();
+    void dl_G_MODIFYVTX();
+    void dl_G_LINE3D();
+    void dl_G_TRI1();
+    void dl_G_TRIN_INDEPEND();
+    void dl_G_TRIN();
+    void dl_G_QUADN();
+    void dl_G_TRI2();
+    void dl_G_QUAD();
+    void dl_G_CULLDL();
+    void dl_G_BRANCH_Z();
+    void dl_G_TEXTURE();
+    void dl_G_POPMTX();
+    void dl_G_GEOMETRYMODE();
+    void dl_G_MOVEWORD();
+    void dl_G_MOVEMEM();
+    void dl_G_SPECIAL_1();
+
+    u32 emu64_taskstart_r(Gfx* dl_p);
+    void emu64_taskstart(Gfx* dl_p);
+    void emu64_set_ucode_info(int len, ucode_info* info);
+    void emu64_set_first_ucode(void* ucode_p);
+    void emu64_set_verbose(int verbose);
 
     /* N64 texture format[N64 bit size] -> dol texture format */
-    static u16 fmtxtbl[8][4];
+    static const u16 fmtxtbl[8][4];
     static char* warningString[EMU64_WARNING_COUNT];
-    static int warningTime[EMU64_WARNING_COUNT];
+    static u32 warningTime[EMU64_WARNING_COUNT];
     static bool displayWarning;
 
   private:
     /* 0x0000 */ // u8 emu64_print::print_flags;
-    /* 0x0001 */ u8 print_commands;
+    /* 0x0001 */ s8 print_commands;
     /* 0x0002 */ bool disable_polygons;
     /* 0x0004 */ u32 err_count;
     /* 0x0008 */ u32 cmds_processed; /* ??? */
@@ -436,17 +783,17 @@ class emu64 : public emu64_print {
     /* 0x0054 */ void* work_ptr;
     /* 0x0058 */ int end_dl;
     /* 0x005C */ s8 ucode_len;
-    /* 0x0060 */ ucode_info* ucode_info;
+    /* 0x0060 */ ucode_info* ucode_info_p;
     /* 0x0064 */ int ucode_type; // maybe?
     /* 0x0068 */ int _0068;      /* ??? */
-    /* 0x006C */ void* segments[NUM_SEGMENTS];
-    /* 0x00AC */ Gfx* DL_stack[DL_MAX_STACK_LEVEL];
+    /* 0x006C */ u32 segments[NUM_SEGMENTS];
+    /* 0x00AC */ u32 DL_stack[DL_MAX_STACK_LEVEL];
     /* 0x00F4 */ s8 DL_stack_level;
     /* 0x00F8 */ u32 othermode_high;
     /* 0x00FC */ u32 othermode_low;
     /* 0x0100 */ u32 geometry_mode;
     /* 0x0104 */ u32 _0104;
-    /* 0x0108 */ Gfx combine;
+    /* 0x0108 */ Gfx combine_gfx;
     /* 0x0110 */ emu64_texture_info texture_info[NUM_TILES];
     /* 0x0170 */ Gsetimg2 setimg2_cmds[NUM_TILES];
     /* 0x01B0 */ void* tlut_addresses[NUM_TLUTS];
@@ -455,7 +802,7 @@ class emu64 : public emu64_print {
     /* 0x03B0 */ bool use_dolphin_settile[NUM_TILES];
     /* 0x03B8 */ Gsettile settile_cmds[NUM_TILES];
     /* 0x03F8 */ Gsettile_dolphin settile_dolphin_cmds[NUM_TILES];
-    /* 0x0438 */ Gsettilesize_dolphin settilesize_dolphin_cmds[NUM_TILES];
+    /* 0x0438 */ Gsettilesize_Dolphin settilesize_dolphin_cmds[NUM_TILES];
     /* 0x0478 */ Gsetimg_new now_setimg;
     /* 0x0480 */ u8 tex_edge_alpha;
 
@@ -561,5 +908,7 @@ class emu64 : public emu64_print {
     /* 0x2038 */ Gfx* dl_history[DL_HISTORY_COUNT];
     /* 0x2078 */ u8 dl_history_start;
 };
+
+typedef void (emu64::*dl_func)(void);
 
 #endif

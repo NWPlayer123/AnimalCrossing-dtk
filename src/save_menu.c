@@ -56,7 +56,7 @@ static void save_menu_data_save_pak(GAME_SAVE_MENU* save_menu) {
     }
 
     mCPk_PakOpen(mCPk_get_pkinfo(), 0);
-    if (mCPk_SavePak(Save_Get(private), Save_Get(animals), mCPk_get_pkinfo()) == TRUE) {
+    if (mCPk_SavePak(Save_Get(private_data), Save_Get(animals), mCPk_get_pkinfo()) == TRUE) {
         if (mLd_PlayerManKindCheck() == FALSE) {
             Common_Get(now_private)->exists = FALSE;
         }

@@ -813,7 +813,7 @@ extern void mQst_SetFirstJobHello(mQst_errand_c* errand) {
     errand->errand_type = mQst_ERRAND_TYPE_FIRST_JOB;
 }
 
-extern void mQst_SetFirstJobFurniture(mQst_errand_c* errand, AnmPersonalID_c* pid, mActor_name_t item, u8 slot) {
+extern void mQst_SetFirstJobFurniture(mQst_errand_c* errand, AnmPersonalID_c* pid, mActor_name_t item, int slot) {
     if (errand != NULL) {
         errand->base.quest_type = mQst_QUEST_TYPE_ERRAND;
         errand->base.quest_kind = mQst_ERRAND_FIRSTJOB_DELIVER_FTR;
@@ -867,7 +867,7 @@ extern void mQst_SetFirstJobOpenQuest(mQst_errand_c* errand) {
     }
 }
 
-extern void mQst_SetFirstJobCarpet(mQst_errand_c* errand, AnmPersonalID_c* pid, mActor_name_t item, u8 slot) {
+extern void mQst_SetFirstJobCarpet(mQst_errand_c* errand, AnmPersonalID_c* pid, mActor_name_t item, int slot) {
     if (errand != NULL) {
         errand->base.quest_type = mQst_QUEST_TYPE_ERRAND;
         errand->base.quest_kind = mQst_ERRAND_FIRSTJOB_DELIVER_CARPET;
@@ -882,7 +882,7 @@ extern void mQst_SetFirstJobCarpet(mQst_errand_c* errand, AnmPersonalID_c* pid, 
     }
 }
 
-static void mQst_SetFirstJobAxe_common(mQst_errand_c* errand, AnmPersonalID_c* pid, mActor_name_t item, u8 slot,
+static void mQst_SetFirstJobAxe_common(mQst_errand_c* errand, AnmPersonalID_c* pid, mActor_name_t item, int slot,
                                        u8 kind) {
     if (errand != NULL) {
         errand->base.quest_type = mQst_QUEST_TYPE_ERRAND;
@@ -898,11 +898,11 @@ static void mQst_SetFirstJobAxe_common(mQst_errand_c* errand, AnmPersonalID_c* p
     }
 }
 
-extern void mQst_SetFirstJobAxe(mQst_errand_c* errand, AnmPersonalID_c* pid, mActor_name_t item, u8 slot) {
+extern void mQst_SetFirstJobAxe(mQst_errand_c* errand, AnmPersonalID_c* pid, mActor_name_t item, int slot) {
     mQst_SetFirstJobAxe_common(errand, pid, item, slot, mQst_ERRAND_FIRSTJOB_DELIVER_AXE);
 }
 
-extern void mQst_SetFirstJobAxe2(mQst_errand_c* errand, AnmPersonalID_c* pid, mActor_name_t item, u8 slot) {
+extern void mQst_SetFirstJobAxe2(mQst_errand_c* errand, AnmPersonalID_c* pid, mActor_name_t item, int slot) {
     mQst_SetFirstJobAxe_common(errand, pid, item, slot, mQst_ERRAND_FIRSTJOB_DELIVER_AXE2);
 }
 
@@ -1038,8 +1038,8 @@ extern void mQst_PrintQuestInfo(gfxprint_t* gfxprint) {
         delivery = priv->deliveries;
         errand = priv->errands;
     } else {
-        delivery = Save_Get(private[0]).deliveries;
-        errand = Save_Get(private[0]).errands;
+        delivery = Save_Get(private_data[0]).deliveries;
+        errand = Save_Get(private_data[0]).errands;
     }
 
     gfxprint_color(gfxprint, 220, 50, 50, 255);

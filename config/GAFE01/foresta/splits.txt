@@ -587,7 +587,7 @@ main.c:
 	.data       start:0x00011C10 end:0x00011C38
 	.bss        start:0x0009A500 end:0x0009A878
 
-padmgr.o:
+padmgr.c:
 	.text       start:0x00097A4C end:0x00098698
 	.data       start:0x00011C38 end:0x00011C50
 	.bss        start:0x0009A878 end:0x0009ACE0
@@ -770,7 +770,7 @@ ac_house_clock.o:
 	.rodata     start:0x00002EB0 end:0x00002EC8
 	.data       start:0x00036B78 end:0x00036D08
 
-ac_intro_demo.o:
+actor/ac_intro_demo.c:
 	.text       start:0x000BA6D4 end:0x000BA834
 	.text       start:0x000BA834 end:0x000BB3B4
 	.rodata     start:0x00002EC8 end:0x00002EF8
@@ -991,7 +991,7 @@ actor/ac_set_ovl_insect.c:
 	.data       start:0x0003F8E8 end:0x00040EC0
 	.bss        start:0x000A2888 end:0x000A2AB0
 
-ac_shop_design.o:
+actor/ac_shop_design.c:
 	.text       start:0x0012C4A0 end:0x0012D274
 	.data       start:0x00040EC0 end:0x00040F30
 
@@ -1784,14 +1784,14 @@ actor/ac_npc_engineer.c:
 	.text       start:0x001E26DC end:0x001E28B4
 	.data       start:0x00058CC8 end:0x00058D08
 
-ac_npc_guide.o:
+actor/ac_npc_guide.c:
 	.text       start:0x001E28B4 end:0x001E2AFC
 	.text       start:0x001E2AFC end:0x001E2B84
 	.text       start:0x001E2B84 end:0x001E4858
 	.rodata     start:0x000083C0 end:0x00008440
 	.data       start:0x00058D08 end:0x00059008
 
-ac_npc_guide2.o:
+actor/ac_npc_guide2.c:
 	.text       start:0x001E4858 end:0x001E4A44
 	.text       start:0x001E4A44 end:0x001E4A94
 	.text       start:0x001E4A94 end:0x001E646C
@@ -1902,7 +1902,7 @@ ac_npc_post_man.o:
 	.rodata     start:0x00008708 end:0x00008760
 	.data       start:0x00071708 end:0x00071920
 
-ac_npc_rcn_guide.o:
+actor/ac_npc_rcn_guide.c:
 	.text       start:0x001FEC28 end:0x001FEE28
 	.text       start:0x001FEE28 end:0x001FEFBC
 	.text       start:0x001FEFBC end:0x001FF464
@@ -1910,7 +1910,7 @@ ac_npc_rcn_guide.o:
 	.rodata     start:0x00008760 end:0x00008788
 	.data       start:0x00071920 end:0x00071B28
 
-ac_npc_rcn_guide2.o:
+actor/ac_npc_rcn_guide2.c:
 	.text       start:0x001FFD48 end:0x001FFF0C
 	.text       start:0x001FFF0C end:0x00200060
 	.text       start:0x00200060 end:0x002015D4

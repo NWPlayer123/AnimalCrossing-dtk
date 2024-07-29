@@ -62,7 +62,7 @@ extern int mPr_GetPlayerName(u8* buf, int player_no) {
     int res = FALSE;
 
     if (mLd_PlayerManKindCheckNo(player_no) == FALSE) {
-        pid = &Save_Get(private[player_no]).player_ID;
+        pid = &Save_Get(private_data[player_no]).player_ID;
 
         if (mPr_NullCheckPersonalID(pid) == FALSE) {
             mPr_CopyPlayerName(buf, pid->player_name);
@@ -153,7 +153,7 @@ static int mPr_GetRandomFace() {
 }
 
 static int mPr_GetRandomOriginalFace() {
-    Private_c* priv = Save_Get(private);
+    Private_c* priv = Save_Get(private_data);
     Private_c* pr2;
 
     // Private_c* pr2;
@@ -226,7 +226,7 @@ extern void mPr_SetNowPrivateCloth() {
 
 extern void mPr_InitPrivateInfo(Private_c* priv) {
     mLd_land_info_c* land_info = Save_GetPointer(land_info);
-    Private_c* o_priv = Save_Get(private);
+    Private_c* o_priv = Save_Get(private_data);
     int id_existed = FALSE;
     int face = mPr_GetRandomOriginalFace();
     int pid;
@@ -292,7 +292,7 @@ extern int mPr_CheckCmpPrivate(Private_c* priv0, Private_c* priv1) {
 }
 
 extern int mPr_GetPrivateIdx(PersonalID_c* pid) {
-    Private_c* priv = Save_Get(private);
+    Private_c* priv = Save_Get(private_data);
     int res = -1;
 
     if (mPr_NullCheckPersonalID(pid) == FALSE) {
@@ -763,7 +763,7 @@ extern int mPr_LoadPak_and_SetPrivateInfo2(Private_c* unused_private, u8 player_
     if (player_no < mPr_FOREIGNER) {
         u32 loan;
         mHm_hs_c* house;
-        Private_c* priv = Save_Get(private + player_no);
+        Private_c* priv = Save_Get(private_data + player_no);
         if (mPr_CheckCmpPrivate(priv, &g_foreigner_private) == TRUE) {
             house = Save_GetPointer(homes[mHS_get_arrange_idx(player_no)]);
             loan = priv->inventory.loan;
@@ -782,7 +782,7 @@ extern int mPr_LoadPak_and_SetPrivateInfo2(Private_c* unused_private, u8 player_
         u32 loan;
         int i;
 
-        priv = Save_Get(private);
+        priv = Save_Get(private_data);
         for (i = 0; i < PLAYER_NUM; i++) {
             exist_player = mPr_CheckCmpPrivate(priv, &g_foreigner_private);
             if (exist_player == TRUE) {
@@ -1283,7 +1283,7 @@ extern int mPr_CheckFishCompleteTalk(u8 player_no) {
     int res = FALSE;
 
     if (player_no < mPr_FOREIGNER &&
-        mPr_GetCompleteTalk(Save_Get(private[player_no]).complete_fish_insect_flags, 0) == TRUE) {
+        mPr_GetCompleteTalk(Save_Get(private_data[player_no]).complete_fish_insect_flags, 0) == TRUE) {
         res = TRUE;
     }
 
@@ -1298,7 +1298,7 @@ extern int mPr_CheckInsectCompleteTalk(u8 player_no) {
     int res = FALSE;
 
     if (player_no < mPr_FOREIGNER &&
-        mPr_GetCompleteTalk(Save_Get(private[player_no]).complete_fish_insect_flags, 1) == TRUE) {
+        mPr_GetCompleteTalk(Save_Get(private_data[player_no]).complete_fish_insect_flags, 1) == TRUE) {
         res = TRUE;
     }
 

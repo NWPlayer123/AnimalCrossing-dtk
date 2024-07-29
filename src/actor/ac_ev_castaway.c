@@ -9,7 +9,8 @@ static void aECST_actor_move(ACTOR* actorx, GAME* game);
 static void aECST_actor_draw(ACTOR* actorx, GAME* game);
 static void aECST_actor_save(ACTOR* actorx, GAME* game);
 
-ACTOR_PROFILE Ev_Castaway_Profile = { mAc_PROFILE_EV_CASTAWAY,
+ACTOR_PROFILE Ev_Castaway_Profile = {
+    mAc_PROFILE_EV_CASTAWAY,
                                       ACTOR_PART_NPC,
                                       ACTOR_STATE_CAN_MOVE_IN_DEMO_SCENES | ACTOR_STATE_NO_MOVE_WHILE_CULLED,
                                       EMPTY_NO,
@@ -19,7 +20,8 @@ ACTOR_PROFILE Ev_Castaway_Profile = { mAc_PROFILE_EV_CASTAWAY,
                                       &aECST_actor_dt,
                                       &aECST_actor_init,
                                       mActor_NONE_PROC1,
-                                      &aECST_actor_save };
+    &aECST_actor_save,
+};
 
 static void aECST_schedule_proc(NPC_ACTOR* actorx, GAME_PLAY* play, int type);
 
@@ -62,7 +64,7 @@ static void aECST_actor_init(ACTOR* actorx, GAME* game) {
 
 static void aECST_schedule_main_proc(NPC_ACTOR* actorx, GAME_PLAY* play) {
     if (actorx->draw.animation_id != 116) {
-        (*Common_Get(clip).npc_clip->animation_init_proc)((ACTOR*)actorx, 116, 0);
+        (*Common_Get(clip).npc_clip->animation_init_proc)((ACTOR*)actorx, aNPC_ANIM_GETUP_WAIT_SEG1, 0);
     }
 }
 

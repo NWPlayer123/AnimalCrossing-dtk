@@ -111,7 +111,7 @@ static void trademark_goto_demo_scene(GAME_TRADEMARK* trademark) {
 
     save = Common_GetPointer(save.save);
     mCPk_InitPak(0);
-    n_private = Save_Get(private);
+    n_private = Save_Get(private_data);
     Common_Set(now_private, n_private);
 
     if (mFRm_CheckSaveData() == FALSE) {

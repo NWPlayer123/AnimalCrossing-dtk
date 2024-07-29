@@ -27,17 +27,14 @@ ACTOR_PROFILE Tools_Profile = {
 aTOL_Clip_c aTOL_clip;
 
 static void aTOL_actor_ct(ACTOR* actor, GAME* game) {
-
     aTOL_init_clip_area(game);
 }
 
 static void aTOL_actor_dt(ACTOR*, GAME*) {
-
     aTOL_free_clip_area();
 }
 
 static void aTOL_check_data_bank(int id, ACTOR* actor) {
-
     ACTOR* kill;
     aTOL_Clip_c* clip;
 
@@ -56,7 +53,7 @@ static void aTOL_check_data_bank(int id, ACTOR* actor) {
     }
 }
 
-static TOOLS_ACTOR* aTOL_birth_proc(int name, int id, TOOLS_ACTOR* tool, GAME_PLAY* play, s16 arg, int* arg5) {
+static ACTOR* aTOL_birth_proc(int name, int id, ACTOR* tool, GAME* game, s16 arg, int* arg5) {
     static s16 profile_table[] = {
         mAc_PROFILE_T_UMBRELLA, mAc_PROFILE_T_UMBRELLA, mAc_PROFILE_T_UMBRELLA, mAc_PROFILE_T_UMBRELLA,
         mAc_PROFILE_T_UMBRELLA, mAc_PROFILE_T_UMBRELLA, mAc_PROFILE_T_UMBRELLA, mAc_PROFILE_T_UMBRELLA,
@@ -78,11 +75,12 @@ static TOOLS_ACTOR* aTOL_birth_proc(int name, int id, TOOLS_ACTOR* tool, GAME_PL
     };
 
     TOOLS_ACTOR* child;
+    GAME_PLAY* play = (GAME_PLAY*)game;
 
-    aTOL_check_data_bank(name, &tool->actor_class);
+    aTOL_check_data_bank(name, tool);
 
-    child = (TOOLS_ACTOR*)Actor_info_make_child_actor(&play->actor_info, &tool->actor_class, &play->game,
-                                                      profile_table[name], 0.0f, 0.0f, 0.0f, 0, 0, 0, -1, 0, arg, -1);
+    child = (TOOLS_ACTOR*)Actor_info_make_child_actor(&play->actor_info, tool, game, profile_table[name], 0.0f, 0.0f,
+                                                      0.0f, 0, 0, 0, -1, 0, arg, -1);
 
     if (child != NULL) {
         child->work0 = id;
@@ -92,16 +90,19 @@ static TOOLS_ACTOR* aTOL_birth_proc(int name, int id, TOOLS_ACTOR* tool, GAME_PL
     if (arg5 != NULL) {
         *arg5 = -1;
     }
+
+    return &child->actor_class;
 }
 
-static int aTOL_chg_request_mode_proc(ACTOR* actor, TOOLS_ACTOR* tool, int id) {
+static int aTOL_chg_request_mode_proc(ACTOR* actor, ACTOR* tool, int id) {
+    TOOLS_ACTOR* t_actor = (TOOLS_ACTOR*)tool;
 
-    if (actor != tool->actor_class.parent_actor) {
-        return 0;
+    if (actor != tool->parent_actor) {
+        return FALSE;
     }
 
-    tool->work0 = id;
-    return 1;
+    t_actor->work0 = id;
+    return TRUE;
 }
 
 static void aTOL_secure_pl_umbrella_bank_area(GAME* game) {
@@ -121,9 +122,7 @@ static void aTOL_secure_pl_umbrella_bank_area(GAME* game) {
 }
 
 static void aTOL_init_clip_area(GAME* game) {
-
     if (Common_Get(clip.tools_clip) == NULL) {
-
         Common_Set(clip.tools_clip, &aTOL_clip);
         bzero(&aTOL_clip, sizeof(aTOL_Clip_c));
         Common_Set(clip.tools_clip->aTOL_birth_proc, aTOL_birth_proc);
@@ -133,9 +132,7 @@ static void aTOL_init_clip_area(GAME* game) {
 }
 
 static void aTOL_free_clip_area() {
-
     if (Common_Get(clip.tools_clip) != NULL) {
-
         Common_Set(clip.tools_clip, NULL);
     }
 }

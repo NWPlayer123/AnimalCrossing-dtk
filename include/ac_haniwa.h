@@ -2,13 +2,14 @@
 #define AC_HANIWA_H
 
 #include "types.h"
-#include "m_actor.h"
-#include "c_keyframe.h"
+#include "ac_common.h"
 #include "m_collision_obj.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+#define aHNW_JOINT_NUM 8
 
 typedef struct actor_haniwa_s HANIWA_ACTOR;
 
@@ -53,28 +54,19 @@ enum haniwa_action {
     aHNW_ACTION_NUM
 };
 
+/* sizeof(HANIWA_ACTOR) == 0x288 */
 struct actor_haniwa_s {
-    ACTOR actor_class;
-
-    int saved_current_frame;
-    int keyframe_state;
-
-    cKF_SkeletonInfo_R_c keyframe;
-    int animation_state;
-
-    ClObjPipe_c col_pipe;
-
-    int action;
-    char* bank_ram_start;
-    s_xyz keyframe_work_area[8];
-    s_xyz keyframe_morph_area[8];
-    HANIWA_ACTOR_PROC action_proc;
-    f32 anim_frame_speed;
-    int player_approach_door_stage;
-    u16 door_approach_frame;
-    u8 submenu_type;
-    u8 house_idx;
-    u8 playing_save_bgm;
+    /* 0x000 */ CMN_ACTOR common_actor_class;
+    /* 0x210 */ char* bank_ram_start;
+    /* 0x214 */ s_xyz keyframe_work_area[aHNW_JOINT_NUM];
+    /* 0x244 */ s_xyz keyframe_morph_area[aHNW_JOINT_NUM];
+    /* 0x274 */ HANIWA_ACTOR_PROC action_proc;
+    /* 0x278 */ f32 anim_frame_speed;
+    /* 0x27C */ int player_approach_door_stage;
+    /* 0x280 */ u16 door_approach_frame;
+    /* 0x282 */ u8 submenu_type;
+    /* 0x283 */ u8 house_idx;
+    /* 0x284 */ u8 playing_save_bgm;
 };
 
 extern ACTOR_PROFILE Haniwa_Profile;

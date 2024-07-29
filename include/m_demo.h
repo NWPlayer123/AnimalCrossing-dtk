@@ -49,7 +49,7 @@ enum {
 enum demo_type {
     mDemo_TYPE_NONE,
     mDemo_TYPE_SCROLL,
-    mDemo_TYPE_2,
+    mDemo_TYPE_EXITSCENE,
     mDemo_TYPE_DOOR,
     mDemo_TYPE_4,
     mDemo_TYPE_SCROLL2,
@@ -86,7 +86,7 @@ enum demo_order_type {
 typedef void (*mDemo_REQUEST_PROC)(ACTOR*);
 
 typedef struct demo_clip_s {
-    void* class;
+    void* demo_class;
     int type; /* 0 = none?, 1 = intro_demo, 2 = ride_off_demo */
 } mDemo_Clip_c;
 
