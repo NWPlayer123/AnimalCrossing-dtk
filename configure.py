@@ -910,7 +910,7 @@ if not os.path.exists("include/PR"):
 
             if filename == "gbi.h":
                 content = re.sub(
-                    br"unsigned char\s+param:8;", br"unsigned int    param:8;", content
+                    br"unsigned char\s+param:8;", b"unsigned int\tparam:8;", content
                 )
 
             with open(f"include/PR/{filename}", "wb") as file:
