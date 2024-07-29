@@ -85,17 +85,21 @@ class ProjectConfig:
         self.warn_missing_config: bool = False  # Warn on missing unit configuration
         self.warn_missing_source: bool = False  # Warn on missing source file
         self.rel_strip_partial: bool = True  # Generate PLFs with -strip_partial
-        self.rel_empty_file: Optional[
-            str
-        ] = None  # Object name for generating empty RELs
+        self.rel_empty_file: Optional[str] = (
+            None  # Object name for generating empty RELs
+        )
         self.shift_jis = (
             True  # Convert source files from UTF-8 to Shift JIS automatically
         )
         self.reconfig_deps: Optional[List[Path]] = (
             None  # Additional re-configuration dependency files
         )
-        self.custom_build_rules: Optional[List[Dict[str, Any]]] = None # Custom ninja build rules
-        self.custom_build_steps: Optional[List[Dict[str, Any]]] = None # Custom build steps
+        self.custom_build_rules: Optional[List[Dict[str, Any]]] = (
+            None  # Custom ninja build rules
+        )
+        self.custom_build_steps: Optional[List[Dict[str, Any]]] = (
+            None  # Custom build steps
+        )
 
         # Progress output and progress.json config
         self.progress_all: bool = True  # Include combined "all" category
@@ -460,7 +464,6 @@ def generate_build_ninja(
             deps=rule.get("deps", None),
         )
         n.newline()
-    
 
     n.comment("Host build")
     n.variable("host_cflags", "-I include -Wno-trigraphs")
@@ -481,16 +484,19 @@ def generate_build_ninja(
     n.newline()
 
     # Add all build steps needed before we compile (e.g. processing assets)
-    n.comment("Custom build steps (pre-compile)")
-    custom_implicit = []
+    precompile_implicit = []
     for steps in config.custom_build_steps or {}:
         if steps["type"].lower() == "pre-compile":
+            # This is the first being added, actually print out our comment
+            if len(precompile_implicit) == 0:
+                n.comment("Custom build steps (pre-compile)")
+
             outputs = steps.get("outputs")
 
             if isinstance(outputs, list):
-                custom_implicit.extend(outputs)
+                precompile_implicit.extend(outputs)
             else:
-                custom_implicit.append(outputs)
+                precompile_implicit.append(outputs)
 
             n.build(
                 outputs=outputs,
@@ -504,7 +510,6 @@ def generate_build_ninja(
                 dyndep=steps.get("dyndep", None),
             )
             n.newline()
-    n.newline()
 
     ###
     # Source files
@@ -556,7 +561,12 @@ def generate_build_ninja(
                     outputs=elf_path,
                     rule="link",
                     inputs=self.inputs,
-                    implicit=[self.ldscript, *mwld_implicit, *custom_implicit],
+                    implicit=[
+                        *precompile_implicit,
+                        self.ldscript,
+                        *mwld_implicit,
+                        *postcompile_implicit,
+                    ],
                     implicit_outputs=elf_map,
                     variables={"ldflags": elf_ldflags},
                 )
@@ -800,9 +810,20 @@ def generate_build_ninja(
             sys.exit(f"Linker {mw_path} does not exist")
 
         # Add all build steps needed before we link and after compiling objects
-        n.comment("Custom build steps (post-compile)")
+        postcompile_implicit = []
         for steps in config.custom_build_steps or {}:
             if steps["type"].lower() == "post-compile":
+                # This is the first being added, actually print out our comment
+                if len(postcompile_implicit) == 0:
+                    n.comment("Custom build steps (post-compile)")
+
+                outputs = steps.get("outputs")
+
+                if isinstance(outputs, list):
+                    postcompile_implicit.extend(outputs)
+                else:
+                    postcompile_implicit.append(outputs)
+
                 n.build(
                     outputs=steps.get("outputs"),
                     rule=steps.get("rule"),
@@ -815,7 +836,6 @@ def generate_build_ninja(
                     dyndep=steps.get("dyndep", None),
                 )
                 n.newline()
-        n.newline()
 
         ###
         # Link
@@ -826,9 +846,20 @@ def generate_build_ninja(
         n.newline()
 
         # Add all build steps needed after linking and before GC/Wii native format generation
-        n.comment("Custom build steps (post-link)")
+        postlink_implicit = []
         for steps in config.custom_build_steps or {}:
             if steps["type"].lower() == "post-link":
+                # This is the first being added, actually print out our comment
+                if len(postlink_implicit) == 0:
+                    n.comment("Custom build steps (post-link)")
+
+                outputs = steps.get("outputs")
+
+                if isinstance(outputs, list):
+                    postlink_implicit.extend(outputs)
+                else:
+                    postlink_implicit.append(outputs)
+
                 n.build(
                     outputs=steps.get("outputs"),
                     rule=steps.get("rule"),
@@ -841,7 +872,6 @@ def generate_build_ninja(
                     dyndep=steps.get("dyndep", None),
                 )
                 n.newline()
-        n.newline()
 
         ###
         # Generate DOL
@@ -852,7 +882,7 @@ def generate_build_ninja(
             outputs=dol_link_step.output(),
             rule="elf2dol",
             inputs=dol_link_step.partial_output(),
-            implicit=dtk,
+            implicit=[*postlink_implicit, dtk],
         )
 
         ###
@@ -918,9 +948,20 @@ def generate_build_ninja(
             n.newline()
 
         # Add all build steps needed post-build (re-building archives and such)
-        n.comment("Custom build steps (post-build)")
+        postbuild_implicit = []
         for steps in config.custom_build_steps or {}:
             if steps["type"].lower() == "post-build":
+                # This is the first being added, actually print out our comment
+                if len(postbuild_implicit) == 0:
+                    n.comment("Custom build steps (post-build)")
+
+                outputs = steps.get("outputs")
+
+                if isinstance(outputs, list):
+                    postbuild_implicit.extend(outputs)
+                else:
+                    postbuild_implicit.append(outputs)
+
                 n.build(
                     outputs=steps.get("outputs"),
                     rule=steps.get("rule"),
@@ -933,7 +974,6 @@ def generate_build_ninja(
                     dyndep=steps.get("dyndep", None),
                 )
                 n.newline()
-        n.newline()
 
         ###
         # Helper rule for building all source files
@@ -972,7 +1012,7 @@ def generate_build_ninja(
             outputs=ok_path,
             rule="check",
             inputs=config.check_sha_path,
-            implicit=[dtk, *link_outputs],
+            implicit=[dtk, *link_outputs, *postbuild_implicit],
         )
         n.newline()
 
@@ -1072,7 +1112,7 @@ def generate_build_ninja(
             configure_script,
             python_lib,
             python_lib_dir / "ninja_syntax.py",
-            *(config.reconfig_deps or [])
+            *(config.reconfig_deps or []),
         ],
     )
     n.newline()
@@ -1221,10 +1261,14 @@ def generate_objdiff_config(
         if compiler_version is None:
             print(f"Missing scratch compiler mapping for {options['mw_version']}")
         else:
+            cflags_str = make_flags_str(cflags)
+            if options["extra_cflags"] is not None:
+                extra_cflags_str = make_flags_str(options["extra_cflags"])
+                cflags_str += " " + extra_cflags_str
             unit_config["scratch"] = {
                 "platform": "gc_wii",
                 "compiler": compiler_version,
-                "c_flags": make_flags_str(cflags),
+                "c_flags": cflags_str,
                 "ctx_path": src_ctx_path,
                 "build_ctx": True,
             }

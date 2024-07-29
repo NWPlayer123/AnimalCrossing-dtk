@@ -137,7 +137,7 @@ config.binutils_tag = "2.42-1"
 config.compilers_tag = "20231018"
 config.dtk_tag = "v0.9.0"
 config.sjiswrap_tag = "v1.1.1"
-config.wibo_tag = "0.6.14"
+config.wibo_tag = "0.6.11"
 
 # Project
 config.config_path = Path("config") / config.version / "config.yml"
@@ -150,9 +150,9 @@ config.asflags = [
     f"--defsym version={version_num}",
 ]
 config.ldflags = [
-    "-nodefaults",
     "-fp hardware",
-    "-W off",
+    "-nodefaults",
+    "-warn off",
 ]
 # Use for any additional files that should cause a re-configure when modified
 config.reconfig_deps = []
@@ -211,7 +211,7 @@ cflags_static = [
     "-inline on",
     "-d _LANGUAGE_C",
     "-d F3DEX_GBI_2",
-    "-d MUST_MATCH"
+    "-d MUST_MATCH",
 ]
 
 # REL flags
@@ -765,7 +765,9 @@ config.libs = [
         "host": False,
         "src_dir": "src/static",
         "objects": [
-            Object(NonMatching, "Famicom/famicom.cpp"), #Almost perfect, needs C++ work
+            Object(
+                NonMatching, "Famicom/famicom.cpp"
+            ),  # Almost perfect, needs C++ work
             Object(Matching, "Famicom/famicom_nesinfo.cpp"),
         ],
     },
@@ -792,7 +794,7 @@ config.libs = [
         "host": False,
         "src_dir": "src/static",
         "objects": [
-            #emu64 is problematic, needs better settings, and dtk doesn't recognize the .cc extension
+            # emu64 is problematic, needs better settings, and dtk doesn't recognize the .cc extension
             Object(Matching, "libforest/fault.c"),
             Object(Matching, "libforest/osreport.c"),
             Object(Matching, "libforest/ReconfigBATs.c"),
