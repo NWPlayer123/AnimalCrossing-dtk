@@ -256,7 +256,7 @@ static void aIDG_stop(ACTOR* actor, GAME* game) {
 }
 
 static void aIDG_hide(ACTOR* actor, GAME* game) {
-    GAME_PLAY* play = (GAME_PLAY*) game;
+    GAME_PLAY* play = (GAME_PLAY*)game;
     aINS_INSECT_ACTOR* insect = (aINS_INSECT_ACTOR*)actor;
 
     if (aIDG_check_strike_stone(insect) == TRUE) {
@@ -267,16 +267,15 @@ static void aIDG_hide(ACTOR* actor, GAME* game) {
 static void aIDG_appear(ACTOR* actor, GAME* game) {
     aINS_INSECT_ACTOR* insect = (aINS_INSECT_ACTOR*)actor;
     if (insect->tools_actor.actor_class.bg_collision_check.result.on_ground) {
-        aIDG_setupAction(insect, aIDG_ACTION_STOP , game);
+        aIDG_setupAction(insect, aIDG_ACTION_STOP, game);
     }
 }
 
 static void aIDG_dive(ACTOR* actor, GAME* game) {
-    GAME_PLAY* play = (GAME_PLAY*) game;
+    GAME_PLAY* play = (GAME_PLAY*)game;
     aINS_INSECT_ACTOR* insect = (aINS_INSECT_ACTOR*)actor;
-    
-    if (actor->world.position.y <=
-        mCoBG_GetWaterHeight_File(actor->world.position, "ac_ins_dango.c", 608)) {
+
+    if (actor->world.position.y <= mCoBG_GetWaterHeight_File(actor->world.position, "ac_ins_dango.c", 608)) {
         aIDG_setupAction(insect, aIDG_ACTION_DROWN, &play->game);
     }
 }
@@ -372,13 +371,7 @@ static void aIDG_setupAction(aINS_INSECT_ACTOR* insect, int action, GAME* game) 
     };
 
     static aINS_ACTION_PROC act_proc[] = {
-        aIDG_avoid,
-        aIDG_let_escape,
-        aIDG_stop,
-        aIDG_hide,
-        aIDG_appear,
-        aIDG_dive,
-        (aINS_ACTION_PROC)none_proc1,
+        aIDG_avoid,      aIDG_let_escape, aIDG_stop, aIDG_hide, aIDG_appear, aIDG_dive, (aINS_ACTION_PROC)none_proc1,
         aIDG_let_escape,
     };
 
@@ -387,18 +380,16 @@ static void aIDG_setupAction(aINS_INSECT_ACTOR* insect, int action, GAME* game) 
     (*init_proc[action])(insect, game);
 }
 
-
 static void aIDG_actor_move(ACTOR* actor, GAME* game) {
     aINS_INSECT_ACTOR* insect = (aINS_INSECT_ACTOR*)actor;
     GAME_PLAY* play = (GAME_PLAY*)game;
- 
+
     u32 label = mPlib_Get_item_net_catch_label();
 
     if (label == (u32)actor) {
         insect->alpha0 = 255;
         aIDG_setupAction(insect, aIDG_ACTION_LET_ESCAPE, game);
     } else {
-        insect->action_proc(actor,game);
+        insect->action_proc(actor, game);
     }
 }
-

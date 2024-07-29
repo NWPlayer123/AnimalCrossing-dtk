@@ -15,4 +15,3 @@ extern ACTOR_PROFILE Npc_Mamedanuki_Profile;
 #endif
 
 #endif
-

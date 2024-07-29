@@ -15,4 +15,3 @@ extern ACTOR_PROFILE Gyoei_Profile;
 #endif
 
 #endif
-

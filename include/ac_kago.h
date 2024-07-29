@@ -9,10 +9,9 @@
 extern "C" {
 #endif
 
-typedef struct actor_kago_s{
+typedef struct actor_kago_s {
     STRUCTURE_ACTOR structure_class;
-}KAGO_ACTOR;
-
+} KAGO_ACTOR;
 
 extern ACTOR_PROFILE Kago_Profile;
 
@@ -21,4 +20,3 @@ extern ACTOR_PROFILE Kago_Profile;
 #endif
 
 #endif
-

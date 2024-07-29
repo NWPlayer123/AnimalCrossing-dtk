@@ -15,4 +15,3 @@ extern ACTOR_PROFILE Police_Box_Profile;
 #endif
 
 #endif
-

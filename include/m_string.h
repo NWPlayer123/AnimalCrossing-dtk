@@ -23,7 +23,8 @@ extern int mString_Load_MinStringFromRom(u8* dst, lbRTC_min_t min);
 extern int mString_Load_SecStringFromRom(u8* dst, lbRTC_sec_t sec);
 extern int mString_Load_NumberStringAddUnitFromRom(u8* dst, u16 num, int str_no);
 
-#define mString_Load_ArticleFromRom(buf, buf_size, art) mString_Load_StringFromRom(buf, buf_size, mString_ARTICLE_START + art)
+#define mString_Load_ArticleFromRom(buf, buf_size, art) \
+    mString_Load_StringFromRom(buf, buf_size, mString_ARTICLE_START + art)
 
 #ifdef __cplusplus
 }

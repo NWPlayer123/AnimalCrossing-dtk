@@ -11,20 +11,20 @@ extern "C" {
 extern int aWeather_ChangingWeather();
 extern void aWeather_RequestChangeWeatherToIsland();
 extern void aWeather_RequestChangeWeatherFromIsland();
- 
+
 extern ACTOR_PROFILE Weather_Profile;
 
-typedef struct ac_weather_priv_s{
+typedef struct ac_weather_priv_s {
     xyz_t pos;
     xyz_t speed;
     f32 currentY;
     f32 unk1C;
     s16 timer;
-    s16 work[5]; 
+    s16 work[5];
     u8 use;
     u8 id;
     u8 status;
-}aWeather_Priv;
+} aWeather_Priv;
 
 typedef struct weather_actor_s WEATHER_ACTOR;
 
@@ -35,7 +35,7 @@ typedef aWeather_Priv* (*GET_WEATHER_PRV)(u8 status, s16 timer, xyz_t* pos, xyz_
 typedef int (*WEATHER_SOUND_EFFECT)();
 typedef void (*CHANGE_WEATER_INSTANCE_PROC)(WEATHER_ACTOR* weather, s16 status, s16 level);
 
-typedef struct ac_weather_clip_s{
+typedef struct ac_weather_clip_s {
     WEATHER_ACTOR* actor;
     CHANGE_WEATHER_PROC change_weather;
     GET_WEATHER_PRV_NUM get_priv_num;
@@ -44,25 +44,24 @@ typedef struct ac_weather_clip_s{
     WEATHER_SOUND_EFFECT stop_sound;
     WEATHER_SOUND_EFFECT start_sound;
     CHANGE_WEATER_INSTANCE_PROC change_weather_instance;
-}aWeather_Clip_c; 
+} aWeather_Clip_c;
 
-
-typedef void (*MK_WEATHER_PROC)(ACTOR*,GAME*);
+typedef void (*MK_WEATHER_PROC)(ACTOR*, GAME*);
 typedef void (*CT_WEATHER_PROC)(aWeather_Priv*, GAME*);
 typedef void (*MV_WEATHER_PROC)(aWeather_Priv*, GAME*);
 typedef void (*MT_WEATHER_PROC)(aWeather_Priv*, GAME*);
 typedef void (*ST_WEATHER_PROC)(GAME*);
 typedef void (*DW_WEATHER_PROC)(aWeather_Priv*, GAME*);
 
-typedef struct ac_weather_profile_s{
+typedef struct ac_weather_profile_s {
     MK_WEATHER_PROC make;
     CT_WEATHER_PROC constructor;
     MV_WEATHER_PROC move;
     ST_WEATHER_PROC set;
     DW_WEATHER_PROC draw;
-}aWeather_Profile_c;
+} aWeather_Profile_c;
 
-struct weather_actor_s{
+struct weather_actor_s {
     /* 0x000 */ ACTOR actor_class;
     /* 0x174 */ aWeather_Profile_c* current_profile;
     /* 0x178 */ s16 current_status;
@@ -74,10 +73,10 @@ struct weather_actor_s{
     /* 0x184 */ u8* ptr;
     /* 0x188 */ xyz_t pos;
     /* 0x194 */ aWeather_Priv* priv;
-    /* 0x198 */ void* t; 
+    /* 0x198 */ void* t;
     /* 0x19C */ u8 request_change;
     /* 0x19E */ s16 unk19E;
-    /* 0x1A0 */ aWeather_Clip_c clip; 
+    /* 0x1A0 */ aWeather_Clip_c clip;
     /* 0x1C0 */ s16 timer;
     /* 0x1C2 */ s16 timer2;
     /* 0x1C4 */ xyz_t wind_info;
@@ -90,11 +89,10 @@ struct weather_actor_s{
     /* 0x1DC */ s16 start_sound_effect;
     /* 0x1DE */ s16 stop_sound_effect;
     /* 0x1E0 */ s16 basement_event;
-}; 
+};
 
 #ifdef __cplusplus
 }
 #endif
 
 #endif
-

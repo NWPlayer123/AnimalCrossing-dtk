@@ -15,4 +15,3 @@ extern ACTOR_PROFILE Kamakura_Indoor_Profile;
 #endif
 
 #endif
-

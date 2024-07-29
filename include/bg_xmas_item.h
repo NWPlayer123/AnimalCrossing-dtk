@@ -15,4 +15,3 @@ extern ACTOR_PROFILE BgXmasItem_Profile;
 #endif
 
 #endif
-

@@ -15,4 +15,3 @@ extern ACTOR_PROFILE Shop_Design_Profile;
 #endif
 
 #endif
-

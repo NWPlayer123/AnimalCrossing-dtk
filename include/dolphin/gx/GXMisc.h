@@ -4,8 +4,7 @@
 #include <dolphin/gx/GXEnum.h>
 
 #ifdef __cplusplus
-extern "C"
-{
+extern "C" {
 #endif
 
 void GXSetMisc(GXMiscToken token, u32 val);

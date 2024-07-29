@@ -15,4 +15,3 @@ extern ACTOR_PROFILE Npc_Needlework_Profile;
 #endif
 
 #endif
-

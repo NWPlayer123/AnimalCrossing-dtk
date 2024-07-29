@@ -11,13 +11,13 @@ extern "C" {
 #endif
 
 typedef struct contpak_s {
-  int _00;
-  sCPk_c save_pak;
+    int _00;
+    sCPk_c save_pak;
 } mCPk_c;
 
 extern int mCPk_InitPak(int pak_idx);
 extern int mCPk_PakOpen(mCPk_c* cpak, int pak_idx);
-extern int  mCPk_SavePak(Private_c* private_data, Animal_c* animals, mCPk_c* cpak);
+extern int mCPk_SavePak(Private_c* private_data, Animal_c* animals, mCPk_c* cpak);
 extern mCPk_c* mCPk_get_pkinfo();
 
 #ifdef __cplusplus

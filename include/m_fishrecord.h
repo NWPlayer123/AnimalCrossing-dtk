@@ -12,17 +12,17 @@ extern "C" {
 #define mFR_RECORD_NUM 5
 
 typedef struct fishrecord_s {
-  PersonalID_c pid;
-  lbRTC_time_c time;
-  int size;
+    PersonalID_c pid;
+    lbRTC_time_c time;
+    int size;
 } mFR_record_c;
 
 enum {
-  mFR_SIZE_SMALL,
-  mFR_SIZE_MEDIUM,
-  mFR_SIZE_LARGE,
+    mFR_SIZE_SMALL,
+    mFR_SIZE_MEDIUM,
+    mFR_SIZE_LARGE,
 
-  mFR_SIZE_NUM
+    mFR_SIZE_NUM
 };
 
 extern void mEv_fishRecord_set(PersonalID_c* pid, int size);

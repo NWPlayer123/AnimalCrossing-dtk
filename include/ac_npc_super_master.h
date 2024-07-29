@@ -15,4 +15,3 @@ extern ACTOR_PROFILE Npc_Super_Master_Profile;
 #endif
 
 #endif
-

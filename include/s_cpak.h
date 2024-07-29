@@ -8,7 +8,7 @@ extern "C" {
 #endif
 
 typedef struct save_pak_s {
-  u8 unused[0x54];
+    u8 unused[0x54];
 } sCPk_c;
 
 extern int sCPk_PakOpen(sCPk_c* s_pak);

@@ -9,7 +9,7 @@ extern "C" {
 #endif
 
 typedef struct aprilfool_event_save_data_s {
-  u16 talk_bitfield[PLAYER_NUM];
+    u16 talk_bitfield[PLAYER_NUM];
 } aAPC_event_save_data_c;
 
 #ifdef __cplusplus

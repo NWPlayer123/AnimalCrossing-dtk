@@ -15,4 +15,3 @@ extern ACTOR_PROFILE Npc_Shop_Mastersp_Profile;
 #endif
 
 #endif
-

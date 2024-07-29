@@ -13,5 +13,4 @@ extern void Na_GetRadioCounter(void*);
 }
 #endif
 
-
 #endif

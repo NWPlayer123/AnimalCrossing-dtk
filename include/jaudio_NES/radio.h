@@ -13,5 +13,4 @@ extern void Na_GetKappaCounter(void*);
 }
 #endif
 
-
 #endif

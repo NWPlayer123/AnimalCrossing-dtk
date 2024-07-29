@@ -13,15 +13,14 @@ extern ACTOR_PROFILE T_Cracker_Profile;
 
 typedef void (*CRACKER_PROC)(ACTOR*);
 
-typedef struct t_cracker_s{
+typedef struct t_cracker_s {
     TOOLS_ACTOR tools_class;
-    CRACKER_PROC proc; 
+    CRACKER_PROC proc;
     int current_id;
-}CRACKER_ACTOR;
+} CRACKER_ACTOR;
 
 #ifdef __cplusplus
 }
 #endif
 
 #endif
-

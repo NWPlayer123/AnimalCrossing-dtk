@@ -4,9 +4,8 @@
 #include "dolphin/os/OSInterrupt.h"
 #include "libultra/libultra.h"
 
-
 #ifdef __cplusplus
-extern "C"{
+extern "C" {
 #endif
 
 #define FAULT_MIN_PRIORITY 0
@@ -26,23 +25,23 @@ extern "C"{
 typedef void (*FaultCallback)(const char* msg, u32 param);
 typedef struct fault_client_s fault_client;
 
-struct fault_client_s { 
-	fault_client* next;
-	FaultCallback callback;
-	const char* msg;
-	u32 param;
-	u8 priority;
-	u8 flags;
+struct fault_client_s {
+    fault_client* next;
+    FaultCallback callback;
+    const char* msg;
+    u32 param;
+    u8 priority;
+    u8 flags;
 };
 
 typedef struct {
-	u8 _0, _1, _2, _3;
-	u8 num_clients;
-	fault_client* first_client;
+    u8 _0, _1, _2, _3;
+    u8 num_clients;
+    fault_client* first_client;
 } fault;
 
-
-extern void fault_AddClientEx(fault_client* client, FaultCallback callback, const char* msg, u32 param, u8 priority, u8 flags);
+extern void fault_AddClientEx(fault_client* client, FaultCallback callback, const char* msg, u32 param, u8 priority,
+                              u8 flags);
 extern void fault_AddClient(fault_client* client, FaultCallback callback, const char* msg, u32 param);
 extern void fault_Printf(const char* msg, ...);
 static void fault_DrawUpdate();

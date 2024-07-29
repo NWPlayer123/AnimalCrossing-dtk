@@ -7,8 +7,8 @@
 extern "C" {
 #endif
 
-    void Probe_Start(void);
-    void Probe_Finish(void);
+void Probe_Start(void);
+void Probe_Finish(void);
 
 #ifdef __cplusplus
 }

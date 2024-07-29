@@ -13,8 +13,8 @@ extern "C" {
 
 /* sizeof(mNtc_board_post) == 0xC8 */
 typedef struct notice_board_post_s {
-  /* 0x00 */ u8 message[MAIL_BODY_LEN]; /* post contents */
-  /* 0xC0 */ lbRTC_time_c post_time; /* date-time of post */
+    /* 0x00 */ u8 message[MAIL_BODY_LEN]; /* post contents */
+    /* 0xC0 */ lbRTC_time_c post_time;    /* date-time of post */
 } mNtc_board_post_c;
 
 extern void mNtc_SetInitData();

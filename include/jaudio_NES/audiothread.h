@@ -1,7 +1,7 @@
 #ifndef AUDIOTHREAD_H
 #define AUDIOTHREAD_H
 
- #include "types.h"
+#include "types.h"
 
 #ifdef __cplusplus
 extern "C" {

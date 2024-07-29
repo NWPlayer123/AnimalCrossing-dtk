@@ -15,7 +15,6 @@ typedef struct {
     /* 0x00C */ u16 timer;
 } fbdemo_fade; // size = 0x10
 
-
 extern fbdemo_fade* fbdemo_fade_init(fbdemo_fade*);
 extern void fbdemo_fade_move(fbdemo_fade*, int);
 extern void fbdemo_fade_draw(fbdemo_fade* this, Gfx** gfxP);

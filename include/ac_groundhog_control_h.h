@@ -8,7 +8,7 @@ extern "C" {
 #endif
 
 typedef struct groundhog_control_event_data_s {
-  int awaiting_birth;
+    int awaiting_birth;
 } aGHC_event_area_c;
 
 #ifdef __cplusplus

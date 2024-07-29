@@ -15,4 +15,3 @@ extern ACTOR_PROFILE BgWinterItem_Profile;
 #endif
 
 #endif
-

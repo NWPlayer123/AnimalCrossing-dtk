@@ -15,4 +15,3 @@ extern ACTOR_PROFILE Groundhog_Npc0_Profile;
 #endif
 
 #endif
-

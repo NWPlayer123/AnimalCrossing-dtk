@@ -22,15 +22,12 @@ ACTOR_PROFILE Ev_Cherry_Manager_Profile = {
 };
 
 void eChryMgr_move(ACTOR* actor, GAME* game) {
-
 }
 
 void eChryMgr_draw(ACTOR* actor, GAME* game) {
-
 }
 
 void eChryMgr_ct(ACTOR* actor, GAME* game) {
-
 }
 
 void eChryMgr_dt(ACTOR* actor, GAME* game) {

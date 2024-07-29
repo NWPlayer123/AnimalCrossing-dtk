@@ -57,7 +57,6 @@ void OSPanic(const char* file, int line, const char* fmt, ...) {
     u32 enable;
     OSThread* thread;
     enable = OSDisableInterrupts();
-    
 
     va_start(list, fmt);
     vprintf(fmt, list);
@@ -73,8 +72,8 @@ void OSPanic(const char* file, int line, const char* fmt, ...) {
 
 extern void OSChangeBootMode(u32 mode) {
     __OSSetBootMode(mode ? OS_BOOT_MODE_RETAIL : OS_BOOT_MODE_DEBUG);
-    
-    while(__OSSyncSram() == FALSE) { }
+
+    while (__OSSyncSram() == FALSE) {}
 }
 
 extern void OSDVDFatalError(void) {

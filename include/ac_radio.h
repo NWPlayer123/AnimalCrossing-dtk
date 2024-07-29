@@ -13,7 +13,7 @@ extern ACTOR_PROFILE Radio_Profile;
 typedef struct radio_actor_s RADIO_ACTOR;
 typedef void (*RADIO_PROC)(RADIO_ACTOR*, GAME_PLAY*);
 
-struct radio_actor_s{
+struct radio_actor_s {
     ACTOR actor_class;
     u8 pad[0x2A0 - 0x174];
     RADIO_PROC proc;
@@ -28,4 +28,3 @@ struct radio_actor_s{
 #endif
 
 #endif
-

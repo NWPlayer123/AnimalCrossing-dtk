@@ -3,19 +3,21 @@
 
 u32 gTRKDispatchTableSize;
 
-TRKResult (*gTRKDispatchTable[])(MessageBuffer*) = {&TRKDoUnsupported, &TRKDoConnect, &TRKDoDisconnect,
-&TRKDoReset, &TRKDoVersions, &TRKDoSupportMask, &TRKDoCPUType, &TRKDoUnsupported,&TRKDoUnsupported,
-&TRKDoUnsupported,&TRKDoUnsupported,&TRKDoUnsupported,&TRKDoUnsupported,&TRKDoUnsupported,
-&TRKDoUnsupported,&TRKDoUnsupported, &TRKDoReadMemory, &TRKDoWriteMemory, &TRKDoReadRegisters,
-&TRKDoWriteRegisters, &TRKDoUnsupported,&TRKDoUnsupported, &TRKDoFlushCache, &TRKDoSetOption,
-&TRKDoContinue, &TRKDoStep, &TRKDoStop};
+TRKResult (*gTRKDispatchTable[])(MessageBuffer*) = {
+    &TRKDoUnsupported, &TRKDoConnect,     &TRKDoDisconnect,  &TRKDoReset,         &TRKDoVersions,
+    &TRKDoSupportMask, &TRKDoCPUType,     &TRKDoUnsupported, &TRKDoUnsupported,   &TRKDoUnsupported,
+    &TRKDoUnsupported, &TRKDoUnsupported, &TRKDoUnsupported, &TRKDoUnsupported,   &TRKDoUnsupported,
+    &TRKDoUnsupported, &TRKDoReadMemory,  &TRKDoWriteMemory, &TRKDoReadRegisters, &TRKDoWriteRegisters,
+    &TRKDoUnsupported, &TRKDoUnsupported, &TRKDoFlushCache,  &TRKDoSetOption,     &TRKDoContinue,
+    &TRKDoStep,        &TRKDoStop
+};
 
-TRKResult TRKInitializeDispatcher(){
+TRKResult TRKInitializeDispatcher() {
     gTRKDispatchTableSize = 32;
     return TRKSuccess;
 }
 
-TRKResult TRKDispatchMessage(MessageBuffer* mbuf){
+TRKResult TRKDispatchMessage(MessageBuffer* mbuf) {
 
     u8 buf;
     s16 val;
@@ -24,7 +26,7 @@ TRKResult TRKDispatchMessage(MessageBuffer* mbuf){
     TRKSetBufferPosition(mbuf, 0);
     TRKReadBuffer1_ui8(mbuf, &buf);
     val = buf;
-    if ((val & 0xFF) < gTRKDispatchTableSize){
+    if ((val & 0xFF) < gTRKDispatchTableSize) {
         res = gTRKDispatchTable[buf](mbuf);
     }
     return res;

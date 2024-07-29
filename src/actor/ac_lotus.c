@@ -8,9 +8,9 @@
 #include "m_player_lib.h"
 
 enum {
-  aLOT_ACTION_WAIT1,
-  aLOT_ACTION_WAIT2,
-  aLOT_ACTION_SHAKE,
+    aLOT_ACTION_WAIT1,
+    aLOT_ACTION_WAIT2,
+    aLOT_ACTION_SHAKE,
 };
 
 static void aLOT_actor_ct(ACTOR* actor, GAME* game);
@@ -18,31 +18,29 @@ static void aLOT_actor_dt(ACTOR* actor, GAME* game);
 static void aLOT_actor_init(ACTOR* actor, GAME* game);
 static void aLOT_actor_draw(ACTOR* actor, GAME* game);
 
-ACTOR_PROFILE Lotus_Profile = {
-  mAc_PROFILE_LOTUS,
-  ACTOR_PART_ITEM,
-  ACTOR_STATE_TA_SET,
-  LOTUS,
-  ACTOR_OBJ_BANK_KEEP,
-  sizeof(LOTUS_ACTOR),
-  &aLOT_actor_ct,
-  &aLOT_actor_dt,
-  &aLOT_actor_init,
-  &aLOT_actor_draw,
-  NULL
-};
+ACTOR_PROFILE Lotus_Profile = { mAc_PROFILE_LOTUS,
+                                ACTOR_PART_ITEM,
+                                ACTOR_STATE_TA_SET,
+                                LOTUS,
+                                ACTOR_OBJ_BANK_KEEP,
+                                sizeof(LOTUS_ACTOR),
+                                &aLOT_actor_ct,
+                                &aLOT_actor_dt,
+                                &aLOT_actor_init,
+                                &aLOT_actor_draw,
+                                NULL };
 
-static StatusData_c lotus_StatusData = { 0, 0, 0, 0, 0x0A};
+static StatusData_c lotus_StatusData = { 0, 0, 0, 0, 0x0A };
 static ClObjPipeData_c lotus_CoInfoData = {
-    {0x3D, 0x20, ClObj_TYPE_PIPE},  // collision data
-    {1},                            // element data
+    { 0x3D, 0x20, ClObj_TYPE_PIPE }, // collision data
+    { 1 },                           // element data
     // Pipe specs
     {
         70, // radius
         6,  // height
         0,  // offset
 
-        {0, 0, 0},  // center
+        { 0, 0, 0 }, // center
     },
 };
 
@@ -60,10 +58,11 @@ static void aLOT_actor_ct(ACTOR* actor, GAME* game) {
 
     lotus = (LOTUS_ACTOR*)actor;
     water_height = mCoBG_GetWaterHeight_File(actor->world.position, __FILE__, 265);
-    cKF_SkeletonInfo_R_ct(&lotus->structure_class.keyframe, &cKF_bs_r_obj_s_lotus, NULL, lotus->structure_class.work_area, lotus->structure_class.morph_area);
+    cKF_SkeletonInfo_R_ct(&lotus->structure_class.keyframe, &cKF_bs_r_obj_s_lotus, NULL,
+                          lotus->structure_class.work_area, lotus->structure_class.morph_area);
 
     ClObjPipe_ct(game, &pipeinfo);
-    ClObjPipe_set5(game, &pipeinfo,actor, &lotus_CoInfoData);
+    ClObjPipe_set5(game, &pipeinfo, actor, &lotus_CoInfoData);
     CollisionCheck_Status_set3(&actor->status_data, &lotus_StatusData);
 
     actor->world.position.y = water_height;

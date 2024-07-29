@@ -19,14 +19,12 @@ typedef struct {
     /* 0xDC */ u16* zBuffer;
 } fbdemo_c; // size = 0xE0
 
-
 extern void fbdemo_init_gfx(fbdemo_c*);
 extern void fbdemo_init_data(fbdemo_c*);
 extern void fbdemo_cleanup(fbdemo_c*);
-extern fbdemo_c* fbdemo_init(fbdemo_c*, int, int); 
+extern fbdemo_c* fbdemo_init(fbdemo_c*, int, int);
 extern void fbdemo_update(fbdemo_c*);
 extern void fbdemo_draw(fbdemo_c*, Gfx**);
 extern void fbdemo_move(fbdemo_c*);
 
 #endif
-

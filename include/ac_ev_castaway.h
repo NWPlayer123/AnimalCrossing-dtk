@@ -12,8 +12,8 @@ extern "C" {
 typedef struct ev_castaway_s EV_CASTAWAY_ACTOR;
 
 struct ev_castaway_s {
-  NPC_ACTOR npc_class;
-  s16 bobbing_cycle;
+    NPC_ACTOR npc_class;
+    s16 bobbing_cycle;
 };
 
 extern ACTOR_PROFILE Ev_Castaway_Profile;
@@ -23,4 +23,3 @@ extern ACTOR_PROFILE Ev_Castaway_Profile;
 #endif
 
 #endif
-

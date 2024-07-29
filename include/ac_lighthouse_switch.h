@@ -15,4 +15,3 @@ extern ACTOR_PROFILE Lighthouse_Switch_Profile;
 #endif
 
 #endif
-

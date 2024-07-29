@@ -10,16 +10,15 @@ extern "C" {
 
 extern ACTOR_PROFILE Lamp_Light_Profile;
 
-typedef struct ef_lamp_light_s{
+typedef struct ef_lamp_light_s {
     ACTOR actor_class;
     int switch_type;
     Lights lights;
     Light_list* node_p;
-}LAMPLIGHT_ACTOR;
+} LAMPLIGHT_ACTOR;
 
 #ifdef __cplusplus
 }
 #endif
 
 #endif
-

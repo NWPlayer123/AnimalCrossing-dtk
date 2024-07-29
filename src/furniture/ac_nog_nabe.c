@@ -11,7 +11,10 @@ extern u8 int_nog_nabe_fire2_TA_tex_txt[];
 extern u8 int_nog_nabe_fire3_TA_tex_txt[];
 
 u8* fNNB_texture_table[] = {
-    int_nog_nabe_fire2_TA_tex_txt,int_nog_nabe_fire2_TA_tex_txt,int_nog_nabe_fire3_TA_tex_txt,int_nog_nabe_fire3_TA_tex_txt,
+    int_nog_nabe_fire2_TA_tex_txt,
+    int_nog_nabe_fire2_TA_tex_txt,
+    int_nog_nabe_fire3_TA_tex_txt,
+    int_nog_nabe_fire3_TA_tex_txt,
 };
 
 extern Gfx int_nog_nabe_fire_model[];
@@ -69,31 +72,29 @@ void fNNB_mv(FTR_ACTOR* ftr_actor, ACTOR* my_room_actor, GAME* game, u8* data) {
         }
         ftr_actor->dynamic_work_s[3] = 0x13;
     }
-        if (ftr_actor->dynamic_work_s[3] == 0) {
-            ftr_actor->dynamic_work_s[1] = ftr_actor->dynamic_work_s[0];
-        }
-        if (cKF_SkeletonInfo_R_play(keyf) == 1) {
-            keyf->frame_control.speed = 0.0f;
-        }
-        if (ftr_actor->dynamic_work_s[3] > 0) {
-            ftr_actor->dynamic_work_s[3]--;
-        }
+    if (ftr_actor->dynamic_work_s[3] == 0) {
+        ftr_actor->dynamic_work_s[1] = ftr_actor->dynamic_work_s[0];
+    }
+    if (cKF_SkeletonInfo_R_play(keyf) == 1) {
+        keyf->frame_control.speed = 0.0f;
+    }
+    if (ftr_actor->dynamic_work_s[3] > 0) {
+        ftr_actor->dynamic_work_s[3]--;
+    }
 }
-
 
 void fNNB_dt(FTR_ACTOR* ftr_actor, u8* data) {
     if (ftr_actor->dynamic_work_s[0] != 0) {
         ftr_actor->switch_bit = TRUE;
-    }
-    else{
+    } else {
         ftr_actor->switch_bit = FALSE;
     }
 }
 
 static int fNNB_DrawBefore(GAME* game, cKF_SkeletonInfo_R_c* keyf, int jointNum, Gfx** joint, u8* jointFlag, void* arg,
-                       s_xyz* joint1, xyz_t* trans){
+                           s_xyz* joint1, xyz_t* trans) {
 
-    if(jointNum == 2){
+    if (jointNum == 2) {
         *joint = NULL;
     }
 
@@ -101,14 +102,14 @@ static int fNNB_DrawBefore(GAME* game, cKF_SkeletonInfo_R_c* keyf, int jointNum,
 }
 
 static int fNNB_DrawAfter(GAME* game, cKF_SkeletonInfo_R_c* keyf, int jointNum, Gfx** joint, u8* jointFlag, void* arg,
-                       s_xyz* joint1, xyz_t* trans){
+                          s_xyz* joint1, xyz_t* trans) {
 
-    if(jointNum == 2){
+    if (jointNum == 2) {
         OPEN_DISP(game->graph);
 
-        gSPMatrix(NEXT_POLY_XLU_DISP,_Matrix_to_Mtx_new(game->graph), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+        gSPMatrix(NEXT_POLY_XLU_DISP, _Matrix_to_Mtx_new(game->graph), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
 
-        gSPDisplayList(NEXT_POLY_XLU_DISP,int_nog_nabe_fire_model);
+        gSPDisplayList(NEXT_POLY_XLU_DISP, int_nog_nabe_fire_model);
         CLOSE_DISP(game->graph);
     }
 
@@ -122,7 +123,6 @@ void fNNB_dw(FTR_ACTOR* ftr_actor, ACTOR* my_room_actor, GAME* game, u8* data) {
     int fctr;
     s16 ctr;
 
-
     int txt_type;
     u8* txt;
 
@@ -131,57 +131,34 @@ void fNNB_dw(FTR_ACTOR* ftr_actor, ACTOR* my_room_actor, GAME* game, u8* data) {
     ctr = ftr_actor->ctr_type;
     mtx = ftr_actor->skeleton_mtx[fctr & 1];
 
-    if(ctr == aFTR_CTR_TYPE_GAME_PLAY){
+    if (ctr == aFTR_CTR_TYPE_GAME_PLAY) {
         fctr = play->game_frame;
     }
 
-    if(ctr == aFTR_CTR_TYPE_GAME_PLAY){
+    if (ctr == aFTR_CTR_TYPE_GAME_PLAY) {
         txt_type = ((ftr_actor->dynamic_work_s[1] == 1) || (ctr != 1)) ? 1 : 0;
         txt = (txt_type != 0) ? fNNB_texture_table[fctr & 3] : int_nog_nabe_fire1_TA_tex_txt;
-    }
-    else if (keyf->frame_control.end_frame == cKF_ba_r_int_nog_nabe.frames) {
+    } else if (keyf->frame_control.end_frame == cKF_ba_r_int_nog_nabe.frames) {
         txt_type = ((ftr_actor->dynamic_work_s[1] == 1) || (ctr != 1)) ? 1 : 0;
-        txt = (txt_type != 0) ? fNNB_texture_table[fctr & 3] : int_nog_nabe_fire1_TA_tex_txt;  
-    }
-    else{
+        txt = (txt_type != 0) ? fNNB_texture_table[fctr & 3] : int_nog_nabe_fire1_TA_tex_txt;
+    } else {
         txt = int_nog_nabe_fire1_TA_tex_txt;
     }
 
-    
     OPEN_DISP(game->graph);
 
-    gSPMatrix(NEXT_POLY_OPA_DISP,_Matrix_to_Mtx_new(game->graph), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
-    gSPSegment(NEXT_POLY_XLU_DISP, G_MWO_SEGMENT_8,txt);
+    gSPMatrix(NEXT_POLY_OPA_DISP, _Matrix_to_Mtx_new(game->graph), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+    gSPSegment(NEXT_POLY_XLU_DISP, G_MWO_SEGMENT_8, txt);
     cKF_Si3_draw_R_SV(game, keyf, mtx, fNNB_DrawBefore, fNNB_DrawAfter, ftr_actor);
-
 
     CLOSE_DISP(game->graph);
 }
 
 static aFTR_vtable_c fNNB_func = {
-	&fNNB_ct,
-	&fNNB_mv,
-	&fNNB_dw,
-	&fNNB_dt,
-	NULL,
+    &fNNB_ct, &fNNB_mv, &fNNB_dw, &fNNB_dt, NULL,
 };
 
 aFTR_PROFILE iam_nog_nabe = {
-	NULL,
-	NULL,
-	NULL,
-	NULL,
-	NULL,
-	NULL,
-	NULL,
-	NULL,
-	15.7f,
-	0.01f,
-	aFTR_SHAPE_TYPEA,
-	mCoBG_FTR_TYPEA,
-	0,
-	0,
-	0,
-	0,
-	&fNNB_func,
+    NULL, NULL, NULL, NULL, NULL,       NULL, NULL, NULL, 15.7f, 0.01f, aFTR_SHAPE_TYPEA, mCoBG_FTR_TYPEA,
+    0,    0,    0,    0,    &fNNB_func,
 };

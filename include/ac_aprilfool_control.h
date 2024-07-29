@@ -17,17 +17,17 @@ typedef void (*aAPC_TALK_SET_PROC)(mActor_name_t);
 typedef int (*aAPC_GET_MSG_NUM_PROC)(mActor_name_t, int);
 
 typedef struct aprilfool_control_clip_s {
-  aAPC_TALK_CHK_PROC talk_chk_proc;
-  aAPC_TALK_SET_PROC talk_set_proc;
-  aAPC_GET_MSG_NUM_PROC get_msg_num_proc;
-  aAPC_event_save_data_c* event_save_data_p;
+    aAPC_TALK_CHK_PROC talk_chk_proc;
+    aAPC_TALK_SET_PROC talk_set_proc;
+    aAPC_GET_MSG_NUM_PROC get_msg_num_proc;
+    aAPC_event_save_data_c* event_save_data_p;
 } aAPC_Clip_c;
 
 extern ACTOR_PROFILE Aprilfool_Control_Profile;
 
 typedef struct aprilfool_control_s {
-  ACTOR actor_class;
-  aAPC_Clip_c clip;
+    ACTOR actor_class;
+    aAPC_Clip_c clip;
 } APRILFOOL_CONTROL_ACTOR;
 
 #ifdef __cplusplus
@@ -35,4 +35,3 @@ typedef struct aprilfool_control_s {
 #endif
 
 #endif
-

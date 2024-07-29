@@ -11,18 +11,18 @@ extern "C" {
 #endif
 
 typedef struct sample_actor_s {
-  ACTOR actor_class;
+    ACTOR actor_class;
 
-  cKF_SkeletonInfo_R_c keyframe;
-  s_xyz work_area[8];
-  s_xyz morph_area[8];
+    cKF_SkeletonInfo_R_c keyframe;
+    s_xyz work_area[8];
+    s_xyz morph_area[8];
 
-  ClObjPipe_c stand;
-  
-  int main_action;
-  int draw_action;
+    ClObjPipe_c stand;
 
-  char* obj_bank_ram_start; // maybe unused in AC? was used to exchange data on N64
+    int main_action;
+    int draw_action;
+
+    char* obj_bank_ram_start; // maybe unused in AC? was used to exchange data on N64
 } SAMPLE_ACTOR;
 
 extern ACTOR_PROFILE Sample_Profile;

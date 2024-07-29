@@ -2,11 +2,10 @@
 #define OS_ALLOC_H
 
 #ifdef __cplusplus
-extern "C"
-{
+extern "C" {
 #endif
 
-    void *OSInitAlloc(void *, void *, int);
+void* OSInitAlloc(void*, void*, int);
 
 #ifdef __cplusplus
 }

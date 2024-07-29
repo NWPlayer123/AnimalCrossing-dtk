@@ -12,12 +12,12 @@ extern "C" {
 #define mHB_LINE_NUM 4
 
 enum {
-  mHB_LINE_CHECK_OK,
-  mHB_LINE_CHECK_NEWLINE,
-  mHB_LINE_CHECK_OVER_WIDTH,
-  mHB_LINE_CHECK_OVER_STR_LEN,
+    mHB_LINE_CHECK_OK,
+    mHB_LINE_CHECK_NEWLINE,
+    mHB_LINE_CHECK_OVER_WIDTH,
+    mHB_LINE_CHECK_OVER_STR_LEN,
 
-  mHB_LINE_CHECK_NUM
+    mHB_LINE_CHECK_NUM
 };
 
 extern void mHB_hboard_ovl_set_proc(Submenu* submenu);

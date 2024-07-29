@@ -15,4 +15,3 @@ extern ACTOR_PROFILE Hanabi_Npc0_Profile;
 #endif
 
 #endif
-

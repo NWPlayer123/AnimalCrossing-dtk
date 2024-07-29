@@ -12,15 +12,14 @@ extern ACTOR_PROFILE T_Anrium1_Profile;
 
 typedef void (*ANRIUM1_PROC)(ACTOR*);
 
-typedef struct t_anrium_s{
+typedef struct t_anrium_s {
     TOOLS_ACTOR tools_class;
-    ANRIUM1_PROC proc; 
+    ANRIUM1_PROC proc;
     int current_id;
-}ANRIUM1_ACTOR;
+} ANRIUM1_ACTOR;
 
 #ifdef __cplusplus
 }
 #endif
 
 #endif
-

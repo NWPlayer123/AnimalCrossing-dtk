@@ -42,8 +42,10 @@ extern void Matrix_to_rotate_new(MtxF* m, s_xyz* vec, int flag);
 extern void Matrix_to_rotate2_new(MtxF* m, s_xyz* vec, int flag);
 extern void Matrix_RotateVector(s16 angle, xyz_t* axis, u8 flag);
 extern void suMtxMakeTS(Mtx* m, f32 scaleX, f32 scaleY, f32 scaleZ, f32 translateX, f32 translateY, f32 translateZ);
-extern void suMtxMakeSRT(Mtx* m, f32 scaleX, f32 scaleY, f32 scaleZ, s16 rotX, s16 rotY, s16 rotZ, f32 translateX, f32 translateY, f32 translateZ);
-extern void suMtxMakeSRT_ZXY(Mtx* m, f32 scaleX, f32 scaleY, f32 scaleZ, s16 rotX, s16 rotY, s16 rotZ, f32 translateX, f32 translateY, f32 translateZ);
+extern void suMtxMakeSRT(Mtx* m, f32 scaleX, f32 scaleY, f32 scaleZ, s16 rotX, s16 rotY, s16 rotZ, f32 translateX,
+                         f32 translateY, f32 translateZ);
+extern void suMtxMakeSRT_ZXY(Mtx* m, f32 scaleX, f32 scaleY, f32 scaleZ, s16 rotX, s16 rotY, s16 rotZ, f32 translateX,
+                             f32 translateY, f32 translateZ);
 
 #ifdef __cplusplus
 }

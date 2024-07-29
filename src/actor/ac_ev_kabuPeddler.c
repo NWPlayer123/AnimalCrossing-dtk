@@ -26,19 +26,17 @@ static void aEKPD_actor_move(ACTOR* actorx, GAME* game);
 static void aEKPD_actor_save(ACTOR* actorx, GAME* game);
 static void aEKPD_actor_init(ACTOR* actorx, GAME* game);
 
-ACTOR_PROFILE Ev_KabuPeddler_Profile = {
-    mAc_PROFILE_EV_KABUPEDDLER,
-    ACTOR_PART_NPC,
-    ACTOR_STATE_NONE,
-    SP_NPC_KABUPEDDLER,
-    ACTOR_OBJ_BANK_KEEP,
-    sizeof(EV_KABUPEDDLER_ACTOR),
-    &aEKPD_actor_ct,
-    &aEKPD_actor_dt,
-    &aEKPD_actor_init,
-    mActor_NONE_PROC1,
-    &aEKPD_actor_save
-};
+ACTOR_PROFILE Ev_KabuPeddler_Profile = { mAc_PROFILE_EV_KABUPEDDLER,
+                                         ACTOR_PART_NPC,
+                                         ACTOR_STATE_NONE,
+                                         SP_NPC_KABUPEDDLER,
+                                         ACTOR_OBJ_BANK_KEEP,
+                                         sizeof(EV_KABUPEDDLER_ACTOR),
+                                         &aEKPD_actor_ct,
+                                         &aEKPD_actor_dt,
+                                         &aEKPD_actor_init,
+                                         mActor_NONE_PROC1,
+                                         &aEKPD_actor_save };
 
 static void aEKPD_setupAction(EV_KABUPEDDLER_ACTOR* kabuPeddler, GAME_PLAY* play, int talk_act);
 static void aEKPD_talk_request(ACTOR*, GAME*);
@@ -46,15 +44,8 @@ static int aEKPD_talk_init(ACTOR*, GAME*);
 static int aEKPD_talk_end_chk(ACTOR*, GAME*);
 
 static void aEKPD_actor_ct(ACTOR* actorx, GAME* game) {
-    static aNPC_ct_data_c ct_data = {
-        &aEKPD_actor_move,
-        &aEKPD_actor_draw,
-        3,
-        &aEKPD_talk_request,
-        &aEKPD_talk_init,
-        &aEKPD_talk_end_chk,
-        0
-    };
+    static aNPC_ct_data_c ct_data = { &aEKPD_actor_move, &aEKPD_actor_draw,   3, &aEKPD_talk_request,
+                                      &aEKPD_talk_init,  &aEKPD_talk_end_chk, 0 };
 
     EV_KABUPEDDLER_ACTOR* kabuPeddler = (EV_KABUPEDDLER_ACTOR*)actorx;
 

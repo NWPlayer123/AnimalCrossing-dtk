@@ -15,9 +15,9 @@ typedef void (*ZINNIA1_PROC)(ACTOR*);
 
 typedef struct t_zinnia1_s {
     TOOLS_ACTOR tools_class;
-    ZINNIA1_PROC proc; 
+    ZINNIA1_PROC proc;
     int current_id;
-    
+
 } ZINNIA1_ACTOR;
 
 #ifdef __cplusplus
@@ -25,4 +25,3 @@ typedef struct t_zinnia1_s {
 #endif
 
 #endif
-

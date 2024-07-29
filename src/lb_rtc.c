@@ -37,7 +37,8 @@
  * - lbRTC_TimeCopy: Copy one time structure to another.
  * - lbRTC_IsValidTime: Check if the given time is valid.
  * - lbRTC_time_c_save_data_check: Check if the given time from save data is valid.
- * - lbRTC_Weekly_day: Calculate the day of the week for a given date, considering weeks and the desired day of the week.
+ * - lbRTC_Weekly_day: Calculate the day of the week for a given date, considering weeks and the desired day of the
+ * week.
  */
 
 #include "lb_rtc.h"
@@ -59,7 +60,7 @@ static BOOL l_lbRTC_IsSampled;
  * @return OSTime representing the current hardware time in ticks.
  */
 static OSTime lbRTC_GetHardTime() {
-  return OSGetTime();
+    return OSGetTime();
 }
 
 /**
@@ -71,7 +72,7 @@ static OSTime lbRTC_GetHardTime() {
  * @return OSTime representing the current hardware time in ticks.
  */
 extern OSTime lbRTC_HardTime() {
-  return lbRTC_GetHardTime();
+    return lbRTC_GetHardTime();
 }
 
 /**
@@ -84,13 +85,13 @@ extern OSTime lbRTC_HardTime() {
  * @param datetime Pointer to the destination lbRTC_time_c structure.
  */
 static void lbRTC_CalenderTimeToRTCTime(const OSCalendarTime* calendar_time, lbRTC_time_c* datetime) {
-  datetime->sec = calendar_time->sec;
-  datetime->min = calendar_time->min;
-  datetime->hour = calendar_time->hour;
-  datetime->day = calendar_time->mday;
-  datetime->weekday = calendar_time->wday;
-  datetime->month = calendar_time->mon + 1;
-  datetime->year = calendar_time->year;
+    datetime->sec = calendar_time->sec;
+    datetime->min = calendar_time->min;
+    datetime->hour = calendar_time->hour;
+    datetime->day = calendar_time->mday;
+    datetime->weekday = calendar_time->wday;
+    datetime->month = calendar_time->mon + 1;
+    datetime->year = calendar_time->year;
 }
 
 /* @unused ? OSTime lbRTC_NowHardRtcTime() */
@@ -106,33 +107,33 @@ static void lbRTC_CalenderTimeToRTCTime(const OSCalendarTime* calendar_time, lbR
  * @param time Pointer to the lbRTC_time_c structure to be converted.
  * @return OSTime representing the given lbRTC_time_c in ticks.
  */
-static OSTime lbRTC_RTCTimeToTicks(const lbRTC_time_c* time)  {
-  OSCalendarTime ctime;
-  int i;
-  int month = time->month;
+static OSTime lbRTC_RTCTimeToTicks(const lbRTC_time_c* time) {
+    OSCalendarTime ctime;
+    int i;
+    int month = time->month;
 
-  // Copy the lbRTC_time_c structure fields to OSCalendarTime fields
-  ctime.sec = time->sec;
-  ctime.min = time->min;
-  ctime.hour = time->hour;
-  ctime.mday = time->day;
-  ctime.mon = month - 1;
-  ctime.year = time->year;
-  ctime.wday = month;
-  ctime.yday = 0;
-        
-  // Get calendar year-day to start of current month
-  for (i = 1; i < month; i++) {
-    ctime.yday += lbRTC_GetDaysByMonth(time->year, (lbRTC_month_t)i);
-  }
+    // Copy the lbRTC_time_c structure fields to OSCalendarTime fields
+    ctime.sec = time->sec;
+    ctime.min = time->min;
+    ctime.hour = time->hour;
+    ctime.mday = time->day;
+    ctime.mon = month - 1;
+    ctime.year = time->year;
+    ctime.wday = month;
+    ctime.yday = 0;
 
-  ctime.yday += time->day;
-  ctime.yday -= 1;
-  ctime.msec = 0;
-  ctime.usec = 0;
+    // Get calendar year-day to start of current month
+    for (i = 1; i < month; i++) {
+        ctime.yday += lbRTC_GetDaysByMonth(time->year, (lbRTC_month_t)i);
+    }
 
-  // Convert the OSCalendarTime structure to ticks and return it
-  return OSCalendarTimeToTicks(&ctime);
+    ctime.yday += time->day;
+    ctime.yday -= 1;
+    ctime.msec = 0;
+    ctime.usec = 0;
+
+    // Convert the OSCalendarTime structure to ticks and return it
+    return OSCalendarTimeToTicks(&ctime);
 }
 
 /**
@@ -145,12 +146,12 @@ static OSTime lbRTC_RTCTimeToTicks(const lbRTC_time_c* time)  {
  * @param time Pointer to the lbRTC_time_c structure that will hold the game time.
  */
 static void lbRTC_GetGameTime(lbRTC_time_c* time) {
-  OSCalendarTime ctime;
-  OSTime t = lbRTC_GetHardTime();
-  t += Save_Get(time_delta);
+    OSCalendarTime ctime;
+    OSTime t = lbRTC_GetHardTime();
+    t += Save_Get(time_delta);
 
-  OSTicksToCalendarTime(t, &ctime);
-  lbRTC_CalenderTimeToRTCTime(&ctime, time);
+    OSTicksToCalendarTime(t, &ctime);
+    lbRTC_CalenderTimeToRTCTime(&ctime, time);
 }
 
 /* @unused ? void lbRTC_GetSaveExpectGameTime(lbRTC_time_c* time) */
@@ -164,11 +165,11 @@ static void lbRTC_GetGameTime(lbRTC_time_c* time) {
  * @return 0 after initialization.
  */
 static int lbRTC_Initial() {
-  if (l_lbRTC_isInitial == TRUE) {
-    l_lbRTC_isInitial = FALSE;
-  }
+    if (l_lbRTC_isInitial == TRUE) {
+        l_lbRTC_isInitial = FALSE;
+    }
 
-  return 0;
+    return 0;
 }
 
 /**
@@ -182,10 +183,10 @@ static int lbRTC_Initial() {
  * @return 0 after checking and getting the game time.
  */
 static int lbRTC_IsOki(lbRTC_time_c* time) {
-  lbRTC_Initial();
-  l_lbRTC_isInitial = TRUE;
-  lbRTC_GetGameTime(time);
-  return 0;
+    lbRTC_Initial();
+    l_lbRTC_isInitial = TRUE;
+    lbRTC_GetGameTime(time);
+    return 0;
 }
 
 /**
@@ -198,18 +199,18 @@ static int lbRTC_IsOki(lbRTC_time_c* time) {
  * @return 0 if the lbRTC module is in a normal state, non-zero otherwise.
  */
 extern int lbRTC_IsAbnormal() {
-  /* Lots of debug code missing here */
-  lbRTC_time_c time;
+    /* Lots of debug code missing here */
+    lbRTC_time_c time;
 
-  int res = lbRTC_IsOki(&time);
-  if (res == 0 && l_lbRTC_IsSampled == TRUE) {
-    if (time.sec + time.min * lbRTC_SECONDS_PER_MINUTE !=
-        l_lbRTC_Time.sec + l_lbRTC_Time.min * lbRTC_SECONDS_PER_MINUTE) {
-      return res;
+    int res = lbRTC_IsOki(&time);
+    if (res == 0 && l_lbRTC_IsSampled == TRUE) {
+        if (time.sec + time.min * lbRTC_SECONDS_PER_MINUTE !=
+            l_lbRTC_Time.sec + l_lbRTC_Time.min * lbRTC_SECONDS_PER_MINUTE) {
+            return res;
+        }
     }
-  }
 
-  return res;
+    return res;
 }
 
 /**
@@ -220,14 +221,14 @@ extern int lbRTC_IsAbnormal() {
  * TRUE if it is not already TRUE.
  */
 extern void lbRTC_Sampling() {
-  lbRTC_time_c time;
+    lbRTC_time_c time;
 
-  if (lbRTC_IsOki(&time) == 0 && l_lbRTC_IsSampled == FALSE) {
-    l_lbRTC_Time.sec = time.sec;
-    l_lbRTC_Time.min = time.min;
-    /* Likely debug here */
-    l_lbRTC_IsSampled = TRUE;
-  }
+    if (lbRTC_IsOki(&time) == 0 && l_lbRTC_IsSampled == FALSE) {
+        l_lbRTC_Time.sec = time.sec;
+        l_lbRTC_Time.min = time.min;
+        /* Likely debug here */
+        l_lbRTC_IsSampled = TRUE;
+    }
 }
 
 /**
@@ -240,12 +241,11 @@ extern void lbRTC_Sampling() {
  * @param time Pointer to the lbRTC_time_c structure containing the time to be set.
  */
 extern void lbRTC_SetTime(lbRTC_time_c* time) {
-  if (Common_Get(time.rtc_enabled) == TRUE && !Common_Get(time.rtc_crashed)) {
-    Save_Set(time_delta, lbRTC_RTCTimeToTicks(time) - lbRTC_GetHardTime());
-  }
-  else {
-    lbRTC_TimeCopy(Common_GetPointer(time.rtc_time), time);
-  }
+    if (Common_Get(time.rtc_enabled) == TRUE && !Common_Get(time.rtc_crashed)) {
+        Save_Set(time_delta, lbRTC_RTCTimeToTicks(time) - lbRTC_GetHardTime());
+    } else {
+        lbRTC_TimeCopy(Common_GetPointer(time.rtc_time), time);
+    }
 }
 
 /**
@@ -259,12 +259,11 @@ extern void lbRTC_SetTime(lbRTC_time_c* time) {
  * @param time Pointer to the lbRTC_time_c structure that will hold the game time.
  */
 extern void lbRTC_GetTime(lbRTC_time_c* time) {
-  if (Common_Get(time.rtc_enabled) == TRUE && !Common_Get(time.rtc_crashed)) {
-    lbRTC_GetGameTime(time);
-  }
-  else {
-    lbRTC_TimeCopy(time, Common_GetPointer(time.rtc_time));
-  }
+    if (Common_Get(time.rtc_enabled) == TRUE && !Common_Get(time.rtc_crashed)) {
+        lbRTC_GetGameTime(time);
+    } else {
+        lbRTC_TimeCopy(time, Common_GetPointer(time.rtc_time));
+    }
 }
 
 /**
@@ -278,29 +277,21 @@ extern void lbRTC_GetTime(lbRTC_time_c* time) {
  * @return lbRTC_day_t representing the number of days in the given month.
  */
 extern lbRTC_day_t lbRTC_GetDaysByMonth(lbRTC_year_t year, lbRTC_month_t month) {
-  static const lbRTC_day_t days_month[2][lbRTC_MONTHS_MAX + 1] = {
-    // Regular year
-    {
-      0,
-      31, 28, 31, 30, 31, 30,
-      31, 31, 30, 31, 30, 31
-    },
+    static const lbRTC_day_t days_month[2][lbRTC_MONTHS_MAX + 1] = {
+        // Regular year
+        { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 },
 
-    // Leap year
-    {
-      0,
-      31, 29, 31, 30, 31, 30,
-      31, 31, 30, 31, 30, 31
-    }
-  };
+        // Leap year
+        { 0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 }
+    };
 
-  int year_type = lbRTC_IS_LEAPYEAR(year) == TRUE ? 1 : 0;
-  return days_month[year_type][month];
+    int year_type = lbRTC_IS_LEAPYEAR(year) == TRUE ? 1 : 0;
+    return days_month[year_type][month];
 }
 
 typedef union {
-  int raw;
-  lbRTC_ymd_c ymd;
+    int raw;
+    lbRTC_ymd_c ymd;
 } ymd_u;
 
 /**
@@ -318,30 +309,28 @@ typedef union {
  * @param d1 Day of the second date.
  * @return RTC_EQUALITY value representing the comparison result.
  */
-extern int lbRTC_IsEqualDate(
-  lbRTC_year_t y0, lbRTC_month_t m0, lbRTC_day_t d0,
-  lbRTC_year_t y1, lbRTC_month_t m1, lbRTC_day_t d1
-) {
-  ymd_u ymd0, ymd1;
-  int res;
+extern int lbRTC_IsEqualDate(lbRTC_year_t y0, lbRTC_month_t m0, lbRTC_day_t d0, lbRTC_year_t y1, lbRTC_month_t m1,
+                             lbRTC_day_t d1) {
+    ymd_u ymd0, ymd1;
+    int res;
 
-  ymd0.ymd.year = y0;
-  ymd0.ymd.month = m0;
-  ymd0.ymd.day = d0;
-    
-  ymd1.ymd.year = y1;
-  ymd1.ymd.month = m1;
-  ymd1.ymd.day = d1;
+    ymd0.ymd.year = y0;
+    ymd0.ymd.month = m0;
+    ymd0.ymd.day = d0;
 
-  res = ymd0.raw - ymd1.raw;
-  if (res == 0) {
-    return lbRTC_EQUAL;
-  }
+    ymd1.ymd.year = y1;
+    ymd1.ymd.month = m1;
+    ymd1.ymd.day = d1;
 
-  if (res < 0) {
-    return lbRTC_LESS;
-  }
-  return lbRTC_OVER;
+    res = ymd0.raw - ymd1.raw;
+    if (res == 0) {
+        return lbRTC_EQUAL;
+    }
+
+    if (res < 0) {
+        return lbRTC_LESS;
+    }
+    return lbRTC_OVER;
 }
 
 /**
@@ -357,51 +346,51 @@ extern int lbRTC_IsEqualDate(
  * @return TRUE if all specified components are equal, FALSE otherwise.
  */
 extern int lbRTC_IsEqualTime(const lbRTC_time_c* t0, const lbRTC_time_c* t1, int flags) {
-  int equal = 0;
+    int equal = 0;
 
-  if (flags & lbRTC_CHECK_SECONDS) {
-    if (t0->sec == t1->sec)  {
-      equal |= lbRTC_CHECK_SECONDS;
+    if (flags & lbRTC_CHECK_SECONDS) {
+        if (t0->sec == t1->sec) {
+            equal |= lbRTC_CHECK_SECONDS;
+        }
     }
-  }
 
-  if (flags & lbRTC_CHECK_MINUTES) {
-    if (t0->min == t1->min) {
-      equal |= lbRTC_CHECK_MINUTES;
+    if (flags & lbRTC_CHECK_MINUTES) {
+        if (t0->min == t1->min) {
+            equal |= lbRTC_CHECK_MINUTES;
+        }
     }
-  }
 
-  if (flags & lbRTC_CHECK_HOURS) {
-    if (t0->hour == t1->hour) {
-      equal |= lbRTC_CHECK_HOURS;
+    if (flags & lbRTC_CHECK_HOURS) {
+        if (t0->hour == t1->hour) {
+            equal |= lbRTC_CHECK_HOURS;
+        }
     }
-  }
 
-  if (flags & lbRTC_CHECK_WEEKDAYS) {
-    if (t0->weekday == t1->weekday) {
-      equal |= lbRTC_CHECK_WEEKDAYS;
+    if (flags & lbRTC_CHECK_WEEKDAYS) {
+        if (t0->weekday == t1->weekday) {
+            equal |= lbRTC_CHECK_WEEKDAYS;
+        }
     }
-  }
 
-  if (flags & lbRTC_CHECK_DAYS) {
-    if (t0->day == t1->day) {
-      equal |= lbRTC_CHECK_DAYS;
+    if (flags & lbRTC_CHECK_DAYS) {
+        if (t0->day == t1->day) {
+            equal |= lbRTC_CHECK_DAYS;
+        }
     }
-  }
 
-  if (flags & lbRTC_CHECK_MONTHS) {
-    if (t0->month == t1->month) {
-      equal |= lbRTC_CHECK_MONTHS;
+    if (flags & lbRTC_CHECK_MONTHS) {
+        if (t0->month == t1->month) {
+            equal |= lbRTC_CHECK_MONTHS;
+        }
     }
-  }
 
-  if (flags & lbRTC_CHECK_YEARS) {
-    if (t0->year == t1->year) {
-      equal |= lbRTC_CHECK_YEARS;
+    if (flags & lbRTC_CHECK_YEARS) {
+        if (t0->year == t1->year) {
+            equal |= lbRTC_CHECK_YEARS;
+        }
     }
-  }
 
-  return (equal & flags) == flags;
+    return (equal & flags) == flags;
 }
 
 /**
@@ -417,46 +406,46 @@ extern int lbRTC_IsEqualTime(const lbRTC_time_c* t0, const lbRTC_time_c* t1, int
  * @return lbRTC_LESS if t0 is lesser than or equal to t1, lbRTC_OVER if t0 is greater than t1.
  */
 extern int lbRTC_IsOverTime(const lbRTC_time_c* t0, const lbRTC_time_c* t1) {
-  if (t1->year < t0->year) {
-    return lbRTC_LESS;
-  }
-
-  if (t1->year == t0->year) {
-    if (t1->month >= t0->month) {
-      if (t1->month == t0->month) {
-        if (t1->day >= t0->day) {
-          if (t1->day == t0->day) {
-            if (t1->hour >= t0->hour) {
-              if (t1->hour == t0->hour) {
-                if (t1->min >= t0->min) {
-                  if (t1->min == t0->min) {
-                    if (t1->sec < t0->sec) {
-                      return lbRTC_LESS;
-                    }
-                  }
-                } else {
-                  return lbRTC_LESS;
-                }
-              }
-            } else {
-              return lbRTC_LESS;
-            }
-          }
-        } else {
-          return lbRTC_LESS;
-        }
-      }
-    } else {
-      return lbRTC_LESS;
+    if (t1->year < t0->year) {
+        return lbRTC_LESS;
     }
-  }
 
-  return lbRTC_OVER;
+    if (t1->year == t0->year) {
+        if (t1->month >= t0->month) {
+            if (t1->month == t0->month) {
+                if (t1->day >= t0->day) {
+                    if (t1->day == t0->day) {
+                        if (t1->hour >= t0->hour) {
+                            if (t1->hour == t0->hour) {
+                                if (t1->min >= t0->min) {
+                                    if (t1->min == t0->min) {
+                                        if (t1->sec < t0->sec) {
+                                            return lbRTC_LESS;
+                                        }
+                                    }
+                                } else {
+                                    return lbRTC_LESS;
+                                }
+                            }
+                        } else {
+                            return lbRTC_LESS;
+                        }
+                    }
+                } else {
+                    return lbRTC_LESS;
+                }
+            }
+        } else {
+            return lbRTC_LESS;
+        }
+    }
+
+    return lbRTC_OVER;
 }
 
 /**
  * @fabricated
- * 
+ *
  * @brief Check if the current RTC time is equal to the given time based on specified flags.
  *
  * This function compares the current RTC time with the given time and returns TRUE
@@ -469,7 +458,7 @@ extern int lbRTC_IsOverTime(const lbRTC_time_c* t0, const lbRTC_time_c* t1) {
 /*
 extern int lbRTC_IsJustAtRTC(const lbRTC_time_c* time, int check_flags) {
   lbRTC_time_c rtc_time;
-  
+
   lbRTC_GetTime(&rtc_time);
   return lbRTC_IsEqualTime(time, &rtc_time, check_flags);
 }
@@ -485,10 +474,10 @@ extern int lbRTC_IsJustAtRTC(const lbRTC_time_c* time, int check_flags) {
  * @return TRUE if the given time is greater than the current RTC time, FALSE otherwise.
  */
 extern int lbRTC_IsOverRTC(const lbRTC_time_c* time) {
-  lbRTC_time_c rtc_time;
-  
-  lbRTC_GetTime(&rtc_time);
-  return lbRTC_IsOverTime(time, &rtc_time) == lbRTC_OVER;
+    lbRTC_time_c rtc_time;
+
+    lbRTC_GetTime(&rtc_time);
+    return lbRTC_IsOverTime(time, &rtc_time) == lbRTC_OVER;
 }
 
 /* @unused extern int lbRTC_IsOverWeekRTC(lbRTC_time_c* time) */
@@ -507,10 +496,10 @@ extern int lbRTC_IsOverRTC(const lbRTC_time_c* time) {
  * @return Number of minutes between the two given times, negative if time0 is earlier than time1.
  */
 static int lbRTC_IntervalTime_sub(const lbRTC_time_c* time0, const lbRTC_time_c* time1) {
-  OSTime osTime1 = lbRTC_RTCTimeToTicks(time1);
-  OSTime osTime0 = lbRTC_RTCTimeToTicks(time0);
-  
-  return OSTicksToSeconds(osTime0 - osTime1) / lbRTC_SECONDS_PER_MINUTE;
+    OSTime osTime1 = lbRTC_RTCTimeToTicks(time1);
+    OSTime osTime0 = lbRTC_RTCTimeToTicks(time0);
+
+    return OSTicksToSeconds(osTime0 - osTime1) / lbRTC_SECONDS_PER_MINUTE;
 }
 
 /**
@@ -525,7 +514,7 @@ static int lbRTC_IntervalTime_sub(const lbRTC_time_c* time0, const lbRTC_time_c*
  * @return Number of minutes between the two given times, negative if time0 is earlier than time1.
  */
 extern int lbRTC_IntervalTime(const lbRTC_time_c* time0, const lbRTC_time_c* time1) {
-  return lbRTC_IntervalTime_sub(time0, time1);
+    return lbRTC_IntervalTime_sub(time0, time1);
 }
 
 /**
@@ -539,72 +528,67 @@ extern int lbRTC_IntervalTime(const lbRTC_time_c* time0, const lbRTC_time_c* tim
  * @return Number of days between the two given dates.
  */
 extern int lbRTC_GetIntervalDays(const lbRTC_time_c* t0, const lbRTC_time_c* t1) {
-  static const int total_days[2][lbRTC_MONTHS_MAX + 1] = {
-    // Standard year
-    {
-      0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365
-    },
-    // Leap year (flawed leap year calculation)
-    {
-      0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335, 366
-    }
-  };
+    static const int total_days[2][lbRTC_MONTHS_MAX + 1] = {
+        // Standard year
+        { 0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365 },
+        // Leap year (flawed leap year calculation)
+        { 0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335, 366 }
+    };
 
-  int year_leap_period = (t1->year - t0->year) / 4; /* Total 'leap years' (missing extra not divisible by 100, except when divisible by 400 rule) */
-  int extra_years = (t1->year - t0->year) % 4; /* Non-leap year remainder */
-  int less_leap = (t0->year % 4) == 0; /* Is the lesser year a leap year? */
-  int over_leap = (t1->year % 4) == 0; /* Is the greater year a leap year? */
-  int leap_add = ((4 - (t0->year % 4)) % 4) < extra_years; /* Add leap day when leap day occurs during 'extra years' */
+    int year_leap_period =
+        (t1->year - t0->year) /
+        4; /* Total 'leap years' (missing extra not divisible by 100, except when divisible by 400 rule) */
+    int extra_years = (t1->year - t0->year) % 4; /* Non-leap year remainder */
+    int less_leap = (t0->year % 4) == 0;         /* Is the lesser year a leap year? */
+    int over_leap = (t1->year % 4) == 0;         /* Is the greater year a leap year? */
+    int leap_add =
+        ((4 - (t0->year % 4)) % 4) < extra_years; /* Add leap day when leap day occurs during 'extra years' */
 
-  int days;
+    int days;
 
-  if (t0->year > t1->year) {
-    return 0;
-  }
-  else {
-    if (t0->year == t1->year) {
-      if (t0->month > t1->month) {
+    if (t0->year > t1->year) {
         return 0;
-      }
-      else {
-        if (t0->month == t1->month) {
-          if (t0->day > t1->day) {
-            return 0;
-          }
-          else {
-            if (t0->day == t1->day) {
-              if (t0->hour > t1->hour) {
+    } else {
+        if (t0->year == t1->year) {
+            if (t0->month > t1->month) {
                 return 0;
-              }
-              else {
-                if (t0->hour == t1->hour) {
-                  if (t0->min > t1->min) {
-                    return 0;
-                  }
+            } else {
+                if (t0->month == t1->month) {
+                    if (t0->day > t1->day) {
+                        return 0;
+                    } else {
+                        if (t0->day == t1->day) {
+                            if (t0->hour > t1->hour) {
+                                return 0;
+                            } else {
+                                if (t0->hour == t1->hour) {
+                                    if (t0->min > t1->min) {
+                                        return 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
-              }
             }
-          }
         }
-      }
     }
-  }
 
-  /***
-   * Every four years (incorrect) has 365 * 3 + 366 * 1 days (1461).
-   * The remaining years will be 365 * years, plus 1 if leap year occurs in range.
-   ***/
-  days = year_leap_period * 1461 + extra_years * 365 + leap_add;
+    /***
+     * Every four years (incorrect) has 365 * 3 + 366 * 1 days (1461).
+     * The remaining years will be 365 * years, plus 1 if leap year occurs in range.
+     ***/
+    days = year_leap_period * 1461 + extra_years * 365 + leap_add;
 
-  /* Add up through t1 day */
-  days += t1->day - 1;
-  days += total_days[over_leap][t1->month - 1];
+    /* Add up through t1 day */
+    days += t1->day - 1;
+    days += total_days[over_leap][t1->month - 1];
 
-  /* Remove through t0 day */
-  days -= t0->day - 1;
-  days -= total_days[less_leap][t0->month - 1];
+    /* Remove through t0 day */
+    days -= t0->day - 1;
+    days -= total_days[less_leap][t0->month - 1];
 
-  return days;
+    return days;
 }
 
 /**
@@ -619,21 +603,21 @@ extern int lbRTC_GetIntervalDays(const lbRTC_time_c* t0, const lbRTC_time_c* t1)
  * @return Number of days between the two given dates, negative if ymd0 is greater than ymd1.
  */
 extern int lbRTC_GetIntervalDays2(lbRTC_ymd_c* ymd0, lbRTC_ymd_c* ymd1) {
-  lbRTC_time_c t0, t1;
-  int equality;
+    lbRTC_time_c t0, t1;
+    int equality;
 
-  mTM_ymd_2_time(&t0, ymd0);
-  mTM_ymd_2_time(&t1, ymd1);
+    mTM_ymd_2_time(&t0, ymd0);
+    mTM_ymd_2_time(&t1, ymd1);
 
-  equality = lbRTC_IsEqualDate(t0.year, t0.month, t0.day, t1.year, t1.month, t1.day);
-  if (equality > lbRTC_EQUAL) {
-    return lbRTC_GetIntervalDays(&t1, &t0) * -1;
-  }
-  if (equality < lbRTC_EQUAL) {
-    return lbRTC_GetIntervalDays(&t0, &t1);
-  }
+    equality = lbRTC_IsEqualDate(t0.year, t0.month, t0.day, t1.year, t1.month, t1.day);
+    if (equality > lbRTC_EQUAL) {
+        return lbRTC_GetIntervalDays(&t1, &t0) * -1;
+    }
+    if (equality < lbRTC_EQUAL) {
+        return lbRTC_GetIntervalDays(&t0, &t1);
+    }
 
-  return 0;
+    return 0;
 }
 
 /**
@@ -643,7 +627,7 @@ extern int lbRTC_GetIntervalDays2(lbRTC_ymd_c* ymd0, lbRTC_ymd_c* ymd1) {
  * @param year Integer value representing the number of years to add.
  */
 extern void lbRTC_Add_YY(lbRTC_time_c* time, int year) {
-  time->year += (lbRTC_year_t)year;
+    time->year += (lbRTC_year_t)year;
 }
 
 /**
@@ -653,14 +637,14 @@ extern void lbRTC_Add_YY(lbRTC_time_c* time, int year) {
  * @param month Integer value representing the number of months to add.
  */
 extern void lbRTC_Add_MM(lbRTC_time_c* time, int month) {
-  int current_mo = time->month;
-  current_mo += month;
-  if (current_mo > lbRTC_DECEMBER) {
-    lbRTC_Add_YY(time, current_mo / lbRTC_MONTHS_MAX);
-    current_mo %= lbRTC_MONTHS_MAX;
-  }
+    int current_mo = time->month;
+    current_mo += month;
+    if (current_mo > lbRTC_DECEMBER) {
+        lbRTC_Add_YY(time, current_mo / lbRTC_MONTHS_MAX);
+        current_mo %= lbRTC_MONTHS_MAX;
+    }
 
-  time->month = (lbRTC_month_t)current_mo;
+    time->month = (lbRTC_month_t)current_mo;
 }
 
 /**
@@ -670,17 +654,17 @@ extern void lbRTC_Add_MM(lbRTC_time_c* time, int month) {
  * @param day Integer value representing the number of days to add.
  */
 extern void lbRTC_Add_DD(lbRTC_time_c* time, int day) {
-  int month_days = lbRTC_GetDaysByMonth(time->year, (lbRTC_month_t)time->month);
-  int days = time->day;
-  days += day;
+    int month_days = lbRTC_GetDaysByMonth(time->year, (lbRTC_month_t)time->month);
+    int days = time->day;
+    days += day;
 
-  /* This could lead to a bug if adding days rolls over more than one month. */
-  if (days > month_days) {
-    days -= month_days;
-    lbRTC_Add_MM(time, 1);
-  }
+    /* This could lead to a bug if adding days rolls over more than one month. */
+    if (days > month_days) {
+        days -= month_days;
+        lbRTC_Add_MM(time, 1);
+    }
 
-  time->day = (lbRTC_day_t)days;
+    time->day = (lbRTC_day_t)days;
 }
 
 /**
@@ -690,15 +674,15 @@ extern void lbRTC_Add_DD(lbRTC_time_c* time, int day) {
  * @param hour Integer value representing the number of hours to add.
  */
 extern void lbRTC_Add_hh(lbRTC_time_c* time, int hour) {
-  int curr_hr = time->hour;
+    int curr_hr = time->hour;
 
-  curr_hr += hour;
-  if (curr_hr >= lbRTC_HOURS_PER_DAY) {
-    lbRTC_Add_DD(time, curr_hr / lbRTC_HOURS_PER_DAY);
-    curr_hr %= lbRTC_HOURS_PER_DAY;
-  }
+    curr_hr += hour;
+    if (curr_hr >= lbRTC_HOURS_PER_DAY) {
+        lbRTC_Add_DD(time, curr_hr / lbRTC_HOURS_PER_DAY);
+        curr_hr %= lbRTC_HOURS_PER_DAY;
+    }
 
-  time->hour = (lbRTC_hour_t)curr_hr;
+    time->hour = (lbRTC_hour_t)curr_hr;
 }
 
 /**
@@ -708,15 +692,15 @@ extern void lbRTC_Add_hh(lbRTC_time_c* time, int hour) {
  * @param min Integer value representing the number of minutes to add.
  */
 extern void lbRTC_Add_mm(lbRTC_time_c* time, int min) {
-  int curr_min = time->min;
+    int curr_min = time->min;
 
-  curr_min += min;
-  if (curr_min >= lbRTC_MINUTES_PER_HOUR) {
-    lbRTC_Add_hh(time, curr_min / lbRTC_MINUTES_PER_HOUR);
-    curr_min %= lbRTC_MINUTES_PER_HOUR;
-  }
+    curr_min += min;
+    if (curr_min >= lbRTC_MINUTES_PER_HOUR) {
+        lbRTC_Add_hh(time, curr_min / lbRTC_MINUTES_PER_HOUR);
+        curr_min %= lbRTC_MINUTES_PER_HOUR;
+    }
 
-  time->min = (lbRTC_min_t)curr_min;
+    time->min = (lbRTC_min_t)curr_min;
 }
 
 /**
@@ -726,15 +710,15 @@ extern void lbRTC_Add_mm(lbRTC_time_c* time, int min) {
  * @param sec Integer value representing the number of seconds to add.
  */
 extern void lbRTC_Add_ss(lbRTC_time_c* time, int sec) {
-  int curr_sec = time->sec;
+    int curr_sec = time->sec;
 
-  curr_sec += sec;
-  if (curr_sec >= lbRTC_SECONDS_PER_MINUTE) {
-    lbRTC_Add_mm(time, curr_sec / lbRTC_SECONDS_PER_MINUTE);
-    curr_sec %= lbRTC_SECONDS_PER_MINUTE;
-  }
+    curr_sec += sec;
+    if (curr_sec >= lbRTC_SECONDS_PER_MINUTE) {
+        lbRTC_Add_mm(time, curr_sec / lbRTC_SECONDS_PER_MINUTE);
+        curr_sec %= lbRTC_SECONDS_PER_MINUTE;
+    }
 
-  time->sec = (lbRTC_sec_t)curr_sec;
+    time->sec = (lbRTC_sec_t)curr_sec;
 }
 
 /**
@@ -748,12 +732,12 @@ extern void lbRTC_Add_ss(lbRTC_time_c* time, int sec) {
  * @param add_time Pointer to an lbRTC_time_c structure containing the values to add.
  */
 extern void lbRTC_Add_Date(lbRTC_time_c* time, const lbRTC_time_c* add_time) {
-  lbRTC_Add_ss(time, add_time->sec);
-  lbRTC_Add_mm(time, add_time->min);
-  lbRTC_Add_hh(time, add_time->hour);
-  lbRTC_Add_DD(time, add_time->day);
-  lbRTC_Add_MM(time, add_time->month);
-  lbRTC_Add_YY(time, add_time->year);
+    lbRTC_Add_ss(time, add_time->sec);
+    lbRTC_Add_mm(time, add_time->min);
+    lbRTC_Add_hh(time, add_time->hour);
+    lbRTC_Add_DD(time, add_time->day);
+    lbRTC_Add_MM(time, add_time->month);
+    lbRTC_Add_YY(time, add_time->year);
 }
 
 /**
@@ -763,7 +747,7 @@ extern void lbRTC_Add_Date(lbRTC_time_c* time, const lbRTC_time_c* add_time) {
  * @param year Integer value representing the number of years to subtract.
  */
 extern void lbRTC_Sub_YY(lbRTC_time_c* time, int year) {
-  time->year -= (lbRTC_year_t)year;
+    time->year -= (lbRTC_year_t)year;
 }
 
 /**
@@ -773,25 +757,24 @@ extern void lbRTC_Sub_YY(lbRTC_time_c* time, int year) {
  * @param month Integer value representing the number of months to subtract.
  */
 extern void lbRTC_Sub_MM(lbRTC_time_c* time, int month) {
-  int mo = time->month - month;
-  if (mo < lbRTC_JANUARY) {
-    int t_mo = mo;
-    int sub_year;
+    int mo = time->month - month;
+    if (mo < lbRTC_JANUARY) {
+        int t_mo = mo;
+        int sub_year;
 
-    if (mo == 0) {
-      mo = lbRTC_DECEMBER;
-      sub_year = 1;
+        if (mo == 0) {
+            mo = lbRTC_DECEMBER;
+            sub_year = 1;
+        } else {
+            t_mo = ABS(mo);
+            sub_year = t_mo / lbRTC_MONTHS_MAX + 1;            /* Years to subtract */
+            mo = lbRTC_MONTHS_MAX - (t_mo % lbRTC_MONTHS_MAX); /* Final month we end on */
+        }
+
+        lbRTC_Sub_YY(time, sub_year);
     }
-    else {
-      t_mo = ABS(mo);
-      sub_year = t_mo / lbRTC_MONTHS_MAX + 1; /* Years to subtract */
-      mo = lbRTC_MONTHS_MAX - (t_mo % lbRTC_MONTHS_MAX); /* Final month we end on */
-    }
 
-    lbRTC_Sub_YY(time, sub_year);
-  }
-
-  time->month = (lbRTC_month_t)mo;
+    time->month = (lbRTC_month_t)mo;
 }
 
 /**
@@ -801,32 +784,30 @@ extern void lbRTC_Sub_MM(lbRTC_time_c* time, int month) {
  * @param days Integer value representing the number of days to subtract.
  */
 extern void lbRTC_Sub_DD(lbRTC_time_c* time, int days) {
-  int day = time->day;
-  int month_days;
+    int day = time->day;
+    int month_days;
 
-  if (time->month == lbRTC_JANUARY) {
-    month_days = lbRTC_GetDaysByMonth(time->year, (lbRTC_month_t)lbRTC_DECEMBER);
-  }
-  else {
-    month_days = lbRTC_GetDaysByMonth(time->year, (lbRTC_month_t)(time->month - 1));
-  }
-
-  day -= days;
-
-  /* Check if day rolled back to previous month */
-  if (day <= 0) {
-    if (day == 0) {
-      day = month_days; /* Landed on last day of the month */
-    }
-    else {
-      day += month_days; /* Bring day positive */
+    if (time->month == lbRTC_JANUARY) {
+        month_days = lbRTC_GetDaysByMonth(time->year, (lbRTC_month_t)lbRTC_DECEMBER);
+    } else {
+        month_days = lbRTC_GetDaysByMonth(time->year, (lbRTC_month_t)(time->month - 1));
     }
 
-    /* Another 'bug' here. If more than 1 month of days is subtracted, month will be wrong */
-    lbRTC_Sub_MM(time, 1);
-  }
+    day -= days;
 
-  time->day = (lbRTC_day_t)day;
+    /* Check if day rolled back to previous month */
+    if (day <= 0) {
+        if (day == 0) {
+            day = month_days; /* Landed on last day of the month */
+        } else {
+            day += month_days; /* Bring day positive */
+        }
+
+        /* Another 'bug' here. If more than 1 month of days is subtracted, month will be wrong */
+        lbRTC_Sub_MM(time, 1);
+    }
+
+    time->day = (lbRTC_day_t)day;
 }
 
 /**
@@ -836,27 +817,27 @@ extern void lbRTC_Sub_DD(lbRTC_time_c* time, int days) {
  * @param hour Integer value representing the number of hours to subtract.
  */
 extern void lbRTC_Sub_hh(lbRTC_time_c* time, int hour) {
-  int h = time->hour;
-  h -= hour;
+    int h = time->hour;
+    h -= hour;
 
-  if (h < 0) {
-    int temp_h = h;
-    int sub_days;
+    if (h < 0) {
+        int temp_h = h;
+        int sub_days;
 
-    temp_h = ABS(h);
-    sub_days = temp_h / lbRTC_HOURS_PER_DAY + 1;
-    h = lbRTC_HOURS_PER_DAY - (temp_h % lbRTC_HOURS_PER_DAY);
+        temp_h = ABS(h);
+        sub_days = temp_h / lbRTC_HOURS_PER_DAY + 1;
+        h = lbRTC_HOURS_PER_DAY - (temp_h % lbRTC_HOURS_PER_DAY);
 
-    /* Check if we're rolling over the day */
-    if (h == lbRTC_HOURS_PER_DAY) {
-      h = 0;
-      sub_days--;
+        /* Check if we're rolling over the day */
+        if (h == lbRTC_HOURS_PER_DAY) {
+            h = 0;
+            sub_days--;
+        }
+
+        lbRTC_Sub_DD(time, sub_days);
     }
 
-    lbRTC_Sub_DD(time, sub_days);
-  }
-
-  time->hour = (lbRTC_hour_t)h;
+    time->hour = (lbRTC_hour_t)h;
 }
 
 /**
@@ -866,27 +847,27 @@ extern void lbRTC_Sub_hh(lbRTC_time_c* time, int hour) {
  * @param min Integer value representing the number of minutes to subtract.
  */
 extern void lbRTC_Sub_mm(lbRTC_time_c* time, int min) {
-  int t_min = time->min;
-  t_min -= min;
+    int t_min = time->min;
+    t_min -= min;
 
-  if (t_min < 0) {
-    int temp_min = t_min;
-    int sub_hours;
+    if (t_min < 0) {
+        int temp_min = t_min;
+        int sub_hours;
 
-    temp_min = ABS(t_min);
-    sub_hours = temp_min / lbRTC_MINUTES_PER_HOUR + 1;
-    t_min = lbRTC_MINUTES_PER_HOUR - (temp_min % lbRTC_MINUTES_PER_HOUR);
+        temp_min = ABS(t_min);
+        sub_hours = temp_min / lbRTC_MINUTES_PER_HOUR + 1;
+        t_min = lbRTC_MINUTES_PER_HOUR - (temp_min % lbRTC_MINUTES_PER_HOUR);
 
-    /* Check if we're rolling over the hour */
-    if (t_min == lbRTC_MINUTES_PER_HOUR) {
-      t_min = 0;
-      sub_hours--;
+        /* Check if we're rolling over the hour */
+        if (t_min == lbRTC_MINUTES_PER_HOUR) {
+            t_min = 0;
+            sub_hours--;
+        }
+
+        lbRTC_Sub_hh(time, sub_hours);
     }
 
-    lbRTC_Sub_hh(time, sub_hours);
-  }
-
-  time->min = (lbRTC_min_t)t_min;
+    time->min = (lbRTC_min_t)t_min;
 }
 
 /**
@@ -896,32 +877,32 @@ extern void lbRTC_Sub_mm(lbRTC_time_c* time, int min) {
  * @param sec Integer value representing the number of seconds to subtract.
  */
 extern void lbRTC_Sub_ss(lbRTC_time_c* time, int sec) {
-  int t_sec = time->sec;
-  t_sec -= sec;
+    int t_sec = time->sec;
+    t_sec -= sec;
 
-  if (t_sec < 0) {
-    int temp_sec = t_sec;
-    int sub_mins;
+    if (t_sec < 0) {
+        int temp_sec = t_sec;
+        int sub_mins;
 
-    temp_sec = ABS(t_sec);
-    sub_mins = temp_sec / lbRTC_SECONDS_PER_MINUTE + 1;
-    t_sec = lbRTC_SECONDS_PER_MINUTE - (temp_sec % lbRTC_SECONDS_PER_MINUTE);
+        temp_sec = ABS(t_sec);
+        sub_mins = temp_sec / lbRTC_SECONDS_PER_MINUTE + 1;
+        t_sec = lbRTC_SECONDS_PER_MINUTE - (temp_sec % lbRTC_SECONDS_PER_MINUTE);
 
-    /* Check if we're rolling over the minute */
-    if (t_sec == lbRTC_SECONDS_PER_MINUTE) {
-      t_sec = 0;
-      sub_mins--;
+        /* Check if we're rolling over the minute */
+        if (t_sec == lbRTC_SECONDS_PER_MINUTE) {
+            t_sec = 0;
+            sub_mins--;
+        }
+
+        lbRTC_Sub_mm(time, sub_mins);
     }
 
-    lbRTC_Sub_mm(time, sub_mins);
-  }
-
-  time->sec = (lbRTC_sec_t)t_sec;
+    time->sec = (lbRTC_sec_t)t_sec;
 }
 
 /**
  * @fabricated
- * 
+ *
  * @brief Subtract the values of an lbRTC_time_c structure from another lbRTC_time_c structure.
  *
  * This function subtracts the values of one lbRTC_time_c structure (sub_time) from another
@@ -951,25 +932,17 @@ extern void lbRTC_Sub_Date(lbRTC_time_c* time, const lbRTC_time_c* sub_time) {
  * @return The day of the week as an lbRTC_weekday_t value.
  */
 extern lbRTC_weekday_t lbRTC_Week(lbRTC_year_t year, lbRTC_month_t month, lbRTC_day_t day) {
-  /* 00:00:00 @ January 1st, 1901 */
-  static const lbRTC_time_c a_time = {
-    0, 0, 0,
-    1, 0, 1,
-    1901
-  };
+    /* 00:00:00 @ January 1st, 1901 */
+    static const lbRTC_time_c a_time = { 0, 0, 0, 1, 0, 1, 1901 };
 
-  /* This initialization is required lmao */
-  lbRTC_time_c b_time = {
-    0, 0, 0,
-    0, 0, 0,
-    0000
-  };
+    /* This initialization is required lmao */
+    lbRTC_time_c b_time = { 0, 0, 0, 0, 0, 0, 0000 };
 
-  b_time.year = year;
-  b_time.month = month;
-  b_time.day = day;
+    b_time.year = year;
+    b_time.month = month;
+    b_time.day = day;
 
-  return (lbRTC_weekday_t)((lbRTC_GetIntervalDays(&a_time, &b_time) + 2) % lbRTC_WEEK);
+    return (lbRTC_weekday_t)((lbRTC_GetIntervalDays(&a_time, &b_time) + 2) % lbRTC_WEEK);
 }
 
 /**
@@ -979,7 +952,7 @@ extern lbRTC_weekday_t lbRTC_Week(lbRTC_year_t year, lbRTC_month_t month, lbRTC_
  * @param src Pointer to the source lbRTC_time_c structure.
  */
 extern void lbRTC_TimeCopy(lbRTC_time_c* dst, const lbRTC_time_c* src) {
-  *dst = *src;
+    *dst = *src;
 }
 
 /**
@@ -989,37 +962,25 @@ extern void lbRTC_TimeCopy(lbRTC_time_c* dst, const lbRTC_time_c* src) {
  * @return Non-zero (TRUE) if the time is valid, zero (FALSE) otherwise.
  */
 extern int lbRTC_IsValidTime(const lbRTC_time_c* time) {
-  static const u8 day_tbl[] = {
-    00,
-    31, 28, 31, 30, 31, 30,
-    31, 31, 30, 31, 30, 31
-  };
+    static const u8 day_tbl[] = { 00, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
-  int res;
+    int res;
 
-  if (
-    (time->year < lbRTC_YEAR_MIN ||  time->year > lbRTC_YEAR_MAX) ||
-    (time->month == lbRTC_MONTHS_BEGIN || time->month > lbRTC_MONTHS_MAX) ||
-    (time->day == 0) ||
-    (time->hour > 23) ||
-    (time->min > 59) ||
-    (time->sec > 59)
-  ) {
-    res = FALSE;
-  }
-  else {
-    if (time->day == 29 && time->month == 2) {
-      res = lbRTC_IS_LEAPYEAR(time->year);
+    if ((time->year < lbRTC_YEAR_MIN || time->year > lbRTC_YEAR_MAX) ||
+        (time->month == lbRTC_MONTHS_BEGIN || time->month > lbRTC_MONTHS_MAX) || (time->day == 0) ||
+        (time->hour > 23) || (time->min > 59) || (time->sec > 59)) {
+        res = FALSE;
+    } else {
+        if (time->day == 29 && time->month == 2) {
+            res = lbRTC_IS_LEAPYEAR(time->year);
+        } else if (time->day > day_tbl[time->month]) {
+            res = FALSE;
+        } else {
+            res = TRUE;
+        }
     }
-    else if (time->day > day_tbl[time->month]) {
-      res = FALSE;
-    }
-    else {
-      res = TRUE;
-    }
-  }
 
-  return res;
+    return res;
 }
 
 /**
@@ -1029,21 +990,15 @@ extern int lbRTC_IsValidTime(const lbRTC_time_c* time) {
  * @return Non-zero (TRUE) if the time is invalid, zero (FALSE) otherwise.
  */
 extern int lbRTC_time_c_save_data_check(const lbRTC_time_c* time) {
-  int res = FALSE;
+    int res = FALSE;
 
-  if (
-    (time->sec < 60) &&
-    (time->min < 60) &&
-    (time->hour < 24) &&
-    (time->day >= 1 && time->day <= 31) &&
-    (time->weekday < 7) &&
-    (time->month >= 1 && time->month <= 12) &&
-    (time->year >= GAME_YEAR_MIN + 1 && time->year <= GAME_YEAR_MAX - 1)
-  ) {
-      res = TRUE;
+    if ((time->sec < 60) && (time->min < 60) && (time->hour < 24) && (time->day >= 1 && time->day <= 31) &&
+        (time->weekday < 7) && (time->month >= 1 && time->month <= 12) &&
+        (time->year >= GAME_YEAR_MIN + 1 && time->year <= GAME_YEAR_MAX - 1)) {
+        res = TRUE;
     }
 
-  return !res;
+    return !res;
 }
 
 /**
@@ -1056,23 +1011,23 @@ extern int lbRTC_time_c_save_data_check(const lbRTC_time_c* time) {
  * @return The day of the month as an integer.
  */
 extern int lbRTC_Weekly_day(lbRTC_year_t year, lbRTC_month_t month, int weeks, int weekday) {
-  int t_weekday;
-  
-  int month_first_weekday = lbRTC_Week(year, month, 1);
-  lbRTC_day_t month_days = lbRTC_GetDaysByMonth(year, month);
+    int t_weekday;
 
-  weeks--;
-  t_weekday = (int)(((weekday - month_first_weekday) + lbRTC_WEEK) % lbRTC_WEEK) + 1;
-
-  while (weeks > 0) {
-    t_weekday += 7;
-    if (t_weekday > month_days) {
-      t_weekday -= 7;
-      break;
-    }
+    int month_first_weekday = lbRTC_Week(year, month, 1);
+    lbRTC_day_t month_days = lbRTC_GetDaysByMonth(year, month);
 
     weeks--;
-  }
+    t_weekday = (int)(((weekday - month_first_weekday) + lbRTC_WEEK) % lbRTC_WEEK) + 1;
 
-  return t_weekday;
+    while (weeks > 0) {
+        t_weekday += 7;
+        if (t_weekday > month_days) {
+            t_weekday -= 7;
+            break;
+        }
+
+        weeks--;
+    }
+
+    return t_weekday;
 }

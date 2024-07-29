@@ -135,7 +135,7 @@ static void aMsm_set_bgOffset(STRUCTURE_ACTOR* museum) {
     };
     // clang-format on
 
-    static const mCoBG_OffsetTable_c rewrite_data = {mCoBG_ATTRIBUTE_NONE, 10, 10, 10, 10, 10, 0 };
+    static const mCoBG_OffsetTable_c rewrite_data = { mCoBG_ATTRIBUTE_NONE, 10, 10, 10, 10, 10, 0 };
 
     xyz_t pos = { 0.0f, 0.0f, 0.0f };
     int i;

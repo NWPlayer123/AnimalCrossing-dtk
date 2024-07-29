@@ -6,22 +6,22 @@
 extern "C" {
 #endif
 
-typedef struct OSContext{
-	u32 gprs[32];
-	u32 cr;
-	u32 lr;
-	u32 ctr;
-	u32 xer;
-	f64 fprs[32];
-	u32 fpscr_tmp;
-	u32 fpscr;
-	u32 srr0;
-	u32 srr1;
-	u16 mode;
-	u16 state;
-	u32 gqrs[8];
-	char UNK_0x1C4;
-	f64 psfs[32];
+typedef struct OSContext {
+    u32 gprs[32];
+    u32 cr;
+    u32 lr;
+    u32 ctr;
+    u32 xer;
+    f64 fprs[32];
+    u32 fpscr_tmp;
+    u32 fpscr;
+    u32 srr0;
+    u32 srr1;
+    u16 mode;
+    u16 state;
+    u32 gqrs[8];
+    char UNK_0x1C4;
+    f64 psfs[32];
 } OSContext;
 
 OSContext* OS_CURRENT_CONTEXT_PHYS AT_ADDRESS(0x800000C0);

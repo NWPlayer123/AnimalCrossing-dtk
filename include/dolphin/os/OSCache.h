@@ -18,11 +18,11 @@ void ICFlashInvalidate(void);
 void ICEnable(void);
 void LCDisable(void);
 
-//void L2GlobalInvalidate(void);
+// void L2GlobalInvalidate(void);
 
-//void DMAErrorHandler(u8, struct OSContext*, u32, u32, ...);
+// void DMAErrorHandler(u8, struct OSContext*, u32, u32, ...);
 
-//void __OSCacheInit(void);
+// void __OSCacheInit(void);
 
 #ifdef __cplusplus
 }

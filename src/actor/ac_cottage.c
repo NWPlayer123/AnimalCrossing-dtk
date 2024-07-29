@@ -275,7 +275,8 @@ static f32 Cottage_npc_light_aim(STRUCTURE_ACTOR* cottage) {
     now_sec = Common_Get(time.now_sec);
 
     if (schedule != NULL && schedule->current_type == mNPS_SCHED_IN_HOUSE && island_villager->is_home != FALSE &&
-        (now_sec >= (18 * mTM_SECONDS_IN_HOUR) || now_sec <= (5 * mTM_SECONDS_IN_HOUR)) && cottage->request_type != Cottage_ACTION_OPEN_PL_OUT_INIT) {
+        (now_sec >= (18 * mTM_SECONDS_IN_HOUR) || now_sec <= (5 * mTM_SECONDS_IN_HOUR)) &&
+        cottage->request_type != Cottage_ACTION_OPEN_PL_OUT_INIT) {
         return 1.0f;
     }
 
@@ -394,7 +395,8 @@ static int Cottage_check_door_action(STRUCTURE_ACTOR* cottage, GAME_PLAY* play) 
             res = Cottage_ACTION_OPEN_IN_INIT;
         } else if (request_type == Cottage_ACTION_OPEN_PL_OUT_INIT) {
             res = Cottage_ACTION_NPC_OUT_INIT;
-        } else if (request_type == Cottage_ACTION_NPC_OUT_INIT && mPlib_check_player_outdoor_start(&play->game) != FALSE) {
+        } else if (request_type == Cottage_ACTION_NPC_OUT_INIT &&
+                   mPlib_check_player_outdoor_start(&play->game) != FALSE) {
             res = Cottage_ACTION_OPEN_PL_OUT_INIT;
         }
     }
@@ -610,8 +612,8 @@ static void Cottage_actor_ct(ACTOR* actor, GAME* game) {
     keyframe = &cottage->keyframe;
     cottage_data = Cottage_data_get(cottage);
     cKF_SkeletonInfo_R_ct(keyframe, cottage_data->skl, NULL, cottage->work_area, cottage->morph_area);
-    cKF_SkeletonInfo_R_init(keyframe, keyframe->skeleton, cottage_data->in_anim, 1.0f, 51.0f, 1.0f, 0.5f, 0.0f, cKF_FRAMECONTROL_STOP,
-                            NULL);
+    cKF_SkeletonInfo_R_init(keyframe, keyframe->skeleton, cottage_data->in_anim, 1.0f, 51.0f, 1.0f, 0.5f, 0.0f,
+                            cKF_FRAMECONTROL_STOP, NULL);
     cKF_SkeletonInfo_R_play(keyframe);
     (*cottage_data->set_bg_offset_proc)(cottage, 1);
     cottage->arg0_f = (*cottage_data->light_aim_proc)(cottage);
@@ -756,8 +758,8 @@ static void Cottage_move_open_in_init(STRUCTURE_ACTOR* cottage) {
     keyframe = &cottage->keyframe;
     cottage_data = Cottage_data_get(cottage);
 
-    cKF_SkeletonInfo_R_init(keyframe, keyframe->skeleton, cottage_data->in_anim, 1.0f, 51.0f, 1.0f, 0.5f, 0.0f, cKF_FRAMECONTROL_STOP,
-                            NULL);
+    cKF_SkeletonInfo_R_init(keyframe, keyframe->skeleton, cottage_data->in_anim, 1.0f, 51.0f, 1.0f, 0.5f, 0.0f,
+                            cKF_FRAMECONTROL_STOP, NULL);
     cottage->action_proc = &Cottage_move_open_in;
 }
 

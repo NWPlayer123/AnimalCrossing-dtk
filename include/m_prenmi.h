@@ -12,9 +12,9 @@ extern "C" {
 
 /* sizeof(struct game_prenmi_s) == 0xE8 */
 typedef struct game_prenmi_s {
-  GAME game;
-  int timer;
-  u32 unused_pad;
+    GAME game;
+    int timer;
+    u32 unused_pad;
 } GAME_PRENMI;
 
 extern void prenmi_init(GAME* game);

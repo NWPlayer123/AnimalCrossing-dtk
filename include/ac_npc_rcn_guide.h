@@ -15,4 +15,3 @@ extern ACTOR_PROFILE Npc_Rcn_Guide_Profile;
 #endif
 
 #endif
-

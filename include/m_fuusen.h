@@ -9,13 +9,13 @@ extern "C" {
 #endif
 
 enum {
-  Balloon_STATE_DEAD, /* Doesn't exist */
-  Balloon_STATE_CHK_SPAWN, /* Check should spawn */
-  Balloon_STATE_SPAWNED, /* Sucessfully spawned */
-  Balloon_STATE_LOOK_UP, /* Flew away after hitting a tree? */
-  Balloon_STATE_PENDING_SPAWN, /* Didn't successfully spawn, trying again */
+    Balloon_STATE_DEAD,          /* Doesn't exist */
+    Balloon_STATE_CHK_SPAWN,     /* Check should spawn */
+    Balloon_STATE_SPAWNED,       /* Sucessfully spawned */
+    Balloon_STATE_LOOK_UP,       /* Flew away after hitting a tree? */
+    Balloon_STATE_PENDING_SPAWN, /* Didn't successfully spawn, trying again */
 
-  Balloon_STATE_NUM
+    Balloon_STATE_NUM
 };
 
 extern int fuusen_DEBUG_mode_flag;

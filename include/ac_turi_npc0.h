@@ -15,4 +15,3 @@ extern ACTOR_PROFILE Turi_Npc0_Profile;
 #endif
 
 #endif
-

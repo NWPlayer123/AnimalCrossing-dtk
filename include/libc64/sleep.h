@@ -4,7 +4,6 @@
 #include "types.h"
 #include "dolphin/os/OSTime.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif

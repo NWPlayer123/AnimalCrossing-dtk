@@ -6,7 +6,7 @@
 
 typedef struct debug_display_s Debug_display;
 
-struct debug_display_s{
+struct debug_display_s {
     xyz_t pos;
     s_xyz rot;
     xyz_t scale;
@@ -15,10 +15,9 @@ struct debug_display_s{
     Debug_display* next;
 };
 extern void Debug_Display_init();
-extern Debug_display* Debug_Display_new(f32 posX, f32 posY, f32 posZ, f32 scaleX, f32 scaleY, f32 scaleZ, s16 rotX, s16 rotY, s16 rotZ, u8 r, u8 g, u8 b, u8 alpha, s16 type, GRAPH* graph);
+extern Debug_display* Debug_Display_new(f32 posX, f32 posY, f32 posZ, f32 scaleX, f32 scaleY, f32 scaleZ, s16 rotX,
+                                        s16 rotY, s16 rotZ, u8 r, u8 g, u8 b, u8 alpha, s16 type, GRAPH* graph);
 extern void Debug_Display_output(GAME_PLAY* play);
-
-
 
 extern Debug_display* debug_display;
 

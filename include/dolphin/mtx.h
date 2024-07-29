@@ -8,12 +8,12 @@ extern "C" {
 #endif
 
 /////////////// TYPE DEFINES ///////////////
-#define MTXDegToRad(a) ((a)*0.01745329252f)
+#define MTXDegToRad(a) ((a) * 0.01745329252f)
 
 typedef struct {
-  f32 x;
-  f32 y;
-  f32 z;
+    f32 x;
+    f32 y;
+    f32 z;
 } Vec;
 
 typedef f32 Mtx34[3][4];
@@ -25,7 +25,7 @@ typedef f32 PSQuaternion[4];
 typedef Mtx34 GC_Mtx; // TODO: fix this
 
 typedef struct Quaternion {
-	f32 x, y, z, w;
+    f32 x, y, z, w;
 } Quaternion;
 
 ////////////////////////////////////////////
@@ -72,11 +72,10 @@ void C_MTXLightOrtho(GC_Mtx mtx, f32 t, f32 b, f32 l, f32 r, f32 scaleS, f32 sca
 ////////////////////////////////////////////
 
 ////////////// MATRIX INLINES //////////////
-static inline void MTXSetPosition(GC_Mtx mtx, const Vec* pos)
-{
-	mtx[0][3] = pos->x;
-	mtx[1][3] = pos->y;
-	mtx[2][3] = pos->z;
+static inline void MTXSetPosition(GC_Mtx mtx, const Vec* pos) {
+    mtx[0][3] = pos->x;
+    mtx[1][3] = pos->y;
+    mtx[2][3] = pos->z;
 }
 
 ////////////////////////////////////////////

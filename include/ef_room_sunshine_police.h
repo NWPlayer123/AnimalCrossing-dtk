@@ -11,13 +11,12 @@ extern "C" {
 
 extern ACTOR_PROFILE Room_Sunshine_Police_Profile;
 
-typedef struct efffect_room_sunshine_police_s{
+typedef struct efffect_room_sunshine_police_s {
     ROOMSUNSHINE_ACTOR ef_sunshine_class;
-}ROOMSUNSHINEPOLICE_ACTOR;    
+} ROOMSUNSHINEPOLICE_ACTOR;
 
 #ifdef __cplusplus
 }
 #endif
 
 #endif
-

@@ -15,4 +15,3 @@ extern ACTOR_PROFILE Npc_Sleep_Obaba_Profile;
 #endif
 
 #endif
-

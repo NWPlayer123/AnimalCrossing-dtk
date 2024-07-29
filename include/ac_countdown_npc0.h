@@ -15,4 +15,3 @@ extern ACTOR_PROFILE Countdown_Npc0_Profile;
 #endif
 
 #endif
-

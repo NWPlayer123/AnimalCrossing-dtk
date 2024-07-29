@@ -11,7 +11,6 @@ extern "C" {
 
 extern aWeather_Profile_c iam_weather_sakura;
 
-
 #ifdef __cplusplus
 }
 #endif

@@ -15,4 +15,3 @@ extern ACTOR_PROFILE Npc2_Profile;
 #endif
 
 #endif
-

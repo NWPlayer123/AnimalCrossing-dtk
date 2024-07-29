@@ -15,4 +15,3 @@ extern ACTOR_PROFILE Depart_Profile;
 #endif
 
 #endif
-

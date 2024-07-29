@@ -14,7 +14,7 @@ typedef struct actor_dump_s DUMP_ACTOR;
 
 typedef void (*DUMP_PROC)(DUMP_ACTOR*, GAME_PLAY*);
 
-struct actor_dump_s{
+struct actor_dump_s {
     ACTOR actor_class;
     u8 pad[0x2A0 - 0x174];
     DUMP_PROC proc;
@@ -29,4 +29,3 @@ struct actor_dump_s{
 #endif
 
 #endif
-

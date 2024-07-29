@@ -3,7 +3,6 @@
 #include "libultra/xprintf.h"
 #include "_mem.h"
 
-
 static void* proutPrintf(void* dst, const char* fmt, int size) {
     return (void*)((u8*)memcpy(dst, fmt, size) + size);
 }

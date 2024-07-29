@@ -100,7 +100,7 @@ static void aBGY_actor_ct(ACTOR* actor, GAME* game) {
 
     x = (int)buggy->actor_class.world.position.x;
     z = (int)(buggy->actor_class.world.position.z + 100.0f);
-    
+
     action = aBGY_ACTION_WAIT;
 
     if ((int)player->actor_class.world.position.x == x && (int)player->actor_class.world.position.z == z) {

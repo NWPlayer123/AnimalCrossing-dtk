@@ -15,4 +15,3 @@ extern ACTOR_PROFILE House_Goki_Profile;
 #endif
 
 #endif
-

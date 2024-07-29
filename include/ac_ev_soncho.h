@@ -10,17 +10,17 @@ extern "C" {
 #endif
 
 enum {
-  aESC_TALK_OWARI,
-  aESC_TALK_SELECT,
-  aESC_TALK_SECAND,
+    aESC_TALK_OWARI,
+    aESC_TALK_SELECT,
+    aESC_TALK_SECAND,
 
-  aESC_TALK_NUM
+    aESC_TALK_NUM
 };
 
 typedef struct npc_event_soncho_s {
-  NPC_ACTOR npc_class;
-  u8 talk_state;
-  u8 first_talk;
+    NPC_ACTOR npc_class;
+    u8 talk_state;
+    u8 first_talk;
 } EVENT_SONCHO_ACTOR;
 
 extern ACTOR_PROFILE Ev_Soncho_Profile;
@@ -30,4 +30,3 @@ extern ACTOR_PROFILE Ev_Soncho_Profile;
 #endif
 
 #endif
-

@@ -15,4 +15,3 @@ extern ACTOR_PROFILE Arrange_Furniture_Profile;
 #endif
 
 #endif
-

@@ -12,12 +12,12 @@ extern "C" {
 typedef struct birth_control_s BIRTH_CONTROL_ACTOR;
 
 struct birth_control_s {
-  ACTOR actor_class;
-  int setup_actor_flag;
-  mFM_move_actor_c* move_actor_data;
-  u16 move_actor_bitfield;
-  s16 move_actor_list_exists_flag;
-  int boat_spawned;
+    ACTOR actor_class;
+    int setup_actor_flag;
+    mFM_move_actor_c* move_actor_data;
+    u16 move_actor_bitfield;
+    s16 move_actor_list_exists_flag;
+    int boat_spawned;
 };
 
 extern ACTOR_PROFILE Birth_Control_Profile;
@@ -27,4 +27,3 @@ extern ACTOR_PROFILE Birth_Control_Profile;
 #endif
 
 #endif
-

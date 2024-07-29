@@ -13,15 +13,14 @@ extern ACTOR_PROFILE T_Hasu1_Profile;
 
 typedef void (*HASU1_PROC)(ACTOR*);
 
-typedef struct t_hasu1_s{
+typedef struct t_hasu1_s {
     TOOLS_ACTOR tools_class;
-    HASU1_PROC proc; 
+    HASU1_PROC proc;
     int current_id;
-}HASU1_ACTOR;
+} HASU1_ACTOR;
 
 #ifdef __cplusplus
 }
 #endif
 
 #endif
-

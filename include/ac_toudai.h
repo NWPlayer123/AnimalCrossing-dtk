@@ -13,7 +13,7 @@ extern ACTOR_PROFILE Toudai_Profile;
 
 typedef void (*TOUDAI_PROC)(ACTOR*, GAME_PLAY*);
 
-typedef struct actor_toudai_s{
+typedef struct actor_toudai_s {
     ACTOR actor_class;
     int keyframe_state;
     cKF_SkeletonInfo_R_c keyframe;
@@ -31,11 +31,10 @@ typedef struct actor_toudai_s{
     f32 unk2D0;
     u8 unk2D4[0x4];
     int season;
-}TOUDAI_ACTOR;    
+} TOUDAI_ACTOR;
 
 #ifdef __cplusplus
 }
 #endif
 
 #endif
-

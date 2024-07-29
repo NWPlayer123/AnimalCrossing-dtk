@@ -11,19 +11,16 @@ extern "C" {
 
 extern ACTOR_PROFILE T_Biscus4_Profile;
 
-
 typedef void (*BISCUS4_PROC)(ACTOR*);
 
-typedef struct t_biscus4_s{
+typedef struct t_biscus4_s {
     TOOLS_ACTOR tools_class;
-    BISCUS4_PROC proc; 
+    BISCUS4_PROC proc;
     int current_id;
-}BISCUS4_ACTOR;
-
+} BISCUS4_ACTOR;
 
 #ifdef __cplusplus
 }
 #endif
 
 #endif
-

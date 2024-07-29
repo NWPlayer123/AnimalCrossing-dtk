@@ -12,7 +12,7 @@ extern "C" {
 extern ACTOR_PROFILE Koinobori_Profile;
 
 /* sizeof(KOINOBORI_ACTOR) == 0x2DC */
-typedef struct actor_koinobori_s{
+typedef struct actor_koinobori_s {
     STRUCTURE_ACTOR structure_class;
 } KOINOBORI_ACTOR;
 
@@ -21,4 +21,3 @@ typedef struct actor_koinobori_s{
 #endif
 
 #endif
-

@@ -1,5 +1,4 @@
 #include "types.h"
 
-void __GXSetRange(void){
-    
+void __GXSetRange(void) {
 }

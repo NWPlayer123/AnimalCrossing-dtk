@@ -15,4 +15,3 @@ extern ACTOR_PROFILE Ev_Speech_Soncho_Profile;
 #endif
 
 #endif
-

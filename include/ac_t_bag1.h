@@ -13,15 +13,14 @@ extern ACTOR_PROFILE T_Bag1_Profile;
 
 typedef void (*BAG1_PROC)(ACTOR*);
 
-typedef struct t_bag1_s{
+typedef struct t_bag1_s {
     TOOLS_ACTOR tools_class;
-    BAG1_PROC proc; 
+    BAG1_PROC proc;
     int current_id;
-}BAG1_ACTOR;
+} BAG1_ACTOR;
 
 #ifdef __cplusplus
 }
 #endif
 
 #endif
-

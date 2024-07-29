@@ -9,9 +9,9 @@
 extern "C" {
 #endif
 
-typedef struct actor_npc_engineer_s{
+typedef struct actor_npc_engineer_s {
     NPC_ACTOR npc_class;
-}NPCENGINEER_ACTOR;
+} NPCENGINEER_ACTOR;
 
 extern ACTOR_PROFILE Npc_Engineer_Profile;
 
@@ -20,4 +20,3 @@ extern ACTOR_PROFILE Npc_Engineer_Profile;
 #endif
 
 #endif
-

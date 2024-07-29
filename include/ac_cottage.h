@@ -27,13 +27,13 @@ typedef struct t_cottage_data_s {
     bIT_ShadowData_c* shadow_data;
     mActor_name_t actor_name;
     Door_data_c* door_data;
-    COTTAGE_REWRITE_DOOR_PROC rewrite_door_proc; // Checked?
-    COTTAGE_SET_BG_OFFSET_PROC set_bg_offset_proc; // Checked
-    COTTAGE_CHECK_DOOR_IN_PROC check_door_in_proc; // Maybe actor?
+    COTTAGE_REWRITE_DOOR_PROC rewrite_door_proc;     // Checked?
+    COTTAGE_SET_BG_OFFSET_PROC set_bg_offset_proc;   // Checked
+    COTTAGE_CHECK_DOOR_IN_PROC check_door_in_proc;   // Maybe actor?
     COTTAGE_CHECK_DOOR_OUT_PROC check_door_out_proc; // Maybe actor?
     COTTAGE_DEMO_DOOR_OPEN_PROC demo_door_open_proc; // Checked
-    COTTAGE_LIGHT_AIM_PROC light_aim_proc; // Checked?
-    COTTAGE_LIGHT_CONTROL_PROC light_control_proc; // Checked
+    COTTAGE_LIGHT_AIM_PROC light_aim_proc;           // Checked?
+    COTTAGE_LIGHT_CONTROL_PROC light_control_proc;   // Checked
 } COTTAGE_DATA;
 
 extern ACTOR_PROFILE Cottage_My_Profile;
@@ -44,4 +44,3 @@ extern ACTOR_PROFILE Cottage_Npc_Profile;
 #endif
 
 #endif
-

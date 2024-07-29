@@ -13,15 +13,14 @@ extern ACTOR_PROFILE T_Hanabi_Profile;
 
 typedef void (*HANABI_PROC)(ACTOR*);
 
-typedef struct t_hanabi_s{
+typedef struct t_hanabi_s {
     TOOLS_ACTOR tools_class;
-    HANABI_PROC proc; 
+    HANABI_PROC proc;
     int current_id;
-}HANABI_ACTOR;
+} HANABI_ACTOR;
 
 #ifdef __cplusplus
 }
 #endif
 
 #endif
-

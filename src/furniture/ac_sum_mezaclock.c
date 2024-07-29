@@ -5,7 +5,7 @@ extern Gfx int_sum_mezaclock_long_model[];
 extern cKF_Skeleton_R_c cKF_bs_r_int_sum_mezaclock;
 extern cKF_Animation_R_c cKF_ba_r_int_sum_mezaclock;
 
-aFTR_rig_c aSumMezaClock_sklkey= {
+aFTR_rig_c aSumMezaClock_sklkey = {
     &cKF_bs_r_int_sum_mezaclock,
     &cKF_ba_r_int_sum_mezaclock,
     1.0f,

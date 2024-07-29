@@ -10,7 +10,8 @@
 extern "C" {
 #endif
 
-extern void mRF_MakeRandomField_ovl(mFM_combination_c* combi_table, mFM_combo_info_c* combo_info, int combo_count, GAME* game);
+extern void mRF_MakeRandomField_ovl(mFM_combination_c* combi_table, mFM_combo_info_c* combo_info, int combo_count,
+                                    GAME* game);
 
 #ifdef __cplusplus
 }

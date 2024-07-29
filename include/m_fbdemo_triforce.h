@@ -13,7 +13,7 @@ typedef struct {
     /* 0x0A */ s8 finished;
     /* 0x0B */ u8 tmp;
     /* 0x0C */ u16 normal;
-    /* 0x0E*/  u8 temp2[2]; 
+    /* 0x0E*/ u8 temp2[2];
     /* 0x10 */ Mtx perspmtx;
     /* 0x50 */ Mtx lookatmtx;
 } fbdemo_triforce; // size = 0x90;

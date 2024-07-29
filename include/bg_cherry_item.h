@@ -15,4 +15,3 @@ extern ACTOR_PROFILE BgCherryItem_Profile;
 #endif
 
 #endif
-

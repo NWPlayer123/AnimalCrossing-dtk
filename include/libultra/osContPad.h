@@ -12,17 +12,17 @@ extern "C" {
 #define MAXCONTROLLERS 4
 
 typedef struct {
-  u16 type;
-  u8 status;
-  u8 errno;
+    u16 type;
+    u8 status;
+    u8 errno;
 } OSContStatus;
 
 /* sizeof(OSContPad) == 6 */
 typedef struct {
-  /* 0x00 */ u16 button;
-  /* 0x02 */ s8 stick_x;
-  /* 0x03 */ s8 stick_y;
-  /* 0x04 */ u8 errno;
+    /* 0x00 */ u16 button;
+    /* 0x02 */ s8 stick_x;
+    /* 0x03 */ s8 stick_y;
+    /* 0x04 */ u8 errno;
 } OSContPad;
 
 #ifdef __cplusplus

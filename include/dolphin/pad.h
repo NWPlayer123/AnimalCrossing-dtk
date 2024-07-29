@@ -9,10 +9,10 @@ extern "C" {
 
 #define PAD_CONTROLLER_NUM 4
 
-#define PAD_ERR_NONE           0
+#define PAD_ERR_NONE 0
 #define PAD_ERR_NO_CONTROLLER -1
-#define PAD_ERR_NOT_READY     -2
-#define PAD_ERR_TRANSFER      -3
+#define PAD_ERR_NOT_READY -2
+#define PAD_ERR_TRANSFER -3
 
 #define PAD_MOTOR_STOP 0
 #define PAD_MOTOR_RUMBLE 1
@@ -35,27 +35,27 @@ extern "C" {
 typedef void (*PADSamplingCallback)(void);
 
 typedef struct PADStatus {
-  u16 button;
-  s8 stickX;
-  s8 stickY;
-  s8 substickX;
-  s8 substickY;
-  u8 triggerLeft;
-  u8 triggerRight;
-  u8 analogA;
-  u8 analogB;
-  s8 err;
+    u16 button;
+    s8 stickX;
+    s8 stickY;
+    s8 substickX;
+    s8 substickY;
+    u8 triggerLeft;
+    u8 triggerRight;
+    u8 analogA;
+    u8 analogB;
+    s8 err;
 } PADStatus;
 
 BOOL PADInit();
-u32 PADRead(PADStatus *status);
+u32 PADRead(PADStatus* status);
 BOOL PADReset(u32 mask);
 BOOL PADRecalibrate(u32 mask);
-void PADClamp(PADStatus *status);
-void PADClampCircle(PADStatus *status);
+void PADClamp(PADStatus* status);
+void PADClampCircle(PADStatus* status);
 void PADControlMotor(s32 chan, u32 cmd);
 void PADSetSpec(u32 spec);
-void PADControlAllMotors(const u32 *cmdArr);
+void PADControlAllMotors(const u32* cmdArr);
 void PADSetAnalogMode(u32 mode);
 PADSamplingCallback PADSetSamplingCallback(PADSamplingCallback);
 

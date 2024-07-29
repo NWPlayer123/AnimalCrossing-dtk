@@ -8,7 +8,8 @@ extern cKF_Skeleton_R_c cKF_bs_r_int_sum_pet01;
 static void aSumPet01_ct(FTR_ACTOR* ftr_actor, u8* data) {
     cKF_SkeletonInfo_R_c* keyframe = &ftr_actor->keyframe;
 
-    cKF_SkeletonInfo_R_ct(keyframe, &cKF_bs_r_int_sum_pet01, &cKF_ba_r_int_sum_pet01, ftr_actor->joint, ftr_actor->morph);
+    cKF_SkeletonInfo_R_ct(keyframe, &cKF_bs_r_int_sum_pet01, &cKF_ba_r_int_sum_pet01, ftr_actor->joint,
+                          ftr_actor->morph);
     cKF_SkeletonInfo_R_init_standard_stop(keyframe, &cKF_ba_r_int_sum_pet01, NULL);
     cKF_SkeletonInfo_R_play(keyframe);
     keyframe->frame_control.speed = 0.0f;
@@ -25,10 +26,9 @@ static void aSumPet01_mv(FTR_ACTOR* ftr_actor, ACTOR* my_room_actor, GAME* game,
         if (valid != 0) {
             cKF_SkeletonInfo_R_init_standard_stop(keyframe, &cKF_ba_r_int_sum_pet01, NULL);
             keyframe->frame_control.speed = 0.5f;
-        } 
+        }
         cKF_SkeletonInfo_R_play(keyframe);
     }
-
 }
 
 static void aSumPet01_dw(FTR_ACTOR* ftr_actor, ACTOR* my_room_actor, GAME* game, u8* data) {
@@ -39,29 +39,25 @@ static void aSumPet01_dw(FTR_ACTOR* ftr_actor, ACTOR* my_room_actor, GAME* game,
 }
 
 static aFTR_vtable_c aSumPet01_func = {
-	&aSumPet01_ct,
-	&aSumPet01_mv,
-	&aSumPet01_dw,
-	NULL,
-	NULL,
+    &aSumPet01_ct, &aSumPet01_mv, &aSumPet01_dw, NULL, NULL,
 };
 
 aFTR_PROFILE iam_sum_pet01 = {
-	NULL,
-	NULL,
-	NULL,
-	NULL,
-	NULL,
-	NULL,
-	NULL,
-	NULL,
-	30.0f,
-	0.01f,
-	aFTR_SHAPE_TYPEA,
-	mCoBG_FTR_TYPEA,
-	0,
-	1,
-	0,
-	aFTR_INTERACTION_INSECT,
-	&aSumPet01_func,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    30.0f,
+    0.01f,
+    aFTR_SHAPE_TYPEA,
+    mCoBG_FTR_TYPEA,
+    0,
+    1,
+    0,
+    aFTR_INTERACTION_INSECT,
+    &aSumPet01_func,
 };

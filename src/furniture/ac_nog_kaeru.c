@@ -3,7 +3,7 @@ extern aFTR_rig_c aNogKaeru_key_anime_data;
 extern cKF_Skeleton_R_c cKF_bs_r_int_nog_kaeru;
 extern cKF_Animation_R_c cKF_ba_r_int_nog_kaeru;
 
-aFTR_rig_c aNogKaeru_key_anime_data= {
+aFTR_rig_c aNogKaeru_key_anime_data = {
     &cKF_bs_r_int_nog_kaeru,
     &cKF_ba_r_int_nog_kaeru,
     1.0f,

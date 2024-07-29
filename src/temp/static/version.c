@@ -7,5 +7,3 @@ char __Creator__[] = {
 char __DateTime__[] = {
 #include "assets/__DateTime__.inc"
 };
-
-

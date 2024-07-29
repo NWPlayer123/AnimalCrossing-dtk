@@ -8,10 +8,10 @@
 extern "C" {
 #endif
 
-typedef struct box_move_s{
+typedef struct box_move_s {
     ACTOR actor_class;
     u8 pad[0x28C - 0x174];
-}BOXMOVE_ACTOR;
+} BOXMOVE_ACTOR;
 
 extern ACTOR_PROFILE BoxMove_Profile;
 
@@ -20,4 +20,3 @@ extern ACTOR_PROFILE BoxMove_Profile;
 #endif
 
 #endif
-

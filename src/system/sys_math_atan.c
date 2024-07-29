@@ -1,8 +1,7 @@
 #include "sys_math.h"
 
-
 static u16 atntable[] = {
-	0x0000, 0x000A, 0x0014, 0x001F, 0x0029, 0x0033, 0x003D, 0x0047, 0x0051, 0x005C, 0x0066, 0x0070, 0x007A, 0x0084,
+    0x0000, 0x000A, 0x0014, 0x001F, 0x0029, 0x0033, 0x003D, 0x0047, 0x0051, 0x005C, 0x0066, 0x0070, 0x007A, 0x0084,
     0x008F, 0x0099, 0x00A3, 0x00AD, 0x00B7, 0x00C2, 0x00CC, 0x00D6, 0x00E0, 0x00EA, 0x00F4, 0x00FF, 0x0109, 0x0113,
     0x011D, 0x0127, 0x0131, 0x013C, 0x0146, 0x0150, 0x015A, 0x0164, 0x016F, 0x0179, 0x0183, 0x018D, 0x0197, 0x01A1,
     0x01AC, 0x01B6, 0x01C0, 0x01CA, 0x01D4, 0x01DE, 0x01E9, 0x01F3, 0x01FD, 0x0207, 0x0211, 0x021B, 0x0226, 0x0230,
@@ -78,74 +77,65 @@ static u16 atntable[] = {
     0x1FF6, 0x1FFB, 0x2000,
 };
 
-u16 U_GetAtanTable(f32 y, f32 x){
+u16 U_GetAtanTable(f32 y, f32 x) {
     int idx;
-    u16 ret =  atntable[0x400];
-    
-    if(x == 0.0f){
-        ret =  atntable[0x400];
-    }else{
-    
-    idx = ((y/x) * 1024.0f) + 0.5f;
-    
-        if(idx > 0x400){
-            ret =  atntable[0x400];
-        }
-        else{
+    u16 ret = atntable[0x400];
+
+    if (x == 0.0f) {
+        ret = atntable[0x400];
+    } else {
+
+        idx = ((y / x) * 1024.0f) + 0.5f;
+
+        if (idx > 0x400) {
+            ret = atntable[0x400];
+        } else {
             ret = atntable[idx];
         }
     }
     return ret;
 }
 
-s16 atans_table(f32 x, f32 y){
+s16 atans_table(f32 x, f32 y) {
 
     int tbl;
 
-    if(y >= 0.0f){
-        if(x >= 0.0f){
-            if(x >= y){
-                if(0.0f != y){
-                    tbl = U_GetAtanTable(y,x);
-                }
-                else{
+    if (y >= 0.0f) {
+        if (x >= 0.0f) {
+            if (x >= y) {
+                if (0.0f != y) {
+                    tbl = U_GetAtanTable(y, x);
+                } else {
                     tbl = 0;
                 }
-            }
-            else{
-                tbl = U_GetAtanTable(x,y);
+            } else {
+                tbl = U_GetAtanTable(x, y);
                 tbl = 0x4000 - tbl;
             }
-        }
-        else{
-            if(-x < y){
+        } else {
+            if (-x < y) {
                 tbl = U_GetAtanTable(-x, y) + 0x4000;
-            }
-            else{
+            } else {
                 tbl = 0x8000 - U_GetAtanTable(y, -x);
             }
         }
-    }
-    else if(x < 0.0f){
-        if(x <= y){
+    } else if (x < 0.0f) {
+        if (x <= y) {
             tbl = (U_GetAtanTable(-y, -x) + 0x8000);
-        }
-        else{
+        } else {
             tbl = 0xC000 - U_GetAtanTable(-x, -y);
         }
-    }
-    else{
-        if(x < -y){
+    } else {
+        if (x < -y) {
             tbl = U_GetAtanTable(x, -y) + 0xC000;
-        }
-        else{
+        } else {
             tbl = -U_GetAtanTable(-y, x);
         }
     }
     return tbl;
 }
 
-f32 atanf_table(f32 x, f32 y){
-    s16 tbl = atans_table(x,y);
+f32 atanf_table(f32 x, f32 y) {
+    s16 tbl = atans_table(x, y);
     return 9.58738019108e-05f * tbl;
 }

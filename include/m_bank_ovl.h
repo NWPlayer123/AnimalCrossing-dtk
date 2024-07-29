@@ -14,12 +14,12 @@ extern "C" {
 #define mBN_DEPOSIT_MAX 999999999
 
 struct bank_ovl_s {
-  int player_max_bell; /* maximum amount of bells the player can hold */
-  int player_bell; /* bells the player started with when opening the bank window */
-  int now_bell; /* current bells the player has */
-  int bank_bell; /* current bells the bank has */
-  int cursol; /* cursor position */
-  int bell; /* change in bells */
+    int player_max_bell; /* maximum amount of bells the player can hold */
+    int player_bell;     /* bells the player started with when opening the bank window */
+    int now_bell;        /* current bells the player has */
+    int bank_bell;       /* current bells the bank has */
+    int cursol;          /* cursor position */
+    int bell;            /* change in bells */
 };
 
 extern void mBN_bank_ovl_set_proc(Submenu* submenu);

@@ -15,4 +15,3 @@ extern ACTOR_PROFILE Set_Npc_Manager_Profile;
 #endif
 
 #endif
-

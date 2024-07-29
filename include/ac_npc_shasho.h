@@ -15,4 +15,3 @@ extern ACTOR_PROFILE Npc_Shasho_Profile;
 #endif
 
 #endif
-

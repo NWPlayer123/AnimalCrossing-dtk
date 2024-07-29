@@ -10,12 +10,11 @@ extern "C" {
 
 /* sizeof(pad_t) == 0x18 */
 typedef struct {
-  /* 0x00 */ OSContPad now;
-  /* 0x06 */ OSContPad last;
-  /* 0x0C */ OSContPad on;
-  /* 0x12 */ OSContPad off;
+    /* 0x00 */ OSContPad now;
+    /* 0x06 */ OSContPad last;
+    /* 0x0C */ OSContPad on;
+    /* 0x12 */ OSContPad off;
 } pad_t;
-
 
 int pad_physical_stick_x(pad_t*);
 int pad_physical_stick_y(pad_t*);

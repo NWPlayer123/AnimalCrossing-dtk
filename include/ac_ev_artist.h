@@ -15,4 +15,3 @@ extern ACTOR_PROFILE Ev_Artist_Profile;
 #endif
 
 #endif
-

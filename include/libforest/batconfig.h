@@ -5,7 +5,6 @@
 #include "dolphin/os/OSMemory.h"
 #include "dolphin/os/OSInterrupt.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -13,7 +12,6 @@ extern "C" {
 void Config24MB();
 void Config48MB();
 void ReconfigBATs();
-
 
 #ifdef __cplusplus
 }

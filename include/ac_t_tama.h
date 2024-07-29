@@ -20,4 +20,3 @@ typedef struct t_tama_s {
 #endif
 
 #endif
-

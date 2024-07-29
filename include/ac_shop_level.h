@@ -15,4 +15,3 @@ extern ACTOR_PROFILE Shop_Level_Profile;
 #endif
 
 #endif
-

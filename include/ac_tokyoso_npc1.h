@@ -15,4 +15,3 @@ extern ACTOR_PROFILE Tokyoso_Npc1_Profile;
 #endif
 
 #endif
-

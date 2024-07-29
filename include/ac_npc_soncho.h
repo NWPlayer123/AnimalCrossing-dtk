@@ -15,4 +15,3 @@ extern ACTOR_PROFILE Npc_Soncho_Profile;
 #endif
 
 #endif
-

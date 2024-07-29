@@ -15,4 +15,3 @@ extern ACTOR_PROFILE Npc_Mask_Cat2_Profile;
 #endif
 
 #endif
-

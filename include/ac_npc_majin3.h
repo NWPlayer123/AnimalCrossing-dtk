@@ -15,4 +15,3 @@ extern ACTOR_PROFILE Npc_Majin3_Profile;
 #endif
 
 #endif
-

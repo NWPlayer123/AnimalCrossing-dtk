@@ -14,7 +14,7 @@ extern "C" {
 typedef void (*aAL_DATA_INIT_PROC)(GAME_PLAY*);
 
 typedef struct animal_logo_clip_s {
-  aAL_DATA_INIT_PROC data_init_proc;
+    aAL_DATA_INIT_PROC data_init_proc;
 } aAL_Clip_c;
 
 #define aAL_BACK_FADEIN_RATE 20
@@ -30,50 +30,50 @@ typedef struct actor_animal_logo_s ANIMAL_LOGO_ACTOR;
 typedef void (*ANIMAL_LOGO_ACTION_PROC)(ANIMAL_LOGO_ACTOR*, GAME*);
 
 typedef struct logo_skeleton_info_s {
-  cKF_SkeletonInfo_R_c skeleton;
-  s_xyz* work_area_p;
-  s_xyz* morph_area_p;
+    cKF_SkeletonInfo_R_c skeleton;
+    s_xyz* work_area_p;
+    s_xyz* morph_area_p;
 } aAL_SkeletonInfo_c;
 
 struct actor_animal_logo_s {
-  ACTOR actor_class;
-  
-  int action;
-  ANIMAL_LOGO_ACTION_PROC action_proc;
-  
-  aAL_SkeletonInfo_c animal;
-  aAL_SkeletonInfo_c cros;
-  aAL_SkeletonInfo_c sing;
+    ACTOR actor_class;
 
-  s_xyz animal_work_area[22];
-  s_xyz animal_morph_area[22];
+    int action;
+    ANIMAL_LOGO_ACTION_PROC action_proc;
 
-  s_xyz cros_work_area[15];
-  s_xyz cros_morph_area[15];
+    aAL_SkeletonInfo_c animal;
+    aAL_SkeletonInfo_c cros;
+    aAL_SkeletonInfo_c sing;
 
-  s_xyz sing_work_area[15];
-  s_xyz sing_morph_area[15];
+    s_xyz animal_work_area[22];
+    s_xyz animal_morph_area[22];
 
-  s16 back_opacity;
-  int copyright_opacity;
-  f32 press_start_opacity;
-  s16 start_opacity_timer;
-  int title_timer;
-  int titledemo_no;
+    s_xyz cros_work_area[15];
+    s_xyz cros_morph_area[15];
 
-  int unused_56C[6];
+    s_xyz sing_work_area[15];
+    s_xyz sing_morph_area[15];
+
+    s16 back_opacity;
+    int copyright_opacity;
+    f32 press_start_opacity;
+    s16 start_opacity_timer;
+    int title_timer;
+    int titledemo_no;
+
+    int unused_56C[6];
 };
 
 enum {
-  aAL_ACTION_IN,
-  aAL_ACTION_BACK_FADE_IN,
-  aAL_ACTION_START_KEY_CHK_START,
-  aAL_ACTION_GAME_START,
-  aAL_ACTION_FADE_OUT_START,
-  aAL_ACTION_OUT,
-  aAL_ACTION_6,
+    aAL_ACTION_IN,
+    aAL_ACTION_BACK_FADE_IN,
+    aAL_ACTION_START_KEY_CHK_START,
+    aAL_ACTION_GAME_START,
+    aAL_ACTION_FADE_OUT_START,
+    aAL_ACTION_OUT,
+    aAL_ACTION_6,
 
-  aAL_ACTION_NUM
+    aAL_ACTION_NUM
 };
 
 extern ACTOR_PROFILE Animal_Logo_Profile;

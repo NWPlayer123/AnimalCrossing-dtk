@@ -1445,7 +1445,8 @@ void emu64::combine_manual() {
                         highlow_errs[i] = combine_mode;
                         this->err_count++;
                         /* ### Unsupported combine mode ###\ncase 0x%16llx:// */
-                        this->Printf0(VT_COL(YELLOW, BLACK) "### 未対応のコンバインモードです ###\ncase 0x%16llx:// ", combine_mode);
+                        this->Printf0(VT_COL(YELLOW, BLACK) "### 未対応のコンバインモードです ###\ncase 0x%16llx:// ",
+                                      combine_mode);
                         this->print_combine(combine_mode);
                         this->Printf0("\n" VT_RST);
                     }

@@ -15,4 +15,3 @@ extern ACTOR_PROFILE Needlework_Indoor_Profile;
 #endif
 
 #endif
-

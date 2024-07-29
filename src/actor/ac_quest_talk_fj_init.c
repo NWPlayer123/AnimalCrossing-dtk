@@ -36,7 +36,7 @@ static int aQMgr_actor_decide_fj_message_no(aQMgr_target_c* target, int msg_type
 static void aQMgr_fj_set_msg_no(QUEST_MANAGER_ACTOR* manager) {
     int base_msg;
     int msg_no;
-    
+
     if (manager->msg_category != aQMgr_MSG_KIND_NONE) {
         manager->category_msg_no_start = aQMgr_actor_decide_fj_message_no(&manager->target, manager->msg_category);
     }
@@ -46,8 +46,7 @@ static void aQMgr_fj_set_msg_no(QUEST_MANAGER_ACTOR* manager) {
         int looks = mNpc_GetNpcLooks(*manager->client);
 
         msg_no = aQMgr_fj_get_my_msg(base_msg, looks);
-    }
-    else {
+    } else {
         msg_no = base_msg;
     }
 
@@ -61,7 +60,6 @@ static int aQMgr_actor_check_to(QUEST_MANAGER_ACTOR* manager) {
     Animal_c* animal = ((NPC_ACTOR*)client)->npc_info.animal;
     aQMgr_regist_c* regist = manager->regist;
     int res = -1;
-
 
     if (animal != NULL) {
         int i;
@@ -90,8 +88,7 @@ static int aQMgr_fj_check_own_quest(QUEST_MANAGER_ACTOR* manager) {
         if (quest_info != NULL) {
             if (quest_info->progress == 0 || quest_info->progress == 1) {
                 regist_idx = -1;
-            }
-            else {
+            } else {
                 mActor_name_t item = ((mQst_errand_c*)quest_info)->item;
 
                 if (item != EMPTY_NO) {
@@ -99,14 +96,12 @@ static int aQMgr_fj_check_own_quest(QUEST_MANAGER_ACTOR* manager) {
 
                     if (idx == -1) {
                         regist_idx = -1;
-                    }
-                    else {
+                    } else {
                         ((mQst_errand_c*)quest_info)->pockets_idx = idx;
                     }
                 }
             }
-        }
-        else {
+        } else {
             regist_idx = -1;
         }
     }
@@ -134,10 +129,10 @@ static void aQMgr_talk_fj_select_talk(QUEST_MANAGER_ACTOR* manager) {
         aQMgr_regist_c* regist = &manager->regist[regist_idx];
 
         if (regist->quest_info != NULL) {
-            if (regist->quest_info->quest_type == mQst_QUEST_TYPE_ERRAND && regist->quest_info->quest_kind == mQst_ERRAND_FIRSTJOB_SEND_LETTER) {
+            if (regist->quest_info->quest_type == mQst_QUEST_TYPE_ERRAND &&
+                regist->quest_info->quest_kind == mQst_ERRAND_FIRSTJOB_SEND_LETTER) {
                 regist_idx = -1;
-            }
-            else {
+            } else {
                 choice->choice_ids[0] = 0x68;
                 choice->choice_ids[1] = aQMgr_get_select_hellow_no(manager, rtc_time->hour);
                 choice->choice_num = 3;
@@ -145,7 +140,8 @@ static void aQMgr_talk_fj_select_talk(QUEST_MANAGER_ACTOR* manager) {
                 manager->talk_step = aQMgr_FJ_TALK_STEP_HINT_OR_FJ;
                 manager->regist_idx = regist_idx;
                 (*manager->talk_common_proc)(manager, aQMgr_TALK_COMMON_SET_TARGET);
-                manager->target.quest_inv_item_idx = (*manager->talk_common_proc)(manager, aQMgr_TALK_COMMON_GET_ITEM_IDX);
+                manager->target.quest_inv_item_idx =
+                    (*manager->talk_common_proc)(manager, aQMgr_TALK_COMMON_GET_ITEM_IDX);
             }
         }
     }
@@ -171,8 +167,7 @@ static void aQMgr_talk_fj_select_talk(QUEST_MANAGER_ACTOR* manager) {
 static void aQMgr_talk_fj_hint_or_hint(QUEST_MANAGER_ACTOR* manager) {
     if (manager->choice.talk_action == 0 || manager->choice.talk_action == 1) {
         (*manager->talk_common_proc)(manager, aQMgr_TALK_COMMON_CHANGE_TALK_NORMAL);
-    }
-    else {
+    } else {
         manager->msg_category = aQMgr_MSG_KIND_NONE;
         manager->category_msg_no_start = 0x254A;
         manager->choice.talk_action = -1;
@@ -192,12 +187,10 @@ static void aQMgr_talk_fj_hint_or_fj(QUEST_MANAGER_ACTOR* manager) {
         manager->sub_talk_state = aQMgr_TALK_SUB_STATE_MSG_DISAPPEAR_WAIT;
         manager->talk_step = aQMgr_FJ_TALK_STEP_HAND_REWARD;
         mMsg_Set_ForceNext(mMsg_Get_base_window_p());
-    }
-    else if (manager->choice.talk_action == 1) {
+    } else if (manager->choice.talk_action == 1) {
         (*manager->talk_common_proc)(manager, aQMgr_TALK_COMMON_CHANGE_TALK_NORMAL);
         manager->sub_talk_state = aQMgr_TALK_SUB_STATE_WAIT;
-    }
-    else {
+    } else {
         manager->msg_category = aQMgr_MSG_KIND_NONE;
         manager->category_msg_no_start = 0x254A;
         manager->choice.talk_action = -1;
@@ -225,8 +218,7 @@ static void aQMgr_talk_fj_get_item(QUEST_MANAGER_ACTOR* manager) {
         mQst_SetItemNameStr(manager->handover_item, mMsg_ITEM_STR0);
         manager->sub_talk_state = aQMgr_TALK_SUB_STATE_MSG_APPEAR_WAIT;
         aQMgr_fj_set_msg_no(manager);
-    }
-    else {
+    } else {
         manager->regist_idx = -1;
         manager->target.free_data_p = NULL;
         manager->msg_category = aQMgr_MSG_KIND_NONE;
@@ -243,10 +235,10 @@ static void aQMgr_talk_fj_get_item(QUEST_MANAGER_ACTOR* manager) {
 }
 
 static void aQMgr_talk_fj_get_item_wait(QUEST_MANAGER_ACTOR* manager) {
-    if (manager->target.quest_info.quest_kind == mQst_ERRAND_FIRSTJOB_DELIVER_AXE || manager->target.quest_info.quest_kind == mQst_ERRAND_FIRSTJOB_DELIVER_AXE2) {
+    if (manager->target.quest_info.quest_kind == mQst_ERRAND_FIRSTJOB_DELIVER_AXE ||
+        manager->target.quest_info.quest_kind == mQst_ERRAND_FIRSTJOB_DELIVER_AXE2) {
         manager->talk_step = aQMgr_FJ_TALK_STEP_WAIT_BUTTON;
-    }
-    else {
+    } else {
         manager->talk_step = aQMgr_FJ_TALK_STEP_REWARD_TO;
     }
 
@@ -312,7 +304,8 @@ static void aQMgr_talk_fj_thanks_letter_open_msg(QUEST_MANAGER_ACTOR* manager) {
     mMsg_Set_continue_msg_num(mMsg_Get_base_window_p(), manager->msg_no);
 }
 
-static void aQMgr_talk_fj_wait_nothing(QUEST_MANAGER_ACTOR* manager) { }
+static void aQMgr_talk_fj_wait_nothing(QUEST_MANAGER_ACTOR* manager) {
+}
 
 static void aQMgr_talk_fj_finish(QUEST_MANAGER_ACTOR* manager) {
     (*manager->talk_common_proc)(manager, aQMgr_TALK_COMMON_CLEAR_TALK_INFO);
@@ -322,21 +315,19 @@ static void aQMgr_talk_fj_finish(QUEST_MANAGER_ACTOR* manager) {
 typedef void (*aQMgr_FJ_TALK_PROC)(QUEST_MANAGER_ACTOR*);
 
 extern void aQMgr_talk_first_job_init(QUEST_MANAGER_ACTOR* manager) {
-    static aQMgr_FJ_TALK_PROC talk_proc[aQMgr_FJ_TALK_STEP_NUM] = {
-        &aQMgr_talk_fj_select_talk,
-        &aQMgr_talk_fj_hint_or_hint,
-        &aQMgr_talk_fj_hint_or_fj,
-        &aQMgr_talk_fj_hand_reward,
-        &aQMgr_talk_fj_get_item,
-        &aQMgr_talk_fj_wait_button,
-        &aQMgr_talk_fj_get_item_wait,
-        &aQMgr_talk_fj_reward_to,
-        &aQMgr_talk_fj_letter_before,
-        &aQMgr_talk_fj_show_letter,
-        &aQMgr_talk_fj_thanks_letter_open_msg,
-        &aQMgr_talk_fj_wait_nothing,
-        &aQMgr_talk_fj_finish
-    };
+    static aQMgr_FJ_TALK_PROC talk_proc[aQMgr_FJ_TALK_STEP_NUM] = { &aQMgr_talk_fj_select_talk,
+                                                                    &aQMgr_talk_fj_hint_or_hint,
+                                                                    &aQMgr_talk_fj_hint_or_fj,
+                                                                    &aQMgr_talk_fj_hand_reward,
+                                                                    &aQMgr_talk_fj_get_item,
+                                                                    &aQMgr_talk_fj_wait_button,
+                                                                    &aQMgr_talk_fj_get_item_wait,
+                                                                    &aQMgr_talk_fj_reward_to,
+                                                                    &aQMgr_talk_fj_letter_before,
+                                                                    &aQMgr_talk_fj_show_letter,
+                                                                    &aQMgr_talk_fj_thanks_letter_open_msg,
+                                                                    &aQMgr_talk_fj_wait_nothing,
+                                                                    &aQMgr_talk_fj_finish };
     int talk_step = manager->talk_step;
     int choice_no = mChoice_Get_ChoseNum(mChoice_Get_base_window_p());
 

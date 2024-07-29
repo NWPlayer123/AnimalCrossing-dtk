@@ -8,7 +8,7 @@
 extern "C" {
 #endif
 
-#define mCkRh_MAX_NUM 10 /* maximum 'stored' in the house */
+#define mCkRh_MAX_NUM 10      /* maximum 'stored' in the house */
 #define mCkRh_INTERVAL_DAYS 6 /* number of days before roaches will spawn */
 
 #define mCkRh_CAN_LOOK_GOKI_NUM 3 /* maximum that can spawn in the house at once */

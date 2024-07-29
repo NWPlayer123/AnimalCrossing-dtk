@@ -15,4 +15,3 @@ extern ACTOR_PROFILE Npc_Restart_Profile;
 #endif
 
 #endif
-

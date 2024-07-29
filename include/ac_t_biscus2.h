@@ -13,15 +13,14 @@ extern ACTOR_PROFILE T_Biscus2_Profile;
 
 typedef void (*BISCUS2_PROC)(ACTOR*);
 
-typedef struct t_biscus2_s{
+typedef struct t_biscus2_s {
     TOOLS_ACTOR tools_class;
-    BISCUS2_PROC proc; 
+    BISCUS2_PROC proc;
     int current_id;
-}BISCUS2_ACTOR;
+} BISCUS2_ACTOR;
 
 #ifdef __cplusplus
 }
 #endif
 
 #endif
-

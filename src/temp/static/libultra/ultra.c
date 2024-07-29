@@ -23,13 +23,11 @@ void osSyncPrintf(const char* format, ...) {
     va_start(arg, format);
     OSVReport(format, arg);
     va_end(arg);
-
 }
 void osWritebackDCache(void* buf, u32 len) {
-	 DCStoreRange(buf, len);
+    DCStoreRange(buf, len);
 }
 
 u32 osGetCount(void) {
-	return OSGetTick();
+    return OSGetTick();
 }
-

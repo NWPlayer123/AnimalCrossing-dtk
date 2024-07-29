@@ -15,4 +15,3 @@ extern ACTOR_PROFILE Tamaire_Npc1_Profile;
 #endif
 
 #endif
-

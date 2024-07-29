@@ -17,20 +17,20 @@ typedef void* OSMessage;
 
 // Struct for managing the message queue.
 struct OSMessageQueue {
-	OSThreadQueue queueSend;    // _00
-	OSThreadQueue queueReceive; // _08
-	OSMessage* msgArray;        // _10, array of messages.
-	int msgCount;               // _14, array limit size.
-	int firstIndex;             // _18, first message index in array.
-	int usedCount;              // _1C, actual number of used messages.
+    OSThreadQueue queueSend;    // _00
+    OSThreadQueue queueReceive; // _08
+    OSMessage* msgArray;        // _10, array of messages.
+    int msgCount;               // _14, array limit size.
+    int firstIndex;             // _18, first message index in array.
+    int usedCount;              // _1C, actual number of used messages.
 };
 
 // Defines for message flags for sending/receiving.
 #define OS_MESSAGE_NOBLOCK (0)
-#define OS_MESSAGE_BLOCK   (1)
+#define OS_MESSAGE_BLOCK (1)
 
 typedef enum {
-	OS_MSG_PERSISTENT = (1 << 0),
+    OS_MSG_PERSISTENT = (1 << 0),
 } OSMessageFlags;
 
 //////////////////////////////////

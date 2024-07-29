@@ -18,13 +18,13 @@ extern Gfx int_nog_turip_model[];
 extern Gfx int_nog_turipT_model[];
 
 u16 int_nog_flower_a_pal[] ATTRIBUTE_ALIGN(32) = {
-    #include "assets/int_nog_flower_a_pal.inc"
+#include "assets/int_nog_flower_a_pal.inc"
 };
 u16 int_nog_flower_b_pal[] ATTRIBUTE_ALIGN(32) = {
-    #include "assets/int_nog_flower_b_pal.inc"
+#include "assets/int_nog_flower_b_pal.inc"
 };
 u16 int_nog_flower_c_pal[] ATTRIBUTE_ALIGN(32) = {
-    #include "assets/int_nog_flower_c_pal.inc"
+#include "assets/int_nog_flower_c_pal.inc"
 };
 
 typedef struct {

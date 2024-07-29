@@ -22,4 +22,3 @@ typedef struct actor_lotus_s {
 #endif
 
 #endif
-
