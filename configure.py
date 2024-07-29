@@ -14,7 +14,10 @@
 
 import argparse
 import yaml
+import os
 import sys
+import requests
+import re
 from pathlib import Path
 from typing import Any, Dict, List
 
@@ -888,6 +891,33 @@ for module in yaml_data.get("modules", []):
         if "type" in asset:
             emit_build_rule(asset)
 
+N64_SDK_urls = [
+    "https://raw.githubusercontent.com/decompals/ultralib/main/include/PR/abi.h",
+    "https://raw.githubusercontent.com/decompals/ultralib/main/include/PR/gbi.h",
+    "https://raw.githubusercontent.com/decompals/ultralib/main/include/PR/gs2dex.h",
+    "https://raw.githubusercontent.com/decompals/ultralib/main/include/PR/mbi.h",
+    "https://raw.githubusercontent.com/decompals/ultralib/main/include/PR/ultratypes.h",
+]
+
+# If we don't have the N64 headers downloaded, we need to grab them
+if not os.path.exists("include/PR"):
+    os.mkdir("include/PR")
+    for url in N64_SDK_urls:
+        filename = url.split("/")[-1]
+        response = requests.get(url)
+        if response.status_code == 200:
+            content = response.content
+
+            if filename == "gbi.h":
+                content = re.sub(
+                    br"unsigned char\s+param:8;", br"unsigned int    param:8;", content
+                )
+
+            with open(f"include/PR/{filename}", "wb") as file:
+                file.write(content)
+
+        else:
+            print(f"Failed to download N64 header {filename}")
 
 if args.mode == "configure":
     # Write build.ninja and objdiff.json

@@ -11,6 +11,7 @@ objdiff.json
 orig/*/*
 !orig/*/.gitkeep
 /*.txt
+!requirements.txt
 ctx.c
 
 # This is for saving IDB files into
