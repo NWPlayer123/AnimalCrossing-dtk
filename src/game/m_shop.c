@@ -2367,7 +2367,6 @@ static void mSP_SelectRandomItemToAGB_Unit(mActor_name_t* item, xyz_t* wpos, int
     }
 }
 
-#ifndef MUST_MATCH
 /* @nonmatching - minor float load/store issue with xyz_t.z & weird scheduling issue */
 extern void mSP_SelectRandomItemToAGB() {
     int i;
@@ -2440,7 +2439,6 @@ extern void mSP_SelectRandomItemToAGB() {
         }
     }
 }
-#endif
 
 extern const char* mSP_ShopStatus2String(int status) {
     static char dummy[] = "hahaha";

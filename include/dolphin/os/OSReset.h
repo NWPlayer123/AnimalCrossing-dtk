@@ -17,13 +17,13 @@ typedef BOOL (*OSResetFunction)(BOOL final);
 typedef struct OSResetFunctionInfo OSResetFunctionInfo;
 
 struct OSResetFunctionInfo {
-    // public
-    OSResetFunction func;
-    u32 priority;
+  // public
+  OSResetFunction func;
+  u32 priority;
 
-    // private
-    OSResetFunctionInfo* next;
-    OSResetFunctionInfo* prev;
+  // private
+  OSResetFunctionInfo* next;
+  OSResetFunctionInfo* prev;
 };
 
 u32 OSGetResetCode();

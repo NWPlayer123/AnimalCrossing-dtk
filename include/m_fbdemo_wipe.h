@@ -12,9 +12,9 @@ extern "C" {
 #endif
 
 typedef union fbdemo_wipe_union {
-    fbdemo_wipe1 fbdemo_wipe1;
-    fbdemo_triforce fbdemo_triforce;
-    fbdemo_fade fbdemo_fade;
+  fbdemo_wipe1 fbdemo_wipe1;
+  fbdemo_triforce fbdemo_triforce;
+  fbdemo_fade fbdemo_fade;
 } fbdemo_wipe_u;
 
 typedef fbdemo_wipe_u* (*FBDEMO_INIT_PROC)(fbdemo_wipe_u*);
@@ -27,21 +27,21 @@ typedef void (*FBDEMO_SETCOLOR_PROC)(fbdemo_wipe_u*, u32);
 typedef int (*FBDEMO_ISFINISHED_PROC)(fbdemo_wipe_u*);
 
 typedef struct {
-    FBDEMO_INIT_PROC init_proc;
-    FBDEMO_CLEANUP_PROC cleanup_proc;
-    FBDEMO_MOVE_PROC move_proc;
-    FBDEMO_DRAW_PROC draw_proc;
-    FBDEMO_STARTUP_PROC startup_proc;
-    FBDEMO_SETTYPE_PROC settype_proc;
-    FBDEMO_SETCOLOR_PROC setcolor_proc;
-    void* unused_proc; // unknown
-    FBDEMO_ISFINISHED_PROC isfinished_proc;
+  FBDEMO_INIT_PROC init_proc;
+  FBDEMO_CLEANUP_PROC cleanup_proc;
+  FBDEMO_MOVE_PROC move_proc;
+  FBDEMO_DRAW_PROC draw_proc;
+  FBDEMO_STARTUP_PROC startup_proc;
+  FBDEMO_SETTYPE_PROC settype_proc;
+  FBDEMO_SETCOLOR_PROC setcolor_proc;
+  void* unused_proc; // unknown
+  FBDEMO_ISFINISHED_PROC isfinished_proc;
 } fbdemo_wipe_proc_c;
 
 typedef struct {
-    fbdemo_wipe_u wipe_data;
-    int wipe_type;
-    fbdemo_wipe_proc_c wipe_procs;
+  fbdemo_wipe_u wipe_data;
+  int wipe_type;
+  fbdemo_wipe_proc_c wipe_procs;
 } fbdemo_wipe;
 
 #ifdef __cplusplus

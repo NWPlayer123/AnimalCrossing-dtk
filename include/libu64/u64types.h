@@ -28,15 +28,15 @@ typedef struct s_xz_s {
 } s_xz;
 
 typedef struct {
-    u32 r : 8;
-    u32 g : 8;
-    u32 b : 8;
-    u32 a : 8;
+  u32 r:8;
+  u32 g:8;
+  u32 b:8;
+  u32 a:8;
 } rgba8888_t;
 
 typedef union {
-    u32 rgba8888;
-    rgba8888_t c;
+  u32 rgba8888;
+  rgba8888_t c;
 } rgba8888;
 
 typedef union {

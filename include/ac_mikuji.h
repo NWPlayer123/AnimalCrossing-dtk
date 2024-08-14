@@ -12,7 +12,7 @@ typedef struct actor_mikuji_s MIKUJI_ACTOR;
 
 typedef void (*MIKUJI_PROC)(MIKUJI_ACTOR*, GAME_PLAY*);
 
-struct actor_mikuji_s {
+struct actor_mikuji_s{
     STRUCTURE_ACTOR structure_class;
 };
 
@@ -23,3 +23,4 @@ extern ACTOR_PROFILE Mikuji_Profile;
 #endif
 
 #endif
+

@@ -18,9 +18,10 @@ enum {
 };
 
 static int aIBT_check_live_condition(aINS_INSECT_ACTOR*);
-static void aIBT_actor_move(ACTOR*, GAME*);
-static void aIBT_actor_first_move(ACTOR*, GAME*);
-static void aIBT_setupAction(aINS_INSECT_ACTOR*, int, GAME*);
+static void aIBT_actor_move(ACTOR*,GAME*);
+static void aIBT_actor_first_move(ACTOR*,GAME*);
+static void aIBT_setupAction(aINS_INSECT_ACTOR*,int, GAME*);
+
 
 extern void aIBT_actor_init(ACTOR* actor, GAME* game) {
     PLAYER_ACTOR* player;
@@ -232,12 +233,12 @@ static int aIBT_check_patience(aINS_INSECT_ACTOR* insect, GAME* game) {
 }
 
 static void aIBT_chk_avoid_jump_angle(ACTOR* actor, s16 chkAngle) {
-    aINS_INSECT_ACTOR* insect = (aINS_INSECT_ACTOR*)actor;
+    aINS_INSECT_ACTOR* insect = (aINS_INSECT_ACTOR*) actor;
     s16 currentAngle = chkAngle;
 
     if (insect->tools_actor.actor_class.bg_collision_check.result.hit_wall & mCoBG_HIT_WALL_FRONT) {
         currentAngle = insect->tools_actor.actor_class.world.angle.y;
-        currentAngle += (((((RANDOM(2)) * 2) - 1) << 0xE));
+        currentAngle +=  (((((RANDOM(2)) * 2) - 1) << 0xE));
     }
     insect->tools_actor.actor_class.world.angle.y = currentAngle;
     insect->tools_actor.actor_class.shape_info.rotation.y = currentAngle;
@@ -289,7 +290,7 @@ static int aIBT_chk_active_range(s16* range, aINS_INSECT_ACTOR* insect) {
 static void aIBT_avoid(ACTOR* actor, GAME* game) {
     aINS_INSECT_ACTOR* insect = (aINS_INSECT_ACTOR*)actor;
     GAME_PLAY* play = (GAME_PLAY*)game;
-
+    
     PLAYER_ACTOR* player;
     f32 timer;
     s16 angle;
@@ -354,8 +355,8 @@ static void aIBT_chg_direction(ACTOR* actor, GAME* game) {
     GAME_PLAY* play = (GAME_PLAY*)game;
 
     static f32 range[] = {
-        4096.0f,  4096.0f,  8192.0f,  8192.0f,  8192.0f,  12288.0f, 12288.0f, 12288.0f,
-        12288.0f, 12288.0f, 16384.0f, 16384.0f, 16384.0f, 16384.0f, 16384.0f, 16384.0f,
+        4096.0f,  4096.0f,  8192.0f,  8192.0f,  8192.0f,  12288.0f, 12288.0f, 12288.0f, 12288.0f,
+        12288.0f, 16384.0f, 16384.0f, 16384.0f, 16384.0f, 16384.0f, 16384.0f,
     };
 
     u32 attr;
@@ -395,30 +396,31 @@ static void aIBT_chg_direction(ACTOR* actor, GAME* game) {
 
 static void aIBT_wait(ACTOR* actor, GAME* game) {
     static u8 batta_sound_data[] = {
-        159,
-        158,
-        160,
-        157,
+        159,158,160,157,
     };
     GAME_PLAY* play;
     aINS_INSECT_ACTOR* insect;
 
+
     play = (GAME_PLAY*)game;
     insect = (aINS_INSECT_ACTOR*)actor;
 
+    
     if (actor->bg_collision_check.result.is_in_water) {
         aIBT_setupAction(insect, aIBT_ACTION_DROWN, game);
 
-    } else if (aIBT_check_patience(insect, game) == TRUE) {
+    } else if (aIBT_check_patience(insect,game) == TRUE) {
         aIBT_setupAction(insect, aIBT_ACTION_AVOID, game);
     } else {
         f32 step = sqrtf(0.5);
 
-        add_calc_short_angle2(&actor->shape_info.rotation.y, actor->world.angle.y, 1.0f - step, 0x2000, 0);
+        add_calc_short_angle2(&actor->shape_info.rotation.y,
+                              actor->world.angle.y, 1.0f - step, 0x2000, 0);
 
         if ((insect->type >= 0xF) || (insect->type < 0xD)) {
             int idx = insect->type - 15;
-            if ((actor->bg_collision_check.result.on_ground) && (insect->patience < 20.0f)) {
+            if ((actor->bg_collision_check.result.on_ground) &&
+                (insect->patience < 20.0f)) {
                 if (insect->type == aSOI_INSECT_TYPE_BELL_CRICKET) {
                     aIBT_anime_proc(insect);
                 }
@@ -436,8 +438,7 @@ static void aIBT_wait(ACTOR* actor, GAME* game) {
             if (aIBT_chk_active_range(NULL, insect) == FALSE) {
                 action = aIBT_ACTION_JUMP;
             } else {
-                if ((insect->type == aSOI_INSECT_TYPE_LONG_LOCUST) ||
-                    (insect->type == aSOI_INSECT_TYPE_MIGRATORY_LOCUST)) {
+                if ((insect->type == aSOI_INSECT_TYPE_LONG_LOCUST) || (insect->type == aSOI_INSECT_TYPE_MIGRATORY_LOCUST)) {
                     if ((int)(play->game_frame % 200) > 20) {
                         action = aIBT_ACTION_JUMP;
                     }
@@ -453,7 +454,7 @@ static void aIBT_wait(ACTOR* actor, GAME* game) {
 static void aIBT_jump(ACTOR* actor, GAME* game) {
     aINS_INSECT_ACTOR* insect = (aINS_INSECT_ACTOR*)actor;
     GAME_PLAY* play = (GAME_PLAY*)game;
-    if (insect->tools_actor.actor_class.bg_collision_check.result.on_ground) {
+    if (insect->tools_actor.actor_class.bg_collision_check.result.on_ground){
         aIBT_setupAction(insect, aIBT_ACTION_CHANGE_DIRECTION, game);
     }
 }
@@ -461,7 +462,7 @@ static void aIBT_jump(ACTOR* actor, GAME* game) {
 static void aIBT_avoid_init(aINS_INSECT_ACTOR* insect, GAME* game) {
 
     GAME_PLAY* play = (GAME_PLAY*)game;
-
+    
     s16 angle;
     PLAYER_ACTOR* player;
     player = get_player_actor_withoutCheck(play);
@@ -474,7 +475,8 @@ static void aIBT_avoid_init(aINS_INSECT_ACTOR* insect, GAME* game) {
         angle += (s16)(8192.0f * (2.0f * (fqrand() - 0.5f)));
         insect->tools_actor.actor_class.shape_info.rotation.y = angle;
         insect->tools_actor.actor_class.world.angle.y = angle;
-    }
+
+    }    
 }
 
 static void aIBT_let_escape_init(aINS_INSECT_ACTOR* insect, GAME* game) {
@@ -489,7 +491,7 @@ static void aIBT_let_escape_init(aINS_INSECT_ACTOR* insect, GAME* game) {
     insect->timer = 0;
     insect->tools_actor.actor_class.speed = 5.0f;
     insect->tools_actor.actor_class.position_speed.y = 3.0f;
-
+    
     if (player != NULL) {
         chkAngle = player->actor_class.shape_info.rotation.y + (s16)(21845.0f * (fqrand() - 0.5f));
         insect->tools_actor.actor_class.world.angle.y = chkAngle;
@@ -505,12 +507,13 @@ static void aIBT_chg_direction_init(aINS_INSECT_ACTOR* insect, GAME* game) {
     insect->tools_actor.actor_class.speed = 0.0f;
 }
 
-static void aIBT_wait_init(aINS_INSECT_ACTOR* insect, GAME* game) {
+static void aIBT_wait_init(aINS_INSECT_ACTOR* insect, GAME* game)  {
     GAME_PLAY* play = (GAME_PLAY*)game;
-
+    
     if (aIBT_chk_active_range(NULL, insect) == FALSE) {
         insect->timer = 60;
-    } else {
+    }
+    else{
         insect->timer = (2.0f * (120.0f + (play->game_frame % 240)));
     }
 }
@@ -521,16 +524,16 @@ static void aIBT_jump_init(aINS_INSECT_ACTOR* insect, GAME* game) {
     insect->tools_actor.actor_class.gravity = 0.7f;
 }
 
-static void aIBT_drown_init(aINS_INSECT_ACTOR* insect, GAME* game) {
+
+static void aIBT_drown_init(aINS_INSECT_ACTOR* insect, GAME* game)  {
     xyz_t pos = insect->tools_actor.actor_class.world.position;
     f32 height = mCoBG_GetWaterHeight_File(pos, "ac_ins_batta.c", 995);
 
     pos.y = height;
-
-    eEC_CLIP->effect_make_proc(eEC_EFFECT_TURI_MIZU, pos, 1, insect->tools_actor.actor_class.world.angle.y, game, 0, 4,
-                               0);
-    sAdo_OngenTrgStart(0x438, &insect->tools_actor.actor_class.world.position);
-
+    
+    eEC_CLIP->effect_make_proc(eEC_EFFECT_TURI_MIZU, pos, 1,insect->tools_actor.actor_class.world.angle.y, game, 0, 4, 0);
+    sAdo_OngenTrgStart(0x438,&insect->tools_actor.actor_class.world.position);
+    
     insect->insect_flags.bit_1 = TRUE;
     insect->insect_flags.destruct = TRUE;
     insect->tools_actor.actor_class.shape_info.draw_shadow = FALSE;
@@ -540,12 +543,21 @@ typedef void (*aIBT_INIT_PROC)(aINS_INSECT_ACTOR*, GAME*);
 
 static void aIBT_setupAction(aINS_INSECT_ACTOR* insect, int action, GAME* game) {
     static aIBT_INIT_PROC init_proc[] = {
-        &aIBT_avoid_init, &aIBT_let_escape_init, &aIBT_chg_direction_init,
-        &aIBT_wait_init,  &aIBT_jump_init,       &aIBT_drown_init,
+        &aIBT_avoid_init,
+        &aIBT_let_escape_init,
+        &aIBT_chg_direction_init,
+        &aIBT_wait_init,
+        &aIBT_jump_init,
+        &aIBT_drown_init,
     };
 
     static aINS_ACTION_PROC act_proc[] = {
-        &aIBT_avoid, &aIBT_let_escape, &aIBT_chg_direction, &aIBT_wait, &aIBT_jump, (aINS_ACTION_PROC)&none_proc1,
+        &aIBT_avoid,
+        &aIBT_let_escape,
+        &aIBT_chg_direction,
+        &aIBT_wait,
+        &aIBT_jump,
+        (aINS_ACTION_PROC)&none_proc1,
     };
 
     insect->action = action;
@@ -564,8 +576,9 @@ void aIBT_actor_move(ACTOR* actor, GAME* game) {
     } else {
         if (insect->insect_flags.bit_3 == TRUE && insect->insect_flags.bit_2 == FALSE) {
             aIBT_setupAction(insect, aIBT_ACTION_LET_ESCAPE, game);
-        } else
-            insect->action_proc(actor, game);
+        }
+        else
+        insect->action_proc(actor,game);
     }
 }
 

@@ -13,9 +13,9 @@ extern "C" {
 
 /* sizeof(mLd_land_info_c) == 0x0C */
 typedef struct land_info_s {
-    /* 0x00 */ u8 name[LAND_NAME_SIZE];
-    /* 0x08 */ s8 exists;
-    /* 0x0A */ u16 id;
+  /* 0x00 */ u8 name[LAND_NAME_SIZE];
+  /* 0x08 */ s8 exists;
+  /* 0x0A */ u16 id;
 } mLd_land_info_c;
 
 #ifdef __cplusplus

@@ -5,13 +5,15 @@
 #include "libultra/osThread.h"
 
 #ifdef __cplusplus
-extern "C" {
+ extern "C" {
 #endif
 
 void osSetThreadPri(OSThread* thread, OSPri priority);
 
+
 #ifdef __cplusplus
-}
+ }
 #endif
+
 
 #endif

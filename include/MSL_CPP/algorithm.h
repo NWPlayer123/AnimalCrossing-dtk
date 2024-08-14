@@ -7,10 +7,12 @@
 namespace std {
 
 template <class InputIterator, class Predicate>
-inline InputIterator find_if(InputIterator first, InputIterator last, Predicate pred) {
-    while (first != last && !pred(*first))
-        ++first;
-    return first;
+inline
+InputIterator
+find_if(InputIterator first, InputIterator last, Predicate pred) {
+	while (first != last && !pred(*first))
+		++first;
+	return first;
 }
 
 } // namespace std

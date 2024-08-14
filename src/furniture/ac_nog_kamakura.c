@@ -1,8 +1,8 @@
 u16 int_nog_kamakura_off_pal[] ATTRIBUTE_ALIGN(32) = {
-#include "assets/int_nog_kamakura_off_pal.inc"
+    #include "assets/int_nog_kamakura_off_pal.inc"
 };
 u16 int_nog_kamakura_on_pal[] ATTRIBUTE_ALIGN(32) = {
-#include "assets/int_nog_kamakura_on_pal.inc"
+    #include "assets/int_nog_kamakura_on_pal.inc"
 };
 
 static void fNogKamakura_ct(FTR_ACTOR* ftr_actor, u8* data) {

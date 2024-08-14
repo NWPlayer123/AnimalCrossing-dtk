@@ -30,11 +30,11 @@ static void eBushYuki_ct(eEC_Effect_c* effect, GAME* game, void* ct_arg) {
     f32 y = 1.5f + (RANDOM_F(1.5f));
     f32 initialPos = -3.0f + (6.0f * fqrand());
     effect->timer = 60;
-
-    effect->position.x += initialPos;
+    
+    effect->position.x += initialPos; 
     effect->position.y += initialPos;
 
-    eEC_CLIP->random_first_speed_proc(&effect->velocity, y, 45.0f, 45.0f);
+    eEC_CLIP->random_first_speed_proc(&effect->velocity,y,45.0f,45.0f);
 
     if (effect->arg1 == 1) {
         effect->velocity.x = RANDOM2_F(2.0f);
@@ -63,11 +63,14 @@ static void eBushYuki_dw(eEC_Effect_c* effect, GAME* game) {
     _texture_z_light_fog_prim_xlu(game->graph);
     eEC_CLIP->auto_matrix_xlu_proc(game, &effect->position, &effect->scale);
 
+
+    
     OPEN_DISP(graph);
 
     gDPSetPrimColor(NEXT_POLY_XLU_DISP, 0, 128, 40, 40, 40, alpha);
 
-    gSPDisplayList(NEXT_POLY_XLU_DISP, ef_w_yabu01_00_modelT);
+    gSPDisplayList(NEXT_POLY_XLU_DISP,ef_w_yabu01_00_modelT);
 
     CLOSE_DISP(graph);
+
 }

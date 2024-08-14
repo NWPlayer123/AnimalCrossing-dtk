@@ -26,4 +26,5 @@ extern void Jac_RegisterDVDErrorCallback(ErrorCallback callback);
 extern s32 Jac_RegisterFastOpen(char* file);
 extern BOOL Jac_DVDOpen(char* name, DVDFileInfo* info);
 
+
 #endif

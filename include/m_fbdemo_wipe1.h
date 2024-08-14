@@ -18,6 +18,7 @@ typedef struct {
     /* 0x098 */ Mtx modelView[2][3];
 } fbdemo_wipe1; // size = 0x218
 
+
 extern fbdemo_wipe1* fbdemo_wipe1_init(fbdemo_wipe1*);
 extern void fbdemo_wipe1_move(fbdemo_wipe1*, int);
 extern void fbdemo_wipe1_draw(fbdemo_wipe1*, Gfx**);

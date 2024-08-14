@@ -10,7 +10,7 @@ extern "C" {
 typedef struct kappa_ {
     u16 unk0;
     f32 unk4;
-} kappa;
+}kappa;
 
 extern int Na_GetKappaCounter(kappa*);
 extern void Na_SetKappaSeqHandle(int flag);
@@ -18,5 +18,6 @@ extern void Na_SetKappaSeqHandle(int flag);
 #ifdef __cplusplus
 }
 #endif
+
 
 #endif

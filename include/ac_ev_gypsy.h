@@ -18,11 +18,11 @@ typedef void (*aEGPS_TALK_PROC)(EV_GYPSY_ACTOR*, GAME_PLAY*);
 typedef void (*aEGPS_TALK_SETUP_PROC)(EV_GYPSY_ACTOR*, GAME_PLAY*, int);
 
 struct ev_gypsy_actor_s {
-    NPC_ACTOR npc_class;
-    int talk_action;
-    aEGPS_TALK_PROC talk_proc;
-    aEGPS_TALK_SETUP_PROC setup_talk_proc;
-    int fortune_given;
+  NPC_ACTOR npc_class;
+  int talk_action;
+  aEGPS_TALK_PROC talk_proc;
+  aEGPS_TALK_SETUP_PROC setup_talk_proc;
+  int fortune_given;
 };
 
 extern ACTOR_PROFILE Ev_Gypsy_Profile;
@@ -32,3 +32,4 @@ extern ACTOR_PROFILE Ev_Gypsy_Profile;
 #endif
 
 #endif
+

@@ -155,9 +155,9 @@ static void aCR_schedule_main_proc(NPC_ACTOR* actorx, GAME_PLAY* play) {
 typedef void (*aCR_SCHEDULE_PROC)(NPC_ACTOR*, GAME_PLAY*);
 
 static void aCR_schedule_proc(NPC_ACTOR* actorx, GAME_PLAY* play, int proc_idx) {
-    static aCR_SCHEDULE_PROC sched_proc[] = { &aCR_schedule_init_proc, &aCR_schedule_main_proc };
+    static aCR_SCHEDULE_PROC sche_proc[] = { &aCR_schedule_init_proc, &aCR_schedule_main_proc };
 
-    (*sched_proc[proc_idx])(actorx, play);
+    (*sche_proc[proc_idx])(actorx, play);
 }
 
 enum {

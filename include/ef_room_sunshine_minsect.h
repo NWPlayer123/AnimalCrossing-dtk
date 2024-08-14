@@ -11,9 +11,9 @@ extern "C" {
 
 extern ACTOR_PROFILE Room_Sunshine_Minsect_Profile;
 
-typedef struct effect_room_sunshine_minsect_s {
+typedef struct effect_room_sunshine_minsect_s{
     ROOMSUNSHINE_ACTOR ef_sunshine_class;
-} ROOMSUNSHINEMINSECT_ACTOR;
+}ROOMSUNSHINEMINSECT_ACTOR;   
 
 extern u8 draw_status;
 
@@ -22,3 +22,4 @@ extern u8 draw_status;
 #endif
 
 #endif
+

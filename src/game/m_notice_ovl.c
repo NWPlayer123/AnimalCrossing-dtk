@@ -504,7 +504,8 @@ typedef struct {
     int len;
 } mNT_month_str_c;
 
-#define mNT_MONTH_STR(str) { str, sizeof(str) }
+#define mNT_MONTH_STR(str) \
+    { str, sizeof(str) }
 
 static void mNT_set_day_strings_dl(GAME* game, lbRTC_time_c* time_p, f32 x, f32 y) {
     static mNT_month_str_c month_str[lbRTC_MONTHS_MAX + 1] = {

@@ -41,7 +41,7 @@ enum {
 
 #define mMmd_IS_DONATED(donator) ((donator) >= mMmd_DONATOR_PLAYER1 && (donator) <= mMmd_DONATOR_DELETED_PLAYER)
 #define mMmd_DONATOR_EXISTS(donator) ((donator) >= mMmd_DONATOR_PLAYER1 && (donator) <= mMmd_DONATOR_PLAYER4)
-#define mMmd_DONATOR_PLR_IDX(donator) (((donator) - 1) & 3)
+#define mMmd_DONATOR_PLR_IDX(donator) (((donator)-1) & 3)
 
 enum {
     mMmd_CATEGORY_FOSSIL,
@@ -53,15 +53,15 @@ enum {
 };
 
 /* 4 bits per donatable item */
-#define mMmd_BIT_INFO(info, category, index) (((info).category##_bit[(index) >> 1] >> (((index) & 1) << 2)) & 0x0F)
-#define mMmd_BIT_INFO2(bitfield, index) (((bitfield)[(index) >> 1] >> (((index) & 1) << 2)) & 0x0F)
+#define mMmd_BIT_INFO(info, category, index) (((info).category##_bit[(index) >> 1] >> (((index)&1) << 2)) & 0x0F)
+#define mMmd_BIT_INFO2(bitfield, index) (((bitfield)[(index) >> 1] >> (((index)&1) << 2)) & 0x0F)
 
 #define mMmd_ART_BIT(info, index) mMmd_BIT_INFO(info, art, index)
 #define mMmd_INSECT_BIT(info, index) mMmd_BIT_INFO(info, insect, index)
 #define mMmd_FISH_BIT(info, index) mMmd_BIT_INFO(info, fish, index)
 #define mMmd_FOSSIL_BIT(info, index) mMmd_BIT_INFO(info, fossil, index)
 
-#define mMmd_BIT_CLR(info, category, index) ((info).category##_bit[(index) >> 1] &= ~(0b1111 << (((index) & 1) * 4)))
+#define mMmd_BIT_CLR(info, category, index) ((info).category##_bit[(index) >> 1] &= ~(0b1111 << (((index)&1) * 4)))
 
 #define mMmd_FOSSIL_CLR(info, index) mMmd_BIT_CLR(info, fossil, index)
 #define mMmd_ART_CLR(info, index) mMmd_BIT_CLR(info, art, index)
@@ -69,7 +69,7 @@ enum {
 #define mMmd_FISH_CLR(info, index) mMmd_BIT_CLR(info, fish, index)
 
 #define mMmd_BIT_SET(info, category, index, value) \
-    ((info).category##_bit[(index) >> 1] |= (((value) & 0b1111) << (((index) & 1)) * 4))
+    ((info).category##_bit[(index) >> 1] |= (((value)&0b1111) << (((index)&1)) * 4))
 
 #define mMmd_FOSSIL_SET(info, index, value) mMmd_BIT_SET(info, fossil, index, value)
 #define mMmd_ART_SET(info, index, value) mMmd_BIT_SET(info, art, index, value)

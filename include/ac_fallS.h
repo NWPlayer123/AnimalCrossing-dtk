@@ -7,9 +7,9 @@
 extern "C" {
 #endif
 
-typedef struct actor_fall_south_s {
+typedef struct actor_fall_south_s{
     STRUCTURE_ACTOR structure_class;
-} FALLS_ACTOR;
+}FALLS_ACTOR;
 
 extern ACTOR_PROFILE FallS_Profile;
 
@@ -18,3 +18,4 @@ extern ACTOR_PROFILE FallS_Profile;
 #endif
 
 #endif
+

@@ -21,9 +21,9 @@ typedef struct ac_shrine_s SHRINE_ACTOR;
 typedef void (*aSHR_ANIME_PLAY_PROC)();
 
 typedef struct ac_shrine_clip_s {
-    aSHR_ANIME_PLAY_PROC anime_play_proc;
-    int play_flag;
-    int hem_flag;
+  aSHR_ANIME_PLAY_PROC anime_play_proc;
+  int play_flag;
+  int hem_flag;
 } aSHR_Clip_c;
 
 #define aSHR_GET_CLIP() ((aSHR_Clip_c*)(Common_Get(clip).shrine_clip))
@@ -33,14 +33,14 @@ typedef struct ac_shrine_present_s aSHR_Present_c;
 typedef void (*aSHR_Present_PROC)(aSHR_Present_c*);
 
 struct ac_shrine_present_s {
-    xyz_t trans;
-    f32 percent;
-    int finish_flag;
-    aSHR_Present_PROC move_proc;
+  xyz_t trans;
+  f32 percent;
+  int finish_flag;
+  aSHR_Present_PROC move_proc;
 };
 
 struct ac_shrine_s {
-    STRUCTURE_ACTOR structure_class;
+  STRUCTURE_ACTOR structure_class;
 };
 
 extern ACTOR_PROFILE Shrine_Profile;
@@ -50,3 +50,4 @@ extern ACTOR_PROFILE Shrine_Profile;
 #endif
 
 #endif
+

@@ -654,7 +654,7 @@ static void special_zelda() {
         u8 embeddedChksumUpper;
         u8 embeddedChksumLower;
 
-        checksum += (u16)calcSum(bbram_p + 2 + i * 8, 8);            /* Checksum of name */
+        checksum += (u16)calcSum(bbram_p + 2 + i * 8, 8); /* Checksum of name */
         checksum += (u16)calcSum(bbram_p + 0x1A + i * 0x28, 0x28);   /* Checksum of items */
         checksum += (u16)calcSum(bbram_p + 0x92 + i * 0x180, 0x180); /* Checksum of world flags */
         checksum += (u16)calcSum(bbram_p + 0x512 + i, 1);            /* Checksum of 'SlotActive' */

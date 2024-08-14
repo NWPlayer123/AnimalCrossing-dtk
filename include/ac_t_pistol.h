@@ -12,14 +12,15 @@ extern ACTOR_PROFILE T_Pistol_Profile;
 
 typedef void (*PISTOL_PROC)(ACTOR*);
 
-typedef struct t_pistol_s {
+typedef struct t_pistol_s{
     TOOLS_ACTOR tools_class;
-    PISTOL_PROC proc;
+    PISTOL_PROC proc; 
     int current_id;
-} PISTOL_ACTOR;
+}PISTOL_ACTOR;
 
 #ifdef __cplusplus
 }
 #endif
 
 #endif
+

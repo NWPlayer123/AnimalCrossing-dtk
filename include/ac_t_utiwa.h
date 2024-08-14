@@ -12,9 +12,9 @@ extern ACTOR_PROFILE T_Utiwa_Profile;
 
 typedef void (*UTIWA_PROC)(ACTOR*);
 
-typedef struct t_utiwa_s {
+typedef struct t_utiwa_s{
     TOOLS_ACTOR tools_class;
-    UTIWA_PROC proc;
+    UTIWA_PROC proc; 
     int current_id;
 } UTIWA_ACTOR;
 
@@ -23,3 +23,4 @@ typedef struct t_utiwa_s {
 #endif
 
 #endif
+

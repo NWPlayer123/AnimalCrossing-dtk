@@ -11,6 +11,7 @@ typedef struct actor_broker_shop_s {
     STRUCTURE_ACTOR structure_class;
 } BRSHOP_ACTOR;
 
+
 extern ACTOR_PROFILE BrShop_Profile;
 
 #ifdef __cplusplus
@@ -18,3 +19,4 @@ extern ACTOR_PROFILE BrShop_Profile;
 #endif
 
 #endif
+

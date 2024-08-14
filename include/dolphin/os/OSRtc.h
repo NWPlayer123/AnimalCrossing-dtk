@@ -14,7 +14,7 @@ extern "C" {
 #define OS_PROGRESSIVE_MODE_OFF 0
 #define OS_PROGRESSIVE_MODE_ON 1
 
-#define OS_BOOT_MODE_DEBUG (0 << 7)
+#define OS_BOOT_MODE_DEBUG  (0 << 7)
 #define OS_BOOT_MODE_RETAIL (1 << 7)
 
 #define RTC_CMD_READ 0x20000000
@@ -28,35 +28,35 @@ extern "C" {
 #define RTC_FREQUENCY 3
 
 typedef struct OSSram_s {
-    u16 checkSum;
-    u16 checkSumInv;
-    u32 ead0;
-    u32 ead1;
-    u32 counterBias;
-    s8 displayOffsetH;
-    u8 ntd;
-    u8 language;
-    u8 flags;
+  u16 checkSum;
+  u16 checkSumInv;
+  u32 ead0;
+  u32 ead1;
+  u32 counterBias;
+  s8 displayOffsetH;
+  u8 ntd;
+  u8 language;
+  u8 flags;
 } OSSram;
 
 typedef struct OSSramEx_s {
-    u8 flashID[2][12];
-    u32 wirelessKeyboardID;
-    u16 wirelessPadID[4];
-    u8 dvdErrorCode;
-    u8 pad0;
-    u8 flashIDCheckSum[2];
-    u16 gbs;
-    u8 pad1[2];
+  u8 flashID[2][12];
+  u32 wirelessKeyboardID;
+  u16 wirelessPadID[4];
+  u8 dvdErrorCode;
+  u8 pad0;
+  u8 flashIDCheckSum[2];
+  u16 gbs;
+  u8 pad1[2];
 } OSSramEx;
 
 typedef struct SramControlBlock_s {
-    u8 sram[RTC_SRAM_SIZE];
-    u32 offset;
-    BOOL enabled;
-    BOOL locked;
-    BOOL sync;
-    void (*callback)(void);
+  u8 sram[RTC_SRAM_SIZE];
+  u32 offset;
+  BOOL enabled;
+  BOOL locked;
+  BOOL sync;
+  void (*callback)(void);
 } SramControlBlock;
 
 // static void GetRTC();

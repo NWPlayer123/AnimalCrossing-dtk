@@ -30,9 +30,13 @@ ACTOR_PROFILE Radio_Profile = {
 extern Vtx obj_e_radio_shadow_v[];
 extern Gfx obj_e_radio_shadowT_model[];
 
-u8 aRAD_shadow_vtx_fix_flg_table[] = { 1, 0, 0, 1, 0, 1, 1, 0 };
+u8 aRAD_shadow_vtx_fix_flg_table[] = {1,0,0,1,0,1,1,0};
 bIT_ShadowData_c aRAD_shadow_data = {
-    8, aRAD_shadow_vtx_fix_flg_table, 60.0f, obj_e_radio_shadow_v, obj_e_radio_shadowT_model,
+    8,
+    aRAD_shadow_vtx_fix_flg_table,
+    60.0f,
+    obj_e_radio_shadow_v,
+    obj_e_radio_shadowT_model,
 };
 
 extern Gfx radio_DL_model[];
@@ -40,10 +44,10 @@ extern Gfx radio_DL_model[];
 static void aRAD_setup_action(RADIO_ACTOR*, int);
 static void aRAD_set_bgOffset(RADIO_ACTOR*, int);
 
-static void aRAD_actor_ct(ACTOR* actor, GAME* game) {
+static void aRAD_actor_ct(ACTOR* actor, GAME* game){
     RADIO_ACTOR* radio = (RADIO_ACTOR*)actor;
-
-    aRAD_setup_action(radio, 0);
+    
+    aRAD_setup_action(radio, 0); 
     radio->next_action = 0;
     aRAD_set_bgOffset(radio, 1);
 }

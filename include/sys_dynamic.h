@@ -37,7 +37,7 @@ extern "C" {
 
 typedef struct dynamic_s {
     u16 start_magic;
-
+    
     Gfx poly_opa[POLY_OPA_SIZE];
     Gfx poly_xlu[POLY_XLU_SIZE];
     Gfx overlay[OVERLAY_SIZE];
@@ -54,15 +54,14 @@ typedef struct dynamic_s {
 
 extern dynamic_t sys_dynamic;
 
-#define SYSDYNAMIC_OPEN()                \
-    do {                                 \
-        dynamic_t* __dyn = &sys_dynamic; \
-        while (0)
+#define SYSDYNAMIC_OPEN() \
+do { \
+  dynamic_t* __dyn = &sys_dynamic;\
+while (0)
 
 #define SYSDYNAMIC_CLOSE() \
-    (void)__dyn;           \
-    }                      \
-    while (0)
+  (void)__dyn; \
+} while (0)
 
 #define SYSDYNAMIC_CHECK_START() (__dyn->start_magic == SYSDYNAMIC_START_MAGIC)
 #define SYSDYNAMIC_CHECK_END() (__dyn->end_magic == SYSDYNAMIC_END_MAGIC)

@@ -160,10 +160,10 @@ static void aICH_flower_search(aINS_INSECT_ACTOR* insect) {
 }
 
 static void aICH_loop_move_ctrl(aINS_INSECT_ACTOR* insect) {
-    static f32 ptX_table[] = { 10.0f, 10.0f, -10.0f, -10.0f };
-    static f32 ptZ_table[] = { 10.0f, -10.0f, 10.0f, -10.0f };
-    static f32 chkX_table[] = { -1.0f, 1.0f, 1.0f, -1.0f };
-    static f32 chkZ_table[] = { -1.0f, 1.0f, -1.0f, 1.0f };
+    static f32 ptX_table[] = {10.0f, 10.0f, -10.0f, -10.0f};
+    static f32 ptZ_table[] = {10.0f, -10.0f, 10.0f, -10.0f};
+    static f32 chkX_table[] = {-1.0f, 1.0f, 1.0f, -1.0f};
+    static f32 chkZ_table[] = {-1.0f, 1.0f, -1.0f, 1.0f};
 
     f32 x;
     f32 z;
@@ -203,20 +203,19 @@ static void aICH_loop_move_ctrl(aINS_INSECT_ACTOR* insect) {
 
 static void aICH_avoid_player(aINS_INSECT_ACTOR* insect, GAME* game) {
     GAME_PLAY* play = (GAME_PLAY*)game;
-    static s16 add_angl[] = { 0xF000, 0x1000 };
+    static s16 add_angl[] = {0xF000, 0x1000};
     PLAYER_ACTOR* player;
 
     player = GET_PLAYER_ACTOR(play);
 
     if (player != NULL) {
         s16 angle = search_position_angleY(&insect->tools_actor.actor_class.world.position,
-                                           &player->actor_class.world.position) +
-                    0x8000;
+                                           &player->actor_class.world.position) + 0x8000;
         angle += add_angl[(play->game.frame_counter >> 5) & 1];
         chase_angle(&insect->tools_actor.actor_class.shape_info.rotation.y, (angle), 0x600);
         insect->tools_actor.actor_class.world.angle.y = insect->tools_actor.actor_class.shape_info.rotation.y;
     }
-}
+} 
 static void aICH_avoid_move_ctrl(aINS_INSECT_ACTOR* insect, GAME* game) {
     int bx, bz;
     xyz_t pos;
@@ -452,9 +451,9 @@ static void aICH_fly(ACTOR* actor, GAME* game) {
 
 static void aICH_landing(ACTOR* actor, GAME* game) {
     static xyz_t rest_wait_data[] = {
-        { -11.0f, -22.0f, -4.0f },
-        { 10.0f, -22.0f, -8.0f },
-        { 2.0f, -24.0f, 14.0f },
+        {-11.0f, -22.0f, -4.0f},
+        {10.0f, -22.0f, -8.0f},
+        {2.0f, -24.0f, 14.0f},
     };
     aINS_INSECT_ACTOR* insect = (aINS_INSECT_ACTOR*)actor;
 
@@ -535,23 +534,23 @@ static void aICH_avoid_init(aINS_INSECT_ACTOR* insect, GAME* game) {
 static void aICH_let_escape_init(aINS_INSECT_ACTOR* insect, GAME* game) {
     GAME_PLAY* play = (GAME_PLAY*)game;
     PLAYER_ACTOR* player;
-
+    
     insect->life_time = 0;
     insect->alpha_time = 0x50;
     insect->tools_actor.actor_class.shape_info.rotation.x = 0;
     insect->bg_height = 0.0f;
     insect->flag = 0;
-
+    
     insect->tools_actor.actor_class.home.position.y = insect->tools_actor.actor_class.world.position.y;
     insect->tools_actor.actor_class.speed = 1.5f;
     player = get_player_actor_withoutCheck(play);
-
+    
     if (player != NULL) {
         s16 angle = player->actor_class.shape_info.rotation.y + (s16)(21845.0f * (fqrand() - 0.5f));
         insect->tools_actor.actor_class.world.angle.y = angle;
         insect->tools_actor.actor_class.shape_info.rotation.y = angle;
     }
-
+    
     insect->insect_flags.bit_1 = TRUE;
     insect->insect_flags.bit_2 = TRUE;
 }
@@ -562,21 +561,21 @@ static void aICH_fly_init(aINS_INSECT_ACTOR* insect, GAME* game) {
     insect->tools_actor.actor_class.max_velocity_y = -2.0f;
     insect->target_speed = 2.0f;
     insect->speed_step = 0.2f;
-
+    
     insect->s32_work0 = 0;
     insect->s32_work3 = 0;
-
+    
     insect->f32_work0 = insect->tools_actor.actor_class.world.position.x;
     insect->f32_work1 = insect->tools_actor.actor_class.world.position.z;
     insect->f32_work2 = 0.0f;
     insect->f32_work3 = 120.0f;
-
+    
     aICH_flower_search(insect);
 }
 
 static void aICH_landing_init(aINS_INSECT_ACTOR* insect, GAME* game) {
     GAME_PLAY* play = (GAME_PLAY*)game;
-
+    
     insect->light_flag = play->game_frame % 3;
     insect->tools_actor.actor_class.position_speed.y = 0.0f;
 }
@@ -590,18 +589,24 @@ static void aICH_hover_init(aINS_INSECT_ACTOR* insect, GAME* arg1) {
 
 static void aICH_rest_init(aINS_INSECT_ACTOR* insect, GAME* arg1) {
     insect->_1E0 = 1.0f;
-    insect->timer = (0.5f * (30.0f + (RANDOM_F(60))));
+    insect->timer =  (0.5f * (30.0f + (RANDOM_F(60)))); 
 }
 
 typedef void (*aICH_INIT_PROC)(aINS_INSECT_ACTOR*, GAME*);
 
 static void aICH_setupAction(aINS_INSECT_ACTOR* insect, int action, GAME* game) {
     static aICH_INIT_PROC init_proc[] = {
-        &aICH_avoid_init, aICH_let_escape_init, aICH_fly_init, aICH_landing_init, aICH_hover_init, aICH_rest_init,
+        &aICH_avoid_init, aICH_let_escape_init, aICH_fly_init,  aICH_landing_init,
+        aICH_hover_init, aICH_rest_init,
     };
 
     static aINS_ACTION_PROC act_proc[] = {
-        aICH_avoid, aICH_let_escape, aICH_fly, aICH_landing, aICH_hover, aICH_hover,
+        aICH_avoid,
+        aICH_let_escape,
+        aICH_fly,
+        aICH_landing,
+        aICH_hover,
+        aICH_hover,
     };
 
     insect->action = action;
@@ -612,17 +617,19 @@ static void aICH_setupAction(aINS_INSECT_ACTOR* insect, int action, GAME* game) 
 static void aICH_actor_move(ACTOR* actor, GAME* game) {
     aINS_INSECT_ACTOR* insect = (aINS_INSECT_ACTOR*)actor;
     GAME_PLAY* play = (GAME_PLAY*)game;
-
+ 
     u32 label = mPlib_Get_item_net_catch_label();
 
     if (label == (u32)actor) {
         insect->alpha0 = 255;
         aICH_anime_proc(insect);
         aICH_setupAction(insect, aICH_ACTION_LET_ESCAPE, game);
-    } else if ((insect->insect_flags.bit_3 == TRUE) && (insect->insect_flags.bit_2 == FALSE)) {
+    }
+    else if((insect->insect_flags.bit_3 == TRUE) && (insect->insect_flags.bit_2 == FALSE)){
         aICH_setupAction(insect, aICH_ACTION_LET_ESCAPE, game);
     } else {
         aICH_check_block_edge(actor, game);
-        insect->action_proc(actor, game);
+        insect->action_proc(actor,game);
     }
 }
+

@@ -1,5 +1,5 @@
 extern u16 int_yaz_fish_trophy_pal[] ATTRIBUTE_ALIGN(32) = {
-#include "assets/int_yaz_fish_trophy_pal.inc"
+    #include "assets/int_yaz_fish_trophy_pal.inc"
 };
 extern Gfx int_yaz_fish_trophy_cup_model[];
 extern Gfx int_yaz_fish_trophy_base_model[];

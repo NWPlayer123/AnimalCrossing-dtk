@@ -10,7 +10,7 @@ extern "C" {
 #endif
 
 typedef struct tama_actor_s {
-    STRUCTURE_ACTOR structure_class;
+  STRUCTURE_ACTOR structure_class;
 } TAMA_ACTOR;
 
 extern ACTOR_PROFILE Tama_Profile;
@@ -20,3 +20,4 @@ extern ACTOR_PROFILE Tama_Profile;
 #endif
 
 #endif
+

@@ -4,7 +4,8 @@
 #include "types.h"
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #define OSRoundUp32B(x) (((u32)(x) + 0x1F) & ~(0x1F))

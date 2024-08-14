@@ -23,7 +23,7 @@
 #define EMU64_TEX_BLOCK_SIZE_Y 4
 
 #define NUM_COMMANDS 64
-#define NUM_SEGMENTS 16
+//#define NUM_SEGMENTS 16
 #define DL_MAX_STACK_LEVEL 18
 #define DL_HISTORY_COUNT 16
 #define NUM_TILES 8
@@ -491,73 +491,6 @@ class emu64_print {
     if (!cond) {                            \
         this->panic(#cond, __FILE__, line); \
     }
-
-#define EMU64_ASSERT(cond) EMU64_PANICLINE(cond, __LINE__)
-
-class emu64_print {
-  public:
-    void Printf(const char* fmt, ...) {
-        va_list list;
-
-        if ((this->print_flags & EMU64_PRINTF_FLAG)) {
-            va_start(list, fmt);
-            this->Vprintf(fmt, list);
-            va_end(list);
-        }
-    }
-
-    void Printf0(const char* fmt, ...) {
-        va_list list;
-
-        va_start(list, fmt);
-        this->Vprintf(fmt, list);
-        va_end(list);
-    }
-
-    void Printf1(const char* fmt, ...) {
-        va_list list;
-
-        if ((this->print_flags & EMU64_PRINTF1_FLAG)) {
-            va_start(list, fmt);
-            this->Vprintf(fmt, list);
-            va_end(list);
-        }
-    }
-
-    void Printf2(const char* fmt, ...) {
-        va_list list;
-
-        if ((this->print_flags & EMU64_PRINTF2_FLAG)) {
-            va_start(list, fmt);
-            this->Vprintf(fmt, list);
-            va_end(list);
-        }
-    }
-
-    void Printf3(const char* fmt, ...) {
-        va_list list;
-
-        if ((this->print_flags & EMU64_PRINTF3_FLAG)) {
-            va_start(list, fmt);
-            this->Vprintf(fmt, list);
-            va_end(list);
-        }
-    }
-
-  protected:
-    u8 print_flags;
-
-  private:
-    void Vprintf(const char* fmt, std::__tag_va_List* va_list) {
-        vprintf(fmt, va_list);
-    }
-};
-
-#define EMU64_ASSERTLINE(cond, line)        \
-    if (!(cond)) {                          \
-        this->panic(#cond, __FILE__, line); \
-    }
-
 #define EMU64_PRINTF(msg, ...) this->Printf0(msg, __VA_ARGS__);
 
 #ifdef EMU64_DEBUG
@@ -909,6 +842,6 @@ class emu64 : public emu64_print {
     /* 0x2078 */ u8 dl_history_start;
 };
 
-typedef void (emu64::*dl_func)(void);
+typedef void (emu64::* dl_func)(void);
 
 #endif

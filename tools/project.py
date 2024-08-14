@@ -69,6 +69,8 @@ class ProjectConfig:
         self.wrapper: Optional[Path] = None  # If None, download wibo on Linux
         self.sjiswrap_tag: Optional[str] = None  # Git tag
         self.sjiswrap_path: Optional[Path] = None  # If None, download
+        self.objdiff_tag: Optional[str] = None  # Git tag
+        self.objdiff_path: Optional[Path] = None  # If None, download
 
         # Project config
         self.non_matching: bool = False
@@ -97,8 +99,8 @@ class ProjectConfig:
         self.custom_build_rules: Optional[List[Dict[str, Any]]] = (
             None  # Custom ninja build rules
         )
-        self.custom_build_steps: Optional[List[Dict[str, Any]]] = (
-            None  # Custom build steps
+        self.custom_build_steps: Optional[Dict[str, List[Dict[str, Any]]]] = (
+            None  # Custom build steps, types are ["pre-compile", "post-compile", "post-link", "post-build"]
         )
 
         # Progress output and progress.json config
@@ -237,6 +239,7 @@ def generate_build_ninja(
 
     build_path = config.out_path()
     progress_path = build_path / "progress.json"
+    report_path = build_path / "report.json"
     build_tools_path = config.build_dir / "tools"
     download_tool = config.tools_dir / "download_tool.py"
     n.rule(
@@ -254,17 +257,27 @@ def generate_build_ninja(
         deps="gcc",
     )
 
+    cargo_rule_written = False
+
+    def write_cargo_rule():
+        nonlocal cargo_rule_written
+        if not cargo_rule_written:
+            n.pool("cargo", 1)
+            n.rule(
+                name="cargo",
+                command="cargo build --release --manifest-path $in --bin $bin --target-dir $target",
+                description="CARGO $bin",
+                pool="cargo",
+                depfile=Path("$target") / "release" / "$bin.d",
+                deps="gcc",
+            )
+            cargo_rule_written = True
+
     if config.dtk_path is not None and config.dtk_path.is_file():
         dtk = config.dtk_path
     elif config.dtk_path is not None:
         dtk = build_tools_path / "release" / f"dtk{EXE}"
-        n.rule(
-            name="cargo",
-            command="cargo build --release --manifest-path $in --bin $bin --target-dir $target",
-            description="CARGO $bin",
-            depfile=Path("$target") / "release" / "$bin.d",
-            deps="gcc",
-        )
+        write_cargo_rule()
         n.build(
             outputs=dtk,
             rule="cargo",
@@ -288,6 +301,35 @@ def generate_build_ninja(
         )
     else:
         sys.exit("ProjectConfig.dtk_tag missing")
+
+    if config.objdiff_path is not None and config.objdiff_path.is_file():
+        objdiff = config.objdiff_path
+    elif config.objdiff_path is not None:
+        objdiff = build_tools_path / "release" / f"objdiff-cli{EXE}"
+        write_cargo_rule()
+        n.build(
+            outputs=objdiff,
+            rule="cargo",
+            inputs=config.objdiff_path / "Cargo.toml",
+            implicit=config.objdiff_path / "Cargo.lock",
+            variables={
+                "bin": "objdiff-cli",
+                "target": build_tools_path,
+            },
+        )
+    elif config.objdiff_tag:
+        objdiff = build_tools_path / f"objdiff-cli{EXE}"
+        n.build(
+            outputs=objdiff,
+            rule="download_tool",
+            implicit=download_tool,
+            variables={
+                "tool": "objdiff-cli",
+                "tag": config.objdiff_tag,
+            },
+        )
+    else:
+        sys.exit("ProjectConfig.objdiff_tag missing")
 
     if config.sjiswrap_path:
         sjiswrap = config.sjiswrap_path
@@ -365,6 +407,17 @@ def generate_build_ninja(
     else:
         sys.exit("ProjectConfig.binutils_tag missing")
 
+    n.newline()
+
+    ###
+    # Helper rule for downloading all tools
+    ###
+    n.comment("Download all tools")
+    n.build(
+        outputs="tools",
+        rule="phony",
+        inputs=[dtk, sjiswrap, wrapper, compilers, binutils, objdiff],
+    )
     n.newline()
 
     ###
@@ -449,7 +502,8 @@ def generate_build_ninja(
     )
     n.newline()
 
-    n.comment("Custom project build rules (pre/post-processing)")
+    if len(config.custom_build_rules or {}) > 0:
+        n.comment("Custom project build rules (pre/post-processing)")
     for rule in config.custom_build_rules or {}:
         n.rule(
             name=rule.get("name"),
@@ -464,6 +518,32 @@ def generate_build_ninja(
             deps=rule.get("deps", None),
         )
         n.newline()
+
+    def write_custom_step(step: str) -> List[str]:
+        implicit = []
+        if config.custom_build_steps and step in config.custom_build_steps:
+            n.comment(f"Custom build steps ({step})")
+            for custom_step in config.custom_build_steps[step]:
+                outputs = custom_step.get("outputs")
+
+                if isinstance(outputs, list):
+                    implicit.extend(outputs)
+                else:
+                    implicit.append(outputs)
+
+                n.build(
+                    outputs=outputs,
+                    rule=custom_step.get("rule"),
+                    inputs=custom_step.get("inputs", None),
+                    implicit=custom_step.get("implicit", None),
+                    order_only=custom_step.get("order_only", None),
+                    variables=custom_step.get("variables", None),
+                    implicit_outputs=custom_step.get("implicit_outputs", None),
+                    pool=custom_step.get("pool", None),
+                    dyndep=custom_step.get("dyndep", None),
+                )
+                n.newline()
+        return implicit
 
     n.comment("Host build")
     n.variable("host_cflags", "-I include -Wno-trigraphs")
@@ -484,32 +564,7 @@ def generate_build_ninja(
     n.newline()
 
     # Add all build steps needed before we compile (e.g. processing assets)
-    precompile_implicit = []
-    for steps in config.custom_build_steps or {}:
-        if steps["type"].lower() == "pre-compile":
-            # This is the first being added, actually print out our comment
-            if len(precompile_implicit) == 0:
-                n.comment("Custom build steps (pre-compile)")
-
-            outputs = steps.get("outputs")
-
-            if isinstance(outputs, list):
-                precompile_implicit.extend(outputs)
-            else:
-                precompile_implicit.append(outputs)
-
-            n.build(
-                outputs=outputs,
-                rule=steps.get("rule"),
-                inputs=steps.get("inputs", None),
-                implicit=steps.get("implicit", None),
-                order_only=steps.get("order_only", None),
-                variables=steps.get("variables", None),
-                implicit_outputs=steps.get("implicit_outputs", None),
-                pool=steps.get("pool", None),
-                dyndep=steps.get("dyndep", None),
-            )
-            n.newline()
+    precompile_implicit = write_custom_step("pre-compile")
 
     ###
     # Source files
@@ -682,7 +737,11 @@ def generate_build_ninja(
             return src_obj_path
 
         def asm_build(
-            obj: Object, options: Dict[str, Any], lib_name: str, src_path: Path
+            obj: Object,
+            options: Dict[str, Any],
+            lib_name: str,
+            src_path: Path,
+            build_path: Path,
         ) -> Optional[Path]:
             asflags = options["asflags"] or config.asflags
             if asflags is None:
@@ -692,7 +751,7 @@ def generate_build_ninja(
                 extra_asflags_str = make_flags_str(options["extra_asflags"])
                 asflags_str += " " + extra_asflags_str
 
-            asm_obj_path = build_asm_path / f"{obj.base_name}.o"
+            asm_obj_path = build_path / f"{obj.base_name}.o"
 
             # Avoid creating duplicate build rules
             if asm_obj_path in source_added:
@@ -744,12 +803,14 @@ def generate_build_ninja(
             link_built_obj = obj.completed
             built_obj_path: Optional[Path] = None
             if unit_src_path.exists():
-                if unit_src_path.suffix in (".c", ".cp", ".cpp"):
+                if unit_src_path.suffix in (".c", ".cc", ".cp", ".cpp"):
                     # Add MWCC & host build rules
                     built_obj_path = c_build(obj, options, lib_name, unit_src_path)
                 elif unit_src_path.suffix == ".s":
                     # Add assembler build rule
-                    built_obj_path = asm_build(obj, options, lib_name, unit_src_path)
+                    built_obj_path = asm_build(
+                        obj, options, lib_name, unit_src_path, build_src_path
+                    )
                 else:
                     sys.exit(f"Unknown source file type {unit_src_path}")
             else:
@@ -760,7 +821,9 @@ def generate_build_ninja(
             # Assembly overrides
             if unit_asm_path is not None and unit_asm_path.exists():
                 link_built_obj = True
-                built_obj_path = asm_build(obj, options, lib_name, unit_asm_path)
+                built_obj_path = asm_build(
+                    obj, options, lib_name, unit_asm_path, build_asm_path
+                )
 
             if link_built_obj and built_obj_path is not None:
                 # Use the source-built object
@@ -810,32 +873,7 @@ def generate_build_ninja(
             sys.exit(f"Linker {mw_path} does not exist")
 
         # Add all build steps needed before we link and after compiling objects
-        postcompile_implicit = []
-        for steps in config.custom_build_steps or {}:
-            if steps["type"].lower() == "post-compile":
-                # This is the first being added, actually print out our comment
-                if len(postcompile_implicit) == 0:
-                    n.comment("Custom build steps (post-compile)")
-
-                outputs = steps.get("outputs")
-
-                if isinstance(outputs, list):
-                    postcompile_implicit.extend(outputs)
-                else:
-                    postcompile_implicit.append(outputs)
-
-                n.build(
-                    outputs=steps.get("outputs"),
-                    rule=steps.get("rule"),
-                    inputs=steps.get("inputs", None),
-                    implicit=steps.get("implicit", None),
-                    order_only=steps.get("order_only", None),
-                    variables=steps.get("variables", None),
-                    implicit_outputs=steps.get("implicit_outputs", None),
-                    pool=steps.get("pool", None),
-                    dyndep=steps.get("dyndep", None),
-                )
-                n.newline()
+        postcompile_implicit = write_custom_step("post-compile")
 
         ###
         # Link
@@ -846,42 +884,15 @@ def generate_build_ninja(
         n.newline()
 
         # Add all build steps needed after linking and before GC/Wii native format generation
-        postlink_implicit = []
-        for steps in config.custom_build_steps or {}:
-            if steps["type"].lower() == "post-link":
-                # This is the first being added, actually print out our comment
-                if len(postlink_implicit) == 0:
-                    n.comment("Custom build steps (post-link)")
-
-                outputs = steps.get("outputs")
-
-                if isinstance(outputs, list):
-                    postlink_implicit.extend(outputs)
-                else:
-                    postlink_implicit.append(outputs)
-
-                n.build(
-                    outputs=steps.get("outputs"),
-                    rule=steps.get("rule"),
-                    inputs=steps.get("inputs", None),
-                    implicit=steps.get("implicit", None),
-                    order_only=steps.get("order_only", None),
-                    variables=steps.get("variables", None),
-                    implicit_outputs=steps.get("implicit_outputs", None),
-                    pool=steps.get("pool", None),
-                    dyndep=steps.get("dyndep", None),
-                )
-                n.newline()
+        postlink_implicit = write_custom_step("post-link")
 
         ###
         # Generate DOL
         ###
-        # TODO: make this less jank
-        dol_link_step = link_steps[0]
         n.build(
-            outputs=dol_link_step.output(),
+            outputs=link_steps[0].output(),
             rule="elf2dol",
-            inputs=dol_link_step.partial_output(),
+            inputs=link_steps[0].partial_output(),
             implicit=[*postlink_implicit, dtk],
         )
 
@@ -948,32 +959,7 @@ def generate_build_ninja(
             n.newline()
 
         # Add all build steps needed post-build (re-building archives and such)
-        postbuild_implicit = []
-        for steps in config.custom_build_steps or {}:
-            if steps["type"].lower() == "post-build":
-                # This is the first being added, actually print out our comment
-                if len(postbuild_implicit) == 0:
-                    n.comment("Custom build steps (post-build)")
-
-                outputs = steps.get("outputs")
-
-                if isinstance(outputs, list):
-                    postbuild_implicit.extend(outputs)
-                else:
-                    postbuild_implicit.append(outputs)
-
-                n.build(
-                    outputs=steps.get("outputs"),
-                    rule=steps.get("rule"),
-                    inputs=steps.get("inputs", None),
-                    implicit=steps.get("implicit", None),
-                    order_only=steps.get("order_only", None),
-                    variables=steps.get("variables", None),
-                    implicit_outputs=steps.get("implicit_outputs", None),
-                    pool=steps.get("pool", None),
-                    dyndep=steps.get("dyndep", None),
-                )
-                n.newline()
+        postbuild_implicit = write_custom_step("post-build")
 
         ###
         # Helper rule for building all source files
@@ -1029,6 +1015,21 @@ def generate_build_ninja(
             outputs=progress_path,
             rule="progress",
             implicit=[ok_path, configure_script, python_lib, config.config_path],
+        )
+
+        ###
+        # Generate progress report
+        ###
+        n.comment("Generate progress report")
+        n.rule(
+            name="report",
+            command=f"{objdiff} report generate -o $out",
+            description="REPORT",
+        )
+        n.build(
+            outputs=report_path,
+            rule="report",
+            implicit=[objdiff, "all_source"],
         )
 
         ###
@@ -1148,6 +1149,7 @@ def generate_objdiff_config(
         "build_target": False,
         "watch_patterns": [
             "*.c",
+            "*.cc",
             "*.cp",
             "*.cpp",
             "*.h",
@@ -1249,7 +1251,7 @@ def generate_objdiff_config(
             cflags = list(filter(keep_flag, cflags))
 
             # Add appropriate lang flag
-            if unit_src_path.suffix in (".cp", ".cpp"):
+            if unit_src_path.suffix in (".cc", ".cp", ".cpp"):
                 cflags.insert(0, "-lang=c++")
             else:
                 cflags.insert(0, "-lang=c")

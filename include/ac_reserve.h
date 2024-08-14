@@ -9,7 +9,7 @@ extern "C" {
 
 typedef struct actor_reserve_s {
     STRUCTURE_ACTOR structure_class;
-} RESERVE_ACTOR;
+}RESERVE_ACTOR;
 
 extern ACTOR_PROFILE Reserve_Profile;
 
@@ -18,3 +18,4 @@ extern ACTOR_PROFILE Reserve_Profile;
 #endif
 
 #endif
+

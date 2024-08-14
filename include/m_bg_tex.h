@@ -8,8 +8,8 @@ extern "C" {
 #endif
 
 typedef struct bg_tex_obj_s {
-    void* data;
-    size_t size;
+  void* data;
+  size_t size;
 } mBGTex_obj_c;
 
 extern u8 sprashC_tex_dummy[];

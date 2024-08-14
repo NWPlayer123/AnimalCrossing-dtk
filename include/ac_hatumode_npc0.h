@@ -15,3 +15,4 @@ extern ACTOR_PROFILE Hatumode_Npc0_Profile;
 #endif
 
 #endif
+

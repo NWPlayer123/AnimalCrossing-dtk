@@ -9,8 +9,7 @@ extern cKF_Animation_R_c cKF_ba_r_int_sum_clchest03;
 static void aSumClChest03_ct(FTR_ACTOR* ftr_actor, u8* data) {
     cKF_SkeletonInfo_R_c* keyframe = &ftr_actor->keyframe;
 
-    cKF_SkeletonInfo_R_ct(keyframe, &cKF_bs_r_int_sum_clchest03, &cKF_ba_r_int_sum_clchest03, ftr_actor->joint,
-                          ftr_actor->morph);
+    cKF_SkeletonInfo_R_ct(keyframe, &cKF_bs_r_int_sum_clchest03, &cKF_ba_r_int_sum_clchest03, ftr_actor->joint, ftr_actor->morph);
     cKF_SkeletonInfo_R_init_standard_stop(keyframe, &cKF_ba_r_int_sum_clchest03, NULL);
     keyframe->frame_control.speed = 0.0f;
     cKF_SkeletonInfo_R_play(keyframe);
@@ -28,7 +27,7 @@ static void aSumClChest03_dw(FTR_ACTOR* ftr_actor, ACTOR* my_room_actor, GAME* g
     GAME_PLAY* play = (GAME_PLAY*)game;
     cKF_SkeletonInfo_R_c* keyframe = &ftr_actor->keyframe;
     Mtx* mtx = ftr_actor->skeleton_mtx[game->frame_counter & 1];
-
+    
     OPEN_DISP(game->graph);
     gSPMatrix(NEXT_POLY_OPA_DISP, _Matrix_to_Mtx_new(game->graph), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
     CLOSE_DISP(game->graph);
@@ -40,25 +39,29 @@ static void aSumClChest03_dt(FTR_ACTOR* ftr_actor, u8* data) {
 }
 
 static aFTR_vtable_c aSumClChest03_func = {
-    &aSumClChest03_ct, &aSumClChest03_mv, &aSumClChest03_dw, &aSumClChest03_dt, NULL,
+	&aSumClChest03_ct,
+	&aSumClChest03_mv,
+	&aSumClChest03_dw,
+	&aSumClChest03_dt,
+	NULL,
 };
 
 aFTR_PROFILE iam_sum_clchest03 = {
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    18.0f,
-    0.01f,
-    aFTR_SHAPE_TYPEA,
-    mCoBG_FTR_TYPEA,
-    0,
-    0,
-    0,
-    aFTR_INTERACTION_STORAGE_CLOSET,
-    &aSumClChest03_func,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	18.0f,
+	0.01f,
+	aFTR_SHAPE_TYPEA,
+	mCoBG_FTR_TYPEA,
+	0,
+	0,
+	0,
+	aFTR_INTERACTION_STORAGE_CLOSET,
+	&aSumClChest03_func,
 };

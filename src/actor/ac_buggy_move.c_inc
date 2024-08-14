@@ -310,7 +310,7 @@ static void aBGY_actor_move(ACTOR* actor, GAME* game) {
         (mDemo_Check(mDemo_TYPE_SCROLL3, &player->actor_class) == FALSE) && ((bx1 != bx2) || (bz1 != bz2))) {
         Actor_delete(actor);
     } else {
-        
+
         buggy->keyframe_state = cKF_SkeletonInfo_R_play(&buggy->keyframe);
 
         buggy->action_proc(buggy, play);

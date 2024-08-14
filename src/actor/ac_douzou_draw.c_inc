@@ -6,7 +6,7 @@
 
 
 static int aDOU_actor_draw_before(GAME* game, cKF_SkeletonInfo_R_c* keyframe, int joint_idx, Gfx** joint_shape, u8* joint_flags, void* arg, s_xyz* joint_rot, xyz_t* joint_pos) {
-  static rgba_t primcolor[mHS_HOUSE_NUM] = {
+  static rgba_t prmcolor[mHS_HOUSE_NUM] = {
     { 255, 255,   0, 255 },
     { 200, 200, 255, 255 },
     { 255, 100,  50, 255 },
@@ -64,7 +64,7 @@ static int aDOU_actor_draw_before(GAME* game, cKF_SkeletonInfo_R_c* keyframe, in
     gfx = NOW_POLY_OPA_DISP;
     gDPPipeSync(gfx++);
     gDPSetEnvColor(gfx++, envcolor[color].r, envcolor[color].g, envcolor[color].b, 255);
-    gDPSetPrimColor(gfx++, 0, 255, primcolor[color].r, primcolor[color].g, primcolor[color].b, primcolor[color].a);
+    gDPSetPrimColor(gfx++, 0, 255, prmcolor[color].r, prmcolor[color].g, prmcolor[color].b, prmcolor[color].a);
     SET_POLY_OPA_DISP(gfx);
 
     CLOSE_DISP(graph);

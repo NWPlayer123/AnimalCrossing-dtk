@@ -7,20 +7,20 @@
 #include "va_args.h"
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"{
 #endif
 
 #define GFXPRINT_NUM_SUBPIXELS 4
 #define GFXPRINT_PIXELS_PER_BLOCK 8
-#define GFXPRINT_PAD GFXPRINT_PIXELS_PER_BLOCK* GFXPRINT_NUM_SUBPIXELS
+#define GFXPRINT_PAD GFXPRINT_PIXELS_PER_BLOCK * GFXPRINT_NUM_SUBPIXELS
 
 #define GFXPRINT_FLAG_KANA_MODE (1 << 0) /* Japanese characters displayed as hiragana or katakana */
-#define GFXPRINT_FLAG_GRADIENT (1 << 1)  /* Gradient state */
-#define GFXPRINT_FLAG_SHADOW (1 << 2)    /* Shadow state */
-#define GFXPRINT_FLAG_CHANGED (1 << 3)   /* Text changed */
+#define GFXPRINT_FLAG_GRADIENT (1 << 1) /* Gradient state */
+#define GFXPRINT_FLAG_SHADOW (1 << 2) /* Shadow state */
+#define GFXPRINT_FLAG_CHANGED (1 << 3) /* Text changed */
 /* Unused...? */
 #define GFXPRINT_FLAG_HIGHRES (1 << 6) /* Highres text */
-#define GFXPRINT_FLAG_OPENED (1 << 7)  /* Open state */
+#define GFXPRINT_FLAG_OPENED (1 << 7) /* Open state */
 
 #define GFXPRINT_KANA_MODE_KATAKANA 0
 #define GFXPRINT_KANA_MODE_HIRAGANA 1
@@ -35,21 +35,21 @@ extern "C" {
 
 /* NOTE: this should be a void return type but we're going to use a void* for readibility */
 typedef void* (*PrintCallback)(void*, const char*, int);
-typedef struct gfxprint_obj {
+typedef struct gfxprint_obj  {
     PrintCallback prout_func; /* Current print out func */
-    Gfx* glistp;              /* Current display list to write text to */
-    u16 position_x;           /* Display coords (sub-pixel units) */
-    u16 position_y;           /* Display coords (sub-pixel units) */
-    u16 offset_x;             /* Display offset */
-    u8 offset_y;              /* Display offset */
-    u8 flags;                 /* 1: Kana mode -> 0: Katakana/1: Hiragana
-                                 2: Gradient displayed
-                                 4: Shadow displayed
-                                 8: Attribute changed
-                                 64: Low-res -> high-res conversion
-                                 128: Opened state */
-    rgba8888 color;           /* Current font color */
-    u8 dummy[28];             /* For size compatibility */
+    Gfx* glistp; /* Current display list to write text to */
+    u16 position_x; /* Display coords (sub-pixel units) */
+    u16 position_y; /* Display coords (sub-pixel units) */
+    u16 offset_x; /* Display offset */
+    u8 offset_y; /* Display offset */
+    u8 flags; /* 1: Kana mode -> 0: Katakana/1: Hiragana
+                 2: Gradient displayed
+                 4: Shadow displayed
+                 8: Attribute changed
+                 64: Low-res -> high-res conversion
+                 128: Opened state */
+    rgba8888 color; /* Current font color */
+    u8 dummy[28]; /* For size compatibility */
 } gfxprint_t;
 
 /* Default gfxprint flag values set in game_ct func, default value is 0x40 (GFXPRINT_FLAG_HIGHRES on) */
@@ -94,7 +94,7 @@ static void* gfxprint_prout(void* this, const char* buffer, int n);
 
 extern void gfxprint_color(gfxprint_t* this, u32 r, u32 g, u32 b, u32 a);
 
-extern void gfxprint_locate(gfxprint_t* this, int x, int y);
+extern void gfxprint_locate(gfxprint_t* this, int x, int y); 
 extern void gfxprint_locate8x8(gfxprint_t* this, int x, int y);
 extern void gfxprint_setoffset(gfxprint_t* this, int x, int y);
 
@@ -112,15 +112,16 @@ extern int gfxprint_vprintf(gfxprint_t* this, const char* fmt, va_list ap);
 extern int gfxprint_printf(gfxprint_t* this, const char* fmt, ...);
 
 /* Custom macro to match gDPLoadTLUT_pal16 but with N palette entries */
-#define gDPLoadTLUT_palX(pkt, pal, dram, count)                                                     \
-    do {                                                                                            \
-        gDPSetTextureImage(pkt, G_IM_FMT_RGBA, G_IM_SIZ_16b, 1, dram);                              \
-        gDPTileSync(pkt);                                                                           \
-        gDPSetTile(pkt, 0, 0, 0, (256 + (((pal) & 0xf) * 16)), G_TX_LOADTILE, 0, 0, 0, 0, 0, 0, 0); \
-        gDPLoadSync(pkt);                                                                           \
-        gDPLoadTLUTCmd(pkt, G_TX_LOADTILE, (count) - 1);                                            \
-        gDPPipeSync(pkt);                                                                           \
-    } while (0)
+#define gDPLoadTLUT_palX(pkt, pal, dram, count)				\
+do {									\
+	gDPSetTextureImage(pkt, G_IM_FMT_RGBA, G_IM_SIZ_16b, 1, dram);	\
+	gDPTileSync(pkt);						\
+	gDPSetTile(pkt, 0, 0, 0, (256+(((pal)&0xf)*16)),		\
+		G_TX_LOADTILE, 0 , 0, 0, 0, 0, 0, 0);			\
+	gDPLoadSync(pkt);						\
+	gDPLoadTLUTCmd(pkt, G_TX_LOADTILE, (count)-1);				\
+	gDPPipeSync(pkt);						\
+} while (0)
 
 #ifdef __cplusplus
 }

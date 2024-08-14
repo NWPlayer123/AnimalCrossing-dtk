@@ -162,5 +162,4 @@ static void aNRTC_actor_draw(ACTOR* actor, GAME* game) {
 }
 
 #include "../src/actor/ac_npc_rtc_think.c.inc"
-
 #include "../src/actor/ac_npc_rtc_talk.c.inc"

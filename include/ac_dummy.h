@@ -12,7 +12,7 @@ typedef struct actor_dummy_s DUMMY_ACTOR;
 
 typedef void (*DUMMY_PROC)(DUMMY_ACTOR*, GAME_PLAY*);
 
-struct actor_dummy_s {
+struct actor_dummy_s{
     ACTOR actor_class;
 };
 
@@ -23,3 +23,4 @@ extern ACTOR_PROFILE Dummy_Profile;
 #endif
 
 #endif
+

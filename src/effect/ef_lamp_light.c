@@ -102,11 +102,11 @@ static void eLL_ctrl_light_sw(LAMPLIGHT_ACTOR* lamp) {
 }
 
 static void Ef_Lamp_Light_actor_move(ACTOR* actor, GAME* game) {
-    static s16 add_data_off[] = { 2, 2, 1, 0 };
-    static s16 add_data_on[] = { 16, 16, 8, 0 };
+    static s16 add_data_off[] = { 2, 2, 1 };
+    static s16 add_data_on[] = { 16, 16, 8 };
     static s16* add_data[] = { add_data_off, add_data_on };
-    static s16 cmp_data_off[] = { 0, 0, 0, 0 };
-    static s16 cmp_data_on[] = { 0xC8, 0xC8, 0x96, 0 };
+    static s16 cmp_data_off[] = { 0, 0, 0 };
+    static s16 cmp_data_on[] = { 0xC8, 0xC8, 0x96 };
     static s16* cmp_data[] = { cmp_data_off, cmp_data_on };
 
     LAMPLIGHT_ACTOR* lamp = (LAMPLIGHT_ACTOR*)actor;

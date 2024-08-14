@@ -14,33 +14,33 @@ extern "C" {
 #define mNT_MAX_LINES 6
 
 enum {
-    mNT_PLAY_PAGE_READ,
-    mNT_PLAY_PAGE_MOVE,
-    mNT_PLAY_PAGE_TO_WRITE,
-    mNT_PLAY_PAGE_TO_READ,
+  mNT_PLAY_PAGE_READ,
+  mNT_PLAY_PAGE_MOVE,
+  mNT_PLAY_PAGE_TO_WRITE,
+  mNT_PLAY_PAGE_TO_READ,
 
-    mNT_PLAY_PAGE_NUM
+  mNT_PLAY_PAGE_NUM
 };
 
 enum {
-    mNT_LINE_CHECK_OK,
-    mNT_LINE_CHECK_NEWLINE,
-    mNT_LINE_CHECK_OVERLINE,
-    mNT_LINE_CHECK_OVERSTRING,
+  mNT_LINE_CHECK_OK,
+  mNT_LINE_CHECK_NEWLINE,
+  mNT_LINE_CHECK_OVERLINE,
+  mNT_LINE_CHECK_OVERSTRING,
 
-    mNT_LINE_CHECK_NUM
+  mNT_LINE_CHECK_NUM
 };
 
 struct notice_ovl_s {
-    u8 mode;
-    u8 stick_area;
-    u8 page_center;
-    u8 page_count;
-    u8 now_page;
-    u8 disp_page;
-    u8 move_time;
-    mNtc_board_post_c post;
-    f32 control_position;
+  u8 mode;
+  u8 stick_area;
+  u8 page_center;
+  u8 page_count;
+  u8 now_page;
+  u8 disp_page;
+  u8 move_time;
+  mNtc_board_post_c post;
+  f32 control_position;
 };
 
 extern void mNT_notice_ovl_set_proc(Submenu* submenu);

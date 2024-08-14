@@ -9,20 +9,20 @@ extern "C" {
 #endif
 
 enum {
-    mSDI_INIT_MODE_NEW,
-    mSDI_INIT_MODE_NEW_PLAYER,
-    mSDI_INIT_MODE_FROM,
-    mSDI_INIT_MODE_PAK,
-    mSDI_INIT_MODE_ERR,
+  mSDI_INIT_MODE_NEW,
+  mSDI_INIT_MODE_NEW_PLAYER,
+  mSDI_INIT_MODE_FROM,
+  mSDI_INIT_MODE_PAK,
+  mSDI_INIT_MODE_ERR,
 
-    mSDI_INIT_MODE_NUM
+  mSDI_INIT_MODE_NUM
 };
 
 enum {
-    mSDI_MALLOC_FLAG_GAME,
-    mSDI_MALLOC_FLAG_ZELDA,
+  mSDI_MALLOC_FLAG_GAME,
+  mSDI_MALLOC_FLAG_ZELDA,
 
-    mSDI_MALLOC_FLAG_NUM
+  mSDI_MALLOC_FLAG_NUM
 };
 
 extern void mSDI_StartInitAfter(GAME* game, int renewal_reserve_flag, int malloc_flag);

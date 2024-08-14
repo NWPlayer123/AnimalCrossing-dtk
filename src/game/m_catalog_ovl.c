@@ -51,7 +51,8 @@ typedef struct {
 #include "../src/game/m_catalog_ovl_paper_data.c_inc"
 #include "../src/game/m_catalog_ovl_data.c_inc"
 
-#define mCL_ITEM_INFO(list) { (list), ARRAY_COUNT(list) }
+#define mCL_ITEM_INFO(list) \
+    { (list), ARRAY_COUNT(list) }
 
 // clang-format off
 static mCL_item_info_c mCL_item_idx_data[] = {

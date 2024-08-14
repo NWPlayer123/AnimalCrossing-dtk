@@ -12,7 +12,7 @@ extern "C" {
 typedef struct go_home_npc_s GO_HOME_NPC_ACTOR;
 
 struct go_home_npc_s {
-    NPC_ACTOR npc_class;
+  NPC_ACTOR npc_class;
 };
 
 extern ACTOR_PROFILE Go_Home_Npc_Profile;
@@ -22,3 +22,4 @@ extern ACTOR_PROFILE Go_Home_Npc_Profile;
 #endif
 
 #endif
+

@@ -3,8 +3,9 @@
 #include "types.h"
 #include "TRK/trk.h"
 #ifdef __cplusplus
-extern "C" {
+extern "C"{
 #endif
+
 
 TRKResult TRKInitializeIntDrivenUART(u32, u32, u32, void*);
 void TRK_board_display(const char*);

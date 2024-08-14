@@ -9,8 +9,7 @@ extern cKF_Animation_R_c cKF_ba_r_int_nog_tri_chest03;
 static void aNogTriChest03_ct(FTR_ACTOR* ftr_actor, u8* data) {
     cKF_SkeletonInfo_R_c* keyframe = &ftr_actor->keyframe;
 
-    cKF_SkeletonInfo_R_ct(keyframe, &cKF_bs_r_int_nog_tri_chest03, &cKF_ba_r_int_nog_tri_chest03, ftr_actor->joint,
-                          ftr_actor->morph);
+    cKF_SkeletonInfo_R_ct(keyframe, &cKF_bs_r_int_nog_tri_chest03, &cKF_ba_r_int_nog_tri_chest03, ftr_actor->joint, ftr_actor->morph);
     cKF_SkeletonInfo_R_init_standard_stop(keyframe, &cKF_ba_r_int_nog_tri_chest03, NULL);
     cKF_SkeletonInfo_R_play(keyframe);
     keyframe->frame_control.speed = 0.0f;
@@ -28,7 +27,7 @@ static void aNogTriChest03_dw(FTR_ACTOR* ftr_actor, ACTOR* my_room_actor, GAME* 
     GAME_PLAY* play = (GAME_PLAY*)game;
     cKF_SkeletonInfo_R_c* keyframe = &ftr_actor->keyframe;
     Mtx* mtx = ftr_actor->skeleton_mtx[game->frame_counter & 1];
-
+    
     OPEN_DISP(game->graph);
     gSPMatrix(NEXT_POLY_OPA_DISP, _Matrix_to_Mtx_new(game->graph), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
     CLOSE_DISP(game->graph);
@@ -40,25 +39,29 @@ static void aNogTriChest03_dt(FTR_ACTOR* ftr_actor, u8* data) {
 }
 
 static aFTR_vtable_c aNogTriChest03_func = {
-    &aNogTriChest03_ct, &aNogTriChest03_mv, &aNogTriChest03_dw, &aNogTriChest03_dt, NULL,
+	&aNogTriChest03_ct,
+	&aNogTriChest03_mv,
+	&aNogTriChest03_dw,
+	&aNogTriChest03_dt,
+	NULL,
 };
 
 aFTR_PROFILE iam_nog_tri_chest03 = {
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    40.0f,
-    0.01f,
-    aFTR_SHAPE_TYPEA,
-    mCoBG_FTR_TYPEA,
-    0,
-    0,
-    0,
-    aFTR_INTERACTION_STORAGE_CLOSET,
-    &aNogTriChest03_func,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	40.0f,
+	0.01f,
+	aFTR_SHAPE_TYPEA,
+	mCoBG_FTR_TYPEA,
+	0,
+	0,
+	0,
+	aFTR_INTERACTION_STORAGE_CLOSET,
+	&aNogTriChest03_func,
 };

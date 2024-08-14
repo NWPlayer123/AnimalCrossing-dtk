@@ -15,3 +15,4 @@ extern ACTOR_PROFILE Npc_Totakeke_Profile;
 #endif
 
 #endif
+

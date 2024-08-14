@@ -20,39 +20,47 @@ extern "C" {
 #define mMpswd_SPECIAL_NPC_NUM 32
 
 enum {
-    mMpswd_CODETYPE_FAMICOM,
-    mMpswd_CODETYPE_POPULAR,
-    mMpswd_CODETYPE_CARD_E,
-    mMpswd_CODETYPE_MAGAZINE,
-    mMpswd_CODETYPE_USER,
-    mMpswd_CODETYPE_CARD_E_MINI,
+  mMpswd_CODETYPE_FAMICOM,
+  mMpswd_CODETYPE_POPULAR,
+  mMpswd_CODETYPE_CARD_E,
+  mMpswd_CODETYPE_MAGAZINE,
+  mMpswd_CODETYPE_USER,
+  mMpswd_CODETYPE_CARD_E_MINI,
 
-    mMpswd_CODETYPE_NUM
+  mMpswd_CODETYPE_NUM
 };
 
 enum {
-    mMpswd_NPCTYPE_NORMAL,
-    mMpswd_NPCTYPE_SPECIAL,
+  mMpswd_NPCTYPE_NORMAL,
+  mMpswd_NPCTYPE_SPECIAL,
 
-    mMpswd_NPCTYPE_NUM
+  mMpswd_NPCTYPE_NUM
 };
 
 typedef struct mail_check_password_s {
-    mActor_name_t item;
-    u8 npc_type;
-    u8 npc_code;
-    u8 type;
-    u8 hit_rate_index;
-    u8 checksum;
-    u8 str0[PLAYER_NAME_LEN];
-    u8 str1[PLAYER_NAME_LEN];
+  mActor_name_t item;
+  u8 npc_type;
+  u8 npc_code;
+  u8 type;
+  u8 hit_rate_index;
+  u8 checksum;
+  u8 str0[PLAYER_NAME_LEN];
+  u8 str1[PLAYER_NAME_LEN];
 } mMpswd_password_c;
 
 extern u32 pswd_famicom_list_max;
 extern u16 pswd_famicom_list[];
 
-extern void mMpswd_make_password(u8* password_buf, int type, int hit_rate, u8* str0, u8* str1, mActor_name_t item,
-                                 int npc_type, int npc_code);
+extern void mMpswd_make_password(
+  u8* password_buf,
+  int type,
+  int hit_rate,
+  u8* str0,
+  u8* str1,
+  mActor_name_t item,
+  int npc_type,
+  int npc_code
+);
 
 extern int mMpswd_decode_code(u8* password_data, u8* password_str);
 extern int mMpswd_restore_code(u8* body, u8* password);

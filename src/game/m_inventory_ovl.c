@@ -656,7 +656,7 @@ extern Gfx kasa_umb_w_model[];
 
 static void mIV_pl_shape_item_draw_umbrella(Submenu* submenu, GAME* game) {
     // clang-format off
-    static mIV_umbrella_data_c umb_data[] = {
+    static mIV_umbrella_data_c pl_umb_data[] = {
         { e_umb01_model, kasa_umb01_model },
         { e_umb02_model, kasa_umb02_model },
         { e_umb03_model, kasa_umb03_model },
@@ -701,7 +701,7 @@ static void mIV_pl_shape_item_draw_umbrella(Submenu* submenu, GAME* game) {
     // clang-format on
     GRAPH* graph = game->graph;
     int umbrella_idx = submenu->overlay->segment.umbrella_ids[submenu->overlay->segment.player_umbrella_bank_idx];
-    mIV_umbrella_data_c* umb_data_p = &umb_data[umbrella_idx];
+    mIV_umbrella_data_c* umb_data_p = &pl_umb_data[umbrella_idx];
     int umbrella_item_kind = mPlayer_ITEM_KIND_UMBRELLA00 + umbrella_idx;
 
     _texture_z_light_fog_prim_npc(graph);

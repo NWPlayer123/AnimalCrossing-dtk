@@ -65,7 +65,7 @@ static void Museum_Fossil_Actor_draw(ACTOR* actorx, GAME* game) {
 }
 
 static void aMF_SetTalkInfo(ACTOR* actorx) {
-    static rgba_t aMP_window_color = { 255, 255, 205, 255 };
+    static rgba_t aMF_window_color = { 255, 255, 205, 255 };
     MUSEUM_FOSSIL_ACTOR* museum_fossil = (MUSEUM_FOSSIL_ACTOR*)actorx;
 
     mDemo_Set_msg_num(museum_fossil->msg_no);
@@ -73,7 +73,7 @@ static void aMF_SetTalkInfo(ACTOR* actorx) {
     mDemo_Set_ListenAble();
     mDemo_Set_camera(CAMERA2_PROCESS_NORMAL);
     mDemo_Set_use_zoom_sound(TRUE);
-    mDemo_Set_talk_window_color(&aMP_window_color);
+    mDemo_Set_talk_window_color(&aMF_window_color);
     mMsg_Set_continue_msg_num(mMsg_Get_base_window_p(), -1);
 }
 
@@ -122,7 +122,7 @@ static void Museum_Fossil_Actor_move(ACTOR* actorx, GAME* game) {
                             mMsg_Set_free_str(
                                 mMsg_Get_base_window_p(), mMsg_FREE_STR0,
                                 Save_Get(private_data[mMmd_DONATOR_PLR_IDX(donator)]).player_ID.player_name,
-                                              PLAYER_NAME_LEN);
+                                PLAYER_NAME_LEN);
                         }
                     }
 

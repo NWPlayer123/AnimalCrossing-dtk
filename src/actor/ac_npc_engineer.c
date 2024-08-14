@@ -24,14 +24,20 @@ ACTOR_PROFILE Npc_Engineer_Profile = {
 void aNEG_actor_move(ACTOR*, GAME*);
 void aNEG_actor_draw(ACTOR*, GAME*);
 
-void aNEG_actor_ct(ACTOR* actor, GAME* game) {
+void aNEG_actor_ct(ACTOR* actor, GAME* game){
     static aNPC_ct_data_c ct_data = {
-        &aNEG_actor_move, &aNEG_actor_draw, 5, NULL, NULL, NULL, 0,
+        &aNEG_actor_move,
+        &aNEG_actor_draw,
+        5,
+        NULL,
+        NULL,
+        NULL,
+        0,
     };
     NPCENGINEER_ACTOR* engineer = (NPCENGINEER_ACTOR*)actor;
-    if (Common_Get(clip.npc_clip)->birth_check_proc(actor, game) == TRUE) {
+    if(Common_Get(clip.npc_clip)->birth_check_proc(actor,game) == TRUE){
         engineer->npc_class.schedule.schedule_proc = (aNPC_SCHEDULE_PROC)mActor_NONE_PROC1;
-        Common_Get(clip.npc_clip)->ct_proc(actor, game, &ct_data);
+        Common_Get(clip.npc_clip)->ct_proc(actor,game,&ct_data);
         engineer->npc_class.condition_info.demo_flg = -1;
         engineer->npc_class.condition_info.hide_request = 0;
         engineer->npc_class.palActorIgnoreTimer = -1;
@@ -46,21 +52,21 @@ void aNEG_actor_ct(ACTOR* actor, GAME* game) {
 }
 
 void aNEG_actor_save(ACTOR* actor, GAME* game) {
-    Common_Get(clip.npc_clip)->save_proc(actor, game);
+    Common_Get(clip.npc_clip)->save_proc(actor,game);
 }
 
 void aNEG_actor_dt(ACTOR* actor, GAME* game) {
-    Common_Get(clip.npc_clip)->dt_proc(actor, game);
+    Common_Get(clip.npc_clip)->dt_proc(actor,game);
 }
 
 void aNEG_actor_init(ACTOR* actor, GAME* game) {
-    Common_Get(clip.npc_clip)->init_proc(actor, game);
+    Common_Get(clip.npc_clip)->init_proc(actor,game);
 }
 
-void aNEG_actor_move(ACTOR* actor, GAME* game) {
-    Common_Get(clip.npc_clip)->move_proc(actor, game);
+void aNEG_actor_move(ACTOR* actor, GAME* game){ 
+    Common_Get(clip.npc_clip)->move_proc(actor,game);
 }
 
 void aNEG_actor_draw(ACTOR* actor, GAME* game) {
-    Common_Get(clip.npc_clip)->draw_proc(actor, game);
+    Common_Get(clip.npc_clip)->draw_proc(actor,game);
 }

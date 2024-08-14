@@ -17,74 +17,78 @@ static u8 contpad_ok;
 static u8 frame_count;
 
 static void second_game_main(GAME* game) {
-    if (sound_ok == 0) {
-        sound_ok = 1;
-        Na_RestartPrepare();
-    }
+  if (sound_ok == 0) {
+    sound_ok = 1;
+    Na_RestartPrepare();
+  }
 
-    if (Na_CheckRestartReady() == TRUE) {
-        sound_ok = 2;
-    }
+  if (Na_CheckRestartReady() == TRUE) {
+    sound_ok = 2;
+  }
 
-    if (sound_ok == 2) {
-        Na_Restart();
-    }
+  if (sound_ok == 2) {
+    Na_Restart();
+  }
 
-    if (padmgr_isConnectedController(PAD0)) {
-        contpad_ok = TRUE;
-    }
+  if (padmgr_isConnectedController(PAD0)) {
+    contpad_ok = TRUE;
+  }
 
-    if (sound_ok == 2 && (contpad_ok || frame_count > 3)) {
-        GAME_GOTO_NEXT(game, trademark, TRADEMARK);
-    }
+  if (sound_ok == 2 && (contpad_ok || frame_count > 3)) {
+    GAME_GOTO_NEXT(game, trademark, TRADEMARK);
+  }
 
-    frame_count++;
+  frame_count++;
 }
 
 extern void second_game_cleanup(GAME* game) {
-    Common_Set(pad_connected, contpad_ok);
+  Common_Set(pad_connected, contpad_ok);
 }
 
 extern void second_game_init(GAME* game) {
-    if (zurumode_flag != 0 && osShutdown >= 3) {
-        VISetBlack(TRUE);
-        VIFlush();
-        VIWaitForRetrace();
+  if (zurumode_flag != 0 && osShutdown >= 3) {
+    VISetBlack(TRUE);
+    VIFlush();
+    VIWaitForRetrace();
 
-        switch (osShutdown) {
-            case 3: {
-                osShutdownStart(OS_RESET_SHUTDOWN);
-                break;
-            }
+    switch (osShutdown) {
+      case 3:
+      {
+        osShutdownStart(OS_RESET_SHUTDOWN);
+        break;
+      }
 
-            case 4: {
-                HotResetIplMenu();
-                break;
-            }
+      case 4:
+      {
+        HotResetIplMenu();
+        break;
+      }
 
-            default: {
-                osShutdownStart(OS_RESET_RESTART);
-                break;
-            }
-        }
+      default:
+      {
+        osShutdownStart(OS_RESET_RESTART);
+        break;
+      }
     }
+  }
 
-    if (osShutdown != 0) {
-        if (APPNMI_HOTRESET_GET()) {
-            osShutdownStart(OS_RESET_SHUTDOWN);
-        } else {
-            if (DVDCheckDisk() == FALSE) {
-                osShutdownStart(OS_RESET_RESTART);
-            }
-        }
+  if (osShutdown != 0) {
+    if (APPNMI_HOTRESET_GET()) {
+      osShutdownStart(OS_RESET_SHUTDOWN);
     }
+    else {
+      if (DVDCheckDisk() == FALSE) {
+        osShutdownStart(OS_RESET_RESTART);
+      }
+    }
+  }
 
-    sound_ok = 0;
-    contpad_ok = TRUE;
-    frame_count = 0;
+  sound_ok = 0;
+  contpad_ok = TRUE;
+  frame_count = 0;
 
-    game->exec = &second_game_main;
-    game->cleanup = &second_game_cleanup;
-    init_rnd();
-    __osInitialize_common();
+  game->exec = &second_game_main;
+  game->cleanup = &second_game_cleanup;
+  init_rnd();
+  __osInitialize_common();
 }

@@ -15,3 +15,4 @@ extern ACTOR_PROFILE Halloween_Npc_Profile;
 #endif
 
 #endif
+

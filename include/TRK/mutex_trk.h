@@ -10,6 +10,7 @@ TRKResult TRKAcquireMutex(void*);
 TRKResult TRKReleaseMutex(void*);
 TRKResult TRKInitializeMutex(void*);
 
+
 #ifdef __cplusplus
 }
 #endif

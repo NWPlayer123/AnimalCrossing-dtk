@@ -13,7 +13,7 @@ typedef void (*BALL_PROCESS_PROC)(ACTOR*, GAME*);
 typedef struct actor_ball_s {
     ACTOR actor_class;
     ClObjPipe_c ball_pipe;
-    u8 pad[0x40];
+    u8 pad[0x40]; 
     xyz_t bgpos;
     ACTOR* collider;
     BALL_PROCESS_PROC process_proc;
@@ -39,3 +39,4 @@ extern ACTOR_PROFILE Ball_Profile;
 #endif
 
 #endif
+

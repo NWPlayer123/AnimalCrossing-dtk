@@ -10,9 +10,9 @@ extern "C" {
 #endif
 
 typedef struct event_dokutu_actor_s {
-    NPC_ACTOR npc_class;
-    int _994;
-    int _998;
+  NPC_ACTOR npc_class;
+  int _994;
+  int _998;
 } EVENT_DOKUTU_ACTOR;
 
 extern ACTOR_PROFILE Ev_Dokutu_Profile;
@@ -22,3 +22,4 @@ extern ACTOR_PROFILE Ev_Dokutu_Profile;
 #endif
 
 #endif
+

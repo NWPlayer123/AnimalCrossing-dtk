@@ -150,6 +150,7 @@ static void eBushHappa_dw(eEC_Effect_c* effect, GAME* game) {
     u16* golden_pal;
     u16* palm_pal;
 
+    
     if (field_pal != NULL) {
         u8 alpha;
         cedar_pal = NULL;
@@ -164,7 +165,7 @@ static void eBushHappa_dw(eEC_Effect_c* effect, GAME* game) {
             palm_pal = field_pal->palm_tree_pal;
         }
         if (((cedar_pal != NULL) && (golden_pal != NULL)) || (effect->arg1 <= 3)) {
-            Mtx* mtx = GRAPH_ALLOC_TYPE(game->graph, Mtx, 1);
+            Mtx* mtx = GRAPH_ALLOC_TYPE(game->graph, Mtx, 1);            
             graph = game->graph;
             _texture_z_light_fog_prim_xlu(graph);
             suMtxMakeSRT_ZXY(mtx, effect->scale.x, effect->scale.y, effect->scale.z, effect->effect_specific[0], 0,
@@ -178,24 +179,25 @@ static void eBushHappa_dw(eEC_Effect_c* effect, GAME* game) {
 
             if (effect->arg1 > 3) {
                 if (effect->effect_specific[4] == 3) {
-                    gSPSegment(NEXT_POLY_XLU_DISP, G_MWO_SEGMENT_8, golden_pal);
+                    gSPSegment(NEXT_POLY_XLU_DISP,G_MWO_SEGMENT_8, golden_pal);
 
                 } else if (effect->effect_specific[4] == 0) {
-                    gSPSegment(NEXT_POLY_XLU_DISP, G_MWO_SEGMENT_8, cedar_pal);
+                    gSPSegment(NEXT_POLY_XLU_DISP,G_MWO_SEGMENT_8, cedar_pal);
                 } else {
-                    gSPSegment(NEXT_POLY_XLU_DISP, G_MWO_SEGMENT_8, palm_pal);
+                    gSPSegment(NEXT_POLY_XLU_DISP,G_MWO_SEGMENT_8, palm_pal);
                 }
                 if (effect->effect_specific[4] == 1) {
-                    gSPDisplayList(NEXT_POLY_XLU_DISP, ef_s_palm_modelT);
+                    gSPDisplayList(NEXT_POLY_XLU_DISP,ef_s_palm_modelT);
                 } else if (effect->effect_specific[4] == 2) {
-                    gSPDisplayList(NEXT_POLY_XLU_DISP, ef_s_cedar_modelT);
+                    gSPDisplayList(NEXT_POLY_XLU_DISP,ef_s_cedar_modelT);
                 } else if (effect->arg1 > 5) {
-                    gSPDisplayList(NEXT_POLY_XLU_DISP, ef_f_tree01_00_modelT);
+                    gSPDisplayList(NEXT_POLY_XLU_DISP,ef_f_tree01_00_modelT);
                 } else {
-                    gSPDisplayList(NEXT_POLY_XLU_DISP, ef_s_tree01_00_modelT);
+                    gSPDisplayList(NEXT_POLY_XLU_DISP,ef_s_tree01_00_modelT);
                 }
-            } else {
-                gSPDisplayList(NEXT_POLY_XLU_DISP, ef_s_yabu01_00_modelT);
+            }
+            else{
+                gSPDisplayList(NEXT_POLY_XLU_DISP,ef_s_yabu01_00_modelT);
             }
 
             CLOSE_DISP(graph);

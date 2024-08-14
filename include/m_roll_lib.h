@@ -21,8 +21,7 @@ extern void mRlib_Station_step_modify_to_wall(ACTOR* actor);
 extern int mRlib_Set_Position_Check(ACTOR* actor);
 extern int mRlib_HeightGapCheck_And_ReversePos(ACTOR* actor);
 extern int mRlib_Hole_check(ACTOR* actor);
-extern int mRlib_Get_ground_norm_inHole(ACTOR* actor, xyz_t* normal, f32* dist, s16* angle_y, s16* angle_rate,
-                                        f32 rate_mod);
+extern int mRlib_Get_ground_norm_inHole(ACTOR* actor, xyz_t* normal, f32* dist, s16* angle_y, s16* angle_rate, f32 rate_mod);
 extern int mRlib_PSnowmanBreakCheck(ACTOR* actor, GAME_PLAY* play, f32* speed);
 extern int mRlib_PSnowmanBreakNeckSwing(s16* head_angle_y, f32 f0, f32 scale);
 extern int mRlib_PSnowman_NormalTalk(ACTOR* actor, GAME_PLAY* play, f32* speed, mDemo_REQUEST_PROC demo_req_proc);

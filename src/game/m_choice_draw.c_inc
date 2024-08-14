@@ -61,14 +61,10 @@ static void mChoice_UnSetMatrixDisplay(GAME* game, int type) {
   CLOSE_DISP(graph);
 }
 
-#ifndef __INTELLISENSE__
 #include "assets/con_waku_swaku3_tex.inc"
-#endif
 
 static Vtx con_sentaku2_v[] = {
-  #ifndef __INTELLISENSE__
   #include "assets/con_sentaku2_v.inc"
-  #endif
 };
 
 static Gfx con_sentaku2_modelT[] = {

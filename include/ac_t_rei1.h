@@ -15,9 +15,9 @@ typedef void (*REI1_PROC)(ACTOR*);
 
 typedef struct t_rei1_s {
     TOOLS_ACTOR tools_class;
-    REI1_PROC proc;
+    REI1_PROC proc; 
     int current_id;
-
+    
 } REI1_ACTOR;
 
 #ifdef __cplusplus
@@ -25,3 +25,4 @@ typedef struct t_rei1_s {
 #endif
 
 #endif
+

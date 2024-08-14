@@ -9,7 +9,7 @@ extern "C" {
 #endif
 
 void csleep(OSTime c);
-void msleep(u32);
+void msleep(u32 ms);
 
 #ifdef __cplusplus
 }

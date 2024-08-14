@@ -1,8 +1,10 @@
 #ifndef PPC_EABI_INIT_H
 #define PPC_EABI_INIT_H
 
+#include "types.h"
+
 #ifdef __cplusplus
-extern "C" {
+extern "C"{
 #endif
 
 typedef void (*voidfunctionptr)(void); // pointer to function returning void
@@ -14,14 +16,14 @@ __declspec(section ".dtors") extern voidfunctionptr _dtors[];
  */
 
 // Declare linker symbols for a section in the ROM
-#define DECL_ROM_SECTION(x)  \
-    extern u8 _f##x[];       \
-    extern u8 _f##x##_rom[]; \
+#define DECL_ROM_SECTION(x)                                                    \
+    extern u8 _f##x[];                                                         \
+    extern u8 _f##x##_rom[];                                                   \
     extern u8 _e##x[];
 
 // Declare linker symbols for a BSS section
-#define DECL_BSS_SECTION(x) \
-    extern u8 _f##x[];      \
+#define DECL_BSS_SECTION(x)                                                    \
+    extern u8 _f##x[];                                                         \
     extern u8 _e##x[];
 
 // Debugger stack
@@ -61,7 +63,6 @@ DECL_BSS_SECTION(_sbss2);
 void __init_hardware(void);
 void __flush_cache(void*, size_t);
 void __init_user(void);
-void __fini_cpp(void);
 void _ExitProcess(void);
 
 typedef struct RomSection {
@@ -82,9 +83,9 @@ typedef struct ExtabIndexInfo {
     u32 codeSize;    // at 0x10
 } ExtabIndexInfo;
 
-__declspec(section ".init") extern RomSection _rom_copy_info[];
-__declspec(section ".init") extern BssSection _bss_init_info[];
-__declspec(section ".init") extern ExtabIndexInfo _eti_init_info[];
+__declspec(section ".init") extern  RomSection _rom_copy_info[];
+__declspec(section ".init") extern  BssSection _bss_init_info[];
+__declspec(section ".init") extern  ExtabIndexInfo _eti_init_info[];
 
 #ifdef __cplusplus
 }

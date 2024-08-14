@@ -5,7 +5,8 @@
 #include "types.h"
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 // Defines for cached and uncached memory.
@@ -13,12 +14,12 @@ extern "C" {
 #define OS_BASE_UNCACHED (0xC0000000)
 
 // Address conversions.
-#define OSPhysicalToCached(paddr) ((void*)((u32)(paddr) + OS_BASE_CACHED))
-#define OSPhysicalToUncached(paddr) ((void*)((u32)(paddr) + OS_BASE_UNCACHED))
-#define OSCachedToPhysical(caddr) ((u32)((u8*)(caddr) - OS_BASE_CACHED))
-#define OSUncachedToPhysical(ucaddr) ((u32)((u8*)(ucaddr) - OS_BASE_UNCACHED))
-#define OSCachedToUncached(caddr) ((void*)((u8*)(caddr) + (OS_BASE_UNCACHED - OS_BASE_CACHED)))
-#define OSUncachedToCached(ucaddr) ((void*)((u8*)(ucaddr) - (OS_BASE_UNCACHED - OS_BASE_CACHED)))
+#define OSPhysicalToCached(paddr) ((void *)((u32)(paddr) + OS_BASE_CACHED))
+#define OSPhysicalToUncached(paddr) ((void *)((u32)(paddr) + OS_BASE_UNCACHED))
+#define OSCachedToPhysical(caddr) ((u32)((u8 *)(caddr)-OS_BASE_CACHED))
+#define OSUncachedToPhysical(ucaddr) ((u32)((u8 *)(ucaddr)-OS_BASE_UNCACHED))
+#define OSCachedToUncached(caddr) ((void *)((u8 *)(caddr) + (OS_BASE_UNCACHED - OS_BASE_CACHED)))
+#define OSUncachedToCached(ucaddr) ((void *)((u8 *)(ucaddr) - (OS_BASE_UNCACHED - OS_BASE_CACHED)))
 
 #define OS_CACHED_REGION_PREFIX 0x8000
 #define OS_UNCACHED_REGION_PREFIX 0xC000

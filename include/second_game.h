@@ -10,7 +10,7 @@ extern "C" {
 
 /* sizeof(struct second_game_s) == 0xE0 */
 typedef struct second_game_s {
-    /* 0x00 */ GAME game;
+  /* 0x00 */ GAME game;
 } GAME_SECOND;
 
 extern void second_game_init(GAME* game);

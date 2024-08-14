@@ -1,6 +1,6 @@
 #include "assets/msg/con_kaiwa2_w1_tex.inc"
-#include "assets/msg/con_kaiwa2_w2_tex.inc"
-#include "assets/msg/con_kaiwa2_w3_tex.inc"
+  #include "assets/msg/con_kaiwa2_w2_tex.inc"
+  #include "assets/msg/con_kaiwa2_w3_tex.inc"
 
 static Vtx con_kaiwa2_v[] = {
   #include "assets/msg/con_kaiwa2_v.inc"

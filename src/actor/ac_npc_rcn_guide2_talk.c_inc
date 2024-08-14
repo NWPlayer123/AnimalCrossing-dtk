@@ -59,7 +59,7 @@ static void aNRG2_set_str_proc(void) {
 
 static void aNRG2_set_possession(void) {
     // clang-format off
-    static mActor_name_t set_item[] = {
+    static mActor_name_t set_itemNo[] = {
         ITM_CLOTH016,
         ITM_WHITE_PANSY_BAG,
         EMPTY_NO,
@@ -101,14 +101,14 @@ static void aNRG2_set_possession(void) {
             case aNRG2_JOB7:
             case aNRG2_JOB8:
                 /* Set the static job item with normal condition */
-                mPr_SetFreePossessionItem(Now_Private, set_item[job_kind], mPr_ITEM_COND_NORMAL);
+                mPr_SetFreePossessionItem(Now_Private, set_itemNo[job_kind], mPr_ITEM_COND_NORMAL);
                 break;
             case aNRG2_JOB2:
             case aNRG2_JOB6:
             case aNRG2_JOB9:
             default:
                 /* Set the static job item with quest condition */
-                mPr_SetFreePossessionItem(Now_Private, set_item[job_kind], mPr_ITEM_COND_QUEST);
+                mPr_SetFreePossessionItem(Now_Private, set_itemNo[job_kind], mPr_ITEM_COND_QUEST);
                 break;
             case aNRG2_JOB10:
             case aNRG2_JOB11:

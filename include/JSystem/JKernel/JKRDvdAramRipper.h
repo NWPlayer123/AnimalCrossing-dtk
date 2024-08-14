@@ -7,8 +7,9 @@
 #include "types.h"
 
 #ifdef __cplusplus
-class JKRADCommand {
-  public:
+class JKRADCommand
+{
+public:
     typedef void (*LoadCallback)(u32);
     JKRADCommand();
     ~JKRADCommand();
@@ -29,8 +30,9 @@ class JKRADCommand {
     JKRAramStreamCommand* mStreamCommand; // _48
 };
 
-class JKRDvdAramRipper {
-  public:
+class JKRDvdAramRipper
+{
+public:
     static JKRAramBlock* loadToAram(char const*, u32, JKRExpandSwitch, u32, u32);
     static JKRAramBlock* loadToAram(s32, u32, JKRExpandSwitch, u32, u32);
     static JKRAramBlock* loadToAram(JKRDvdFile*, u32, JKRExpandSwitch, u32, u32);
@@ -45,19 +47,16 @@ class JKRDvdAramRipper {
     static void countLeftSync();
     static void afterAramAsync(JKRADCommand*);
 
-    static int getSZSBufferSize() {
-        return sSZSBufferSize;
-    }
-    static bool isErrorRetry() {
-        return errorRetry;
-    }
+    static int getSZSBufferSize() { return sSZSBufferSize; }
+    static bool isErrorRetry() { return errorRetry; }
 
     static bool errorRetry;
     static int sSZSBufferSize;
     static JSUList<JKRADCommand> sDvdAramAsyncList;
 };
 
-inline JKRAramBlock* JKRDvdToAram(s32 entrynum, u32 p2, JKRExpandSwitch expSwitch, u32 p4, u32 p5) {
+inline JKRAramBlock* JKRDvdToAram(s32 entrynum, u32 p2, JKRExpandSwitch expSwitch, u32 p4, u32 p5)
+{
     return JKRDvdAramRipper::loadToAram(entrynum, p2, expSwitch, p4, p5);
 }
 

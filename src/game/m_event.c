@@ -10,9 +10,6 @@
 #include "m_scene_table.h"
 #include "m_soncho.h"
 
-// forward declarations
-void mEv_clear_rumor();
-
 enum {
     mEv_INIT_NO_RENEWAL,
     mEv_INIT_RENEWAL,
@@ -512,6 +509,8 @@ static lbRTC_day_t m_weekday2day(lbRTC_month_t month, u8 day_enc) {
 
     return day;
 }
+
+static lbRTC_weekday_t weekday1st[lbRTC_MONTHS_MAX];
 
 extern int mEv_weekday2day(lbRTC_month_t month, int week, int weekday) {
     lbRTC_time_c* rtc_time = Common_GetPointer(time.rtc_time);
@@ -1474,6 +1473,7 @@ static void update_weekly_event(mEv_schedule_c* sched) {
 // forward declarations
 static int clear_active(int type);
 static int set_active(int type);
+extern void mEv_clear_rumor();
 
 static void update_active(Event_c* event) {
     mEv_place_data_c* place_data;
@@ -2878,10 +2878,10 @@ extern int mMC_check_birth() {
     if (Save_Get(mask_cat).talk_idx >= mMC_TALK_IDX_MAX) {
         /* Talked more than the maximum amount of times allowed */
         mMC_mask_cat_init();
-        return TRUE;
+        return FALSE;
     }
 
-    return FALSE;
+    return TRUE;
 }
 
 extern int mMC_check_birth_day() {

@@ -54,9 +54,10 @@ s32 GBARead(s32 chan, u8* dst, u8* status);
 s32 GBAReadAsync(s32 chan, u8* dst, u8* status, GBACallback callback);
 s32 GBAWrite(s32 chan, u8* src, u8* status);
 s32 GBAWriteAsync(s32 chan, u8* src, u8* status, GBACallback callback);
-s32 GBAJoyBoot(s32 chan, s32 palette_color, s32 palette_speed, u8* programp, s32 length, u8* status);
-s32 GBAJoyBootAsync(s32 chan, s32 palette_color, s32 palette_speed, u8* programp, s32 length, u8* status,
-                    GBACallback callback);
+s32 GBAJoyBoot(s32 chan, s32 palette_color, s32 palette_speed, u8* programp, s32 length,
+               u8* status);
+s32 GBAJoyBootAsync(s32 chan, s32 palette_color, s32 palette_speed, u8* programp, s32 length,
+                    u8* status, GBACallback callback);
 #ifdef __cplusplus
 }
 #endif

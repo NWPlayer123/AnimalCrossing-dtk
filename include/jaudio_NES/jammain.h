@@ -7,8 +7,8 @@
 extern "C" {
 #endif
 
-void Jam_InitRegistTrack(void);
-
+    void Jam_InitRegistTrack(void);
+    
 #ifdef __cplusplus
 }
 #endif

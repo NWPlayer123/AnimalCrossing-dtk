@@ -12,9 +12,13 @@ typedef signed long long s64;
 typedef unsigned char u8;
 typedef unsigned short u16;
 typedef unsigned long u32;
-typedef __typeof__(sizeof(0)) size_t;
 typedef unsigned long long u64;
 typedef unsigned int uint;
+
+#ifndef _SIZE_T_DEF
+#define _SIZE_T_DEF
+typedef unsigned long size_t;
+#endif
 
 typedef volatile u8 vu8;
 typedef volatile u16 vu16;
@@ -39,7 +43,10 @@ typedef u32 unknown;
 
 #define TRUE 1
 #define FALSE 0
+
+#ifndef NULL
 #define NULL ((void*)0)
+#endif
 #define nullptr 0
 
 #define AT_ADDRESS(x) : (x)
@@ -55,7 +62,7 @@ typedef u32 unknown;
 #ifndef ATTRIBUTE_ALIGN
 #if defined(__MWERKS__) || defined(__GNUC__)
 #define ATTRIBUTE_ALIGN(num) __attribute__((aligned(num)))
-#elif defined(_MSC_VER) || defined(__clang__)
+#elif defined(_MSC_VER)
 #define ATTRIBUTE_ALIGN(num)
 #else
 #error unknown compiler
@@ -83,8 +90,13 @@ typedef u32 unknown;
 #define ARRAY_SIZE(arr, type) (sizeof(arr) / sizeof(type))
 #define ARRAY_COUNT(arr) (int)(sizeof(arr) / sizeof(arr[0]))
 
+#ifndef MAX
 #define MAX(a, b) (((a) > (b)) ? (a) : (b))
+#endif
+
+#ifndef MIN
 #define MIN(a, b) (((a) < (b)) ? (a) : (b))
+#endif
 
 #define F32_IS_ZERO(v) (fabsf(v) < 0.008f)
 

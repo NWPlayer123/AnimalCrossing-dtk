@@ -7,6 +7,8 @@
 typedef s32 OSPri;
 typedef s32 OSId;
 
+
+
 OSId osGetThreadId(OSThread*);
 
 #endif

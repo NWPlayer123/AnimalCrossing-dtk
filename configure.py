@@ -76,11 +76,6 @@ parser.add_argument(
     help="generate map file(s)",
 )
 parser.add_argument(
-    "--no-asm",
-    action="store_true",
-    help="don't incorporate .s files from asm directory",
-)
-parser.add_argument(
     "--debug",
     action="store_true",
     help="build with debug info (non-matching)",
@@ -97,6 +92,12 @@ parser.add_argument(
     metavar="BINARY | DIR",
     type=Path,
     help="path to decomp-toolkit binary or source (optional)",
+)
+parser.add_argument(
+    "--objdiff",
+    metavar="BINARY | DIR",
+    type=Path,
+    help="path to objdiff-cli binary or source (optional)",
 )
 parser.add_argument(
     "--sjiswrap",
@@ -124,6 +125,7 @@ version_num = VERSIONS.index(config.version)
 # Apply arguments
 config.build_dir = args.build_dir
 config.dtk_path = args.dtk
+config.objdiff_path = args.objdiff
 config.binutils_path = args.binutils
 config.compilers_path = args.compilers
 config.debug = args.debug
@@ -132,13 +134,15 @@ config.non_matching = args.non_matching
 config.sjiswrap_path = args.sjiswrap
 if not is_windows():
     config.wrapper = args.wrapper
-if args.no_asm:
+# Don't build asm unless we're --non-matching
+if not config.non_matching:
     config.asm_dir = None
 
 # Tool versions
 config.binutils_tag = "2.42-1"
-config.compilers_tag = "20231018"
-config.dtk_tag = "v0.9.2"
+config.compilers_tag = "20240706"
+config.dtk_tag = "v0.9.4"
+config.objdiff_tag = "v2.0.0-beta.3"
 config.sjiswrap_tag = "v1.1.1"
 config.wibo_tag = "0.6.11"
 
@@ -150,6 +154,7 @@ config.asflags = [
     "--strip-local-absolute",
     "-I include",
     f"-I build/{config.version}/include",
+    f"-I build/{config.version}/bin",
     f"--defsym version={version_num}",
 ]
 config.ldflags = [
@@ -177,7 +182,7 @@ cflags_base = [
     '-pragma "cats off"',
     # Default compiler flags (turn off if needed)
     # "-W all",
-    "-O4,p",
+    # "-O4,p",
     # "-inline auto",
     '-pragma "warn_notinlined off"',
     # Helpful linker flags
@@ -193,7 +198,7 @@ cflags_base = [
 if config.debug:
     cflags_base.extend(["-sym on", "-DDEBUG=1"])
 else:
-    cflags_base.append("-DNDEBUG=1")
+    cflags_base.extend(["-sym on", "-DNDEBUG=1"])
 
 # Metrowerks library flags
 cflags_runtime = [
@@ -205,20 +210,21 @@ cflags_runtime = [
     "-inline auto",
 ]
 
-# DOL flags
-cflags_static = [
-    *cflags_base,
-    "-O4,s",
-    "-sdata 8",
-    "-sdata2 8",
-    "-inline on",
+cflags_common = [
     "-d _LANGUAGE_C",
     "-d F3DEX_GBI_2",
     "-d MUST_MATCH",
 ]
 
+# DOL flags
+cflags_static = [
+    *cflags_base,
+    *cflags_common,
+    "-O4,s",
+]
+
 # REL flags
-cflags_rel = [
+cflags_foresta = [
     *cflags_base,
     "-O4,s",
     "-sdata 0",
@@ -231,7 +237,7 @@ cflags_rel = [
     "-d IS_REL",
 ]
 
-config.linker_version = "GC/1.3.2r"
+config.linker_version = "GC/1.3.2"
 
 
 # Helper function for Dolphin libraries
@@ -239,8 +245,25 @@ def DolphinLib(lib_name: str, objects: List[Object]) -> Dict[str, Any]:
     return {
         "lib": lib_name,
         "mw_version": "GC/1.2.5n",
-        "cflags": cflags_base,
+        "cflags": [
+            *cflags_static,
+            "-O4,p",
+            "-inline auto",
+        ],
         "host": False,
+        "src_dir": "src/static",
+        "objects": objects,
+    }
+
+
+# Helper function for JSystem libraries
+def JSystemLib(lib_name: str, objects: List[Object]) -> Dict[str, Any]:
+    return {
+        "lib": lib_name,
+        "mw_version": "GC/1.3.2",
+        "cflags": [*cflags_static, "-char signed"],
+        "host": False,
+        "src_dir": "src/static",
         "objects": objects,
     }
 
@@ -249,9 +272,9 @@ def DolphinLib(lib_name: str, objects: List[Object]) -> Dict[str, Any]:
 def Rel(lib_name: str, objects: List[Object]) -> Dict[str, Any]:
     return {
         "lib": lib_name,
-        "mw_version": "GC/1.3.2",
-        "cflags": cflags_rel,
-        "host": True,
+        "mw_version": "GC/1.3.2r",
+        "cflags": cflags_foresta,
+        "host": False,
         "objects": objects,
     }
 
@@ -262,15 +285,323 @@ Equivalent = (
     config.non_matching
 )  # Object should be linked when configured with --non-matching
 
-config.warn_missing_config = False
+config.warn_missing_config = True
 config.warn_missing_source = False
 config.libs = [
     {
-        "lib": "foresta",
-        "mw_version": "GC/1.3.2r",
-        "cflags": cflags_rel,
+        "lib": "bootdata",
+        "mw_version": config.linker_version,
+        "cflags": cflags_static,
         "host": False,
+        "src_dir": "src/static",
         "objects": [
+            Object(Matching, "bootdata/gam_win1.c"),
+            Object(Matching, "bootdata/gam_win2.c"),
+            Object(Matching, "bootdata/gam_win3.c"),
+            Object(Matching, "bootdata/logo_nin.c"),
+        ],
+    },
+    DolphinLib(
+        "amcstubs",
+        [
+            Object(Matching, "dolphin/amcstubs/AmcExi2Stubs.c"),
+        ],
+    ),
+    DolphinLib(
+        "base",
+        [
+            Object(Matching, "dolphin/base/PPCArch.c"),
+        ],
+    ),
+    DolphinLib(
+        "gx",
+        [
+            Object(Matching, "dolphin/gx/GXStubs.c"),
+        ],
+    ),
+    DolphinLib(
+        "odenotstub",
+        [
+            Object(Matching, "dolphin/odenotstub/odenotstub.c"),
+        ],
+    ),
+    DolphinLib(
+        "os",
+        [
+            Object(Matching, "dolphin/os/__ppc_eabi_init.cpp"),
+            Object(Matching, "dolphin/os/__start.c"),
+            Object(Matching, "dolphin/os/OSAlarm.c"),
+            Object(Matching, "dolphin/os/OSArena.c"),
+            Object(Matching, "dolphin/os/OSAudioSystem.c"),
+            Object(Matching, "dolphin/os/OSCache.c"),
+            Object(Matching, "dolphin/os/OSContext.c"),
+            Object(Matching, "dolphin/os/OSError.c"),
+            Object(NonMatching, "dolphin/os/OSInterrupt.c"),
+            Object(NonMatching, "dolphin/os/OSMemory.c"),
+            Object(Matching, "dolphin/os/OSRtc.c"),
+        ],
+    ),
+    {
+        "lib": "Famicom",
+        "mw_version": "GC/1.3.2r",
+        "cflags": [
+            *cflags_static,
+            "-sdata 0",
+            "-sdata2 0",
+            "-inline on",
+        ],
+        "host": False,
+        "src_dir": "src/static",
+        "objects": [
+            Object(Matching, "Famicom/famicom.cpp"),
+            Object(Matching, "Famicom/famicom_nesinfo.cpp"),
+        ],
+    },
+    {
+        "lib": "gba",
+        "mw_version": "GC/1.2.5n",
+        "cflags": [*cflags_static, "-inline auto", "-O4,p"],
+        "host": False,
+        "src_dir": "src/static",
+        "objects": [
+            Object(Matching, "gba/GBA.c"),
+            Object(Matching, "gba/GBAGetProcessStatus.c"),
+            Object(Matching, "gba/GBAJoyBoot.c"),
+            Object(Matching, "gba/GBARead.c"),
+            Object(Matching, "gba/GBAWrite.c"),
+            Object(Matching, "gba/GBAXfer.c"),
+        ],
+    },
+    {
+        "lib": "gba2",
+        "mw_version": config.linker_version,
+        "cflags": [
+            *cflags_static,
+            "-sdata 0",
+            "-sdata2 0",
+            "-inline on",
+        ],
+        "host": False,
+        "src_dir": "src/static",
+        "objects": [
+            Object(Matching, "gba2/JoyBoot.c"),
+        ],
+    },
+    {
+        "lib": "jaudio_NES_game",
+        "mw_version": "GC/1.3.2",
+        "cflags": [*cflags_static, "-O0", "-inline off", "-lang=c++"],
+        "host": False,
+        "src_dir": "src/static",
+        "objects": [
+            Object(Matching, "jaudio_NES/game/audioheaders.c"),
+            Object(Matching, "jaudio_NES/game/dummyprobe.c"),
+            Object(NonMatching, "jaudio_NES/game/emusound.c"),
+            Object(NonMatching, "jaudio_NES/game/game64.c"),
+            Object(Matching, "jaudio_NES/game/kappa.c"),
+            Object(Matching, "jaudio_NES/game/melody.c"),
+            Object(Matching, "jaudio_NES/game/radio.c"),
+            Object(Matching, "jaudio_NES/game/rhythm.c"),
+            Object(Matching, "jaudio_NES/game/staff.c"),
+            Object(Matching, "jaudio_NES/game/verysimple.c"),
+        ],
+    },
+    {
+        "lib": "jaudio_NES_internal",
+        "mw_version": "GC/1.3.2",
+        "cflags": [
+            *cflags_static,
+            "-lang=c++",
+            "-common on",
+            "-func_align 32",
+            "-inline off",
+            "-str readonly",
+            "-char signed",
+            "-sdata 8",
+            "-sdata2 8",
+        ],
+        "host": False,
+        "src_dir": "src/static",
+        "objects": [
+            Object(Matching, "jaudio_NES/internal/aictrl.c"),
+            Object(Matching, "jaudio_NES/internal/astest.c"),
+            Object(Matching, "jaudio_NES/internal/audiothread.c"),
+            Object(Matching, "jaudio_NES/internal/cpubuf.c"),
+            Object(Matching, "jaudio_NES/internal/dspboot.c"),
+            Object(Matching, "jaudio_NES/internal/dspbuf.c"),
+            Object(Matching, "jaudio_NES/internal/dspproc.c"),
+            Object(Matching, "jaudio_NES/internal/dummyrom.c"),
+            Object(Matching, "jaudio_NES/internal/dvdthread.c"),
+            Object(Matching, "jaudio_NES/internal/neosthread.c"),
+            Object(Matching, "jaudio_NES/internal/os.c"),
+            Object(Matching, "jaudio_NES/internal/playercall.c"),
+            Object(Matching, "jaudio_NES/internal/random.c"),
+            Object(Matching, "jaudio_NES/internal/sample.c"),
+            Object(Matching, "jaudio_NES/internal/streamctrl.c"),
+            Object(Matching, "jaudio_NES/internal/sub_sys.c"),
+            Object(Matching, "jaudio_NES/internal/track.c"),
+        ],
+    },
+    JSystemLib(
+        "JGadget",
+        [
+            Object(Matching, "JSystem/JGadget/linklist.cpp"),
+        ],
+    ),
+    JSystemLib(
+        "JKernel",
+        [
+            Object(Matching, "JSystem/JKernel/JKRAram.cpp"),
+            Object(Matching, "JSystem/JKernel/JKRAramArchive.cpp"),
+            Object(Matching, "JSystem/JKernel/JKRAramBlock.cpp"),
+            Object(Matching, "JSystem/JKernel/JKRAramHeap.cpp"),
+            Object(Matching, "JSystem/JKernel/JKRAramPiece.cpp"),
+            Object(Matching, "JSystem/JKernel/JKRAramStream.cpp"),
+            Object(NonMatching, "JSystem/JKernel/JKRArchivePri.cpp"),
+            Object(NonMatching, "JSystem/JKernel/JKRArchivePub.cpp"),
+            Object(Matching, "JSystem/JKernel/JKRCompArchive.cpp"),
+            Object(Matching, "JSystem/JKernel/JKRDecomp.cpp"),
+            Object(Matching, "JSystem/JKernel/JKRDisposer.cpp"),
+            Object(Matching, "JSystem/JKernel/JKRDvdAramRipper.cpp"),
+            Object(Matching, "JSystem/JKernel/JKRDvdArchive.cpp"),
+            Object(Matching, "JSystem/JKernel/JKRDvdFile.cpp"),
+            Object(Matching, "JSystem/JKernel/JKRDvdRipper.cpp"),
+            Object(Matching, "JSystem/JKernel/JKRExpHeap.cpp"),
+            Object(Matching, "JSystem/JKernel/JKRFileFinder.cpp"),
+            Object(Matching, "JSystem/JKernel/JKRFileLoader.cpp"),
+            Object(Matching, "JSystem/JKernel/JKRHeap.cpp"),
+            Object(Matching, "JSystem/JKernel/JKRMemArchive.cpp"),
+            Object(Matching, "JSystem/JKernel/JKRThread.cpp"),
+        ],
+    ),
+    JSystemLib(
+        "JSupport",
+        [
+            Object(NonMatching, "JSystem/JSupport/JSUFileStream.cpp"),
+            Object(Matching, "JSystem/JSupport/JSUInputStream.cpp"),
+        ],
+    ),
+    JSystemLib(
+        "JUtility",
+        [
+            Object(Matching, "JSystem/JUtility/JUTFontData_Ascfont_fix12.s"),
+            Object(Matching, "JSystem/JUtility/JUTGamePad.cpp"),
+        ],
+    ),
+    {
+        "lib": "libc64",
+        "mw_version": config.linker_version,
+        "cflags": cflags_static,
+        "host": False,
+        "src_dir": "src/static",
+        "objects": [
+            Object(NonMatching, "libc64/__osMalloc.c"),
+            Object(Matching, "libc64/aprintf.c"),
+            Object(Matching, "libc64/malloc.c"),
+            Object(Matching, "libc64/math64.c"),
+            Object(Matching, "libc64/qrand.c"),
+            Object(Matching, "libc64/sleep.c"),
+            Object(Matching, "libc64/sprintf.c"),
+        ],
+    },
+    {
+        "lib": "libforest",
+        "mw_version": config.linker_version,
+        "cflags": cflags_static,
+        "host": False,
+        "src_dir": "src/static",
+        "objects": [
+            Object(NonMatching, "libforest/emu64/emu64.cc"),
+            Object(Matching, "libforest/fault.c"),
+            Object(Matching, "libforest/osreport.c"),
+            Object(Matching, "libforest/ReconfigBATs.c"),
+        ],
+    },
+    {
+        "lib": "libu64",
+        "mw_version": config.linker_version,
+        "cflags": cflags_static,
+        "host": False,
+        "src_dir": "src/static",
+        "objects": [
+            Object(Matching, "libu64/debug.c"),
+            Object(Matching, "libu64/gfxprint.c"),
+            Object(Matching, "libu64/gfxprint_data.c"),
+            Object(Matching, "libu64/pad.c"),
+        ],
+    },
+    {
+        "lib": "libultra",
+        "mw_version": config.linker_version,
+        "cflags": [*cflags_static, "-O4,p", "-inline on"],
+        "host": False,
+        "src_dir": "src/static",
+        "objects": [
+            Object(NonMatching, "libultra/gu/lookathil.c"),
+            Object(NonMatching, "libultra/gu/mtxutil.c"),
+            Object(Matching, "libultra/gu/normalize.c"),
+            Object(NonMatching, "libultra/gu/ortho.c"),
+            Object(Matching, "libultra/gu/scale.c"),
+            Object(Matching, "libultra/gu/sins.c"),
+            Object(Matching, "libultra/gu/translate.c"),
+            Object(NonMatching, "libultra/contreaddata.c"),
+            Object(NonMatching, "libultra/initialize.c"),
+            Object(Matching, "libultra/ultra.c"),
+            Object(Matching, "libultra/xldtob.c"),
+            Object(Matching, "libultra/xlitob.c"),
+            Object(NonMatching, "libultra/xprintf.c"),
+        ],
+    },
+    {
+        "lib": "MSL_C.PPCEABI.bare.H",
+        "mw_version": config.linker_version,
+        "cflags": [*cflags_static, "-O4,p"],
+        "host": False,
+        "src_dir": "src/static",
+        "objects": [
+            Object(Matching, "MSL_C.PPCEABI.bare.H/rand.c"),
+        ],
+    },
+    {
+        "lib": "Runtime.PPCEABI.H",
+        "mw_version": config.linker_version,
+        "cflags": [*cflags_base, "-O4,s"],
+        "host": False,
+        "src_dir": "src/static",
+        "objects": [
+            Object(Matching, "Runtime.PPCEABI.H/global_destructor_chain.c"),
+            Object(Matching, "Runtime.PPCEABI.H/__init_cpp_exceptions.cpp"),
+            Object(Matching, "Runtime.PPCEABI.H/__mem.c"),
+        ],
+    },
+    {
+        "lib": "TRK_MINNOW_DOLPHIN",
+        "mw_version": config.linker_version,
+        "cflags": [
+            *cflags_base,
+            *cflags_common,
+            "-O4,p",
+            "-sdata 0",
+            "-sdata2 0",
+            "-inline deferred",
+            "-rostr",
+        ],
+        "host": False,
+        "src_dir": "src/static",
+        "objects": [
+            Object(Matching, "TRK_MINNOW_DOLPHIN/__exception.s"),
+            Object(Matching, "TRK_MINNOW_DOLPHIN/dispatch.c"),
+            Object(NonMatching, "TRK_MINNOW_DOLPHIN/dolphin_trk.c"),
+            Object(Matching, "TRK_MINNOW_DOLPHIN/mainloop.c"),
+            Object(NonMatching, "TRK_MINNOW_DOLPHIN/mem_TRK.c"),
+            Object(Matching, "TRK_MINNOW_DOLPHIN/nubevent.c"),
+            Object(Matching, "TRK_MINNOW_DOLPHIN/nubinit.c"),
+            Object(NonMatching, "TRK_MINNOW_DOLPHIN/usr_put.c"),
+        ],
+    },
+    Rel(
+        "foresta",
+        [
             Object(Matching, "audio.c"),
             Object(Matching, "bg_cherry_item.c"),
             Object(Matching, "bg_item.c"),
@@ -279,12 +610,12 @@ config.libs = [
             Object(Matching, "bg_winter_item.c"),
             Object(Matching, "bg_xmas_item.c"),
             Object(Matching, "c_keyframe.c"),
-            Object(Matching, "ev_cherry_manager.c"),
             Object(Matching, "evw_anime.c"),
+            Object(Matching, "ev_cherry_manager.c"),
             Object(Matching, "executor.c"),
-            Object(Matching, "f_furniture.c"),
             Object(Matching, "famicom_emu.c"),
             Object(Matching, "first_game.c"),
+            Object(Matching, "f_furniture.c"),
             Object(Matching, "game.c"),
             Object(Matching, "gamealloc.c"),
             Object(Matching, "gfxalloc.c"),
@@ -302,13 +633,10 @@ config.libs = [
             Object(Matching, "TwoHeadArena.c"),
             Object(Matching, "zurumode.c"),
         ],
-    },
-    {
-        "lib": "actor",
-        "mw_version": "GC/1.3.2r",
-        "cflags": cflags_rel,
-        "host": False,
-        "objects": [
+    ),
+    Rel(
+        "actor",
+        [
             Object(Matching, "actor/ac_airplane.c"),
             Object(Matching, "actor/ac_animal_logo.c"),
             Object(Matching, "actor/ac_aprilfool_control.c"),
@@ -338,11 +666,12 @@ config.libs = [
             Object(Matching, "actor/ac_field_draw.c"),
             Object(Matching, "actor/ac_flag.c"),
             Object(Matching, "actor/ac_fuusen.c"),
-            Object(Matching, "actor/ac_go_home_npc.c"),
             Object(Matching, "actor/ac_goza.c"),
+            Object(Matching, "actor/ac_go_home_npc.c"),
             Object(Matching, "actor/ac_groundhog_control.c"),
             Object(Matching, "actor/ac_handOverItem.c"),
             Object(Matching, "actor/ac_haniwa.c"),
+            Object(Matching, "actor/ac_insect.c"),
             Object(Matching, "actor/ac_ins_amenbo.c"),
             Object(Matching, "actor/ac_ins_batta.c"),
             Object(Matching, "actor/ac_ins_chou.c"),
@@ -351,7 +680,6 @@ config.libs = [
             Object(Matching, "actor/ac_ins_hitodama.c"),
             Object(Matching, "actor/ac_ins_ka.c"),
             Object(Matching, "actor/ac_ins_kabuto.c"),
-            Object(Matching, "actor/ac_insect.c"),
             Object(Matching, "actor/ac_intro_demo.c"),
             Object(Matching, "actor/ac_kago.c"),
             Object(Matching, "actor/ac_kamakura.c"),
@@ -387,7 +715,6 @@ config.libs = [
             Object(Matching, "actor/ac_radio.c"),
             Object(Matching, "actor/ac_reserve.c"),
             Object(Matching, "actor/ac_rope.c"),
-            Object(Matching, "actor/ac_s_car.c"),
             Object(Matching, "actor/ac_sample.c"),
             Object(Matching, "actor/ac_set_manager.c"),
             Object(Matching, "actor/ac_set_ovl_gyoei.c"),
@@ -396,6 +723,7 @@ config.libs = [
             Object(Matching, "actor/ac_shop_design.c"),
             Object(Matching, "actor/ac_shrine.c"),
             Object(Matching, "actor/ac_structure.c"),
+            Object(Matching, "actor/ac_s_car.c"),
             Object(Matching, "actor/ac_tama.c"),
             Object(Matching, "actor/ac_tent.c"),
             Object(Matching, "actor/ac_tools.c"),
@@ -414,13 +742,10 @@ config.libs = [
             Object(Matching, "actor/ac_windmill.c"),
             Object(Matching, "actor/ac_yatai.c"),
         ],
-    },
-    {
-        "lib": "actor_tool",
-        "mw_version": "GC/1.3.2r",
-        "cflags": cflags_rel,
-        "host": False,
-        "objects": [
+    ),
+    Rel(
+        "actor_tool",
+        [
             Object(Matching, "actor/tool/ac_t_anrium1.c"),
             Object(Matching, "actor/tool/ac_t_bag1.c"),
             Object(Matching, "actor/tool/ac_t_bag2.c"),
@@ -448,19 +773,16 @@ config.libs = [
             Object(Matching, "actor/tool/ac_t_zinnia1.c"),
             Object(Matching, "actor/tool/ac_t_zinnia2.c"),
         ],
-    },
-    {
-        "lib": "effect",
-        "mw_version": "GC/1.3.2r",
-        "cflags": cflags_rel,
-        "host": False,
-        "objects": [
+    ),
+    Rel(
+        "effect",
+        [
             Object(Matching, "effect/ef_ami_mizu.c"),
             Object(Matching, "effect/ef_anahikari.c"),
             Object(Matching, "effect/ef_ase.c"),
             Object(Matching, "effect/ef_ase2.c"),
             Object(Matching, "effect/ef_ase_ch.c"),
-            Object(NonMatching, "effect/ef_break_axe.c"),
+            Object(Matching, "effect/ef_break_axe.c"),
             Object(Matching, "effect/ef_bubu.c"),
             Object(Matching, "effect/ef_buruburu.c"),
             Object(Matching, "effect/ef_bush_happa.c"),
@@ -469,12 +791,12 @@ config.libs = [
             Object(Matching, "effect/ef_car_light.c"),
             Object(Matching, "effect/ef_clacker.c"),
             Object(Matching, "effect/ef_coin.c"),
-            Object(NonMatching, "effect/ef_dash_asimoto.c"),
-            Object(NonMatching, "effect/ef_dig_hole.c"),
-            Object(NonMatching, "effect/ef_dig_mud.c"),
-            Object(NonMatching, "effect/ef_dig_scoop.c"),
-            Object(NonMatching, "effect/ef_douzou_light.c"),
-            Object(NonMatching, "effect/ef_doyon.c"),
+            Object(Matching, "effect/ef_dash_asimoto.c"),
+            Object(Matching, "effect/ef_dig_hole.c"),
+            Object(Matching, "effect/ef_dig_mud.c"),
+            Object(Matching, "effect/ef_dig_scoop.c"),
+            Object(Matching, "effect/ef_douzou_light.c"),
+            Object(Matching, "effect/ef_doyon.c"),
             Object(NonMatching, "effect/ef_dust.c"),
             Object(Matching, "effect/ef_effect_control.c"),
             Object(Matching, "effect/ef_flash.c"),
@@ -483,17 +805,17 @@ config.libs = [
             Object(NonMatching, "effect/ef_gimonhu.c"),
             Object(NonMatching, "effect/ef_goki.c"),
             Object(NonMatching, "effect/ef_ha.c"),
-            Object(NonMatching, "effect/ef_halloween.c"),
+            Object(Matching, "effect/ef_halloween.c"),
             Object(NonMatching, "effect/ef_halloween_smoke.c"),
+            Object(NonMatching, "effect/ef_hanabira.c"),
             Object(NonMatching, "effect/ef_hanabi_botan1.c"),
             Object(NonMatching, "effect/ef_hanabi_botan2.c"),
-            Object(NonMatching, "effect/ef_hanabi_dummy.c"),
+            Object(Matching, "effect/ef_hanabi_dummy.c"),
             Object(NonMatching, "effect/ef_hanabi_hoshi.c"),
             Object(NonMatching, "effect/ef_hanabi_set.c"),
             Object(NonMatching, "effect/ef_hanabi_switch.c"),
             Object(NonMatching, "effect/ef_hanabi_yanagi.c"),
-            Object(NonMatching, "effect/ef_hanabira.c"),
-            Object(NonMatching, "effect/ef_hanatiri.c"),
+            Object(Matching, "effect/ef_hanatiri.c"),
             Object(NonMatching, "effect/ef_hirameki_den.c"),
             Object(NonMatching, "effect/ef_hirameki_hikari.c"),
             Object(NonMatching, "effect/ef_ikigire.c"),
@@ -586,13 +908,10 @@ config.libs = [
             Object(Matching, "effect/ef_yukidaruma.c"),
             Object(Matching, "effect/ef_yukihane.c"),
         ],
-    },
-    {
-        "lib": "game",
-        "mw_version": "GC/1.3.2r",
-        "cflags": cflags_rel,
-        "host": False,
-        "objects": [
+    ),
+    Rel(
+        "game",
+        [
             Object(Matching, "game/m_actor.c"),
             Object(Matching, "game/m_actor_dlftbls.c"),
             Object(Matching, "game/m_actor_shadow.c"),
@@ -600,9 +919,9 @@ config.libs = [
             Object(Matching, "game/m_all_grow_ovl.c"),
             Object(Matching, "game/m_bank_ovl.c"),
             Object(Matching, "game/m_banti.c"),
+            Object(Matching, "game/m_bgm.c"),
             Object(Matching, "game/m_bg_item.c"),
             Object(Matching, "game/m_bg_tex.c"),
-            Object(Matching, "game/m_bgm.c"),
             Object(Matching, "game/m_birthday_ovl.c"),
             Object(NonMatching, "game/m_board_ovl.c"),
             Object(Matching, "game/m_calendar.c"),
@@ -638,8 +957,8 @@ config.libs = [
             Object(Matching, "game/m_font.c"),
             Object(Matching, "game/m_fuusen.c"),
             Object(Matching, "game/m_game_dlftbls.c"),
-            Object(Matching, "game/m_hand_ovl.c"),
             Object(NonMatching, "game/m_handbill.c"),
+            Object(Matching, "game/m_hand_ovl.c"),
             Object(Matching, "game/m_haniwaPortrait_ovl.c"),
             Object(Matching, "game/m_hboard_ovl.c"),
             Object(Matching, "game/m_home.c"),
@@ -713,13 +1032,10 @@ config.libs = [
             Object(Matching, "game/m_warning_ovl.c"),
             Object(NonMatching, "game/m_watch_my_step.c"),
         ],
-    },
-    {
-        "lib": "system",
-        "mw_version": "GC/1.3.2r",
-        "cflags": cflags_rel,
-        "host": False,
-        "objects": [
+    ),
+    Rel(
+        "system",
+        [
             Object(Matching, "system/sys_dynamic.c"),
             Object(Matching, "system/sys_math.c"),
             Object(Matching, "system/sys_math3d.c"),
@@ -730,101 +1046,8 @@ config.libs = [
             Object(Matching, "system/sys_ucode.c"),
             Object(Matching, "system/sys_vimgr.c"),
         ],
-    },
-    {
-        "lib": "dvderr",
-        "mw_version": config.linker_version,
-        "cflags": [
-            *cflags_base,
-            "-O4,s",
-            "-sdata 0",
-            "-sdata2 0",
-            "-inline on",
-            "-d _LANGUAGE_C",
-            "-d F3DEX_GBI_2",
-            "-d MUST_MATCH",
-            "-pool off",
-        ],
-        "host": False,
-        "src_dir": "src/static",
-        "objects": [
-            Object(Matching, "dvderr.c"),
-        ],
-    },
-    {
-        "lib": "Runtime.PPCEABI.H",
-        "mw_version": config.linker_version,
-        "cflags": cflags_runtime,
-        "host": False,
-        "objects": [
-            Object(NonMatching, "Runtime.PPCEABI.H/global_destructor_chain.c"),
-            Object(NonMatching, "Runtime.PPCEABI.H/__init_cpp_exceptions.cpp"),
-        ],
-    },
-    {
-        "lib": "Famicom",
-        "mw_version": "GC/1.3.2r",
-        "cflags": [
-            *cflags_base,
-            "-O4,s",
-            "-sdata 0",
-            "-sdata2 0",
-            "-d _LANGUAGE_C_PLUS_PLUS",
-            "-d MUST_MATCH",
-        ],
-        "host": False,
-        "src_dir": "src/static",
-        "objects": [
-            Object(
-                NonMatching, "Famicom/famicom.cpp"
-            ),  # Almost perfect, needs C++ work
-            Object(Matching, "Famicom/famicom_nesinfo.cpp"),
-        ],
-    },
-    {
-        "lib": "libc64",
-        "mw_version": config.linker_version,
-        "cflags": cflags_static,
-        "host": False,
-        "src_dir": "src/static",
-        "objects": [
-            Object(NonMatching, "libc64/__osMalloc.c"),
-            Object(Matching, "libc64/aprintf.c"),
-            Object(Matching, "libc64/malloc.c"),
-            Object(Matching, "libc64/math64.c"),
-            Object(Matching, "libc64/qrand.c"),
-            Object(Matching, "libc64/sleep.c"),
-            Object(Matching, "libc64/sprintf.c"),
-        ],
-    },
-    {
-        "lib": "libforest",
-        "mw_version": config.linker_version,
-        "cflags": cflags_static,
-        "host": False,
-        "src_dir": "src/static",
-        "objects": [
-            # emu64 is problematic, needs better settings, and dtk doesn't recognize the .cc extension
-            Object(Matching, "libforest/fault.c"),
-            Object(Matching, "libforest/osreport.c"),
-            Object(Matching, "libforest/ReconfigBATs.c"),
-        ],
-    },
-    {
-        "lib": "libu64",
-        "mw_version": config.linker_version,
-        "cflags": cflags_static,
-        "host": False,
-        "src_dir": "src/static",
-        "objects": [
-            Object(Matching, "libu64/debug.c"),
-            Object(Matching, "libu64/gfxprint.c"),
-            Object(Matching, "libu64/gfxprint_data.c"),
-            Object(Matching, "libu64/pad.c"),
-        ],
-    },
+    ),
 ]
-
 
 # Define our custom asset processing scripts
 config.custom_build_rules = [
@@ -839,7 +1062,7 @@ config.custom_build_rules = [
         "description": "CONVERT $vtxdata",
     },
 ]
-config.custom_build_steps = []
+config.custom_build_steps = {}
 
 # Grab the specific GameID so we can format our strings properly
 version = VERSIONS[version_num]
@@ -853,9 +1076,8 @@ def emit_build_rule(asset):
             binary_path = asset["binary"]
             include_path = binary_path.replace(".bin", ".inc")
 
-            config.custom_build_steps.append(
+            config.custom_build_steps.setdefault("pre-compile", []).append(
                 {
-                    "type": "pre-compile",
                     "rule": "convert_pal16",
                     "inputs": f"build/{version}/bin/{binary_path}",
                     "outputs": f"build/{version}/include/{include_path}",
@@ -870,9 +1092,8 @@ def emit_build_rule(asset):
             binary_path = asset["binary"]
             include_path = binary_path.replace(".bin", ".inc")
 
-            config.custom_build_steps.append(
+            config.custom_build_steps.setdefault("pre-compile", []).append(
                 {
-                    "type": "pre-compile",
                     "rule": "convert_vtx",
                     "inputs": f"build/{version}/bin/{binary_path}",
                     "outputs": f"build/{version}/include/{include_path}",
@@ -898,29 +1119,34 @@ for module in yaml_data.get("modules", []):
         if "type" in asset:
             emit_build_rule(asset)
 
+# TODO: make this more robust? right now, the download is all or none
 N64_SDK_urls = [
     "https://raw.githubusercontent.com/decompals/ultralib/main/include/PR/abi.h",
     "https://raw.githubusercontent.com/decompals/ultralib/main/include/PR/gbi.h",
     "https://raw.githubusercontent.com/decompals/ultralib/main/include/PR/gs2dex.h",
     "https://raw.githubusercontent.com/decompals/ultralib/main/include/PR/mbi.h",
     "https://raw.githubusercontent.com/decompals/ultralib/main/include/PR/ultratypes.h",
+    "https://raw.githubusercontent.com/decompals/ultralib/main/include/gcc/stdlib.h",
 ]
 
 # If we don't have the N64 headers downloaded, we need to grab them
-if not os.path.exists("include/PR"):
-    os.mkdir("include/PR")
+if not os.path.exists("include/PR") or not os.path.exists("include/gcc"):
+    if not os.path.exists("include/PR"):
+        os.mkdir("include/PR")
+    if not os.path.exists("include/gcc"):
+        os.mkdir("include/gcc")
     for url in N64_SDK_urls:
-        filename = url.split("/")[-1]
+        filename = "/".join(url.split("/")[-2:])
         response = requests.get(url)
         if response.status_code == 200:
             content = response.content
 
-            if filename == "gbi.h":
+            if filename == "PR/gbi.h":
                 content = re.sub(
-                    br"unsigned char\s+param:8;", b"unsigned int\tparam:8;", content
+                    rb"unsigned char\s+param:8;", b"unsigned int\tparam:8;", content
                 )
 
-            with open(f"include/PR/{filename}", "wb") as file:
+            with open(f"include/{filename}", "wb") as file:
                 file.write(content)
 
         else:

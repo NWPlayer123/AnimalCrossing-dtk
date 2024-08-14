@@ -16,15 +16,15 @@ static void aBTD_actor_move(ACTOR* actorx, GAME* game);
 
 ACTOR_PROFILE Boat_Demo_Profile = {
     mAc_PROFILE_BOAT_DEMO,
-                                    ACTOR_PART_CONTROL,
-                                    ACTOR_STATE_CAN_MOVE_IN_DEMO_SCENES | ACTOR_STATE_NO_MOVE_WHILE_CULLED,
-                                    EMPTY_NO,
-                                    ACTOR_OBJ_BANK_KEEP,
-                                    sizeof(BOAT_DEMO_ACTOR),
-                                    &aBTD_actor_ct,
-                                    &aBTD_actor_dt,
-                                    &aBTD_actor_move,
-                                    mActor_NONE_PROC1,
+    ACTOR_PART_CONTROL,
+    ACTOR_STATE_CAN_MOVE_IN_DEMO_SCENES | ACTOR_STATE_NO_MOVE_WHILE_CULLED,
+    EMPTY_NO,
+    ACTOR_OBJ_BANK_KEEP,
+    sizeof(BOAT_DEMO_ACTOR),
+    &aBTD_actor_ct,
+    &aBTD_actor_dt,
+    &aBTD_actor_move,
+    mActor_NONE_PROC1,
     NULL,
 };
 

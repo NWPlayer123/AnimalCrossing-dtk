@@ -15,3 +15,4 @@ extern ACTOR_PROFILE Tunahiki_Npc0_Profile;
 #endif
 
 #endif
+

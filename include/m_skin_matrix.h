@@ -6,7 +6,7 @@
 #include "libu64/u64types.h"
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"{
 #endif
 
 extern void Skin_Matrix_PrjMulVector(MtxF* mf, xyz_t* src, xyz_t* dst, f32* w);

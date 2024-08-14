@@ -11,7 +11,7 @@ typedef struct STRUCT_DSP_TASK2 {
     /* 0x0E */ u32 dram_length;
     /* 0x12 */ u16 dram_addr;
     /* 0x16 */ u16 dsp_init_vector;
-} DSPTaskInfo2;
+}DSPTaskInfo2;
 
 extern s32 __DSPCheckMXICBoot2(DSPTaskInfo2* task);
 extern void DSPInit2(DSPTaskInfo2* task);

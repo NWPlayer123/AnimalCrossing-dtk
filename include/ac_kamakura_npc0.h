@@ -15,3 +15,4 @@ extern ACTOR_PROFILE Kamakura_Npc0_Profile;
 #endif
 
 #endif
+

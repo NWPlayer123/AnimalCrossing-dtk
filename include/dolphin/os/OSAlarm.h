@@ -9,14 +9,15 @@
 extern "C" {
 #endif
 
-typedef struct OSAlarm OSAlarm;
+typedef struct OSAlarm  OSAlarm;
 typedef void (*OSAlarmHandler)(OSAlarm* alarm, OSContext* context);
 
-struct OSAlarm {
+struct OSAlarm
+{
     OSAlarmHandler handler;
     OSTime fire;
-    OSAlarm* prev;
-    OSAlarm* next;
+    OSAlarm *prev;
+    OSAlarm *next;
 
     // Periodic alarm
     OSTime period;
@@ -24,11 +25,12 @@ struct OSAlarm {
 };
 
 void OSInitAlarm(void);
-void OSSetAlarm(OSAlarm* alarm, OSTime tick, OSAlarmHandler handler);
-void OSSetAbsAlarm(OSAlarm* alarm, OSTime time, OSAlarmHandler handler);
-void OSSetPeriodicAlarm(OSAlarm* alarm, OSTime start, OSTime period, OSAlarmHandler handler);
-void OSCreateAlarm(OSAlarm* alarm);
-void OSCancelAlarm(OSAlarm* alarm);
+void OSSetAlarm(OSAlarm *alarm, OSTime tick, OSAlarmHandler handler);
+void OSSetAbsAlarm(OSAlarm *alarm, OSTime time, OSAlarmHandler handler);
+void OSSetPeriodicAlarm(OSAlarm *alarm, OSTime start, OSTime period,
+                        OSAlarmHandler handler);
+void OSCreateAlarm(OSAlarm *alarm);
+void OSCancelAlarm(OSAlarm *alarm);
 
 BOOL OSCheckAlarmQueue(void);
 
@@ -36,4 +38,4 @@ BOOL OSCheckAlarmQueue(void);
 }
 #endif
 
-#endif // DOLPHIN_OS_ALARM_H
+#endif  // DOLPHIN_OS_ALARM_H

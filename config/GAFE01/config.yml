@@ -1,4 +1,3 @@
-# See config.example.yml for documentation.
 object: orig/GAFE01/sys/main.dol
 hash: 2ae8f56e7791d37e165bd5900921f2269f9515bf
 name: static
@@ -7,123 +6,97 @@ splits: config/GAFE01/splits.txt
 #map: orig/GAFE01/files/static.map
 common_start: 0x8020D78C
 mw_comment_version: 10
-write_asm: false
+#write_asm: false
 symbols_known: true
 fill_gaps: false
 
-force_active: ["_savegpr_14", "_restgpr_14"] # Needed to fix references to __save_gpr/__restore_gpr
-
 extract:
-#dvderr.c
-- symbol: ctl_att_w1_tex
-  header: assets/ctl_att_w1_tex.inc
-  
-- symbol: ctl_att_w2_tex
-  header: assets/ctl_att_w2_tex.inc
-  
-- symbol: ctl_att_w3_tex
-  header: assets/ctl_att_w3_tex.inc
-  
-- symbol: ctl_att_w4_tex
-  header: assets/ctl_att_w4_tex.inc
-  
-- symbol: ctl_att_w5_tex
-  header: assets/ctl_att_w5_tex.inc
-  
-- symbol: ctl_att_w6_tex
-  header: assets/ctl_att_w6_tex.inc
+#bootdata/gam_win1
+- symbol: gam_win_moji1_tex
+  header: assets/bootdata/win1/gam_win_moji1_tex.inc
 
-- symbol: dvd_keikoku_moji1_1_tex
-  header: assets/dvd_keikoku_moji1_1_tex.inc
-  
-- symbol: dvd_keikoku_moji1_2_tex
-  header: assets/dvd_keikoku_moji1_2_tex.inc
-  
-- symbol: dvd_keikoku_moji1_3_tex
-  header: assets/dvd_keikoku_moji1_3_tex.inc
-  
-- symbol: dvd_keikoku_moji1_4_tex
-  header: assets/dvd_keikoku_moji1_4_tex.inc
-  
-- symbol: dvd_keikoku_moji2_tex
-  header: assets/dvd_keikoku_moji2_tex.inc
-  
-- symbol: dvd_keikoku_moji2_2_tex
-  header: assets/dvd_keikoku_moji2_2_tex.inc
-  
-- symbol: dvd_keikoku_moji2_3_tex
-  header: assets/dvd_keikoku_moji2_3_tex.inc
-  
-- symbol: dvd_keikoku_moji3_1_tex
-  header: assets/dvd_keikoku_moji3_1_tex.inc
-  
-- symbol: dvd_keikoku_moji3_2_tex
-  header: assets/dvd_keikoku_moji3_2_tex.inc
-  
-- symbol: dvd_keikoku_moji3_3_tex
-  header: assets/dvd_keikoku_moji3_3_tex.inc
-  
-- symbol: dvd_keikoku_moji4_tex
-  header: assets/dvd_keikoku_moji4_tex.inc
-  
-- symbol: dvd_keikoku_moji5_tex
-  header: assets/dvd_keikoku_moji5_tex.inc
+- symbol: gam_win_moji2_tex
+  header: assets/bootdata/win1/gam_win_moji2_tex.inc
 
-- symbol: dvd_keikoku_moji6_2_tex
-  header: assets/dvd_keikoku_moji6_2_tex.inc
+- symbol: yes
+  header: assets/bootdata/win1/yes.inc
 
-- symbol: dvd_keikoku_moji6_3_tex
-  header: assets/dvd_keikoku_moji6_3_tex.inc
+- symbol: no
+  header: assets/bootdata/win1/no.inc
 
-- symbol: dvd_keikoku_moji6_tex
-  header: assets/dvd_keikoku_moji6_tex.inc
+- symbol: att_win_waku1_tex!.data:0x800b9a40
+  header: assets/bootdata/win1/att_win_waku1_tex.inc
 
-- symbol: dvd_keikoku_moji6_1_tex
-  header: assets/dvd_keikoku_moji6_1_tex.inc
+- symbol: att_win_waku2_tex!.data:0x800b9e40
+  header: assets/bootdata/win1/att_win_waku2_tex.inc
 
-- symbol: dvd_keikoku_moji6_new1_tex
-  header: assets/dvd_keikoku_moji6_new1_tex.inc
+- symbol: att_win_waku3_tex!.data:0x800ba240
+  header: assets/bootdata/win1/att_win_waku3_tex.inc
 
-- symbol: dvd_keikoku_moji6_new2_tex
-  header: assets/dvd_keikoku_moji6_new2_tex.inc
+- symbol: att_win_waku4_tex!.data:0x800ba640
+  header: assets/bootdata/win1/att_win_waku4_tex.inc
 
-- symbol: dvd_keikoku_moji7_tex
-  header: assets/dvd_keikoku_moji7_tex.inc
+- symbol: att_win_waku5_tex!.data:0x800baa40
+  header: assets/bootdata/win1/att_win_waku5_tex.inc
 
-- symbol: dvd_keikoku_moji8_tex
-  header: assets/dvd_keikoku_moji8_tex.inc
+- symbol: att_win_waku6_tex!.data:0x800bae40
+  header: assets/bootdata/win1/att_win_waku6_tex.inc
 
-- symbol: dvd_keikoku_moji10_tex
-  header: assets/dvd_keikoku_moji10_tex.inc
-
-- symbol: dvd_keikoku_moji11_tex
-  header: assets/dvd_keikoku_moji11_tex.inc
-
-- symbol: dvd_keikoku_moji12_tex
-  header: assets/dvd_keikoku_moji12_tex.inc
-
-- symbol: dvd_keikoku_moji9_tex
-  header: assets/dvd_keikoku_moji9_tex.inc
-
-- symbol: dvd_keikoku1_v
-  binary: assets/dvd_keikoku1_v.bin
+- symbol: gam_win1_v
+  binary: assets/bootdata/win1/gam_win1_v.bin
   type: vtx
 
-- symbol: dvd_keikoku2_v
-  binary: assets/dvd_keikoku2_v.bin
+#bootdata/gam_win2
+- symbol: gam_win_moji3_tex!.data:0x800bb500
+  header: assets/bootdata/win2/gam_win_moji3_tex.inc
+
+- symbol: gam_win_moji4_tex!.data:0x800bba00
+  header: assets/bootdata/win2/gam_win_moji4_tex.inc
+
+- symbol: att_win_waku1_tex!.data:0x800bbf00
+  header: assets/bootdata/win2/att_win_waku1_tex.inc
+
+- symbol: att_win_waku2_tex!.data:0x800bc300
+  header: assets/bootdata/win2/att_win_waku2_tex.inc
+
+- symbol: att_win_waku3_tex!.data:0x800bc700
+  header: assets/bootdata/win2/att_win_waku3_tex.inc
+
+- symbol: att_win_waku4_tex!.data:0x800bcb00
+  header: assets/bootdata/win2/att_win_waku4_tex.inc
+
+- symbol: att_win_waku5_tex!.data:0x800bcf00
+  header: assets/bootdata/win2/att_win_waku5_tex.inc
+
+- symbol: att_win_waku6_tex!.data:0x800bd300
+  header: assets/bootdata/win2/att_win_waku6_tex.inc
+
+- symbol: gam_win2_v
+  binary: assets/bootdata/win2/gam_win2_v.bin
   type: vtx
 
-- symbol: dvd_keikoku3_v
-  binary: assets/dvd_keikoku3_v.bin
+#bootdata/gam_win3
+- symbol: gam_win_moji3_tex!.data:0x800bd820
+  header: assets/bootdata/win3/gam_win_moji3_tex.inc
+
+- symbol: gam_win_moji5_tex!.data:0x800bdd20
+  header: assets/bootdata/win3/gam_win_moji5_tex.inc
+
+- symbol: gam_win3_v
+  binary: assets/bootdata/win3/gam_win3_v.bin
   type: vtx
 
-- symbol: dvd_keikoku4_v
-  binary: assets/dvd_keikoku4_v.bin
+#bootdata/logo_nin
+- symbol: nintendo_376x104
+  header: assets/bootdata/nintendo_376x104.inc
+
+- symbol: logo_nin_v
+  binary: assets/bootdata/logo_nin_v.bin
   type: vtx
 
-- symbol: dvd_keikoku5_v
-  binary: assets/dvd_keikoku5_v.bin
-  type: vtx
+#JUtility
+- symbol: JUTResFONT_Ascfont_fix12
+  binary: JSystem/JUtility/FontData/Ascfont_fix12.bfn
 
 modules:
 - object: orig/GAFE01/files/foresta.rel

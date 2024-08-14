@@ -8,17 +8,19 @@
 
 static void aTTM_actor_draw(ACTOR* actor, GAME* game);
 
-ACTOR_PROFILE T_Tama_Profile = { mAc_PROFILE_T_TAMA,
-                                 ACTOR_PART_BG,
-                                 ACTOR_STATE_NO_DRAW_WHILE_CULLED | ACTOR_STATE_NO_MOVE_WHILE_CULLED,
-                                 EMPTY_NO,
-                                 ACTOR_OBJ_BANK_TAMA,
-                                 sizeof(T_TAMA_ACTOR),
-                                 NONE_ACTOR_PROC,
-                                 NONE_ACTOR_PROC,
-                                 NONE_ACTOR_PROC,
-                                 &aTTM_actor_draw,
-                                 NULL };
+ACTOR_PROFILE T_Tama_Profile = {
+    mAc_PROFILE_T_TAMA,
+    ACTOR_PART_BG,
+    ACTOR_STATE_NO_DRAW_WHILE_CULLED | ACTOR_STATE_NO_MOVE_WHILE_CULLED,
+    EMPTY_NO,
+    ACTOR_OBJ_BANK_TAMA,
+    sizeof(T_TAMA_ACTOR),
+    NONE_ACTOR_PROC,
+    NONE_ACTOR_PROC,
+    NONE_ACTOR_PROC,
+    &aTTM_actor_draw,
+    NULL
+};
 
 extern Gfx tama01_model[];
 extern Gfx tol_tamaire_model[];

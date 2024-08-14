@@ -10,7 +10,7 @@
 
 #define mEnv_TIME_TO_SECS(hour, min, sec) ((hour) * mTM_SECONDS_IN_HOUR + (min) * mTM_SECONDS_IN_MINUTE + (sec))
 
-static int klight_chg_time[mEnv_TERM_NUM + 1] = {
+static int klight_chg_tim[mEnv_TERM_NUM + 1] = {
     mEnv_TIME_TO_SECS(0, 0, 0),  mEnv_TIME_TO_SECS(4, 0, 0),  mEnv_TIME_TO_SECS(6, 0, 0),
     mEnv_TIME_TO_SECS(8, 0, 0),  mEnv_TIME_TO_SECS(12, 0, 0), mEnv_TIME_TO_SECS(16, 0, 0),
     mEnv_TIME_TO_SECS(18, 0, 0), mEnv_TIME_TO_SECS(20, 0, 0), mEnv_TIME_TO_SECS(24, 0, 0),
@@ -1699,7 +1699,7 @@ static int mEnv_GetNowTerm() {
     int i;
 
     for (i = 0; i < mEnv_TERM_NUM; i++) {
-        if (klight_chg_time[i + 1] >= now_sec) {
+        if (klight_chg_tim[i + 1] >= now_sec) {
             return i;
         }
     }
@@ -1713,7 +1713,7 @@ static void mEnv_SetBaseLight(Kankyo* kankyo) {
     int weather = l_mEnv_electric_light.now_weather;
     int fog_disabled = TRUE;
     int next_term = term + 1;
-    f32 percent_towards_next_term = get_percent(klight_chg_time[next_term], klight_chg_time[term], now_sec);
+    f32 percent_towards_next_term = get_percent(klight_chg_tim[next_term], klight_chg_tim[term], now_sec);
 
     switch (Common_Get(field_draw_type)) {
         case FIELD_DRAW_TYPE_TRAIN: {

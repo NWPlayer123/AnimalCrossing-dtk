@@ -48,7 +48,8 @@ static Door_data_c* l_demo_door_data_table[mTD_TITLE_DEMO_NUM] = { &demo_1_door_
                                                                    &demo_3_door_data, &demo_4_door_data,
                                                                    &demo_5_door_data };
 
-#define DEMO_NPC(name, bx, bz, utx, utz) { NPC_##name, (bx), (bz), (utx), (utz) }
+#define DEMO_NPC(name, bx, bz, utx, utz) \
+    { NPC_##name, (bx), (bz), (utx), (utz) }
 static mNpc_demo_npc_c demo_npc_list[] = {
     DEMO_NPC(BOB, 1, 2, 3, 7),     DEMO_NPC(PAOLO, 1, 2, 8, 11),  DEMO_NPC(VESTA, 1, 4, 12, 11),
     DEMO_NPC(JOEY, 2, 3, 5, 6),    DEMO_NPC(LOBO, 2, 3, 4, 12),   DEMO_NPC(CARRIE, 3, 5, 11, 5),

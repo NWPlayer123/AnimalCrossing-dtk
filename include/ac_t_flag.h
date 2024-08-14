@@ -11,16 +11,18 @@ extern "C" {
 
 extern ACTOR_PROFILE T_Flag_Profile;
 
-typedef struct t_flag_s {
+typedef struct t_flag_s{
     TOOLS_ACTOR tools_class;
     s16 angle;
     s16 addendedang;
     int unk1D0;
     xyz_t work;
-} FLAG_ACTOR;
+}FLAG_ACTOR;
+
 
 #ifdef __cplusplus
 }
 #endif
 
 #endif
+

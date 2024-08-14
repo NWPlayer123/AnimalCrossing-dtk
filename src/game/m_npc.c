@@ -362,6 +362,8 @@ extern void mNpc_CopyAnimalMemory(Anmmem_c* dst, Anmmem_c* src) {
 */
 
 extern void mNpc_AddFriendship(Anmmem_c* memory, int amount) {
+    int friendship = memory->friendship + amount;
+
 /* @BUG - devs checked for memory being NULL *after* deferencing it */
 #ifdef BUGFIXES
     if (memory == NULL) {
@@ -369,7 +371,6 @@ extern void mNpc_AddFriendship(Anmmem_c* memory, int amount) {
     }
 #endif
 
-    int friendship = memory->friendship + amount;
 
 #ifndef BUGFIXES
     if (memory == NULL) {
@@ -1500,11 +1501,11 @@ static void mNpc_SetRemailFreeString(PersonalID_c* pid, AnmPersonalID_c* anm_id,
 
 static void mNpc_GetRemailGoodData(Mail_c* mail, PersonalID_c* pid, AnmPersonalID_c* anm_id, Anmremail_c* remail,
                                    u8 foreign) {
-    static int start_no[mNpc_LOOKS_NUM] = { 0x020, 0x040, 0x000, 0x060, 0x080, 0x0A0 };
+    static int this_start_no[mNpc_LOOKS_NUM] = { 0x020, 0x040, 0x000, 0x060, 0x080, 0x0A0 };
 
     static int ohter_start_no[mNpc_LOOKS_NUM] = { 0x0E0, 0x100, 0x0C0, 0x120, 0x140, 0x160 };
 
-    static int* start_no_table[2] = { start_no, ohter_start_no };
+    static int* start_no_table[2] = { this_start_no, ohter_start_no };
 
     mActor_name_t present = EMPTY_NO;
     int msg_no;
@@ -2703,21 +2704,21 @@ static void mNpc_DestroyHouse(Anmhome_c* home) {
 }
 
 static void mNpc_SetNpcHome(Animal_c* animal, Anmhome_c* reserved, u8 reserved_num) {
-    static int fake_table[60];
+    static int fakeTable[60];
 
     Anmhome_c* home;
-    int* fake_table_p = fake_table;
+    int* fake_table_p = fakeTable;
     int n = 0;
     int i;
     int idx;
 
-    if (reserved_num > ARRAY_COUNT(fake_table)) {
-        reserved_num = ARRAY_COUNT(fake_table);
+    if (reserved_num > ARRAY_COUNT(fakeTable)) {
+        reserved_num = ARRAY_COUNT(fakeTable);
     }
 
     if (reserved_num > 0) {
-        bzero(fake_table_p, sizeof(fake_table));
-        mNpc_MakeRandTable(fake_table_p, reserved_num, ARRAY_COUNT(fake_table) / 2);
+        bzero(fake_table_p, sizeof(fakeTable));
+        mNpc_MakeRandTable(fake_table_p, reserved_num, ARRAY_COUNT(fakeTable) / 2);
 
         for (i = 0; i < ANIMAL_NUM_MAX; i++) {
             if (ITEM_NAME_GET_TYPE(animal->id.npc_id) == NAME_TYPE_NPC && animal->home_info.block_x == 0xFF &&

@@ -101,7 +101,7 @@ static void aGOZ_actor_ct(ACTOR* actor, GAME* game) {
     goza->arg1 = (actor->npc_id - SAKURA_TABLE0) & 1;
 
     aGOZ_setup_action(goza, aGOZ_UNKNOWN);
-
+    
     aGOZ_set_bgOffset(goza, 1);
 }
 

@@ -11,15 +11,15 @@ static void aECST_actor_save(ACTOR* actorx, GAME* game);
 
 ACTOR_PROFILE Ev_Castaway_Profile = {
     mAc_PROFILE_EV_CASTAWAY,
-                                      ACTOR_PART_NPC,
-                                      ACTOR_STATE_CAN_MOVE_IN_DEMO_SCENES | ACTOR_STATE_NO_MOVE_WHILE_CULLED,
-                                      EMPTY_NO,
-                                      ACTOR_OBJ_BANK_KEEP,
-                                      sizeof(EV_CASTAWAY_ACTOR),
-                                      &aECST_actor_ct,
-                                      &aECST_actor_dt,
-                                      &aECST_actor_init,
-                                      mActor_NONE_PROC1,
+    ACTOR_PART_NPC,
+    ACTOR_STATE_CAN_MOVE_IN_DEMO_SCENES | ACTOR_STATE_NO_MOVE_WHILE_CULLED,
+    EMPTY_NO,
+    ACTOR_OBJ_BANK_KEEP,
+    sizeof(EV_CASTAWAY_ACTOR),
+    &aECST_actor_ct,
+    &aECST_actor_dt,
+    &aECST_actor_init,
+    mActor_NONE_PROC1,
     &aECST_actor_save,
 };
 
@@ -69,9 +69,9 @@ static void aECST_schedule_main_proc(NPC_ACTOR* actorx, GAME_PLAY* play) {
 }
 
 static void aECST_schedule_proc(NPC_ACTOR* actorx, GAME_PLAY* play, int type) {
-    static aNPC_SUB_PROC sched_proc[2] = { (aNPC_SUB_PROC)&none_proc1, aECST_schedule_main_proc };
+    static aNPC_SUB_PROC sche_proc[2] = { (aNPC_SUB_PROC)&none_proc1, aECST_schedule_main_proc };
 
-    (*sched_proc[type])(actorx, play);
+    (*sche_proc[type])(actorx, play);
 }
 
 static void aECST_actor_move(ACTOR* actorx, GAME* game) {

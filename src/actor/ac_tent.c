@@ -21,13 +21,13 @@ ACTOR_PROFILE Tent_Profile = {
 extern Vtx obj_s_tent_shadow_v[];
 extern Gfx obj_s_tent_shadow_modelT[];
 
-u8 aTNT_shadow_vtx_fix_flg_table[] = {
+u8 aTnt_shadow_vtx_fix_flg_table[] = {
     FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, TRUE,  TRUE, FALSE, TRUE,  TRUE,  FALSE, FALSE, TRUE,
     TRUE,  FALSE, FALSE, TRUE,  TRUE,  FALSE, FALSE, TRUE, TRUE,  FALSE, FALSE, TRUE,  TRUE,  FALSE,
 };
 
 bIT_ShadowData_c aTnt_shadow_data = {
-    28, aTNT_shadow_vtx_fix_flg_table, 60.0f, obj_s_tent_shadow_v, obj_s_tent_shadow_modelT,
+    28, aTnt_shadow_vtx_fix_flg_table, 60.0f, obj_s_tent_shadow_v, obj_s_tent_shadow_modelT,
 };
 
 Door_data_c aTnt_tent_enter_data = {

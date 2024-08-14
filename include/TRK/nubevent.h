@@ -6,13 +6,14 @@
 extern "C" {
 #endif
 
-typedef struct TRKEventQueue {
-    int unk0;
+typedef struct TRKEventQueue{
+    int unk0; 
     int mCurrEvtID;
     int mNextSlotToOverwrite;
     TRKEvent mEvents[2];
     u32 mMax;
-} TRKEventQueue;
+}TRKEventQueue;
+
 
 TRKResult TRKInitializeEventQueue();
 BOOL TRKGetNextEvent(TRKEvent*);

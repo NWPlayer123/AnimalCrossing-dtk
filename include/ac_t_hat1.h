@@ -13,14 +13,15 @@ extern ACTOR_PROFILE T_Hat1_Profile;
 
 typedef void (*HAT1_PROC)(ACTOR*);
 
-typedef struct t_hat1_s {
+typedef struct t_hat1_s{
     TOOLS_ACTOR tools_class;
-    HAT1_PROC proc;
+    HAT1_PROC proc; 
     int current_id;
-} HAT1_ACTOR;
+}HAT1_ACTOR;
 
 #ifdef __cplusplus
 }
 #endif
 
 #endif
+

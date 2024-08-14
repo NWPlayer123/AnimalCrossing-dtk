@@ -82,7 +82,7 @@ static f32 calc_scale_Ef_Room_Sunshine_Posthouse(int flag, int sec) {
     }
 }
 
-static int calc_alpha_Ef_Room_SunshinePosthouse() {
+static int calc_alpha_Ef_Room_Sunshine_Posthouse() {
     f32 ret;
     int sec;
 
@@ -156,7 +156,7 @@ static void setup_mode_Ef_Room_Sunshine_Posthouse(ACTOR* actor, GAME_PLAY* play)
         color = play->kankyo.base_light.moon_color_window;
     }
 
-    calc = ((u8)calc_alpha_Ef_Room_SunshinePosthouse() * mKK_windowlight_alpha_get());
+    calc = ((u8)calc_alpha_Ef_Room_Sunshine_Posthouse() * mKK_windowlight_alpha_get());
 
     gDPSetPrimColor(NEXT_POLY_XLU_DISP, 0, calc, color[0], color[1], color[2], 255);
     CLOSE_DISP(graph);

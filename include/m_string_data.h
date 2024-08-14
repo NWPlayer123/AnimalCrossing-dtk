@@ -19,6 +19,7 @@ extern "C" {
 #define mString_HANIWA_MSG2 0x76C
 #define mString_HANIWA_MSG3 0x76D
 
+
 #ifdef __cplusplus
 }
 #endif

@@ -12,7 +12,7 @@ Sections:
 	.sbss       type:bss align:16
 	.sdata2     type:rodata align:4
 
-os.a/__start.c:
+dolphin/os/__start.c:
 	.init       start:0x80003100 end:0x80003354
 
 boot.o:
@@ -37,38 +37,46 @@ initial_menu.o:
 	.data       start:0x800B0608 end:0x800B0A60
 	.bss        start:0x800E2640 end:0x800E2790
 
-dvderr.c:
+dvderr.o:
 	.text       start:0x80007E58 end:0x800083F8
 	.rodata     start:0x800A97F8 end:0x800A9838
 	.data       start:0x800B0A60 end:0x800B9140
 	.bss        start:0x800E2790 end:0x800E2B88
+
+bootdata/gam_win1.c:
+	.data       start:0x800B9140 end:0x800BB500
+
+bootdata/gam_win2.c:
+	.data       start:0x800BB500 end:0x800BD820
+
+bootdata/gam_win3.c:
+	.data       start:0x800BD820 end:0x800BE460
+
+bootdata/logo_nin.c:
+	.data       start:0x800BE460 end:0x800C3140
 
 bootdata.obj:
 	.text       start:0x800083F8 end:0x800083F8
 	.text       start:0x800083F8 end:0x800083F8
 	.text       start:0x800083F8 end:0x800083F8
 	.text       start:0x800083F8 end:0x800083F8
-	.data       start:0x800B9140 end:0x800BB500
-	.data       start:0x800BB500 end:0x800BD820
-	.data       start:0x800BD820 end:0x800BE460
-	.data       start:0x800BE460 end:0x800C3140
 
 nintendo_hi_0.o:
 	.text       start:0x800083F8 end:0x800083F8
 	.data       start:0x800C3140 end:0x800CCA40
 
-jaudio_NES.o/dummyprobe.c:
+jaudio_NES/game/dummyprobe.c:
 	.text       start:0x800083F8 end:0x80008400
 
-jaudio_NES.o/audioheaders.c:
+jaudio_NES/game/audioheaders.c:
 	.text       start:0x80008400 end:0x80008400
 	.data       start:0x800CCA40 end:0x800CE880
 
-jaudio_NES.o/verysimple.c:
+jaudio_NES/game/verysimple.c:
 	.text       start:0x80008400 end:0x80008480
 	.sdata      start:0x80217B80 end:0x80217B88
 
-jaudio_NES.o/emusound.c:
+jaudio_NES/game/emusound.c:
 	.text       start:0x80008480 end:0x8000BAF0
 	.data       start:0x800CE880 end:0x800CED40
 	.bss        start:0x800E2B88 end:0x800EB640
@@ -76,7 +84,7 @@ jaudio_NES.o/emusound.c:
 	.sbss       start:0x80218280 end:0x802182E8
 	.sdata2     start:0x80218BE0 end:0x80218C60
 
-jaudio_NES.o/game64.c:
+jaudio_NES/game/game64.c:
 	.text       start:0x8000BAF0 end:0x8000BB84
 	.text       start:0x8000BB84 end:0x8000BD0C
 	.text       start:0x8000BD0C end:0x8001561C
@@ -87,29 +95,29 @@ jaudio_NES.o/game64.c:
 	.sbss       start:0x802182E8 end:0x80218390
 	.sdata2     start:0x80218C60 end:0x80218D58
 
-jaudio_NES.o/melody.c:
+jaudio_NES/game/melody.c:
 	.text       start:0x8001561C end:0x80015A4C
 	.rodata     start:0x800A9B98 end:0x800AA500
 	.sbss       start:0x80218390 end:0x802183A0
 	.sdata2     start:0x80218D58 end:0x80218D60
 
-jaudio_NES.o/rhythm.c:
+jaudio_NES/game/rhythm.c:
 	.text       start:0x80015A4C end:0x800165EC
 	.bss        start:0x8017BDD8 end:0x8017BE80
 	.sdata      start:0x80217BD0 end:0x80217BD8
 	.sbss       start:0x802183A0 end:0x802183B0
 	.sdata2     start:0x80218D60 end:0x80218D78
 
-jaudio_NES.o/radio.c:
+jaudio_NES/game/radio.c:
 	.text       start:0x800165EC end:0x8001676C
 	.sdata2     start:0x80218D78 end:0x80218D88
 
-jaudio_NES.o/kappa.c:
+jaudio_NES/game/kappa.c:
 	.text       start:0x8001676C end:0x80016840
 	.sbss       start:0x802183B0 end:0x802183B8
 	.sdata2     start:0x80218D88 end:0x80218D98
 
-jaudio_NES.o/staff.c:
+jaudio_NES/game/staff.c:
 	.text       start:0x80016840 end:0x80016D20
 	.data       start:0x800CFE10 end:0x800CFF20
 	.sbss       start:0x802183B8 end:0x802183C8
@@ -123,23 +131,23 @@ jaudio_NES.o/rspsim.c:
 	.sbss       start:0x802183C8 end:0x802183F0
 	.sdata2     start:0x80218DA0 end:0x80218DA8
 
-jaudio_NES.o/aictrl.c:
+jaudio_NES/internal/aictrl.c:
 	.text       start:0x80017E80 end:0x80018640
 	.rodata     start:0x800AA500 end:0x800AA518
 	.bss        start:0x8017CFA0 end:0x8017CFC0
 	.sbss       start:0x802183F0 end:0x80218420
 	.sdata2     start:0x80218DA8 end:0x80218DB8
 
-jaudio_NES.o/sample.c:
+jaudio_NES/internal/sample.c:
 	.text       start:0x80018640 end:0x80018920
 
-jaudio_NES.o/dummyrom.c:
+jaudio_NES/internal/dummyrom.c:
 	.text       start:0x80018920 end:0x80018BC0
 	.rodata     start:0x800AA518 end:0x800AA528
 	.bss        start:0x8020D78C end:0x8020D7A0 align:4 common
 	.sbss       start:0x80218420 end:0x80218440
 
-jaudio_NES.o/audiothread.c:
+jaudio_NES/internal/audiothread.c:
 	.text       start:0x80018BC0 end:0x800190E0
 	.rodata     start:0x800AA528 end:0x800AA538
 	.bss        start:0x8017CFC0 end:0x80180020
@@ -147,35 +155,35 @@ jaudio_NES.o/audiothread.c:
 	.sbss       start:0x80218440 end:0x80218460
 	.sdata2     start:0x80218DB8 end:0x80218DC0
 
-jaudio_NES.o/neosthread.c:
+jaudio_NES/internal/neosthread.c:
 	.text       start:0x800190E0 end:0x80019380
 	.rodata     start:0x800AA538 end:0x800AA558
 	.bss        start:0x80180020 end:0x80186440
 	.sdata      start:0x80217BE0 end:0x80217BE8
 	.sbss       start:0x80218460 end:0x80218478
 
-jaudio_NES.o/streamctrl.c:
+jaudio_NES/internal/streamctrl.c:
 	.text       start:0x80019380 end:0x80019760
 	.data       start:0x800D01A8 end:0x800D0278
 	.bss        start:0x80186440 end:0x801864B0
 	.sdata2     start:0x80218DC0 end:0x80218DD0
 
-jaudio_NES.o/dspbuf.c:
+jaudio_NES/internal/dspbuf.c:
 	.text       start:0x80019760 end:0x80019AE0
 	.rodata     start:0x800AA558 end:0x800AA570
 	.bss        start:0x801864B0 end:0x801864C0
 	.sbss       start:0x80218478 end:0x80218488
 
-jaudio_NES.o/cpubuf.c:
+jaudio_NES/internal/cpubuf.c:
 	.text       start:0x80019AE0 end:0x80019DC0
 	.bss        start:0x801864C0 end:0x801864D0
 	.sbss       start:0x80218488 end:0x80218498
 
-jaudio_NES.o/playercall.c:
+jaudio_NES/internal/playercall.c:
 	.text       start:0x80019DC0 end:0x8001A0C0
 	.bss        start:0x801864D0 end:0x80186590
 
-jaudio_NES.o/dvdthread.c:
+jaudio_NES/internal/dvdthread.c:
 	.text       start:0x8001A0C0 end:0x8001ADA0
 	.data       start:0x800D0278 end:0x800D0298
 	.bss        start:0x80186590 end:0x8018F1A8
@@ -208,7 +216,7 @@ jaudio_NES.o/system.c:
 	.sbss       start:0x80218500 end:0x80218510
 	.sdata2     start:0x80218E38 end:0x80218E48
 
-jaudio_NES.o/sub_sys.c:
+jaudio_NES/internal/sub_sys.c:
 	.text       start:0x80024AE0 end:0x80026120
 	.rodata     start:0x800AA700 end:0x800AA720
 	.data       start:0x800D0300 end:0x800D0390
@@ -225,10 +233,10 @@ jaudio_NES.o/audiotable.c:
 jaudio_NES.o/audioconst.c:
 	.data       start:0x800D3668 end:0x800D36C8
 
-jaudio_NES.o/os.c:
+jaudio_NES/internal/os.c:
 	.text       start:0x80026120 end:0x80026300
 
-jaudio_NES.o/astest.c:
+jaudio_NES/internal/astest.c:
 	.text       start:0x80026300 end:0x80026400
 
 jaudio_NES.o/channel.c:
@@ -241,20 +249,20 @@ jaudio_NES.o/effect.c:
 	.sdata      start:0x80217C10 end:0x80217C18
 	.sdata2     start:0x80218E98 end:0x80218EC8
 
-jaudio_NES.o/track.c:
+jaudio_NES/internal/track.c:
 	.text       start:0x80028E60 end:0x8002C920
 	.rodata     start:0x800AA720 end:0x800AA780
 	.data       start:0x800D36F0 end:0x800D3B00
 	.sbss       start:0x80218540 end:0x80218548
 	.sdata2     start:0x80218EC8 end:0x80218F08
 
-jaudio_NES.o/dspboot.c:
+jaudio_NES/internal/dspboot.c:
 	.text       start:0x8002C920 end:0x8002CD20
 	.rodata     start:0x800AA780 end:0x800AA7A0
 	.data       start:0x800D3B00 end:0x800D5500
 	.sdata2     start:0x80218F08 end:0x80218F10
 
-jaudio_NES.o/dspproc.c:
+jaudio_NES/internal/dspproc.c:
 	.text       start:0x8002CD20 end:0x8002CFE0
 	.sdata      start:0x80217C18 end:0x80217C20
 
@@ -317,7 +325,7 @@ jaudio_NES.o/bankdrv.c:
 	.data       start:0x800D5C38 end:0x800D5C48
 	.sdata2     start:0x80218F38 end:0x80218F60
 
-jaudio_NES.o/random.c:
+jaudio_NES/internal/random.c:
 	.text       start:0x80031CE0 end:0x80031D80
 	.sdata      start:0x80217C38 end:0x80217C40
 	.sdata2     start:0x80218F60 end:0x80218F70
@@ -399,11 +407,13 @@ Famicom/famicom.cpp:
 	.text       start:0x80041614 end:0x80046770
 	.text       start:0x80046770 end:0x80046840
 	.text       start:0x80046840 end:0x80046888
-	.text       start:0x80046888 end:0x800468A0
-	.text       start:0x800468A0 end:0x800468FC
 	.rodata     start:0x800AA9A8 end:0x800AAA30
 	.data       start:0x800D8778 end:0x800D99A0
 	.bss        start:0x801EF540 end:0x801F6BD8
+
+Famicom.a/famicom_weak.o:
+	.text       start:0x80046888 end:0x800468A0
+	.text       start:0x800468A0 end:0x800468FC
 
 Famicom/famicom_nesinfo.cpp:
 	.text       start:0x800468FC end:0x80047E40
@@ -411,34 +421,34 @@ Famicom/famicom_nesinfo.cpp:
 	.data       start:0x800D99A0 end:0x800DA9C8
 	.bss        start:0x801F6BD8 end:0x801F6C80
 
-gba.a/GBA.c:
+gba/GBA.c:
 	.text       start:0x80047E40 end:0x80048130
 	.data       start:0x800DA9C8 end:0x800DA9D8
 	.bss        start:0x801F6C80 end:0x801F7180
 	.sbss       start:0x802185B0 end:0x802185B8
 
-gba.a/GBAGetProcessStatus.c:
+gba/GBAGetProcessStatus.c:
 	.text       start:0x80048130 end:0x800482A4
 
-gba.a/GBAJoyBoot.c:
+gba/GBAJoyBoot.c:
 	.text       start:0x800482A4 end:0x80049168
 	.data       start:0x800DA9D8 end:0x800DAA08
 
-gba.a/GBARead.c:
+gba/GBARead.c:
 	.text       start:0x80049168 end:0x800492C8
 
-gba.a/GBAWrite.c:
+gba/GBAWrite.c:
 	.text       start:0x800492C8 end:0x80049450
 
-gba.a/GBAXfer.c:
+gba/GBAXfer.c:
 	.text       start:0x80049450 end:0x80049788
 
-gba2.a/JoyBoot.c:
+gba2/JoyBoot.c:
 	.text       start:0x80049788 end:0x8004AE00
 	.data       start:0x800DAA08 end:0x800DAAA0
 	.bss        start:0x801F7180 end:0x801F71C0
 
-libforest.a/emu64.c:
+libforest/emu64/emu64.cc:
 	.text       start:0x8004AE00 end:0x800595CC
 	.text       start:0x800595CC end:0x800595CC
 	.text       start:0x800595CC end:0x8005A654
@@ -510,7 +520,7 @@ libc64/malloc.c:
 	.text       start:0x8005CF08 end:0x8005D01C
 	.bss        start:0x80206F30 end:0x80206F60
 
-libultra.a/ultra.c:
+libultra/ultra.c:
 	.text       start:0x8005D01C end:0x8005D15C
 	.bss        start:0x80206F60 end:0x80206FA0
 
@@ -521,19 +531,19 @@ libultra.a/lookat.c:
 	.text       start:0x8005D184 end:0x8005D52C
 	.sdata2     start:0x80219138 end:0x80219158
 
-libultra.a/lookathil.c:
+libultra/gu/lookathil.c:
 	.text       start:0x8005D52C end:0x8005DEF8
 	.sdata2     start:0x80219158 end:0x80219198
 
-libultra.a/mtxutil.c:
+libultra/gu/mtxutil.c:
 	.text       start:0x8005DEF8 end:0x8005E15C
 	.sdata2     start:0x80219198 end:0x802191A8
 
-libultra.a/normalize.c:
+libultra/gu/normalize.c:
 	.text       start:0x8005E15C end:0x8005E218
 	.sdata2     start:0x802191A8 end:0x802191C8
 
-libultra.a/ortho.c:
+libultra/gu/ortho.c:
 	.text       start:0x8005E218 end:0x8005E414
 	.sdata2     start:0x802191C8 end:0x802191D8
 
@@ -546,28 +556,28 @@ libultra.a/rotate.c:
 	.sdata      start:0x80217DF0 end:0x80217DF8
 	.sdata2     start:0x80219200 end:0x80219208
 
-libultra.a/scale.c:
+libultra/gu/scale.c:
 	.text       start:0x8005E7D4 end:0x8005E860
 	.sdata2     start:0x80219208 end:0x80219210
 
-libultra.a/sins.c:
+libultra/gu/sins.c:
 	.text       start:0x8005E860 end:0x8005E8AC
 	.data       start:0x800DD360 end:0x800DDB60
 
-libultra.a/translate.c:
+libultra/gu/translate.c:
 	.text       start:0x8005E8AC end:0x8005E918
 
-libultra.a/xldtob.c:
+libultra/xldtob.c:
 	.text       start:0x8005E918 end:0x8005F2A0
 	.rodata     start:0x800AB110 end:0x800AB158
 	.sdata      start:0x80217DF8 end:0x80217E08
 	.sdata2     start:0x80219210 end:0x80219230
 
-libultra.a/xlitob.c:
+libultra/xlitob.c:
 	.text       start:0x8005F2A0 end:0x8005F4CC
 	.data       start:0x800DDB60 end:0x800DDB88
 
-libultra.a/xprintf.c:
+libultra/xprintf.c:
 	.text       start:0x8005F4CC end:0x8005FF74
 	.rodata     start:0x800AB158 end:0x800AB170
 	.data       start:0x800DDB88 end:0x800DDD20
@@ -590,7 +600,7 @@ libultra.a/gettime.c:
 	.text       start:0x80060060 end:0x80060090
 	.sbss       start:0x80218648 end:0x80218650
 
-libultra.a/initialize.c:
+libultra/initialize.c:
 	.text       start:0x80060090 end:0x8006011C
 	.sdata      start:0x80217E10 end:0x80217E18
 	.sbss       start:0x80218650 end:0x80218678
@@ -625,7 +635,7 @@ libultra.a/timerintr.c:
 libultra.a/contquery.c:
 	.text       start:0x800605D4 end:0x80060628
 
-libultra.a/contreaddata.c:
+libultra/contreaddata.c:
 	.text       start:0x80060628 end:0x80060C28
 	.sbss       start:0x80218678 end:0x80218688
 
@@ -664,14 +674,14 @@ JFramework.a/JFWDisplay.cpp:
 	.sbss       start:0x802186B0 end:0x802186D8
 	.sdata2     start:0x80219258 end:0x80219278
 
-JKernel.a/JKRHeap.cpp:
+JSystem/JKernel/JKRHeap.cpp:
 	.text       start:0x80063748 end:0x80064018
 	.text       start:0x80064018 end:0x80064028
 	.data       start:0x800DDF20 end:0x800DDF98
 	.sdata      start:0x80217E58 end:0x80217E80
 	.sbss       start:0x802186D8 end:0x80218700
 
-JKernel.a/JKRExpHeap.cpp:
+JSystem/JKernel/JKRExpHeap.cpp:
 	.text       start:0x80064028 end:0x80065A8C
 	.text       start:0x80065A8C end:0x80065AA0
 	.data       start:0x800DDF98 end:0x800DE3A8
@@ -679,12 +689,12 @@ JKernel.a/JKRExpHeap.cpp:
 	.sbss       start:0x80218700 end:0x80218720
 	.sdata2     start:0x80219278 end:0x80219288
 
-JKernel.a/JKRDisposer.cpp:
+JSystem/JKernel/JKRDisposer.cpp:
 	.text       start:0x80065AA0 end:0x80065B8C
 	.data       start:0x800DE3A8 end:0x800DE3C0
 	.sdata      start:0x80217EC0 end:0x80217EC8
 
-JKernel.a/JKRThread.cpp:
+JSystem/JKernel/JKRThread.cpp:
 	.text       start:0x80065B8C end:0x80065EF0
 	.text       start:0x80065EF0 end:0x80065EF8
 	.ctors      start:0x800A978C end:0x800A9790
@@ -692,7 +702,7 @@ JKernel.a/JKRThread.cpp:
 	.bss        start:0x80207008 end:0x80207020
 	.sdata      start:0x80217EC8 end:0x80217ED8
 
-JKernel.a/JKRAram.cpp:
+JSystem/JKernel/JKRAram.cpp:
 	.text       start:0x80065EF8 end:0x80066E84
 	.ctors      start:0x800A9790 end:0x800A9794
 	.data       start:0x800DE3F8 end:0x800DE4C0
@@ -700,33 +710,33 @@ JKernel.a/JKRAram.cpp:
 	.sdata      start:0x80217ED8 end:0x80217EF8
 	.sbss       start:0x80218720 end:0x80218758
 
-JKernel.a/JKRAramHeap.cpp:
+JSystem/JKernel/JKRAramHeap.cpp:
 	.text       start:0x80066E84 end:0x80067258
 	.ctors      start:0x800A9794 end:0x800A9798
 	.data       start:0x800DE4C0 end:0x800DE4F0
 	.bss        start:0x80207038 end:0x80207050
 	.sdata      start:0x80217EF8 end:0x80217F08
 
-JKernel.a/JKRAramBlock.cpp:
+JSystem/JKernel/JKRAramBlock.cpp:
 	.text       start:0x80067258 end:0x800674C8
 	.data       start:0x800DE4F0 end:0x800DE510
 	.sdata      start:0x80217F08 end:0x80217F10
 
-JKernel.a/JKRAramPiece.cpp:
+JSystem/JKernel/JKRAramPiece.cpp:
 	.text       start:0x800674C8 end:0x80067A88
 	.ctors      start:0x800A9798 end:0x800A979C
 	.data       start:0x800DE510 end:0x800DE568
 	.bss        start:0x80207050 end:0x80207080
 	.sdata      start:0x80217F10 end:0x80217F18
 
-JKernel.a/JKRAramStream.cpp:
+JSystem/JKernel/JKRAramStream.cpp:
 	.text       start:0x80067A88 end:0x80067F98
 	.text       start:0x80067F98 end:0x80067FF4
 	.data       start:0x800DE568 end:0x800DE608
 	.sdata      start:0x80217F18 end:0x80217F38
 	.sbss       start:0x80218758 end:0x80218768
 
-JKernel.a/JKRFileLoader.cpp:
+JSystem/JKernel/JKRFileLoader.cpp:
 	.text       start:0x80067FF4 end:0x800685B0
 	.ctors      start:0x800A979C end:0x800A97A0
 	.data       start:0x800DE608 end:0x800DE670
@@ -734,45 +744,45 @@ JKernel.a/JKRFileLoader.cpp:
 	.sdata      start:0x80217F38 end:0x80217F50
 	.sbss       start:0x80218768 end:0x80218770
 
-JKernel.a/JKRFileFinder.cpp:
+JSystem/JKernel/JKRFileFinder.cpp:
 	.text       start:0x800685B0 end:0x800686E8
 	.text       start:0x800686E8 end:0x80068744
 	.data       start:0x800DE670 end:0x800DE6B0
 	.sdata      start:0x80217F50 end:0x80217F60
 
-JKernel.a/JKRArchivePub.cpp:
+JSystem/JKernel/JKRArchivePub.cpp:
 	.text       start:0x80068744 end:0x80068ED0
 	.data       start:0x800DE6B0 end:0x800DE740
 	.sdata      start:0x80217F60 end:0x80217F78
 
-JKernel.a/JKRArchivePri.cpp:
+JSystem/JKernel/JKRArchivePri.cpp:
 	.text       start:0x80068ED0 end:0x80069530
 	.sbss       start:0x80218770 end:0x80218778
 
-JKernel.a/JKRMemArchive.cpp:
+JSystem/JKernel/JKRMemArchive.cpp:
 	.text       start:0x80069530 end:0x80069A28
 	.data       start:0x800DE740 end:0x800DE828
 	.sdata      start:0x80217F78 end:0x80217F98
 
-JKernel.a/JKRAramArchive.cpp:
+JSystem/JKernel/JKRAramArchive.cpp:
 	.text       start:0x80069A28 end:0x8006A49C
 	.text       start:0x8006A49C end:0x8006A4FC
 	.data       start:0x800DE828 end:0x800DE938
 	.sdata      start:0x80217F98 end:0x80217FC8
 
-JKernel.a/JKRDvdArchive.cpp:
+JSystem/JKernel/JKRDvdArchive.cpp:
 	.text       start:0x8006A4FC end:0x8006ADD0
 	.text       start:0x8006ADD0 end:0x8006ADD0
 	.data       start:0x800DE938 end:0x800DEA70
 	.sdata      start:0x80217FC8 end:0x80217FE8
 
-JKernel.a/JKRCompArchive.cpp:
+JSystem/JKernel/JKRCompArchive.cpp:
 	.text       start:0x8006ADD0 end:0x8006B8A4
 	.text       start:0x8006B8A4 end:0x8006B8A4
 	.data       start:0x800DEA70 end:0x800DEBA8
 	.sdata      start:0x80217FE8 end:0x80218008
 
-JKernel.a/JKRDvdFile.cpp:
+JSystem/JKernel/JKRDvdFile.cpp:
 	.text       start:0x8006B8A4 end:0x8006BD6C
 	.text       start:0x8006BD6C end:0x8006BD6C
 	.text       start:0x8006BD6C end:0x8006BE0C
@@ -781,7 +791,7 @@ JKernel.a/JKRDvdFile.cpp:
 	.bss        start:0x80207098 end:0x802070B0
 	.sdata      start:0x80218008 end:0x80218028
 
-JKernel.a/JKRDvdRipper.cpp:
+JSystem/JKernel/JKRDvdRipper.cpp:
 	.text       start:0x8006BE0C end:0x8006C85C
 	.text       start:0x8006C85C end:0x8006C85C
 	.text       start:0x8006C85C end:0x8006C8FC
@@ -791,7 +801,7 @@ JKernel.a/JKRDvdRipper.cpp:
 	.sdata      start:0x80218028 end:0x80218030
 	.sbss       start:0x80218778 end:0x802187A8
 
-JKernel.a/JKRDvdAramRipper.cpp:
+JSystem/JKernel/JKRDvdAramRipper.cpp:
 	.text       start:0x8006C8FC end:0x8006D608
 	.text       start:0x8006D608 end:0x8006D608
 	.text       start:0x8006D608 end:0x8006D608
@@ -800,23 +810,23 @@ JKernel.a/JKRDvdAramRipper.cpp:
 	.sdata      start:0x80218030 end:0x80218038
 	.sbss       start:0x802187A8 end:0x802187E8
 
-JKernel.a/JKRDecomp.cpp:
+JSystem/JKernel/JKRDecomp.cpp:
 	.text       start:0x8006D608 end:0x8006DD58
 	.data       start:0x800DEC90 end:0x800DED18
 	.sdata      start:0x80218038 end:0x80218050
 	.sbss       start:0x802187E8 end:0x802187F0
 
-JSupport.a/JSUList.cpp:
+JSystem/JSupport/JSUList.cpp:
 	.text       start:0x8006DD58 end:0x8006E168
 
-JSupport.a/JSUInputStream.cpp:
+JSystem/JSupport/JSUInputStream.cpp:
 	.text       start:0x8006E168 end:0x8006E33C
 	.text       start:0x8006E33C end:0x8006E39C
 	.text       start:0x8006E39C end:0x8006E3E4
 	.data       start:0x800DED18 end:0x800DEDB8
 	.sdata      start:0x80218050 end:0x80218068
 
-JSupport.a/JSUFileStream.cpp:
+JSystem/JSupport/JSUFileStream.cpp:
 	.text       start:0x8006E3E4 end:0x8006E5CC
 	.text       start:0x8006E5CC end:0x8006E5CC
 	.text       start:0x8006E5CC end:0x8006E5CC
@@ -825,22 +835,22 @@ JSupport.a/JSUFileStream.cpp:
 	.data       start:0x800DEDB8 end:0x800DEE60
 	.sdata      start:0x80218068 end:0x80218088
 
-JGadget.a/linklist.cpp:
+JSystem/JGadget/linklist.cpp:
 	.text       start:0x8006E604 end:0x8006E800
 
-JUtility.a/JUTGraphFifo.cpp:
+JSystem/JUtility/JUTGraphFifo.cpp:
 	.text       start:0x8006E800 end:0x8006E9A0
 	.data       start:0x800DEE60 end:0x800DEE80
 	.sdata      start:0x80218088 end:0x80218090
 	.sbss       start:0x802187F0 end:0x80218800
 
-JUtility.a/JUTFont.cpp:
+JSystem/JUtility/JUTFont.cpp:
 	.text       start:0x8006E9A0 end:0x8006EBBC
 	.text       start:0x8006EBBC end:0x8006EC88
 	.data       start:0x800DEE80 end:0x800DEEC8
 	.sdata      start:0x80218090 end:0x802180A0
 
-JUtility.a/JUTResFont.cpp:
+JSystem/JUtility/JUTResFont.cpp:
 	.text       start:0x8006EC88 end:0x8006FDF0
 	.text       start:0x8006FDF0 end:0x8006FE30
 	.text       start:0x8006FE30 end:0x8006FE30
@@ -849,13 +859,13 @@ JUtility.a/JUTResFont.cpp:
 	.sdata      start:0x802180A0 end:0x802180B8
 	.sdata2     start:0x80219288 end:0x802192A0
 
-JUtility.a/JUTDbPrint.cpp:
+JSystem/JUtility/JUTDbPrint.cpp:
 	.text       start:0x8006FE30 end:0x80070274
 	.text       start:0x80070274 end:0x80070274
 	.sbss       start:0x80218800 end:0x80218808
 	.sdata2     start:0x802192A0 end:0x802192C0
 
-JUtility.a/JUTGamePad.cpp:
+JSystem/JUtility/JUTGamePad.cpp:
 	.text       start:0x80070274 end:0x80071228
 	.text       start:0x80071228 end:0x800713B0
 	.ctors      start:0x800A97AC end:0x800A97B0
@@ -866,10 +876,10 @@ JUtility.a/JUTGamePad.cpp:
 	.sbss       start:0x80218808 end:0x80218838
 	.sdata2     start:0x802192C0 end:0x80219300
 
-JUtility.a/JUTFontData_Ascfont_fix12.s: comment:0
+JSystem/JUtility/JUTFontData_Ascfont_fix12.s: comment:0
 	.rodata     start:0x800AB260 end:0x800AF3C0 align:32
 
-JUtility.a/JUTException.cpp:
+JSystem/JUtility/JUTException.cpp:
 	.text       start:0x800713B0 end:0x800730C8
 	.text       start:0x800730C8 end:0x800731C4
 	.ctors      start:0x800A97B0 end:0x800A97B4
@@ -879,30 +889,30 @@ JUtility.a/JUTException.cpp:
 	.sbss       start:0x80218838 end:0x80218858
 	.sdata2     start:0x80219300 end:0x80219310
 
-JUtility.a/JUTDirectPrint.cpp:
+JSystem/JUtility/JUTDirectPrint.cpp:
 	.text       start:0x800731C4 end:0x80073674
 	.data       start:0x800DF410 end:0x800DF6C8
 	.sdata      start:0x80218118 end:0x80218120
 	.sbss       start:0x80218858 end:0x80218860
 
-JUtility.a/JUTAssert.cpp:
+JSystem/JUtility/JUTAssert.cpp:
 	.text       start:0x80073674 end:0x80073908
 	.bss        start:0x80207298 end:0x80207340
 	.sdata      start:0x80218120 end:0x80218130
 	.sbss       start:0x80218860 end:0x80218868
 	.sdata2     start:0x80219310 end:0x80219328
 
-JUtility.a/JUTVideo.cpp:
+JSystem/JUtility/JUTVideo.cpp:
 	.text       start:0x80073908 end:0x80073E64
 	.data       start:0x800DF6C8 end:0x800DF6E0
 	.sdata      start:0x80218130 end:0x80218138
 	.sbss       start:0x80218868 end:0x80218880
 
-JUtility.a/JUTXfb.cpp:
+JSystem/JUtility/JUTXfb.cpp:
 	.text       start:0x80073E64 end:0x8007418C
 	.sbss       start:0x80218880 end:0x80218888
 
-JUtility.a/JUTFader.cpp:
+JSystem/JUtility/JUTFader.cpp:
 	.text       start:0x8007418C end:0x8007442C
 	.text       start:0x8007442C end:0x8007442C
 	.text       start:0x8007442C end:0x8007442C
@@ -910,14 +920,14 @@ JUtility.a/JUTFader.cpp:
 	.sdata      start:0x80218138 end:0x80218140
 	.sdata2     start:0x80219328 end:0x80219330
 
-JUtility.a/JUTProcBar.cpp:
+JSystem/JUtility/JUTProcBar.cpp:
 	.text       start:0x8007442C end:0x80075EE8
 	.text       start:0x80075EE8 end:0x80075EFC
 	.sdata      start:0x80218140 end:0x80218148
 	.sbss       start:0x80218888 end:0x802188A0
 	.sdata2     start:0x80219330 end:0x80219370
 
-JUtility.a/JUTConsole.cpp:
+JSystem/JUtility/JUTConsole.cpp:
 	.text       start:0x80075EFC end:0x80077294
 	.text       start:0x80077294 end:0x80077294
 	.data       start:0x800DF708 end:0x800DF730
@@ -925,7 +935,7 @@ JUtility.a/JUTConsole.cpp:
 	.sbss       start:0x802188A0 end:0x802188B0
 	.sdata2     start:0x80219370 end:0x802193A0
 
-JUtility.a/JUTDirectFile.cpp:
+JSystem/JUtility/JUTDirectFile.cpp:
 	.text       start:0x80077294 end:0x80077674
 
 J2DGraph.a/J2DGrafContext.cpp:
@@ -943,7 +953,7 @@ J2DGraph.a/J2DOrthoGraph.cpp:
 	.sdata      start:0x80218160 end:0x80218170
 	.sdata2     start:0x802193B8 end:0x802193C0
 
-base.a/PPCArch.c:
+dolphin/base/PPCArch.c:
 	.text       start:0x8007867C end:0x80078718
 
 os.a/OS.c:
@@ -952,7 +962,7 @@ os.a/OS.c:
 	.bss        start:0x80207340 end:0x80207390
 	.sbss       start:0x802188B0 end:0x802188E0
 
-os.a/OSAlarm.c:
+dolphin/os/OSAlarm.c:
 	.text       start:0x80079074 end:0x80079720
 	.sbss       start:0x802188E0 end:0x802188E8
 
@@ -961,24 +971,24 @@ os.a/OSAlloc.c:
 	.sdata      start:0x80218170 end:0x80218178
 	.sbss       start:0x802188E8 end:0x802188F8
 
-os.a/OSArena.c:
+dolphin/os/OSArena.c:
 	.text       start:0x8007988C end:0x800798AC
 	.sdata      start:0x80218178 end:0x80218180
 	.sbss       start:0x802188F8 end:0x80218900
 
-os.a/OSAudioSystem.c:
+dolphin/os/OSAudioSystem.c:
 	.text       start:0x800798AC end:0x80079B40
 	.data       start:0x800DF980 end:0x800DFA00
 
-os.a/OSCache.c:
+dolphin/os/OSCache.c:
 	.text       start:0x80079B40 end:0x8007A01C
 	.data       start:0x800DFA00 end:0x800DFC30
 
-os.a/OSContext.c:
+dolphin/os/OSContext.c:
 	.text       start:0x8007A01C end:0x8007A9B0
 	.data       start:0x800DFC30 end:0x800DFE08
 
-os.a/OSError.c:
+dolphin/os/OSError.c:
 	.text       start:0x8007A9B0 end:0x8007ABCC
 	.data       start:0x800DFE08 end:0x800E0128
 	.bss        start:0x80207390 end:0x802073E0
@@ -988,7 +998,7 @@ os.a/OSFont.c:
 	.text       start:0x8007ABCC end:0x8007AC24
 	.sdata      start:0x80218188 end:0x80218190
 
-os.a/OSInterrupt.c:
+dolphin/os/OSInterrupt.c:
 	.text       start:0x8007AC24 end:0x8007B490
 	.data       start:0x800E0128 end:0x800E0158
 	.sbss       start:0x80218900 end:0x80218918
@@ -1000,7 +1010,7 @@ os.a/OSLink.c:
 os.a/OSMessage.c:
 	.text       start:0x8007BC20 end:0x8007BEF8
 
-os.a/OSMemory.c:
+dolphin/os/OSMemory.c:
 	.text       start:0x8007BEF8 end:0x8007C2A8
 	.data       start:0x800E01A8 end:0x800E01B8
 
@@ -1020,7 +1030,7 @@ os.a/OSResetSW.c:
 	.text       start:0x8007CCA4 end:0x8007D050
 	.sbss       start:0x80218930 end:0x80218950
 
-os.a/OSRtc.c:
+dolphin/os/OSRtc.c:
 	.text       start:0x8007D050 end:0x8007DB20
 	.bss        start:0x80207400 end:0x80207458
 
@@ -1038,7 +1048,7 @@ os.a/OSTime.c:
 	.text       start:0x8007F6F8 end:0x8007FDFC
 	.data       start:0x800E09C8 end:0x800E0A28
 
-os.a/__ppc_eabi_init.cpp:
+dolphin/os/__ppc_eabi_init.cpp:
 	.init       start:0x80003354 end:0x800033A8
 	.text       start:0x8007FDFC end:0x8007FE90
 
@@ -1250,7 +1260,7 @@ gx.a/GXPixel.c:
 	.data       start:0x800E1838 end:0x800E1858
 	.sdata2     start:0x80219440 end:0x80219470
 
-gx.a/GXStubs.c:
+dolphin/gx/GXStubs.c:
 	.text       start:0x800998D4 end:0x800998D8
 
 gx.a/GXDisplayList.c:
@@ -1269,7 +1279,7 @@ gx.a/GXPerf.c:
 Runtime.PPCEABI.H.a/__va_arg.c:
 	.text       start:0x8009A9CC end:0x8009AA94
 
-Runtime.PPCEABI.H.a/global_destructor_chain.c:
+Runtime.PPCEABI.H/global_destructor_chain.c:
 	.text       start:0x8009AA94 end:0x8009AAF4
 	.dtors      start:0x800A97C8 end:0x800A97CC
 	.sbss       start:0x80218BA0 end:0x80218BA8
@@ -1289,7 +1299,7 @@ Runtime.PPCEABI.H.a/runtime.c:
 	.text       start:0x8009ADA4 end:0x8009B520
 	.rodata     start:0x800AF3C0 end:0x800AF3D8
 
-Runtime.PPCEABI.H.a/__init_cpp_exceptions.cpp:
+Runtime.PPCEABI.H/__init_cpp_exceptions.cpp:
 	.text       start:0x8009B520 end:0x8009B59C
 	.ctors      start:0x800A9780 end:0x800A9784
 	.dtors      start:0x800A97C0 end:0x800A97C8
@@ -1357,7 +1367,7 @@ MSL_C.PPCEABI.bare.H.a/printf.c:
 	.sdata      start:0x80218258 end:0x80218260
 	.sdata2     start:0x80219490 end:0x80219498
 
-MSL_C.PPCEABI.bare.H.a/rand.c:
+MSL_C.PPCEABI.bare.H/rand.c:
 	.text       start:0x8009F46C end:0x8009F494
 	.sdata      start:0x80218260 end:0x80218268
 
@@ -1444,14 +1454,14 @@ MSL_C.PPCEABI.bare.H.a/w_acos.c:
 MSL_C.PPCEABI.bare.H.a/w_atan2.c:
 	.text       start:0x800A1FD4 end:0x800A1FF4
 
-TRK_MINNOW_DOLPHIN.a/mainloop.c:
+TRK_MINNOW_DOLPHIN/mainloop.c:
 	.text       start:0x800A1FF4 end:0x800A20EC
 
-TRK_MINNOW_DOLPHIN.a/nubevent.c:
+TRK_MINNOW_DOLPHIN/nubevent.c:
 	.text       start:0x800A20EC end:0x800A2314
 	.bss        start:0x802095C8 end:0x802095F0
 
-TRK_MINNOW_DOLPHIN.a/nubinit.c:
+TRK_MINNOW_DOLPHIN/nubinit.c:
 	.text       start:0x800A2314 end:0x800A2494
 	.rodata     start:0x800AF750 end:0x800AF770
 	.bss        start:0x802095F0 end:0x802095F8
@@ -1468,10 +1478,10 @@ TRK_MINNOW_DOLPHIN.a/serpoll.c:
 	.text       start:0x800A309C end:0x800A3468
 	.bss        start:0x8020AFA8 end:0x8020AFC0
 
-TRK_MINNOW_DOLPHIN.a/usr_put.c:
+TRK_MINNOW_DOLPHIN/usr_put.c:
 	.text       start:0x800A3468 end:0x800A34F4
 
-TRK_MINNOW_DOLPHIN.a/dispatch.c:
+TRK_MINNOW_DOLPHIN/dispatch.c:
 	.text       start:0x800A34F4 end:0x800A3590
 	.data       start:0x800E2128 end:0x800E21B0
 	.bss        start:0x8020AFC0 end:0x8020AFC8
@@ -1493,10 +1503,10 @@ TRK_MINNOW_DOLPHIN.a/notify.c:
 TRK_MINNOW_DOLPHIN.a/flush_cache.c:
 	.text       start:0x800A67A0 end:0x800A67D8
 
-Runtime.PPCEABI.H.a/__mem.c:
+Runtime.PPCEABI.H/__mem.c:
 	.init       start:0x800033A8 end:0x800034E0
 
-TRK_MINNOW_DOLPHIN.a/mem_TRK.c:
+TRK_MINNOW_DOLPHIN/mem_TRK.c:
 	.init       start:0x800034E0 end:0x80003534
 	.text       start:0x800A67D8 end:0x800A6894
 
@@ -1509,10 +1519,10 @@ TRK_MINNOW_DOLPHIN.a/targimpl.c:
 TRK_MINNOW_DOLPHIN.a/targsupp.s: comment:0
 	.text       start:0x800A8130 end:0x800A8150 align:16
 
-TRK_MINNOW_DOLPHIN.a/__exception.s: comment:0
+TRK_MINNOW_DOLPHIN/__exception.s: comment:0
 	.init       start:0x80003534 end:0x80005468
 
-TRK_MINNOW_DOLPHIN.a/dolphin_trk.c:
+TRK_MINNOW_DOLPHIN/dolphin_trk.c:
 	.init       start:0x80005468 end:0x8000556C
 	.text       start:0x800A8150 end:0x800A8290
 	.data       start:0x800E2218 end:0x800E2258
@@ -1541,7 +1551,7 @@ TRK_MINNOW_DOLPHIN.a/target_options.c:
 TRK_MINNOW_DOLPHIN.a/mslsupp.c:
 	.text       start:0x800A8B48 end:0x800A8CC0
 
-amcstubs.a/AmcExi2Stubs.c:
+dolphin/amcstubs/AmcExi2Stubs.c:
 	.text       start:0x800A8CC0 end:0x800A8CF0
 
 OdemuExi2.a/DebuggerDriver.c:
@@ -1549,5 +1559,5 @@ OdemuExi2.a/DebuggerDriver.c:
 	.sdata      start:0x80218270 end:0x80218271
 	.sbss       start:0x80218BC8 end:0x80218BDD
 
-odenotstub.a/odenotstub.c:
+dolphin/odenotstub/odenotstub.c:
 	.text       start:0x800A9770 end:0x800A9778

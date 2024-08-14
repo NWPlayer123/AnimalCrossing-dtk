@@ -19,4 +19,5 @@ extern s16 Na_GetRadioCounter(radio* radio);
 }
 #endif
 
+
 #endif

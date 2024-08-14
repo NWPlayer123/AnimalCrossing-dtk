@@ -24,9 +24,9 @@ static void fRT_mv(FTR_ACTOR* ftr_actor, ACTOR* my_room_actor, GAME* game, u8* d
 extern Gfx radio_DL_model[];
 
 static void fRT_dw(FTR_ACTOR* ftr_actor, ACTOR* my_room_actor, GAME* game, u8* data) {
-    static u16 radio_pal[] ATTRIBUTE_ALIGN(32) = {
-#include "assets/radio_pal.inc"
-    };
+    static u16 radio_pal[] ATTRIBUTE_ALIGN(32) = { 
+        #include "assets/radio_pal.inc"
+     };
 
     OPEN_DISP(game->graph);
 
