@@ -3627,20 +3627,44 @@ f_furniture.c:
 	.rodata     start:0x0000C100 end:0x0000C28C
 	.data       start:0x00087840 end:0x00092DA0
 
-dataobject.obj:
+dataobject/dataobject_92DA0.o:
 	.data       start:0x00092DA0 end:0x00092EA0
+
+data/npc/model/mdl/bev_1.c:
 	.data       start:0x00092EA0 end:0x000952E0
+
+data/npc/model/tex/bev_1.c:
 	.data       start:0x000952E0 end:0x00096000
+
+dataobject/dataobject_96000.o:
 	.data       start:0x00096000 end:0x00096328
 	.data       start:0x00096328 end:0x00096338
+
+data/npc/model/mdl/ant_1.c:
 	.data       start:0x00096338 end:0x00098420
+
+data/npc/model/tex/ant_1.c:
 	.data       start:0x00098420 end:0x00099140
+
+data/npc/model/tex/ant_2.c:
 	.data       start:0x00099140 end:0x00099E60
+
+data/npc/model/tex/ant_3.c:
 	.data       start:0x00099E60 end:0x0009AB80
+
+data/npc/model/tex/ant_4.c:
 	.data       start:0x0009AB80 end:0x0009B8A0
+
+data/npc/model/tex/ant_5.c:
 	.data       start:0x0009B8A0 end:0x0009C5C0
+
+data/npc/model/mdl/wls_1.c:
 	.data       start:0x0009C5C0 end:0x0009EB00
+
+data/npc/model/tex/wls_1.c:
 	.data       start:0x0009EB00 end:0x0009FAA0
+
+dataobject/dataobject_9FAA0.o:
 	.data       start:0x0009FAA0 end:0x0009FAF0
 	.data       start:0x0009FAF0 end:0x0009FB40
 	.data       start:0x0009FB40 end:0x0009FBC0
@@ -3649,16 +3673,38 @@ dataobject.obj:
 	.data       start:0x0009FFD8 end:0x000A0738
 	.data       start:0x000A0738 end:0x000A1120
 	.data       start:0x000A1120 end:0x000A1B78
+
+data/npc/model/mdl/bea_1.c:
 	.data       start:0x000A1B78 end:0x000A3B40
+
+data/npc/model/tex/bea_1.c:
 	.data       start:0x000A3B40 end:0x000A4D60
+
+data/npc/model/tex/bea_2.c:
 	.data       start:0x000A4D60 end:0x000A5F80
+
+data/npc/model/tex/bea_3.c:
 	.data       start:0x000A5F80 end:0x000A71A0
+
+data/npc/model/tex/bea_5.c:
 	.data       start:0x000A71A0 end:0x000A83C0
+
+data/npc/model/tex/bea_6.c:
 	.data       start:0x000A83C0 end:0x000A95E0
+
+data/npc/model/tex/bea_7.c:
 	.data       start:0x000A95E0 end:0x000AA800
+
+data/npc/model/tex/bea_8.c:
 	.data       start:0x000AA800 end:0x000ABA20
+
+data/npc/model/tex/bea_9.c:
 	.data       start:0x000ABA20 end:0x000ACC40
+
+data/npc/model/tex/bea_10.c:
 	.data       start:0x000ACC40 end:0x000ADE60
+
+dataobject/dataobject_ADE60.o:
 	.data       start:0x000ADE60 end:0x000AE620
 	.data       start:0x000AE620 end:0x000AE920
 	.data       start:0x000AE920 end:0x000AEB40
@@ -3667,7 +3713,11 @@ dataobject.obj:
 	.data       start:0x000AF5C0 end:0x000AFF40
 	.data       start:0x000AFF40 end:0x000B0918
 	.data       start:0x000B0918 end:0x000B0B48
+
+data/field/bg/acre/bg_data.c:
 	.data       start:0x000B0B48 end:0x000FE340
+
+dataobject/dataobject_FE340.o:
 	.data       start:0x000FE340 end:0x000FE6A0
 	.data       start:0x000FE6A0 end:0x000FE860
 	.data       start:0x000FE860 end:0x000FE980
@@ -3692,8 +3742,14 @@ dataobject.obj:
 	.data       start:0x00102620 end:0x00102890
 	.data       start:0x00102890 end:0x00102910
 	.data       start:0x00102910 end:0x00102980
+
+data/field/bg/flower/obj_flower.c:
 	.data       start:0x00102980 end:0x001033C0
+
+data/field/bg/flower/obj_flower_leaf.c:
 	.data       start:0x001033C0 end:0x00103C40
+
+dataobject/dataobject_103C40.o:
 	.data       start:0x00103C40 end:0x001040B8
 	.data       start:0x001040B8 end:0x00104110
 	.data       start:0x00104110 end:0x00104180
@@ -3795,128 +3851,368 @@ dataobject.obj:
 	.data       start:0x00120020 end:0x00120488
 	.data       start:0x00120488 end:0x00120780
 	.data       start:0x00120780 end:0x00120AA8
+
+data/npc/model/mdl/pbr_1.c:
 	.data       start:0x00120AA8 end:0x00122C80
+
+data/npc/model/tex/pbr_1.c:
 	.data       start:0x00122C80 end:0x001239A0
+
+data/npc/model/tex/pbr_2.c:
 	.data       start:0x001239A0 end:0x001246C0
+
+data/npc/model/tex/pbr_3.c:
 	.data       start:0x001246C0 end:0x001253E0
+
+data/npc/model/tex/pbr_4.c:
 	.data       start:0x001253E0 end:0x00126100
+
+data/npc/model/tex/pbr_5.c:
 	.data       start:0x00126100 end:0x00126E20
+
+data/npc/model/mdl/brd_1.c:
 	.data       start:0x00126E20 end:0x00128E60
+
+data/npc/model/tex/brd_1.c:
 	.data       start:0x00128E60 end:0x00129B80
+
+data/npc/model/tex/brd_2.c:
 	.data       start:0x00129B80 end:0x0012A8A0
+
+data/npc/model/tex/brd_11.c:
 	.data       start:0x0012A8A0 end:0x0012B5C0
+
+data/npc/model/tex/brd_3.c:
 	.data       start:0x0012B5C0 end:0x0012C2E0
+
+data/npc/model/tex/brd_4.c:
 	.data       start:0x0012C2E0 end:0x0012D000
+
+data/npc/model/tex/brd_5.c:
 	.data       start:0x0012D000 end:0x0012DD20
+
+data/npc/model/tex/brd_6.c:
 	.data       start:0x0012DD20 end:0x0012EA40
+
+data/npc/model/tex/brd_7.c:
 	.data       start:0x0012EA40 end:0x0012F760
+
+data/npc/model/tex/brd_8.c:
 	.data       start:0x0012F760 end:0x00130480
+
+data/npc/model/tex/brd_9.c:
 	.data       start:0x00130480 end:0x001311A0
+
+data/npc/model/tex/brd_10.c:
 	.data       start:0x001311A0 end:0x00131EC0
+
+dataobject/dataobject_131EC0.o:
 	.data       start:0x00131EC0 end:0x001346F8
 	.data       start:0x001346F8 end:0x00171E00
 	.data       start:0x00171E00 end:0x00188A60
 	.data       start:0x00188A60 end:0x00188AE8
+
+data/npc/model/mdl/fox_1.c:
 	.data       start:0x00188AE8 end:0x0018ABA0
+
+data/npc/model/tex/fox_1.c:
 	.data       start:0x0018ABA0 end:0x0018BAC0
+
+data/npc/model/mdl/bul_1.c:
 	.data       start:0x0018BAC0 end:0x0018DAC0
+
+data/npc/model/tex/bul_1.c:
 	.data       start:0x0018DAC0 end:0x0018ECE0
+
+data/npc/model/tex/bul_2.c:
 	.data       start:0x0018ECE0 end:0x0018FF00
+
+data/npc/model/tex/bul_3.c:
 	.data       start:0x0018FF00 end:0x00191120
+
+data/npc/model/tex/bul_4.c:
 	.data       start:0x00191120 end:0x00192340
+
+data/npc/model/mdl/cml_1.c:
 	.data       start:0x00192340 end:0x001949C0
+
+data/npc/model/tex/cml_1.c:
 	.data       start:0x001949C0 end:0x00195960
+
+data/npc/model/mdl/cat_1.c:
 	.data       start:0x00195960 end:0x001976C0
+
+data/npc/model/tex/cat_1.c:
 	.data       start:0x001976C0 end:0x001988E0
+
+data/npc/model/tex/cat_2.c:
 	.data       start:0x001988E0 end:0x00199B00
+
+data/npc/model/tex/cat_11.c:
 	.data       start:0x00199B00 end:0x0019AD20
+
+data/npc/model/tex/cat_12.c:
 	.data       start:0x0019AD20 end:0x0019BF40
+
+data/npc/model/tex/cat_13.c:
 	.data       start:0x0019BF40 end:0x0019D160
+
+data/npc/model/tex/cat_14.c:
 	.data       start:0x0019D160 end:0x0019E380
+
+data/npc/model/tex/cat_15.c:
 	.data       start:0x0019E380 end:0x0019F5A0
+
+data/npc/model/tex/cat_3.c:
 	.data       start:0x0019F5A0 end:0x001A07C0
+
+data/npc/model/tex/cat_4.c:
 	.data       start:0x001A07C0 end:0x001A19E0
+
+data/npc/model/tex/cat_5.c:
 	.data       start:0x001A19E0 end:0x001A2C00
+
+data/npc/model/tex/cat_6.c:
 	.data       start:0x001A2C00 end:0x001A3E20
+
+data/npc/model/tex/cat_7.c:
 	.data       start:0x001A3E20 end:0x001A5040
+
+data/npc/model/tex/cat_8.c:
 	.data       start:0x001A5040 end:0x001A6260
+
+data/npc/model/tex/cat_9.c:
 	.data       start:0x001A6260 end:0x001A7480
+
+data/npc/model/tex/cat_10.c:
 	.data       start:0x001A7480 end:0x001A86A0
+
+data/npc/model/mdl/chn_1.c:
 	.data       start:0x001A86A0 end:0x001AAE60
+
+data/npc/model/tex/chn_1.c:
 	.data       start:0x001AAE60 end:0x001ABB40
+
+data/npc/model/tex/chn_2.c:
 	.data       start:0x001ABB40 end:0x001AC820
+
+data/npc/model/tex/chn_3.c:
 	.data       start:0x001AC820 end:0x001AD500
+
+data/npc/model/tex/chn_4.c:
 	.data       start:0x001AD500 end:0x001AE1E0
+
+data/npc/model/tex/chn_5.c:
 	.data       start:0x001AE1E0 end:0x001AEEC0
+
+data/npc/model/tex/chn_6.c:
 	.data       start:0x001AEEC0 end:0x001AFBA0
+
+data/npc/model/tex/chn_7.c:
 	.data       start:0x001AFBA0 end:0x001B0880
+
+data/npc/model/tex/chn_8.c:
 	.data       start:0x001B0880 end:0x001B1560
+
+data/npc/model/tex/chn_9.c:
 	.data       start:0x001B1560 end:0x001B2240
+
+data/npc/model/mdl/cbr_1.c:
 	.data       start:0x001B2240 end:0x001B4120
+
+data/npc/model/tex/cbr_1.c:
 	.data       start:0x001B4120 end:0x001B5340
+
+data/npc/model/tex/cbr_2.c:
 	.data       start:0x001B5340 end:0x001B6560
+
+data/npc/model/tex/cbr_11.c:
 	.data       start:0x001B6560 end:0x001B7780
+
+data/npc/model/tex/cbr_3.c:
 	.data       start:0x001B7780 end:0x001B89A0
+
+data/npc/model/tex/cbr_4.c:
 	.data       start:0x001B89A0 end:0x001B9BC0
+
+data/npc/model/tex/cbr_5.c:
 	.data       start:0x001B9BC0 end:0x001BADE0
+
+data/npc/model/tex/cbr_6.c:
 	.data       start:0x001BADE0 end:0x001BC000
+
+data/npc/model/tex/cbr_7.c:
 	.data       start:0x001BC000 end:0x001BD220
+
+data/npc/model/tex/cbr_8.c:
 	.data       start:0x001BD220 end:0x001BE440
+
+data/npc/model/tex/cbr_9.c:
 	.data       start:0x001BE440 end:0x001BF660
+
+data/npc/model/tex/cbr_10.c:
 	.data       start:0x001BF660 end:0x001C0880
+
+data/combi/data_combi.c:
 	.data       start:0x001C0880 end:0x001C1128
+
+data/npc/model/mdl/rcc_1.c:
 	.data       start:0x001C1128 end:0x001C3120
+
+data/npc/model/tex/rcc_1.c:
 	.data       start:0x001C3120 end:0x001C4000
+
+data/npc/model/mdl/cow_1.c:
 	.data       start:0x001C4000 end:0x001C5FE0
+
+data/npc/model/tex/cow_1.c:
 	.data       start:0x001C5FE0 end:0x001C7200
+
+data/npc/model/tex/cow_2.c:
 	.data       start:0x001C7200 end:0x001C8420
+
+data/npc/model/tex/cow_3.c:
 	.data       start:0x001C8420 end:0x001C9640
+
+data/npc/model/tex/cow_4.c:
 	.data       start:0x001C9640 end:0x001CA860
+
+data/npc/model/mdl/crd_1.c:
 	.data       start:0x001CA860 end:0x001CCA00
+
+data/npc/model/tex/crd_1.c:
 	.data       start:0x001CCA00 end:0x001CD720
+
+data/npc/model/tex/crd_2.c:
 	.data       start:0x001CD720 end:0x001CE440
+
+data/npc/model/tex/crd_3.c:
 	.data       start:0x001CE440 end:0x001CF160
+
+data/npc/model/tex/crd_4.c:
 	.data       start:0x001CF160 end:0x001CFE80
+
+data/npc/model/mdl/owl_1.c:
 	.data       start:0x001CFE80 end:0x001D24C0
+
+data/npc/model/tex/owl_1.c:
 	.data       start:0x001D24C0 end:0x001D3320
+
+data/npc/model/mdl/rcd_1.c:
 	.data       start:0x001D3320 end:0x001D5220
+
+data/npc/model/tex/rcd_1.c:
 	.data       start:0x001D5220 end:0x001D6080
+
+data/npc/model/mdl/grf_1.c:
 	.data       start:0x001D6080 end:0x001D8640
+
+data/npc/model/tex/grf_1.c:
 	.data       start:0x001D8640 end:0x001D9560
+
+data/npc/model/mdl/dog_1.c:
 	.data       start:0x001D9560 end:0x001DB540
+
+data/npc/model/tex/dog_1.c:
 	.data       start:0x001DB540 end:0x001DC760
+
+data/npc/model/tex/dog_2.c:
 	.data       start:0x001DC760 end:0x001DD980
+
+data/npc/model/tex/dog_3.c:
 	.data       start:0x001DD980 end:0x001DEBA0
+
+data/npc/model/tex/dog_4.c:
 	.data       start:0x001DEBA0 end:0x001DFDC0
+
+data/npc/model/tex/dog_5.c:
 	.data       start:0x001DFDC0 end:0x001E0FE0
+
+data/npc/model/tex/dog_6.c:
 	.data       start:0x001E0FE0 end:0x001E2200
+
+data/npc/model/tex/dog_7.c:
 	.data       start:0x001E2200 end:0x001E3420
+
+data/npc/model/tex/dog_8.c:
 	.data       start:0x001E3420 end:0x001E4640
+
+data/npc/model/tex/dog_9.c:
 	.data       start:0x001E4640 end:0x001E5860
+
+data/npc/model/tex/dog_10.c:
 	.data       start:0x001E5860 end:0x001E6A80
+
+data/npc/model/mdl/seg_1.c:
 	.data       start:0x001E6A80 end:0x001E8E00
+
+data/npc/model/tex/seg_1.c:
 	.data       start:0x001E8E00 end:0x001E9C60
+
+data/npc/model/mdl/duk_1.c:
 	.data       start:0x001E9C60 end:0x001EBB80
+
+data/npc/model/tex/duk_1.c:
 	.data       start:0x001EBB80 end:0x001ECDA0
+
+data/npc/model/tex/duk_2.c:
 	.data       start:0x001ECDA0 end:0x001EDFC0
+
+data/npc/model/tex/duk_11.c:
 	.data       start:0x001EDFC0 end:0x001EF1E0
+
+data/npc/model/tex/duk_3.c:
 	.data       start:0x001EF1E0 end:0x001F0400
+
+data/npc/model/tex/duk_4.c:
 	.data       start:0x001F0400 end:0x001F1620
+
+data/npc/model/tex/duk_5.c:
 	.data       start:0x001F1620 end:0x001F2840
+
+data/npc/model/tex/duk_6.c:
 	.data       start:0x001F2840 end:0x001F3A60
+
+data/npc/model/tex/duk_7.c:
 	.data       start:0x001F3A60 end:0x001F4C80
+
+data/npc/model/tex/duk_8.c:
 	.data       start:0x001F4C80 end:0x001F5EA0
+
+data/npc/model/tex/duk_9.c:
 	.data       start:0x001F5EA0 end:0x001F70C0
+
+data/npc/model/tex/duk_10.c:
 	.data       start:0x001F70C0 end:0x001F82E0
+
+dataobject/dataobject_1F82E0.o:
 	.data       start:0x001F82E0 end:0x001F8330
+
+data/npc/model/mdl/elp_1.c:
 	.data       start:0x001F8330 end:0x001FA4A0
+
+data/npc/model/tex/elp_1.c:
 	.data       start:0x001FA4A0 end:0x001FB6C0
+
+data/npc/model/tex/elp_2.c:
 	.data       start:0x001FB6C0 end:0x001FC8E0
+
+data/npc/model/tex/elp_3.c:
 	.data       start:0x001FC8E0 end:0x001FDB00
+
+data/npc/model/tex/elp_4.c:
 	.data       start:0x001FDB00 end:0x001FED20
+
+data/npc/model/tex/elp_5.c:
 	.data       start:0x001FED20 end:0x001FFF40
+
+data/npc/model/tex/elp_6.c:
 	.data       start:0x001FFF40 end:0x00201160
+
+data/npc/model/tex/elp_7.c:
 	.data       start:0x00201160 end:0x00202380
+
+dataobject/dataobject_202380.o:
 	.data       start:0x00202380 end:0x00202440
 	.data       start:0x00202440 end:0x002024B0
 	.data       start:0x002024B0 end:0x00204600
@@ -3926,41 +4222,113 @@ dataobject.obj:
 	.data       start:0x0020A700 end:0x0020A780
 	.data       start:0x0020A780 end:0x0020A800
 	.data       start:0x0020A800 end:0x0020A880
+
+data/npc/model/mdl/flg_1.c:
 	.data       start:0x0020A880 end:0x0020C2E0
+
+data/npc/model/tex/flg_1.c:
 	.data       start:0x0020C2E0 end:0x0020D500
+
+data/npc/model/tex/flg_2.c:
 	.data       start:0x0020D500 end:0x0020E720
+
+data/npc/model/tex/flg_11.c:
 	.data       start:0x0020E720 end:0x0020F940
+
+data/npc/model/tex/flg_12.c:
 	.data       start:0x0020F940 end:0x00210AE0
+
+data/npc/model/tex/flg_13.c:
 	.data       start:0x00210AE0 end:0x00211D00
+
+data/npc/model/tex/flg_3.c:
 	.data       start:0x00211D00 end:0x00212F20
+
+data/npc/model/tex/flg_4.c:
 	.data       start:0x00212F20 end:0x00214140
+
+data/npc/model/tex/flg_5.c:
 	.data       start:0x00214140 end:0x00215360
+
+data/npc/model/tex/flg_6.c:
 	.data       start:0x00215360 end:0x00216580
+
+data/npc/model/tex/flg_7.c:
 	.data       start:0x00216580 end:0x002177A0
+
+data/npc/model/tex/flg_8.c:
 	.data       start:0x002177A0 end:0x002189C0
+
+data/npc/model/tex/flg_9.c:
 	.data       start:0x002189C0 end:0x00219BE0
+
+data/npc/model/tex/flg_10.c:
 	.data       start:0x00219BE0 end:0x0021AE00
+
+data/npc/model/mdl/rcf_1.c:
 	.data       start:0x0021AE00 end:0x0021D4A0
+
+data/npc/model/tex/rcf_1.c:
 	.data       start:0x0021D4A0 end:0x0021E3C0
+
+dataobject/dataobject_21E3C0.o:
 	.data       start:0x0021E3C0 end:0x0021F608
+
+data/npc/model/mdl/gst_1.c:
 	.data       start:0x0021F608 end:0x00220C80
+
+data/npc/model/tex/gst_1.c:
 	.data       start:0x00220C80 end:0x00221C20
+
+dataobject/dataobject_221C20.o:
 	.data       start:0x00221C20 end:0x00224230
+
+data/npc/model/mdl/goa_1.c:
 	.data       start:0x00224230 end:0x00226200
+
+data/npc/model/tex/goa_1.c:
 	.data       start:0x00226200 end:0x00227420
+
+data/npc/model/tex/goa_2.c:
 	.data       start:0x00227420 end:0x00228640
+
+data/npc/model/tex/goa_3.c:
 	.data       start:0x00228640 end:0x00229860
+
+data/npc/model/tex/goa_4.c:
 	.data       start:0x00229860 end:0x0022AA80
+
+data/npc/model/tex/goa_5.c:
 	.data       start:0x0022AA80 end:0x0022BCA0
+
+data/npc/model/tex/goa_6.c:
 	.data       start:0x0022BCA0 end:0x0022CEC0
+
+data/npc/model/mdl/gor_1.c:
 	.data       start:0x0022CEC0 end:0x0022F460
+
+data/npc/model/tex/gor_1.c:
 	.data       start:0x0022F460 end:0x00230680
+
+data/npc/model/tex/gor_2.c:
 	.data       start:0x00230680 end:0x002318A0
+
+data/npc/model/tex/gor_3.c:
 	.data       start:0x002318A0 end:0x00232AC0
+
+data/npc/model/tex/gor_4.c:
 	.data       start:0x00232AC0 end:0x00233CE0
+
+data/npc/model/tex/gor_5.c:
 	.data       start:0x00233CE0 end:0x00234F00
+
+data/npc/model/mdl/xct_1.c:
 	.data       start:0x00234F00 end:0x00236B80
+
+data/npc/model/tex/xct_1.c:
 	.data       start:0x00236B80 end:0x00237F20
+
+dataobject/dataobject_237F20.o:
 	.data       start:0x00237F20 end:0x00238100
 	.data       start:0x00238100 end:0x00238720
 	.data       start:0x00238720 end:0x00238D40
@@ -4005,32 +4373,82 @@ dataobject.obj:
 	.data       start:0x002465E0 end:0x00246A00
 	.data       start:0x00246A00 end:0x00247020
 	.data       start:0x00247020 end:0x00247428
+
+data/npc/model/mdl/bpt_1.c:
 	.data       start:0x00247428 end:0x00249580
+
+data/npc/model/tex/bpt_1.c:
 	.data       start:0x00249580 end:0x0024A4A0
+
+data/npc/model/mdl/pkn_1.c:
 	.data       start:0x0024A4A0 end:0x0024BEE0
+
+data/npc/model/tex/pkn_1.c:
 	.data       start:0x0024BEE0 end:0x0024C580
+
+dataobject/dataobject_24C580.o:
 	.data       start:0x0024C580 end:0x0024DC50
 	.data       start:0x0024DC50 end:0x0024DD60
 	.data       start:0x0024DD60 end:0x0024E580
+
+data/npc/model/mdl/hem_1.c:
 	.data       start:0x0024E580 end:0x002501E0
+
+data/npc/model/tex/hem_1.c:
 	.data       start:0x002501E0 end:0x00250940
+
+data/npc/model/mdl/hip_1.c:
 	.data       start:0x00250940 end:0x00253060
+
+data/npc/model/tex/hip_1.c:
 	.data       start:0x00253060 end:0x00253D80
+
+data/npc/model/tex/hip_2.c:
 	.data       start:0x00253D80 end:0x00254AA0
+
+data/npc/model/tex/hip_3.c:
 	.data       start:0x00254AA0 end:0x002557C0
+
+data/npc/model/tex/hip_4.c:
 	.data       start:0x002557C0 end:0x002564E0
+
+data/npc/model/tex/hip_5.c:
 	.data       start:0x002564E0 end:0x00257200
+
+data/npc/model/tex/hip_6.c:
 	.data       start:0x00257200 end:0x00257F20
+
+data/npc/model/tex/hip_7.c:
 	.data       start:0x00257F20 end:0x00258C40
+
+data/npc/model/mdl/hrs_1.c:
 	.data       start:0x00258C40 end:0x0025B020
+
+data/npc/model/tex/hrs_1.c:
 	.data       start:0x0025B020 end:0x0025BDC0
+
+data/npc/model/tex/hrs_2.c:
 	.data       start:0x0025BDC0 end:0x0025CB60
+
+data/npc/model/tex/hrs_3.c:
 	.data       start:0x0025CB60 end:0x0025D900
+
+data/npc/model/tex/hrs_4.c:
 	.data       start:0x0025D900 end:0x0025E6A0
+
+data/npc/model/tex/hrs_5.c:
 	.data       start:0x0025E6A0 end:0x0025F440
+
+data/npc/model/tex/hrs_6.c:
 	.data       start:0x0025F440 end:0x002601E0
+
+data/npc/model/tex/hrs_7.c:
 	.data       start:0x002601E0 end:0x00260F80
+
+data/npc/model/tex/hrs_8.c:
 	.data       start:0x00260F80 end:0x00261D20
+
+dataobject/dataobject_261D20.o:
 	.data       start:0x00261D20 end:0x002620C0
 	.data       start:0x002620C0 end:0x00262560
 	.data       start:0x00262560 end:0x00262940
@@ -4073,41 +4491,101 @@ dataobject.obj:
 	.data       start:0x0026AB80 end:0x0026AF60
 	.data       start:0x0026AF60 end:0x0026B360
 	.data       start:0x0026B360 end:0x0026B800
+
+data/npc/model/mdl/plj_1.c:
 	.data       start:0x0026B800 end:0x0026D800
+
+data/npc/model/tex/plj_1.c:
 	.data       start:0x0026D800 end:0x0026ECA0
-	.data       start:0x0026ECA0 end:0x0026ECA0
+
+data/npc/model/mdl/xsq_1.c:
 	.data       start:0x0026ECA0 end:0x00270D40
+
+data/npc/model/tex/xsq_1.c:
 	.data       start:0x00270D40 end:0x00272160
-	.data       start:0x00272160 end:0x00272160
+
+data/item/item_name.c:
 	.data       start:0x00272160 end:0x0027B330
+
+dataobject/dataobject_27B330.o:
 	.data       start:0x0027B330 end:0x0027B3A8
+
+data/npc/model/mdl/boa_1.c:
 	.data       start:0x0027B3A8 end:0x0027DA60
+
+data/npc/model/tex/boa_1.c:
 	.data       start:0x0027DA60 end:0x0027E840
+
+data/npc/model/mdl/kgr_1.c:
 	.data       start:0x0027E840 end:0x00280EE0
+
+data/npc/model/tex/kgr_1.c:
 	.data       start:0x00280EE0 end:0x00281B40
+
+data/npc/model/tex/kgr_2.c:
 	.data       start:0x00281B40 end:0x002827A0
+
+data/npc/model/tex/kgr_3.c:
 	.data       start:0x002827A0 end:0x00283400
+
+data/npc/model/tex/kgr_4.c:
 	.data       start:0x00283400 end:0x00284060
+
+data/npc/model/tex/kgr_5.c:
 	.data       start:0x00284060 end:0x00284CC0
+
+data/npc/model/tex/kgr_6.c:
 	.data       start:0x00284CC0 end:0x00285920
+
+data/npc/model/mdl/fob_1.c:
 	.data       start:0x00285920 end:0x00287E60
+
+data/npc/model/tex/fob_1.c:
 	.data       start:0x00287E60 end:0x00288DC0
+
+data/npc/model/mdl/kal_1.c:
 	.data       start:0x00288DC0 end:0x0028ACE0
+
+data/npc/model/tex/kal_1.c:
 	.data       start:0x0028ACE0 end:0x0028BF80
+
+data/npc/model/tex/kal_2.c:
 	.data       start:0x0028BF80 end:0x0028D220
+
+data/npc/model/tex/kal_3.c:
 	.data       start:0x0028D220 end:0x0028E4C0
+
+data/npc/model/tex/kal_4.c:
 	.data       start:0x0028E4C0 end:0x0028F760
+
+data/npc/model/tex/kal_5.c:
 	.data       start:0x0028F760 end:0x00290A00
+
+data/npc/model/tex/kal_6.c:
 	.data       start:0x00290A00 end:0x00291CA0
+
+dataobject/dataobject_291CA0.o:
 	.data       start:0x00291CA0 end:0x00291D20
 	.data       start:0x00291D20 end:0x00292080
 	.data       start:0x00292080 end:0x00294260
 	.data       start:0x00294260 end:0x00294510
+
+data/npc/model/mdl/lon_1.c:
 	.data       start:0x00294510 end:0x00296A80
+
+data/npc/model/tex/lon_1.c:
 	.data       start:0x00296A80 end:0x00297D60
+
+data/npc/model/tex/lon_2.c:
 	.data       start:0x00297D60 end:0x00299040
+
+data/npc/model/tex/lon_3.c:
 	.data       start:0x00299040 end:0x0029A320
+
+data/npc/model/tex/lon_4.c:
 	.data       start:0x0029A320 end:0x0029B600
+
+dataobject/dataobject_29B600.o:
 	.data       start:0x0029B600 end:0x0029B708
 	.data       start:0x0029B708 end:0x0029B7B0
 	.data       start:0x0029B7B0 end:0x0029B830
@@ -4123,30 +4601,72 @@ dataobject.obj:
 	.data       start:0x0029CB00 end:0x0029CBD0
 	.data       start:0x0029CBD0 end:0x0029CC20
 	.data       start:0x0029CC20 end:0x0029D9A0
+
+data/npc/model/mdl/mos_1.c:
 	.data       start:0x0029D9A0 end:0x0029F5E0
+
+data/npc/model/tex/mos_1.c:
 	.data       start:0x0029F5E0 end:0x002A0A80
+
+data/npc/model/mdl/mol_1.c:
 	.data       start:0x002A0A80 end:0x002A26C0
+
+data/npc/model/tex/mol_1.c:
 	.data       start:0x002A26C0 end:0x002A3B60
+
+data/npc/model/mdl/lrc_1.c:
 	.data       start:0x002A3B60 end:0x002A5A60
+
+data/npc/model/tex/lrc_1.c:
 	.data       start:0x002A5A60 end:0x002A6900
+
+data/npc/model/mdl/mka_1.c:
 	.data       start:0x002A6900 end:0x002A86C0
+
+data/npc/model/tex/mka_1.c:
 	.data       start:0x002A86C0 end:0x002A8B60
-	.data       start:0x002A8B60 end:0x002A8B60
-	.data       start:0x002A8B60 end:0x002A8B60
+
+dataobject/dataobject_2A8B60.o:
 	.data       start:0x002A8B60 end:0x002A8C00
 	.data       start:0x002A8C00 end:0x002A99A8
+
+data/npc/model/mdl/mus_1.c:
 	.data       start:0x002A99A8 end:0x002ABBC0
+
+data/npc/model/tex/mus_1.c:
 	.data       start:0x002ABBC0 end:0x002ACDE0
+
+data/npc/model/tex/mus_2.c:
 	.data       start:0x002ACDE0 end:0x002AE000
+
+data/npc/model/tex/mus_3.c:
 	.data       start:0x002AE000 end:0x002AF220
+
+data/npc/model/tex/mus_4.c:
 	.data       start:0x002AF220 end:0x002B0440
+
+data/npc/model/tex/mus_5.c:
 	.data       start:0x002B0440 end:0x002B1660
+
+data/npc/model/tex/mus_6.c:
 	.data       start:0x002B1660 end:0x002B2880
+
+data/npc/model/tex/mus_7.c:
 	.data       start:0x002B2880 end:0x002B3AA0
+
+data/npc/model/tex/mus_8.c:
 	.data       start:0x002B3AA0 end:0x002B4CC0
+
+data/npc/model/tex/mus_9.c:
 	.data       start:0x002B4CC0 end:0x002B5EE0
+
+data/npc/model/tex/mus_10.c:
 	.data       start:0x002B5EE0 end:0x002B7100
+
+data/model/mural/obj_mural.c:
 	.data       start:0x002B7100 end:0x002B7200
+
+dataobject/dataobject_2B7200.o:
 	.data       start:0x002B7200 end:0x002B7B00
 	.data       start:0x002B7B00 end:0x002B8F20
 	.data       start:0x002B8F20 end:0x002B9600
@@ -4166,10 +4686,20 @@ dataobject.obj:
 	.data       start:0x002C4768 end:0x002C4820
 	.data       start:0x002C4820 end:0x002C48C8
 	.data       start:0x002C48C8 end:0x002C4970
+
+data/npc/model/mdl/hgh_1.c:
 	.data       start:0x002C4970 end:0x002C7120
+
+data/npc/model/tex/hgh_1.c:
 	.data       start:0x002C7120 end:0x002C8000
+
+data/npc/model/mdl/hgs_1.c:
 	.data       start:0x002C8000 end:0x002CA780
+
+data/npc/model/tex/hgs_1.c:
 	.data       start:0x002CA780 end:0x002CB660
+
+dataobject/dataobject_2CB660.o:
 	.data       start:0x002CB660 end:0x002CBAE0
 	.data       start:0x002CBAE0 end:0x002CBEF0
 	.data       start:0x002CBEF0 end:0x002CC2F8
@@ -4414,17 +4944,41 @@ dataobject.obj:
 	.data       start:0x0031ED68 end:0x0031EE68
 	.data       start:0x0031EE68 end:0x0031F268
 	.data       start:0x0031F268 end:0x0031F890
+
+data/npc/default_list.c:
 	.data       start:0x0031F890 end:0x0031FE28
+
+data/npc/npc_draw_data.c:
 	.data       start:0x0031FE28 end:0x00329F50
+
+data/npc/grow_list.c:
 	.data       start:0x00329F50 end:0x0032A040
+
+data/npc/house_list.c:
 	.data       start:0x0032A040 end:0x0032A7B0
+
+data/npc/model/mdl/oct_1.c:
 	.data       start:0x0032A7B0 end:0x0032CF60
+
+data/npc/model/tex/oct_1.c:
 	.data       start:0x0032CF60 end:0x0032D980
+
+data/npc/model/mdl/ost_1.c:
 	.data       start:0x0032D980 end:0x0032FC00
+
+data/npc/model/tex/ost_1.c:
 	.data       start:0x0032FC00 end:0x00330960
+
+data/npc/model/tex/ost_2.c:
 	.data       start:0x00330960 end:0x003316C0
+
+data/npc/model/tex/ost_3.c:
 	.data       start:0x003316C0 end:0x00332420
+
+data/npc/model/tex/ost_4.c:
 	.data       start:0x00332420 end:0x00333180
+
+dataobject/dataobject_333180.o:
 	.data       start:0x00333180 end:0x00333228
 	.data       start:0x00333228 end:0x003332E8
 	.data       start:0x003332E8 end:0x00333390
@@ -4442,57 +4996,161 @@ dataobject.obj:
 	.data       start:0x00333900 end:0x00333980
 	.data       start:0x00333980 end:0x00333A00
 	.data       start:0x00333A00 end:0x00333A28
+
+data/npc/model/mdl/pgn_1.c:
 	.data       start:0x00333A28 end:0x00335C40
+
+data/npc/model/tex/pgn_1.c:
 	.data       start:0x00335C40 end:0x003369E0
+
+data/npc/model/tex/pgn_2.c:
 	.data       start:0x003369E0 end:0x00337780
+
+data/npc/model/tex/pgn_3.c:
 	.data       start:0x00337780 end:0x00338520
+
+data/npc/model/tex/pgn_4.c:
 	.data       start:0x00338520 end:0x003392C0
+
+data/npc/model/tex/pgn_5.c:
 	.data       start:0x003392C0 end:0x0033A060
+
+data/npc/model/tex/pgn_6.c:
 	.data       start:0x0033A060 end:0x0033AE00
+
+data/npc/model/tex/pgn_7.c:
 	.data       start:0x0033AE00 end:0x0033BBA0
+
+data/npc/model/tex/pgn_8.c:
 	.data       start:0x0033BBA0 end:0x0033C940
+
+data/npc/model/mdl/pig_1.c:
 	.data       start:0x0033C940 end:0x0033E5C0
+
+data/npc/model/tex/pig_1.c:
 	.data       start:0x0033E5C0 end:0x0033F760
+
+data/npc/model/tex/pig_2.c:
 	.data       start:0x0033F760 end:0x00340900
+
+data/npc/model/tex/pig_11.c:
 	.data       start:0x00340900 end:0x00341AA0
+
+data/npc/model/tex/pig_3.c:
 	.data       start:0x00341AA0 end:0x00342C40
+
+data/npc/model/tex/pig_4.c:
 	.data       start:0x00342C40 end:0x00343DE0
+
+data/npc/model/tex/pig_5.c:
 	.data       start:0x00343DE0 end:0x00344F80
+
+data/npc/model/tex/pig_6.c:
 	.data       start:0x00344F80 end:0x00346120
+
+data/npc/model/tex/pig_7.c:
 	.data       start:0x00346120 end:0x003472C0
+
+data/npc/model/tex/pig_8.c:
 	.data       start:0x003472C0 end:0x00348460
+
+data/npc/model/tex/pig_9.c:
 	.data       start:0x00348460 end:0x00349600
+
+data/npc/model/tex/pig_10.c:
 	.data       start:0x00349600 end:0x0034A7A0
+
+data/npc/model/mdl/pla_1.c:
 	.data       start:0x0034A7A0 end:0x0034CE18
+
+data/npc/model/mdl/plc_1.c:
 	.data       start:0x0034CE18 end:0x0034EF20
+
+data/npc/model/tex/plc_1.c:
 	.data       start:0x0034EF20 end:0x00350400
+
+data/npc/model/tex/pla_1.c:
 	.data       start:0x00350400 end:0x003517A0
+
+data/npc/model/mdl/pga_1.c:
 	.data       start:0x003517A0 end:0x00353CA0
+
+data/npc/model/tex/pga_1.c:
 	.data       start:0x00353CA0 end:0x00354B00
+
+data/npc/model/mdl/pgb_1.c:
 	.data       start:0x00354B00 end:0x00356F60
+
+data/npc/model/tex/pgb_1.c:
 	.data       start:0x00356F60 end:0x00357F00
+
+data/npc/model/mdl/plb_1.c:
 	.data       start:0x00357F00 end:0x0035A480
+
+data/npc/model/tex/plb_1.c:
 	.data       start:0x0035A480 end:0x0035B420
+
+data/npc/model/mdl/rbt_1.c:
 	.data       start:0x0035B420 end:0x0035D2C0
+
+data/npc/model/tex/rbt_1.c:
 	.data       start:0x0035D2C0 end:0x0035E4E0
+
+data/npc/model/tex/rbt_2.c:
 	.data       start:0x0035E4E0 end:0x0035F700
+
+data/npc/model/tex/rbt_11.c:
 	.data       start:0x0035F700 end:0x00360920
+
+data/npc/model/tex/rbt_3.c:
 	.data       start:0x00360920 end:0x00361B40
+
+data/npc/model/tex/rbt_4.c:
 	.data       start:0x00361B40 end:0x00362D60
+
+data/npc/model/tex/rbt_5.c:
 	.data       start:0x00362D60 end:0x00363F80
+
+data/npc/model/tex/rbt_6.c:
 	.data       start:0x00363F80 end:0x003651A0
+
+data/npc/model/tex/rbt_7.c:
 	.data       start:0x003651A0 end:0x003663C0
+
+data/npc/model/tex/rbt_8.c:
 	.data       start:0x003663C0 end:0x003675E0
+
+data/npc/model/tex/rbt_9.c:
 	.data       start:0x003675E0 end:0x00368800
+
+data/npc/model/tex/rbt_10.c:
 	.data       start:0x00368800 end:0x00369A20
+
+data/npc/model/mdl/mob_1.c:
 	.data       start:0x00369A20 end:0x0036B5A0
+
+data/npc/model/tex/mob_1.c:
 	.data       start:0x0036B5A0 end:0x0036CA40
+
+dataobject/dataobject_36CA40.o:
 	.data       start:0x0036CA40 end:0x0036CE40
+
+data/npc/model/mdl/rhn_1.c:
 	.data       start:0x0036CE40 end:0x0036F600
+
+data/npc/model/tex/rhn_1.c:
 	.data       start:0x0036F600 end:0x00370820
+
+data/npc/model/tex/rhn_2.c:
 	.data       start:0x00370820 end:0x00371A40
+
+data/npc/model/tex/rhn_3.c:
 	.data       start:0x00371A40 end:0x00372C60
+
+data/npc/model/tex/rhn_4.c:
 	.data       start:0x00372C60 end:0x00373E80
+
+dataobject/dataobject_373E80.o:
 	.data       start:0x00373E80 end:0x00374140
 	.data       start:0x00374140 end:0x003749E0
 	.data       start:0x003749E0 end:0x003794C8
@@ -4510,19 +5168,47 @@ dataobject.obj:
 	.data       start:0x0037B9A8 end:0x0037BA18
 	.data       start:0x0037BA18 end:0x0037BAA0
 	.data       start:0x0037BAA0 end:0x0037BC48
+
+data/npc/model/mdl/snt_1.c:
 	.data       start:0x0037BC48 end:0x0037D840
+
+data/npc/model/tex/snt_1.c:
 	.data       start:0x0037D840 end:0x0037ECE0
+
+data/npc/model/mdl/wip_1.c:
 	.data       start:0x0037ECE0 end:0x00380C80
+
+data/npc/model/tex/wip_1.c:
 	.data       start:0x00380C80 end:0x00382060
+
+data/npc/model/mdl/shp_1.c:
 	.data       start:0x00382060 end:0x00383CA0
+
+data/npc/model/tex/shp_1.c:
 	.data       start:0x00383CA0 end:0x00384EC0
+
+data/npc/model/tex/shp_2.c:
 	.data       start:0x00384EC0 end:0x003860E0
+
+data/npc/model/tex/shp_3.c:
 	.data       start:0x003860E0 end:0x00387300
+
+data/npc/model/tex/shp_4.c:
 	.data       start:0x00387300 end:0x00388520
+
+data/npc/model/tex/shp_5.c:
 	.data       start:0x00388520 end:0x00389740
+
+data/npc/model/tex/shp_6.c:
 	.data       start:0x00389740 end:0x0038A960
+
+data/npc/model/mdl/rcn_1.c:
 	.data       start:0x0038A960 end:0x0038C980
+
+data/npc/model/tex/rcn_1.c:
 	.data       start:0x0038C980 end:0x0038D7E0
+
+dataobject/dataobject_38D7E0.o:
 	.data       start:0x0038D7E0 end:0x0038DAA0
 	.data       start:0x0038DAA0 end:0x0038DEE0
 	.data       start:0x0038DEE0 end:0x0038E3E0
@@ -4548,7 +5234,6 @@ dataobject.obj:
 	.data       start:0x003964E0 end:0x003968A0
 	.data       start:0x003968A0 end:0x00396B60
 	.data       start:0x00396B60 end:0x00397440
-	.data       start:0x00397440 end:0x00397440
 	.data       start:0x00397440 end:0x003978E0
 	.data       start:0x003978E0 end:0x00397C00
 	.data       start:0x00397C00 end:0x00397FE0
@@ -4582,8 +5267,14 @@ dataobject.obj:
 	.data       start:0x0039E840 end:0x0039F060
 	.data       start:0x0039F060 end:0x003B1FA0
 	.data       start:0x003B1FA0 end:0x003B2CB0
+
+data/npc/model/mdl/kab_1.c:
 	.data       start:0x003B2CB0 end:0x003B4EA0
+
+data/npc/model/tex/kab_1.c:
 	.data       start:0x003B4EA0 end:0x003B5AC0
+
+dataobject/dataobject_3B5AC0.o:
 	.data       start:0x003B5AC0 end:0x003B5D60
 	.data       start:0x003B5D60 end:0x003B6200
 	.data       start:0x003B6200 end:0x003BBA40
@@ -4591,12 +5282,9 @@ dataobject.obj:
 	.data       start:0x003C0780 end:0x003C0870
 	.data       start:0x003C0870 end:0x003C08D0
 	.data       start:0x003C08D0 end:0x003C0A08
-	.data       start:0x003C0A08 end:0x003C0A08
-	.data       start:0x003C0A08 end:0x003C0A08
 	.data       start:0x003C0A08 end:0x003C0A20
 	.data       start:0x003C0A20 end:0x003C0CC0
 	.data       start:0x003C0CC0 end:0x003C9940
-	.data       start:0x003C9940 end:0x003C9940
 	.data       start:0x003C9940 end:0x003CB200
 	.data       start:0x003CB200 end:0x003CF1C0
 	.data       start:0x003CF1C0 end:0x003D1320
@@ -4638,15 +5326,12 @@ dataobject.obj:
 	.data       start:0x0040C780 end:0x0040D8C0
 	.data       start:0x0040D8C0 end:0x00420AA0
 	.data       start:0x00420AA0 end:0x00421520
-	.data       start:0x00421520 end:0x00421520
-	.data       start:0x00421520 end:0x00421520
 	.data       start:0x00421520 end:0x00421B60
 	.data       start:0x00421B60 end:0x00423340
 	.data       start:0x00423340 end:0x004237E0
 	.data       start:0x004237E0 end:0x00427010
 	.data       start:0x00427010 end:0x0042AC00
 	.data       start:0x0042AC00 end:0x0042D400
-	.data       start:0x0042D400 end:0x0042D400
 	.data       start:0x0042D400 end:0x00433FC0
 	.data       start:0x00433FC0 end:0x00438B40
 	.data       start:0x00438B40 end:0x0043ED80
@@ -4796,29 +5481,62 @@ dataobject.obj:
 	.data       start:0x004DB9E0 end:0x004DC980
 	.data       start:0x004DC980 end:0x004DDE20
 	.data       start:0x004DDE20 end:0x004E1320
-	.data       start:0x004E1320 end:0x004E1320
 	.data       start:0x004E1320 end:0x004E1EA0
 	.data       start:0x004E1EA0 end:0x004E9600
 	.data       start:0x004E9600 end:0x004EAEE0
 	.data       start:0x004EAEE0 end:0x004EB000
 	.data       start:0x004EB000 end:0x004EB588
 	.data       start:0x004EB588 end:0x004EBAC0
+
+data/npc/model/mdl/ttl_1.c:
 	.data       start:0x004EBAC0 end:0x004ED8E0
+
+data/npc/model/tex/ttl_1.c:
 	.data       start:0x004ED8E0 end:0x004EE840
+
+data/npc/model/mdl/squ_1.c:
 	.data       start:0x004EE840 end:0x004F08E0
+
+data/npc/model/tex/squ_1.c:
 	.data       start:0x004F08E0 end:0x004F1B00
+
+data/npc/model/tex/squ_2.c:
 	.data       start:0x004F1B00 end:0x004F2D20
+
+data/npc/model/tex/squ_11.c:
 	.data       start:0x004F2D20 end:0x004F3F40
+
+data/npc/model/tex/squ_3.c:
 	.data       start:0x004F3F40 end:0x004F5160
+
+data/npc/model/tex/squ_4.c:
 	.data       start:0x004F5160 end:0x004F6380
+
+data/npc/model/tex/squ_5.c:
 	.data       start:0x004F6380 end:0x004F75A0
+
+data/npc/model/tex/squ_6.c:
 	.data       start:0x004F75A0 end:0x004F87C0
+
+data/npc/model/tex/squ_7.c:
 	.data       start:0x004F87C0 end:0x004F99E0
+
+data/npc/model/tex/squ_8.c:
 	.data       start:0x004F99E0 end:0x004FAC00
+
+data/npc/model/tex/squ_9.c:
 	.data       start:0x004FAC00 end:0x004FBE20
+
+data/npc/model/tex/squ_10.c:
 	.data       start:0x004FBE20 end:0x004FD040
+
+data/npc/model/mdl/mnk_1.c:
 	.data       start:0x004FD040 end:0x004FF300
+
+data/npc/model/tex/mnk_1.c:
 	.data       start:0x004FF300 end:0x00500720
+
+dataobject/dataobject_500720.o:
 	.data       start:0x00500720 end:0x00501BC0
 	.data       start:0x00501BC0 end:0x00501EE0
 	.data       start:0x00501EE0 end:0x005021C0
@@ -4852,7 +5570,6 @@ dataobject.obj:
 	.data       start:0x0050BA20 end:0x0050BFE0
 	.data       start:0x0050BFE0 end:0x0050C560
 	.data       start:0x0050C560 end:0x0050C720
-	.data       start:0x0050C720 end:0x0050C720
 	.data       start:0x0050C720 end:0x0050E760
 	.data       start:0x0050E760 end:0x005116C0
 	.data       start:0x005116C0 end:0x00514F80
@@ -4894,17 +5611,20 @@ dataobject.obj:
 	.data       start:0x005B2740 end:0x005B69C0
 	.data       start:0x005B69C0 end:0x005B8F60
 	.data       start:0x005B8F60 end:0x005BC5C0
-	.data       start:0x005BC5C0 end:0x005BC5C0
+
+data/npc/model/mdl/rcs_1.c:
 	.data       start:0x005BC5C0 end:0x005BE6C0
+
+data/npc/model/tex/rcs_1.c:
 	.data       start:0x005BE6C0 end:0x005BF460
+
+dataobject/dataobject_5BF460.o:
 	.data       start:0x005BF460 end:0x005BF4D8
 	.data       start:0x005BF4D8 end:0x005BF568
-	.data       start:0x005BF568 end:0x005BF568
 	.data       start:0x005BF568 end:0x005BF5E8
 	.data       start:0x005BF5E8 end:0x005BF618
 	.data       start:0x005BF618 end:0x005BF6A0
 	.data       start:0x005BF6A0 end:0x005BFBE0
-	.data       start:0x005BFBE0 end:0x005BFBE0
 	.data       start:0x005BFBE0 end:0x005C0460
 	.data       start:0x005C0460 end:0x005C0AE0
 	.data       start:0x005C0AE0 end:0x005C13E0
@@ -4970,19 +5690,28 @@ dataobject.obj:
 	.data       start:0x005DF3D8 end:0x005DF460
 	.data       start:0x005DF460 end:0x005DF4B0
 	.data       start:0x005DF4B0 end:0x005DF4F8
+
+data/npc/model/mdl/tig_1.c:
 	.data       start:0x005DF4F8 end:0x005E19A0
+
+data/npc/model/tex/tig_1.c:
 	.data       start:0x005E19A0 end:0x005E2740
+
+data/npc/model/tex/tig_2.c:
 	.data       start:0x005E2740 end:0x005E34E0
+
+data/npc/model/tex/tig_3.c:
 	.data       start:0x005E34E0 end:0x005E4280
+
+data/npc/model/tex/tig_4.c:
 	.data       start:0x005E4280 end:0x005E5020
-	.data       start:0x005E5020 end:0x005E5020
+
+dataobject/dataobject_5E5020.o:
 	.data       start:0x005E5020 end:0x005E5420
 	.data       start:0x005E5420 end:0x005E5820
-	.data       start:0x005E5820 end:0x005E5820
 	.data       start:0x005E5820 end:0x005E5C20
 	.data       start:0x005E5C20 end:0x005E6020
 	.data       start:0x005E6020 end:0x005E6420
-	.data       start:0x005E6420 end:0x005E6420
 	.data       start:0x005E6420 end:0x005E6A20
 	.data       start:0x005E6A20 end:0x005EA2E0
 	.data       start:0x005EA2E0 end:0x005EE480
@@ -4991,27 +5720,65 @@ dataobject.obj:
 	.data       start:0x005F1040 end:0x005F1760
 	.data       start:0x005F1760 end:0x005F3A60
 	.data       start:0x005F3A60 end:0x005F3CD8
+
+data/titledemo/pact0.c:
 	.data       start:0x005F3CD8 end:0x005F4B38
+
+data/titledemo/pact1.c:
 	.data       start:0x005F4B38 end:0x005F5998
+
+data/titledemo/pact2.c:
 	.data       start:0x005F5998 end:0x005F6818
+
+data/titledemo/pact3.c:
 	.data       start:0x005F6818 end:0x005F7698
+
+data/titledemo/pact4.c:
 	.data       start:0x005F7698 end:0x005F8508
+
+data/npc/model/mdl/end_1.c:
 	.data       start:0x005F8508 end:0x005FABC0
+
+data/npc/model/tex/end_1.c:
 	.data       start:0x005FABC0 end:0x005FBEA0
+
+dataobject/dataobject_5FBEA0.o:
 	.data       start:0x005FBEA0 end:0x005FBF80
 	.data       start:0x005FBF80 end:0x005FC6E0
 	.data       start:0x005FC6E0 end:0x005FE210
+
+data/npc/model/mdl/tuk_1.c:
 	.data       start:0x005FE210 end:0x00600B80
+
+data/npc/model/tex/tuk_1.c:
 	.data       start:0x00600B80 end:0x00601A20
+
+dataobject/dataobject_601A20.o:
 	.data       start:0x00601A20 end:0x00601D60
 	.data       start:0x00601D60 end:0x00602088
+
+data/npc/model/mdl/wol_1.c:
 	.data       start:0x00602088 end:0x00604160
+
+data/npc/model/tex/wol_1.c:
 	.data       start:0x00604160 end:0x00604D80
+
+data/npc/model/tex/wol_2.c:
 	.data       start:0x00604D80 end:0x006059A0
+
+data/npc/model/tex/wol_3.c:
 	.data       start:0x006059A0 end:0x006065C0
+
+data/npc/model/tex/wol_4.c:
 	.data       start:0x006065C0 end:0x006071E0
+
+data/npc/model/tex/wol_5.c:
 	.data       start:0x006071E0 end:0x00607E00
+
+data/npc/model/tex/wol_6.c:
 	.data       start:0x00607E00 end:0x00608A20
+
+dataobject/dataobject_608A20.o:
 	.data       start:0x00608A20 end:0x00608A68
 	.data       start:0x00608A68 end:0x00608A98
 	.data       start:0x00608A98 end:0x00608AB0
@@ -5049,26 +5816,57 @@ dataobject.obj:
 	.data       start:0x0060B560 end:0x0060C2A8
 	.data       start:0x0060C2A8 end:0x0060C6A8
 	.data       start:0x0060C6A8 end:0x0060C7A8
+
+data/field/bg/beach_pal.c:
 	.data       start:0x0060C7A8 end:0x0060C928
-	.data       start:0x0060C928 end:0x0060C928
+
+dataobject/dataobject_60C928.o:
 	.data       start:0x0060C928 end:0x0060CD28
 	.data       start:0x0060CD28 end:0x0060CD40
+
+data/field/bg/acre/grd_yamishop/grd_yamishop.c:
 	.data       start:0x0060CD40 end:0x006106A0
+
+data/field/bg/acre/grd_post_office/grd_post_office.c:
 	.data       start:0x006106A0 end:0x00615F08
+
+data/field/bg/acre/tmp4/tmp4.c:
 	.data       start:0x00615F08 end:0x00617198
-	.data       start:0x00617198 end:0x00617198
+
+data/field/bg/acre/tmpr4/tmpr4_evw_anime.c:
 	.data       start:0x00617198 end:0x006171D8
+
+data/field/bg/acre/tmpr4/tmpr4.c:
 	.data       start:0x006171D8 end:0x00618D78
+
+data/field/bg/acre/tmp3/tmp3.c:
 	.data       start:0x00618D78 end:0x0061A2F8
-	.data       start:0x0061A2F8 end:0x0061A2F8
+
+data/field/bg/acre/tmpr3/tmpr3_evw_anime.c:
 	.data       start:0x0061A2F8 end:0x0061A338
+
+data/field/bg/acre/tmpr3/tmpr3.c:
 	.data       start:0x0061A338 end:0x0061BE38
+
+data/field/bg/acre/tmp/tmp.c:
 	.data       start:0x0061BE38 end:0x0061C0E0
+
+data/field/bg/acre/tmpr/tmpr_evw_anime.c:
 	.data       start:0x0061C0E0 end:0x0061C0F0
+
+data/field/bg/acre/tmpr/tmpr.c:
 	.data       start:0x0061C0F0 end:0x0061D3C8
+
+data/field/bg/acre/tmp2/tmp2.c:
 	.data       start:0x0061D3C8 end:0x0061F968
+
+data/field/bg/acre/tmpr2/tmpr2_evw_anime.c:
 	.data       start:0x0061F968 end:0x0061F978
+
+data/field/bg/acre/tmpr2/tmpr2.c:
 	.data       start:0x0061F978 end:0x006207C0
+
+dataobject/dataobject_6207C0.o:
 	.data       start:0x006207C0 end:0x006208A8
 	.data       start:0x006208A8 end:0x00620930
 	.data       start:0x00620930 end:0x00620950
@@ -5076,17 +5874,24 @@ dataobject.obj:
 	.data       start:0x00620960 end:0x00622160
 	.data       start:0x00622160 end:0x00623960
 	.data       start:0x00623960 end:0x00623980
-	.data       start:0x00623980 end:0x00623980
 	.data       start:0x00623980 end:0x00625180
 	.data       start:0x00625180 end:0x00626980
 	.data       start:0x00626980 end:0x00628180
 	.data       start:0x00628180 end:0x00629980
 	.data       start:0x00629980 end:0x0062A580
 	.data       start:0x0062A580 end:0x0062B180
+
+data/field/bg/bush_pal.c:
 	.data       start:0x0062B180 end:0x0062B300
+
+dataobject/dataobject_62B300.o:
 	.data       start:0x0062B300 end:0x0062B400
 	.data       start:0x0062B400 end:0x0062B488
+
+data/field/bg/cliff_pal.c:
 	.data       start:0x0062B488 end:0x0062B620
+
+dataobject/dataobject_62B620.o:
 	.data       start:0x0062B620 end:0x0062CE20
 	.data       start:0x0062CE20 end:0x0062E620
 	.data       start:0x0062E620 end:0x0062E878
@@ -5126,7 +5931,11 @@ dataobject.obj:
 	.data       start:0x00640B60 end:0x00641780
 	.data       start:0x00641780 end:0x006421C0
 	.data       start:0x006421C0 end:0x00642C00
+
+data/field/bg/earth_pal.c:
 	.data       start:0x00642C00 end:0x00642D80
+
+dataobject/dataobject_642D80.o:
 	.data       start:0x00642D80 end:0x00644580
 	.data       start:0x00644580 end:0x00645D80
 	.data       start:0x00645D80 end:0x00645FC0
@@ -5377,7 +6186,6 @@ dataobject.obj:
 	.data       start:0x006744A0 end:0x006745C0
 	.data       start:0x006745C0 end:0x00674E60
 	.data       start:0x00674E60 end:0x00675700
-	.data       start:0x00675700 end:0x00675700
 	.data       start:0x00675700 end:0x006758A0
 	.data       start:0x006758A0 end:0x00675DF8
 	.data       start:0x00675DF8 end:0x00675E00
@@ -5457,7 +6265,6 @@ dataobject.obj:
 	.data       start:0x0068D2C0 end:0x0068D920
 	.data       start:0x0068D920 end:0x0068DA00
 	.data       start:0x0068DA00 end:0x0068E100
-	.data       start:0x0068E100 end:0x0068E100
 	.data       start:0x0068E100 end:0x0068EE80
 	.data       start:0x0068EE80 end:0x0068EF08
 	.data       start:0x0068EF08 end:0x0068F000
@@ -5466,7 +6273,6 @@ dataobject.obj:
 	.data       start:0x0068F6E0 end:0x0068FF38
 	.data       start:0x0068FF38 end:0x006900A0
 	.data       start:0x006900A0 end:0x00690A40
-	.data       start:0x00690A40 end:0x00690A40
 	.data       start:0x00690A40 end:0x006949E0
 	.data       start:0x006949E0 end:0x006949F0
 	.data       start:0x006949F0 end:0x00694AA0
@@ -5486,415 +6292,1163 @@ dataobject.obj:
 	.data       start:0x006990E0 end:0x00699220
 	.data       start:0x00699220 end:0x00699820
 	.data       start:0x00699820 end:0x00699E20
+
+data/field/bg/acre/grd_s_c1_1/grd_s_c1_1.c:
 	.data       start:0x00699E20 end:0x0069AEC0
-	.data       start:0x0069AEC0 end:0x0069AEC0
+
+data/field/bg/acre/grd_s_c1_2/grd_s_c1_2.c:
 	.data       start:0x0069AEC0 end:0x0069C010
+
+data/field/bg/acre/grd_s_c1_3/grd_s_c1_3.c:
 	.data       start:0x0069C010 end:0x0069D098
+
+data/field/bg/acre/grd_s_c1_4/grd_s_c1_4.c:
 	.data       start:0x0069D098 end:0x0069E368
+
+data/field/bg/acre/grd_s_c1_5/grd_s_c1_5.c:
 	.data       start:0x0069E368 end:0x0069F238
+
+data/field/bg/acre/grd_s_c1_r1_1/grd_s_c1_r1_1_evw_anime.c:
 	.data       start:0x0069F238 end:0x0069F248
+
+data/field/bg/acre/grd_s_c1_r1_1/grd_s_c1_r1_1.c:
 	.data       start:0x0069F248 end:0x006A07F0
+
+data/field/bg/acre/grd_s_c1_r1_2/grd_s_c1_r1_2_evw_anime.c:
 	.data       start:0x006A07F0 end:0x006A0800
+
+data/field/bg/acre/grd_s_c1_r1_2/grd_s_c1_r1_2.c:
 	.data       start:0x006A0800 end:0x006A1C28
+
+data/field/bg/acre/grd_s_c1_r1_3/grd_s_c1_r1_3_evw_anime.c:
 	.data       start:0x006A1C28 end:0x006A1C38
+
+data/field/bg/acre/grd_s_c1_r1_3/grd_s_c1_r1_3.c:
 	.data       start:0x006A1C38 end:0x006A3038
+
+data/field/bg/acre/grd_s_c1_r2_1/grd_s_c1_r2_1_evw_anime.c:
 	.data       start:0x006A3038 end:0x006A3048
+
+data/field/bg/acre/grd_s_c1_r2_1/grd_s_c1_r2_1.c:
 	.data       start:0x006A3048 end:0x006A4460
+
+data/field/bg/acre/grd_s_c1_r2_2/grd_s_c1_r2_2_evw_anime.c:
 	.data       start:0x006A4460 end:0x006A4470
+
+data/field/bg/acre/grd_s_c1_r2_2/grd_s_c1_r2_2.c:
 	.data       start:0x006A4470 end:0x006A58C8
+
+data/field/bg/acre/grd_s_c1_r2_3/grd_s_c1_r2_3_evw_anime.c:
 	.data       start:0x006A58C8 end:0x006A58D8
+
+data/field/bg/acre/grd_s_c1_r2_3/grd_s_c1_r2_3.c:
 	.data       start:0x006A58D8 end:0x006A6F40
+
+data/field/bg/acre/grd_s_c1_r3_1/grd_s_c1_r3_1_evw_anime.c:
 	.data       start:0x006A6F40 end:0x006A6F50
+
+data/field/bg/acre/grd_s_c1_r3_1/grd_s_c1_r3_1.c:
 	.data       start:0x006A6F50 end:0x006A8008
+
+data/field/bg/acre/grd_s_c1_r3_2/grd_s_c1_r3_2_evw_anime.c:
 	.data       start:0x006A8008 end:0x006A8018
+
+data/field/bg/acre/grd_s_c1_r3_2/grd_s_c1_r3_2.c:
 	.data       start:0x006A8018 end:0x006A9310
+
+data/field/bg/acre/grd_s_c1_r3_3/grd_s_c1_r3_3_evw_anime.c:
 	.data       start:0x006A9310 end:0x006A9320
+
+data/field/bg/acre/grd_s_c1_r3_3/grd_s_c1_r3_3.c:
 	.data       start:0x006A9320 end:0x006AA758
+
+data/field/bg/acre/grd_s_c1_s_1/grd_s_c1_s_1.c:
 	.data       start:0x006AA758 end:0x006AB638
+
+data/field/bg/acre/grd_s_c1_s_2/grd_s_c1_s_2.c:
 	.data       start:0x006AB638 end:0x006AC760
+
+data/field/bg/acre/grd_s_c1_s_3/grd_s_c1_s_3.c:
 	.data       start:0x006AC760 end:0x006AD9A0
+
+data/field/bg/acre/grd_s_c1_s_4/grd_s_c1_s_4.c:
 	.data       start:0x006AD9A0 end:0x006AECB0
+
+data/field/bg/acre/grd_s_c2_1/grd_s_c2_1.c:
 	.data       start:0x006AECB0 end:0x006AFCD0
+
+data/field/bg/acre/grd_s_c2_2/grd_s_c2_2.c:
 	.data       start:0x006AFCD0 end:0x006B0D20
+
+data/field/bg/acre/grd_s_c2_3/grd_s_c2_3_evw_anime.c:
 	.data       start:0x006B0D20 end:0x006B0D30
+
+data/field/bg/acre/grd_s_c2_3/grd_s_c2_3.c:
 	.data       start:0x006B0D30 end:0x006B20A8
+
+data/field/bg/acre/grd_s_c2_r1_1/grd_s_c2_r1_1_evw_anime.c:
 	.data       start:0x006B20A8 end:0x006B20B8
+
+data/field/bg/acre/grd_s_c2_r1_1/grd_s_c2_r1_1.c:
 	.data       start:0x006B20B8 end:0x006B34A0
+
+data/field/bg/acre/grd_s_c2_r1_2/grd_s_c2_r1_2_evw_anime.c:
 	.data       start:0x006B34A0 end:0x006B34B0
+
+data/field/bg/acre/grd_s_c2_r1_2/grd_s_c2_r1_2.c:
 	.data       start:0x006B34B0 end:0x006B4970
+
+data/field/bg/acre/grd_s_c2_r2_1/grd_s_c2_r2_1_evw_anime.c:
 	.data       start:0x006B4970 end:0x006B4980
+
+data/field/bg/acre/grd_s_c2_r2_1/grd_s_c2_r2_1.c:
 	.data       start:0x006B4980 end:0x006B5C40
+
+data/field/bg/acre/grd_s_c2_r2_2/grd_s_c2_r2_2_evw_anime.c:
 	.data       start:0x006B5C40 end:0x006B5C50
+
+data/field/bg/acre/grd_s_c2_r2_2/grd_s_c2_r2_2.c:
 	.data       start:0x006B5C50 end:0x006B7180
+
+data/field/bg/acre/grd_s_c2_s_1/grd_s_c2_s_1.c:
 	.data       start:0x006B7180 end:0x006B8520
+
+data/field/bg/acre/grd_s_c2_s_2/grd_s_c2_s_2.c:
 	.data       start:0x006B8520 end:0x006B95F0
+
+data/field/bg/acre/grd_s_c2_s_3/grd_s_c2_s_3.c:
 	.data       start:0x006B95F0 end:0x006BA5F0
+
+data/field/bg/acre/grd_s_c3_1/grd_s_c3_1.c:
 	.data       start:0x006BA5F0 end:0x006BB780
+
+data/field/bg/acre/grd_s_c3_2/grd_s_c3_2_evw_anime.c:
 	.data       start:0x006BB780 end:0x006BB790
+
+data/field/bg/acre/grd_s_c3_2/grd_s_c3_2.c:
 	.data       start:0x006BB790 end:0x006BC880
+
+data/field/bg/acre/grd_s_c3_3/grd_s_c3_3.c:
 	.data       start:0x006BC880 end:0x006BD7F0
+
+data/field/bg/acre/grd_s_c3_r1_1/grd_s_c3_r1_1_evw_anime.c:
 	.data       start:0x006BD7F0 end:0x006BD800
+
+data/field/bg/acre/grd_s_c3_r1_1/grd_s_c3_r1_1.c:
 	.data       start:0x006BD800 end:0x006BE948
+
+data/field/bg/acre/grd_s_c3_r1_2/grd_s_c3_r1_2_evw_anime.c:
 	.data       start:0x006BE948 end:0x006BE958
+
+data/field/bg/acre/grd_s_c3_r1_2/grd_s_c3_r1_2.c:
 	.data       start:0x006BE958 end:0x006BFC48
+
+data/field/bg/acre/grd_s_c3_r2_1/grd_s_c3_r2_1_evw_anime.c:
 	.data       start:0x006BFC48 end:0x006BFC58
+
+data/field/bg/acre/grd_s_c3_r2_1/grd_s_c3_r2_1.c:
 	.data       start:0x006BFC58 end:0x006C12C8
+
+data/field/bg/acre/grd_s_c3_r2_2/grd_s_c3_r2_2_evw_anime.c:
 	.data       start:0x006C12C8 end:0x006C12D8
+
+data/field/bg/acre/grd_s_c3_r2_2/grd_s_c3_r2_2.c:
 	.data       start:0x006C12D8 end:0x006C2950
+
+data/field/bg/acre/grd_s_c3_s_1/grd_s_c3_s_1_evw_anime.c:
 	.data       start:0x006C2950 end:0x006C2960
+
+data/field/bg/acre/grd_s_c3_s_1/grd_s_c3_s_1.c:
 	.data       start:0x006C2960 end:0x006C4128
+
+data/field/bg/acre/grd_s_c4_1/grd_s_c4_1.c:
 	.data       start:0x006C4128 end:0x006C4F30
+
+data/field/bg/acre/grd_s_c4_2/grd_s_c4_2.c:
 	.data       start:0x006C4F30 end:0x006C60B0
+
+data/field/bg/acre/grd_s_c4_3/grd_s_c4_3.c:
 	.data       start:0x006C60B0 end:0x006C7098
+
+data/field/bg/acre/grd_s_c4_r1_1/grd_s_c4_r1_1_evw_anime.c:
 	.data       start:0x006C7098 end:0x006C70A8
+
+data/field/bg/acre/grd_s_c4_r1_1/grd_s_c4_r1_1.c:
 	.data       start:0x006C70A8 end:0x006C83B0
+
+data/field/bg/acre/grd_s_c4_r1_2/grd_s_c4_r1_2_evw_anime.c:
 	.data       start:0x006C83B0 end:0x006C83C0
+
+data/field/bg/acre/grd_s_c4_r1_2/grd_s_c4_r1_2.c:
 	.data       start:0x006C83C0 end:0x006C9680
+
+data/field/bg/acre/grd_s_c4_r2_1/grd_s_c4_r2_1_evw_anime.c:
 	.data       start:0x006C9680 end:0x006C9690
+
+data/field/bg/acre/grd_s_c4_r2_1/grd_s_c4_r2_1.c:
 	.data       start:0x006C9690 end:0x006CA9F8
+
+data/field/bg/acre/grd_s_c4_r2_2/grd_s_c4_r2_2_evw_anime.c:
 	.data       start:0x006CA9F8 end:0x006CAA08
+
+data/field/bg/acre/grd_s_c4_r2_2/grd_s_c4_r2_2.c:
 	.data       start:0x006CAA08 end:0x006CBAB0
+
+data/field/bg/acre/grd_s_c4_r3_1/grd_s_c4_r3_1_evw_anime.c:
 	.data       start:0x006CBAB0 end:0x006CBAC0
+
+data/field/bg/acre/grd_s_c4_r3_1/grd_s_c4_r3_1.c:
 	.data       start:0x006CBAC0 end:0x006CCBC8
+
+data/field/bg/acre/grd_s_c4_r3_2/grd_s_c4_r3_2_evw_anime.c:
 	.data       start:0x006CCBC8 end:0x006CCBD8
+
+data/field/bg/acre/grd_s_c4_r3_2/grd_s_c4_r3_2.c:
 	.data       start:0x006CCBD8 end:0x006CDB88
+
+data/field/bg/acre/grd_s_c4_s_1/grd_s_c4_s_1.c:
 	.data       start:0x006CDB88 end:0x006CEB30
+
+data/field/bg/acre/grd_s_c4_s_2/grd_s_c4_s_2.c:
 	.data       start:0x006CEB30 end:0x006CFDA8
+
+data/field/bg/acre/grd_s_c5_1/grd_s_c5_1.c:
 	.data       start:0x006CFDA8 end:0x006D0AA8
+
+data/field/bg/acre/grd_s_c5_2/grd_s_c5_2.c:
 	.data       start:0x006D0AA8 end:0x006D1CB8
+
+data/field/bg/acre/grd_s_c5_3/grd_s_c5_3.c:
 	.data       start:0x006D1CB8 end:0x006D2A20
+
+data/field/bg/acre/grd_s_c5_r1_1/grd_s_c5_r1_1_evw_anime.c:
 	.data       start:0x006D2A20 end:0x006D2A30
+
+data/field/bg/acre/grd_s_c5_r1_1/grd_s_c5_r1_1.c:
 	.data       start:0x006D2A30 end:0x006D4010
+
+data/field/bg/acre/grd_s_c5_r1_2/grd_s_c5_r1_2_evw_anime.c:
 	.data       start:0x006D4010 end:0x006D4020
+
+data/field/bg/acre/grd_s_c5_r1_2/grd_s_c5_r1_2.c:
 	.data       start:0x006D4020 end:0x006D55B0
+
+data/field/bg/acre/grd_s_c5_r2_1/grd_s_c5_r2_1_evw_anime.c:
 	.data       start:0x006D55B0 end:0x006D55C0
+
+data/field/bg/acre/grd_s_c5_r2_1/grd_s_c5_r2_1.c:
 	.data       start:0x006D55C0 end:0x006D6CC0
+
+data/field/bg/acre/grd_s_c5_r2_2/grd_s_c5_r2_2_evw_anime.c:
 	.data       start:0x006D6CC0 end:0x006D6CD0
+
+data/field/bg/acre/grd_s_c5_r2_2/grd_s_c5_r2_2.c:
 	.data       start:0x006D6CD0 end:0x006D8138
+
+data/field/bg/acre/grd_s_c5_r3_1/grd_s_c5_r3_1_evw_anime.c:
 	.data       start:0x006D8138 end:0x006D8148
+
+data/field/bg/acre/grd_s_c5_r3_1/grd_s_c5_r3_1.c:
 	.data       start:0x006D8148 end:0x006D9478
+
+data/field/bg/acre/grd_s_c5_r3_2/grd_s_c5_r3_2_evw_anime.c:
 	.data       start:0x006D9478 end:0x006D9488
+
+data/field/bg/acre/grd_s_c5_r3_2/grd_s_c5_r3_2.c:
 	.data       start:0x006D9488 end:0x006DA678
+
+data/field/bg/acre/grd_s_c5_s_1/grd_s_c5_s_1.c:
 	.data       start:0x006DA678 end:0x006DB620
+
+data/field/bg/acre/grd_s_c5_s_2/grd_s_c5_s_2.c:
 	.data       start:0x006DB620 end:0x006DC5C8
+
+data/field/bg/acre/grd_s_c6_1/grd_s_c6_1.c:
 	.data       start:0x006DC5C8 end:0x006DD700
+
+data/field/bg/acre/grd_s_c6_2/grd_s_c6_2.c:
 	.data       start:0x006DD700 end:0x006DE900
+
+data/field/bg/acre/grd_s_c6_3/grd_s_c6_3.c:
 	.data       start:0x006DE900 end:0x006DF8A0
+
+data/field/bg/acre/grd_s_c6_r1_1/grd_s_c6_r1_1_evw_anime.c:
 	.data       start:0x006DF8A0 end:0x006DF8B0
+
+data/field/bg/acre/grd_s_c6_r1_1/grd_s_c6_r1_1.c:
 	.data       start:0x006DF8B0 end:0x006E0B88
+
+data/field/bg/acre/grd_s_c6_r1_2/grd_s_c6_r1_2_evw_anime.c:
 	.data       start:0x006E0B88 end:0x006E0B98
+
+data/field/bg/acre/grd_s_c6_r1_2/grd_s_c6_r1_2.c:
 	.data       start:0x006E0B98 end:0x006E1EE8
+
+data/field/bg/acre/grd_s_c6_r3_1/grd_s_c6_r3_1_evw_anime.c:
 	.data       start:0x006E1EE8 end:0x006E1EF8
+
+data/field/bg/acre/grd_s_c6_r3_1/grd_s_c6_r3_1.c:
 	.data       start:0x006E1EF8 end:0x006E36B0
+
+data/field/bg/acre/grd_s_c6_s_1/grd_s_c6_s_1.c:
 	.data       start:0x006E36B0 end:0x006E4790
+
+data/field/bg/acre/grd_s_c7_1/grd_s_c7_1.c:
 	.data       start:0x006E4790 end:0x006E57C8
+
+data/field/bg/acre/grd_s_c7_2/grd_s_c7_2.c:
 	.data       start:0x006E57C8 end:0x006E6B80
+
+data/field/bg/acre/grd_s_c7_3/grd_s_c7_3_evw_anime.c:
 	.data       start:0x006E6B80 end:0x006E6B90
+
+data/field/bg/acre/grd_s_c7_3/grd_s_c7_3.c:
 	.data       start:0x006E6B90 end:0x006E7F50
+
+data/field/bg/acre/grd_s_c7_r1_1/grd_s_c7_r1_1_evw_anime.c:
 	.data       start:0x006E7F50 end:0x006E7F60
+
+data/field/bg/acre/grd_s_c7_r1_1/grd_s_c7_r1_1.c:
 	.data       start:0x006E7F60 end:0x006E90A0
+
+data/field/bg/acre/grd_s_c7_r1_2/grd_s_c7_r1_2_evw_anime.c:
 	.data       start:0x006E90A0 end:0x006E90B0
+
+data/field/bg/acre/grd_s_c7_r1_2/grd_s_c7_r1_2.c:
 	.data       start:0x006E90B0 end:0x006EA1F8
+
+data/field/bg/acre/grd_s_c7_r3_1/grd_s_c7_r3_1_evw_anime.c:
 	.data       start:0x006EA1F8 end:0x006EA208
+
+data/field/bg/acre/grd_s_c7_r3_1/grd_s_c7_r3_1.c:
 	.data       start:0x006EA208 end:0x006EB748
+
+data/field/bg/acre/grd_s_c7_r3_2/grd_s_c7_r3_2_evw_anime.c:
 	.data       start:0x006EB748 end:0x006EB758
+
+data/field/bg/acre/grd_s_c7_r3_2/grd_s_c7_r3_2.c:
 	.data       start:0x006EB758 end:0x006ECE18
+
+data/field/bg/acre/grd_s_c7_s_1/grd_s_c7_s_1.c:
 	.data       start:0x006ECE18 end:0x006EE438
+
+data/field/bg/acre/grd_s_c7_s_2/grd_s_c7_s_2.c:
 	.data       start:0x006EE438 end:0x006EF300
+
+data/field/bg/acre/grd_s_c7_s_3/grd_s_c7_s_3.c:
 	.data       start:0x006EF300 end:0x006F0430
+
+data/field/bg/acre/grd_s_e1_1/grd_s_e1_1.c:
 	.data       start:0x006F0430 end:0x006F0AE0
+
+data/field/bg/acre/grd_s_e1_r1_1/grd_s_e1_r1_1_evw_anime.c:
 	.data       start:0x006F0AE0 end:0x006F0AF0
+
+data/field/bg/acre/grd_s_e1_r1_1/grd_s_e1_r1_1.c:
 	.data       start:0x006F0AF0 end:0x006F2270
+
+data/field/bg/acre/grd_s_e2_1/grd_s_e2_1.c:
 	.data       start:0x006F2270 end:0x006F2A08
+
+data/field/bg/acre/grd_s_e2_c1_1/grd_s_e2_c1_1.c:
 	.data       start:0x006F2A08 end:0x006F31C8
-	.data       start:0x006F31C8 end:0x006F31C8
+
+data/field/bg/acre/grd_s_e2_m_1/grd_s_e2_m_1.c:
 	.data       start:0x006F31C8 end:0x006F3AA0
-	.data       start:0x006F3AA0 end:0x006F3AA0
+
+data/field/bg/acre/grd_s_e2_o_1/grd_s_e2_o_1.c:
 	.data       start:0x006F3AA0 end:0x006F3D80
+
+data/field/bg/acre/grd_s_e2_t_1/grd_s_e2_t_1.c:
 	.data       start:0x006F3D80 end:0x006F48F0
+
+data/field/bg/acre/grd_s_e3_1/grd_s_e3_1.c:
 	.data       start:0x006F48F0 end:0x006F50D8
+
+data/field/bg/acre/grd_s_e3_c1_1/grd_s_e3_c1_1.c:
 	.data       start:0x006F50D8 end:0x006F58B0
-	.data       start:0x006F58B0 end:0x006F58B0
+
+data/field/bg/acre/grd_s_e3_m_1/grd_s_e3_m_1.c:
 	.data       start:0x006F58B0 end:0x006F61F8
-	.data       start:0x006F61F8 end:0x006F61F8
+
+data/field/bg/acre/grd_s_e3_o_1/grd_s_e3_o_1.c:
 	.data       start:0x006F61F8 end:0x006F64D8
+
+data/field/bg/acre/grd_s_e3_t_1/grd_s_e3_t_1.c:
 	.data       start:0x006F64D8 end:0x006F6F68
+
+data/field/bg/acre/grd_s_e4_1/grd_s_e4_1.c:
 	.data       start:0x006F6F68 end:0x006F7170
+
+data/field/bg/acre/grd_s_e5_1/grd_s_e5_1.c:
 	.data       start:0x006F7170 end:0x006F73A0
+
+data/field/bg/acre/grd_s_f_1/grd_s_f_1.c:
 	.data       start:0x006F73A0 end:0x006F80F0
+
+data/field/bg/acre/grd_s_f_10/grd_s_f_10.c:
 	.data       start:0x006F80F0 end:0x006F8ED8
+
+data/field/bg/acre/grd_s_f_2/grd_s_f_2.c:
 	.data       start:0x006F8ED8 end:0x006F9E20
+
+data/field/bg/acre/grd_s_f_3/grd_s_f_3.c:
 	.data       start:0x006F9E20 end:0x006FA778
+
+data/field/bg/acre/grd_s_f_4/grd_s_f_4_evw_anime.c:
 	.data       start:0x006FA778 end:0x006FA788
+
+data/field/bg/acre/grd_s_f_4/grd_s_f_4.c:
 	.data       start:0x006FA788 end:0x006FB560
+
+data/field/bg/acre/grd_s_f_5/grd_s_f_5_evw_anime.c:
 	.data       start:0x006FB560 end:0x006FB570
+
+data/field/bg/acre/grd_s_f_5/grd_s_f_5.c:
 	.data       start:0x006FB570 end:0x006FC750
+
+data/field/bg/acre/grd_s_f_6/grd_s_f_6_evw_anime.c:
 	.data       start:0x006FC750 end:0x006FC760
+
+data/field/bg/acre/grd_s_f_6/grd_s_f_6.c:
 	.data       start:0x006FC760 end:0x006FD988
+
+data/field/bg/acre/grd_s_f_7/grd_s_f_7.c:
 	.data       start:0x006FD988 end:0x006FF140
+
+data/field/bg/acre/grd_s_f_8/grd_s_f_8.c:
 	.data       start:0x006FF140 end:0x00700068
+
+data/field/bg/acre/grd_s_f_9/grd_s_f_9.c:
 	.data       start:0x00700068 end:0x00701208
+
+data/field/bg/acre/grd_s_f_ko_1/grd_s_f_ko_1.c:
 	.data       start:0x00701208 end:0x00702308
+
+data/field/bg/acre/grd_s_f_ko_2/grd_s_f_ko_2.c:
 	.data       start:0x00702308 end:0x00702F90
+
+data/field/bg/acre/grd_s_f_ko_3/grd_s_f_ko_3_evw_anime.c:
 	.data       start:0x00702F90 end:0x00702FA0
+
+data/field/bg/acre/grd_s_f_ko_3/grd_s_f_ko_3.c:
 	.data       start:0x00702FA0 end:0x00704208
+
+data/field/bg/acre/grd_s_f_mh_1/grd_s_f_mh_1.c:
 	.data       start:0x00704208 end:0x00705088
+
+data/field/bg/acre/grd_s_f_mh_2/grd_s_f_mh_2.c:
 	.data       start:0x00705088 end:0x00705FF0
+
+data/field/bg/acre/grd_s_f_mh_3/grd_s_f_mh_3.c:
 	.data       start:0x00705FF0 end:0x00706C90
+
+data/field/bg/acre/grd_s_f_mu_1/grd_s_f_mu_1.c:
 	.data       start:0x00706C90 end:0x00707860
+
+data/field/bg/acre/grd_s_f_mu_2/grd_s_f_mu_2.c:
 	.data       start:0x00707860 end:0x00708420
+
+data/field/bg/acre/grd_s_f_mu_3/grd_s_f_mu_3_evw_anime.c:
 	.data       start:0x00708420 end:0x00708430
+
+data/field/bg/acre/grd_s_f_mu_3/grd_s_f_mu_3.c:
 	.data       start:0x00708430 end:0x00708FB8
+
+data/field/bg/acre/grd_s_f_pk_1/grd_s_f_pk_1.c:
 	.data       start:0x00708FB8 end:0x0070A0B8
+
+data/field/bg/acre/grd_s_f_pk_2/grd_s_f_pk_2.c:
 	.data       start:0x0070A0B8 end:0x0070B080
+
+data/field/bg/acre/grd_s_f_pk_3/grd_s_f_pk_3.c:
 	.data       start:0x0070B080 end:0x0070C310
+
+data/field/bg/acre/grd_s_hole_test/grd_s_hole_test.c:
 	.data       start:0x0070C310 end:0x0070D4A8
-	.data       start:0x0070D4A8 end:0x0070D4A8
+
+data/field/bg/acre/grd_s_il_1/grd_s_il_1.c:
 	.data       start:0x0070D4A8 end:0x0070E518
-	.data       start:0x0070E518 end:0x0070E518
+
+data/field/bg/acre/grd_s_il_2/grd_s_il_2.c:
 	.data       start:0x0070E518 end:0x0070FE58
-	.data       start:0x0070FE58 end:0x0070FE58
+
+data/field/bg/acre/grd_s_il_3/grd_s_il_3.c:
 	.data       start:0x0070FE58 end:0x00710FF8
-	.data       start:0x00710FF8 end:0x00710FF8
+
+data/field/bg/acre/grd_s_il_4/grd_s_il_4.c:
 	.data       start:0x00710FF8 end:0x007120E8
-	.data       start:0x007120E8 end:0x007120E8
+
+data/field/bg/acre/grd_s_ir_1/grd_s_ir_1.c:
 	.data       start:0x007120E8 end:0x00713560
-	.data       start:0x00713560 end:0x00713560
+
+data/field/bg/acre/grd_s_ir_2/grd_s_ir_2.c:
 	.data       start:0x00713560 end:0x00714CF8
-	.data       start:0x00714CF8 end:0x00714CF8
+
+data/field/bg/acre/grd_s_ir_3/grd_s_ir_3.c:
 	.data       start:0x00714CF8 end:0x007166B0
-	.data       start:0x007166B0 end:0x007166B0
+
+data/field/bg/acre/grd_s_ir_4/grd_s_ir_4.c:
 	.data       start:0x007166B0 end:0x00717C58
-	.data       start:0x00717C58 end:0x00717C58
+
+data/field/bg/acre/grd_s_m_1/grd_s_m_1.c:
 	.data       start:0x00717C58 end:0x00718DB0
-	.data       start:0x00718DB0 end:0x00718DB0
+
+data/field/bg/acre/grd_s_m_10/grd_s_m_10.c:
 	.data       start:0x00718DB0 end:0x00719F38
-	.data       start:0x00719F38 end:0x00719F38
+
+data/field/bg/acre/grd_s_m_2/grd_s_m_2.c:
 	.data       start:0x00719F38 end:0x0071B218
-	.data       start:0x0071B218 end:0x0071B218
+
+data/field/bg/acre/grd_s_m_3/grd_s_m_3.c:
 	.data       start:0x0071B218 end:0x0071C3C8
-	.data       start:0x0071C3C8 end:0x0071C3C8
+
+data/field/bg/acre/grd_s_m_4/grd_s_m_4.c:
 	.data       start:0x0071C3C8 end:0x0071D3A0
-	.data       start:0x0071D3A0 end:0x0071D3A0
+
+data/field/bg/acre/grd_s_m_5/grd_s_m_5.c:
 	.data       start:0x0071D3A0 end:0x0071E770
-	.data       start:0x0071E770 end:0x0071E770
+
+data/field/bg/acre/grd_s_m_6/grd_s_m_6.c:
 	.data       start:0x0071E770 end:0x0071FA60
-	.data       start:0x0071FA60 end:0x0071FA60
+
+data/field/bg/acre/grd_s_m_7/grd_s_m_7.c:
 	.data       start:0x0071FA60 end:0x00720A60
-	.data       start:0x00720A60 end:0x00720A60
+
+data/field/bg/acre/grd_s_m_8/grd_s_m_8.c:
 	.data       start:0x00720A60 end:0x00721AE8
-	.data       start:0x00721AE8 end:0x00721AE8
+
+data/field/bg/acre/grd_s_m_9/grd_s_m_9.c:
 	.data       start:0x00721AE8 end:0x00722A58
+
+data/field/bg/acre/grd_s_m_r1_1/grd_s_m_r1_1_evw_anime.c:
 	.data       start:0x00722A58 end:0x00722A78
+
+data/field/bg/acre/grd_s_m_r1_1/grd_s_m_r1_1.c:
 	.data       start:0x00722A78 end:0x00723ED8
+
+data/field/bg/acre/grd_s_m_r1_2/grd_s_m_r1_2_evw_anime.c:
 	.data       start:0x00723ED8 end:0x00723EF8
+
+data/field/bg/acre/grd_s_m_r1_2/grd_s_m_r1_2.c:
 	.data       start:0x00723EF8 end:0x007252B8
+
+data/field/bg/acre/grd_s_m_r1_3/grd_s_m_r1_3_evw_anime.c:
 	.data       start:0x007252B8 end:0x007252D8
+
+data/field/bg/acre/grd_s_m_r1_3/grd_s_m_r1_3.c:
 	.data       start:0x007252D8 end:0x00726530
+
+data/field/bg/acre/grd_s_m_r1_4/grd_s_m_r1_4_evw_anime.c:
 	.data       start:0x00726530 end:0x00726550
+
+data/field/bg/acre/grd_s_m_r1_4/grd_s_m_r1_4.c:
 	.data       start:0x00726550 end:0x00727AD8
+
+data/field/bg/acre/grd_s_m_r1_5/grd_s_m_r1_5_evw_anime.c:
 	.data       start:0x00727AD8 end:0x00727AF8
+
+data/field/bg/acre/grd_s_m_r1_5/grd_s_m_r1_5.c:
 	.data       start:0x00727AF8 end:0x00729160
+
+data/field/bg/acre/grd_s_m_r1_b_1/grd_s_m_r1_b_1_evw_anime.c:
 	.data       start:0x00729160 end:0x00729180
+
+data/field/bg/acre/grd_s_m_r1_b_1/grd_s_m_r1_b_1.c:
 	.data       start:0x00729180 end:0x0072A408
+
+data/field/bg/acre/grd_s_m_r1_b_2/grd_s_m_r1_b_2_evw_anime.c:
 	.data       start:0x0072A408 end:0x0072A428
+
+data/field/bg/acre/grd_s_m_r1_b_2/grd_s_m_r1_b_2.c:
 	.data       start:0x0072A428 end:0x0072BA10
+
+data/field/bg/acre/grd_s_m_r1_b_3/grd_s_m_r1_b_3_evw_anime.c:
 	.data       start:0x0072BA10 end:0x0072BA30
+
+data/field/bg/acre/grd_s_m_r1_b_3/grd_s_m_r1_b_3.c:
 	.data       start:0x0072BA30 end:0x0072CE50
+
+data/field/bg/acre/grd_s_m_ta_1/grd_s_m_ta_1_evw_anime.c:
 	.data       start:0x0072CE50 end:0x0072CE70
+
+data/field/bg/acre/grd_s_m_ta_1/grd_s_m_ta_1.c:
 	.data       start:0x0072CE70 end:0x0072E1C8
+
+data/field/bg/acre/grd_s_m_ta_2/grd_s_m_ta_2_evw_anime.c:
 	.data       start:0x0072E1C8 end:0x0072E1E8
+
+data/field/bg/acre/grd_s_m_ta_2/grd_s_m_ta_2.c:
 	.data       start:0x0072E1E8 end:0x0072F400
+
+data/field/bg/acre/grd_s_m_ta_3/grd_s_m_ta_3_evw_anime.c:
 	.data       start:0x0072F400 end:0x0072F420
+
+data/field/bg/acre/grd_s_m_ta_3/grd_s_m_ta_3.c:
 	.data       start:0x0072F420 end:0x00730770
+
+data/field/bg/acre/grd_s_m_wf_1/grd_s_m_wf_1_evw_anime.c:
 	.data       start:0x00730770 end:0x007307B0
+
+data/field/bg/acre/grd_s_m_wf_1/grd_s_m_wf_1.c:
 	.data       start:0x007307B0 end:0x00731E10
+
+data/field/bg/acre/grd_s_m_wf_2/grd_s_m_wf_2_evw_anime.c:
 	.data       start:0x00731E10 end:0x00731E50
+
+data/field/bg/acre/grd_s_m_wf_2/grd_s_m_wf_2.c:
 	.data       start:0x00731E50 end:0x00733B08
+
+data/field/bg/acre/grd_s_m_wf_3/grd_s_m_wf_3_evw_anime.c:
 	.data       start:0x00733B08 end:0x00733B48
+
+data/field/bg/acre/grd_s_m_wf_3/grd_s_m_wf_3.c:
 	.data       start:0x00733B48 end:0x00735280
+
+data/field/bg/acre/grd_s_o_1/grd_s_o_1_evw_anime.c:
 	.data       start:0x00735280 end:0x007352C0
+
+data/field/bg/acre/grd_s_o_1/grd_s_o_1.c:
 	.data       start:0x007352C0 end:0x007357A0
+
+data/field/bg/acre/grd_s_o_10/grd_s_o_10_evw_anime.c:
 	.data       start:0x007357A0 end:0x007357E0
+
+data/field/bg/acre/grd_s_o_10/grd_s_o_10.c:
 	.data       start:0x007357E0 end:0x00735C78
+
+data/field/bg/acre/grd_s_o_2/grd_s_o_2_evw_anime.c:
 	.data       start:0x00735C78 end:0x00735CB8
+
+data/field/bg/acre/grd_s_o_2/grd_s_o_2.c:
 	.data       start:0x00735CB8 end:0x00736158
+
+data/field/bg/acre/grd_s_o_3/grd_s_o_3_evw_anime.c:
 	.data       start:0x00736158 end:0x00736198
+
+data/field/bg/acre/grd_s_o_3/grd_s_o_3.c:
 	.data       start:0x00736198 end:0x00736600
+
+data/field/bg/acre/grd_s_o_4/grd_s_o_4_evw_anime.c:
 	.data       start:0x00736600 end:0x00736640
+
+data/field/bg/acre/grd_s_o_4/grd_s_o_4.c:
 	.data       start:0x00736640 end:0x00736AD0
+
+data/field/bg/acre/grd_s_o_5/grd_s_o_5_evw_anime.c:
 	.data       start:0x00736AD0 end:0x00736B10
+
+data/field/bg/acre/grd_s_o_5/grd_s_o_5.c:
 	.data       start:0x00736B10 end:0x00736F90
+
+data/field/bg/acre/grd_s_o_6/grd_s_o_6_evw_anime.c:
 	.data       start:0x00736F90 end:0x00736FD0
+
+data/field/bg/acre/grd_s_o_6/grd_s_o_6.c:
 	.data       start:0x00736FD0 end:0x00737438
+
+data/field/bg/acre/grd_s_o_7/grd_s_o_7_evw_anime.c:
 	.data       start:0x00737438 end:0x00737478
+
+data/field/bg/acre/grd_s_o_7/grd_s_o_7.c:
 	.data       start:0x00737478 end:0x00737908
+
+data/field/bg/acre/grd_s_o_8/grd_s_o_8_evw_anime.c:
 	.data       start:0x00737908 end:0x00737948
+
+data/field/bg/acre/grd_s_o_8/grd_s_o_8.c:
 	.data       start:0x00737948 end:0x00737E38
+
+data/field/bg/acre/grd_s_o_9/grd_s_o_9_evw_anime.c:
 	.data       start:0x00737E38 end:0x00737E78
+
+data/field/bg/acre/grd_s_o_9/grd_s_o_9.c:
 	.data       start:0x00737E78 end:0x00738350
-	.data       start:0x00738350 end:0x00738350
+
+data/field/bg/acre/grd_s_o_i_1/grd_s_o_i_1.c:
 	.data       start:0x00738350 end:0x007387B0
+
+data/field/bg/acre/grd_s_o_i_2/grd_s_o_i_2_evw_anime.c:
 	.data       start:0x007387B0 end:0x007387F0
+
+data/field/bg/acre/grd_s_o_i_2/grd_s_o_i_2.c:
 	.data       start:0x007387F0 end:0x00738AD0
+
+data/field/bg/acre/grd_s_o_r1_1/grd_s_o_r1_1_evw_anime.c:
 	.data       start:0x00738AD0 end:0x00738B10
+
+data/field/bg/acre/grd_s_o_r1_1/grd_s_o_r1_1.c:
 	.data       start:0x00738B10 end:0x00739020
+
+data/field/bg/acre/grd_s_o_r1_2/grd_s_o_r1_2_evw_anime.c:
 	.data       start:0x00739020 end:0x00739060
+
+data/field/bg/acre/grd_s_o_r1_2/grd_s_o_r1_2.c:
 	.data       start:0x00739060 end:0x00739540
+
+data/field/bg/acre/grd_s_o_r1_3/grd_s_o_r1_3_evw_anime.c:
 	.data       start:0x00739540 end:0x00739580
+
+data/field/bg/acre/grd_s_o_r1_3/grd_s_o_r1_3.c:
 	.data       start:0x00739580 end:0x00739A78
+
+data/field/bg/acre/grd_s_o_r1_4/grd_s_o_r1_4_evw_anime.c:
 	.data       start:0x00739A78 end:0x00739AB8
+
+data/field/bg/acre/grd_s_o_r1_4/grd_s_o_r1_4.c:
 	.data       start:0x00739AB8 end:0x00739F78
+
+data/field/bg/acre/grd_s_o_r1_5/grd_s_o_r1_5_evw_anime.c:
 	.data       start:0x00739F78 end:0x00739FB8
+
+data/field/bg/acre/grd_s_o_r1_5/grd_s_o_r1_5.c:
 	.data       start:0x00739FB8 end:0x0073A390
+
+data/field/bg/acre/grd_s_o_r1_b_1/grd_s_o_r1_b_1_evw_anime.c:
 	.data       start:0x0073A390 end:0x0073A3D0
+
+data/field/bg/acre/grd_s_o_r1_b_1/grd_s_o_r1_b_1.c:
 	.data       start:0x0073A3D0 end:0x0073A6B0
+
+data/field/bg/acre/grd_s_o_r1_b_2/grd_s_o_r1_b_2_evw_anime.c:
 	.data       start:0x0073A6B0 end:0x0073A6F0
+
+data/field/bg/acre/grd_s_o_r1_b_2/grd_s_o_r1_b_2.c:
 	.data       start:0x0073A6F0 end:0x0073A9C8
+
+data/field/bg/acre/grd_s_o_r1_b_3/grd_s_o_r1_b_3_evw_anime.c:
 	.data       start:0x0073A9C8 end:0x0073AA08
+
+data/field/bg/acre/grd_s_o_r1_b_3/grd_s_o_r1_b_3.c:
 	.data       start:0x0073AA08 end:0x0073ACE0
+
+data/field/bg/acre/grd_s_o_ta_1/grd_s_o_ta_1_evw_anime.c:
 	.data       start:0x0073ACE0 end:0x0073AD20
+
+data/field/bg/acre/grd_s_o_ta_1/grd_s_o_ta_1.c:
 	.data       start:0x0073AD20 end:0x0073B228
+
+data/field/bg/acre/grd_s_o_ta_2/grd_s_o_ta_2_evw_anime.c:
 	.data       start:0x0073B228 end:0x0073B268
+
+data/field/bg/acre/grd_s_o_ta_2/grd_s_o_ta_2.c:
 	.data       start:0x0073B268 end:0x0073B670
+
+data/field/bg/acre/grd_s_o_ta_3/grd_s_o_ta_3_evw_anime.c:
 	.data       start:0x0073B670 end:0x0073B6B0
+
+data/field/bg/acre/grd_s_o_ta_3/grd_s_o_ta_3.c:
 	.data       start:0x0073B6B0 end:0x0073BAC8
+
+data/field/bg/acre/grd_s_o_wf_1/grd_s_o_wf_1_evw_anime.c:
 	.data       start:0x0073BAC8 end:0x0073BB08
+
+data/field/bg/acre/grd_s_o_wf_1/grd_s_o_wf_1.c:
 	.data       start:0x0073BB08 end:0x0073C038
+
+data/field/bg/acre/grd_s_o_wf_2/grd_s_o_wf_2_evw_anime.c:
 	.data       start:0x0073C038 end:0x0073C078
+
+data/field/bg/acre/grd_s_o_wf_2/grd_s_o_wf_2.c:
 	.data       start:0x0073C078 end:0x0073C5D8
+
+data/field/bg/acre/grd_s_o_wf_3/grd_s_o_wf_3_evw_anime.c:
 	.data       start:0x0073C5D8 end:0x0073C618
+
+data/field/bg/acre/grd_s_o_wf_3/grd_s_o_wf_3.c:
 	.data       start:0x0073C618 end:0x0073CB30
+
+data/field/bg/acre/grd_s_r1_1/grd_s_r1_1_evw_anime.c:
 	.data       start:0x0073CB30 end:0x0073CB40
+
+data/field/bg/acre/grd_s_r1_1/grd_s_r1_1.c:
 	.data       start:0x0073CB40 end:0x0073D928
+
+data/field/bg/acre/grd_s_r1_2/grd_s_r1_2_evw_anime.c:
 	.data       start:0x0073D928 end:0x0073D938
+
+data/field/bg/acre/grd_s_r1_2/grd_s_r1_2.c:
 	.data       start:0x0073D938 end:0x0073E860
+
+data/field/bg/acre/grd_s_r1_3/grd_s_r1_3_evw_anime.c:
 	.data       start:0x0073E860 end:0x0073E870
+
+data/field/bg/acre/grd_s_r1_3/grd_s_r1_3.c:
 	.data       start:0x0073E870 end:0x0073F890
+
+data/field/bg/acre/grd_s_r1_4/grd_s_r1_4_evw_anime.c:
 	.data       start:0x0073F890 end:0x0073F8A0
+
+data/field/bg/acre/grd_s_r1_4/grd_s_r1_4.c:
 	.data       start:0x0073F8A0 end:0x007405A8
+
+data/field/bg/acre/grd_s_r1_b_1/grd_s_r1_b_1_evw_anime.c:
 	.data       start:0x007405A8 end:0x007405B8
+
+data/field/bg/acre/grd_s_r1_b_1/grd_s_r1_b_1.c:
 	.data       start:0x007405B8 end:0x007415E0
+
+data/field/bg/acre/grd_s_r1_b_2/grd_s_r1_b_2_evw_anime.c:
 	.data       start:0x007415E0 end:0x007415F0
+
+data/field/bg/acre/grd_s_r1_b_2/grd_s_r1_b_2.c:
 	.data       start:0x007415F0 end:0x00742A20
+
+data/field/bg/acre/grd_s_r1_b_3/grd_s_r1_b_3_evw_anime.c:
 	.data       start:0x00742A20 end:0x00742A30
+
+data/field/bg/acre/grd_s_r1_b_3/grd_s_r1_b_3.c:
 	.data       start:0x00742A30 end:0x00743D10
+
+data/field/bg/acre/grd_s_r1_p_1/grd_s_r1_p_1_evw_anime.c:
 	.data       start:0x00743D10 end:0x00743D20
+
+data/field/bg/acre/grd_s_r1_p_1/grd_s_r1_p_1.c:
 	.data       start:0x00743D20 end:0x00744FB0
+
+data/field/bg/acre/grd_s_r2_1/grd_s_r2_1_evw_anime.c:
 	.data       start:0x00744FB0 end:0x00744FC0
+
+data/field/bg/acre/grd_s_r2_1/grd_s_r2_1.c:
 	.data       start:0x00744FC0 end:0x00745DD8
+
+data/field/bg/acre/grd_s_r2_2/grd_s_r2_2_evw_anime.c:
 	.data       start:0x00745DD8 end:0x00745DE8
+
+data/field/bg/acre/grd_s_r2_2/grd_s_r2_2.c:
 	.data       start:0x00745DE8 end:0x00746C38
+
+data/field/bg/acre/grd_s_r2_3/grd_s_r2_3_evw_anime.c:
 	.data       start:0x00746C38 end:0x00746C48
+
+data/field/bg/acre/grd_s_r2_3/grd_s_r2_3.c:
 	.data       start:0x00746C48 end:0x00747CA8
+
+data/field/bg/acre/grd_s_r2_4/grd_s_r2_4_evw_anime.c:
 	.data       start:0x00747CA8 end:0x00747CB8
+
+data/field/bg/acre/grd_s_r2_4/grd_s_r2_4.c:
 	.data       start:0x00747CB8 end:0x00748CC0
+
+data/field/bg/acre/grd_s_r2_b_1/grd_s_r2_b_1_evw_anime.c:
 	.data       start:0x00748CC0 end:0x00748CD0
+
+data/field/bg/acre/grd_s_r2_b_1/grd_s_r2_b_1.c:
 	.data       start:0x00748CD0 end:0x0074A300
+
+data/field/bg/acre/grd_s_r2_b_2/grd_s_r2_b_2_evw_anime.c:
 	.data       start:0x0074A300 end:0x0074A310
+
+data/field/bg/acre/grd_s_r2_b_2/grd_s_r2_b_2.c:
 	.data       start:0x0074A310 end:0x0074B668
+
+data/field/bg/acre/grd_s_r2_b_3/grd_s_r2_b_3_evw_anime.c:
 	.data       start:0x0074B668 end:0x0074B678
+
+data/field/bg/acre/grd_s_r2_b_3/grd_s_r2_b_3.c:
 	.data       start:0x0074B678 end:0x0074CB60
+
+data/field/bg/acre/grd_s_r2_p_1/grd_s_r2_p_1_evw_anime.c:
 	.data       start:0x0074CB60 end:0x0074CB70
+
+data/field/bg/acre/grd_s_r2_p_1/grd_s_r2_p_1.c:
 	.data       start:0x0074CB70 end:0x0074E3D0
+
+data/field/bg/acre/grd_s_r3_1/grd_s_r3_1_evw_anime.c:
 	.data       start:0x0074E3D0 end:0x0074E3E0
+
+data/field/bg/acre/grd_s_r3_1/grd_s_r3_1.c:
 	.data       start:0x0074E3E0 end:0x0074F478
+
+data/field/bg/acre/grd_s_r3_2/grd_s_r3_2_evw_anime.c:
 	.data       start:0x0074F478 end:0x0074F488
+
+data/field/bg/acre/grd_s_r3_2/grd_s_r3_2.c:
 	.data       start:0x0074F488 end:0x00750378
+
+data/field/bg/acre/grd_s_r3_3/grd_s_r3_3_evw_anime.c:
 	.data       start:0x00750378 end:0x00750388
+
+data/field/bg/acre/grd_s_r3_3/grd_s_r3_3.c:
 	.data       start:0x00750388 end:0x007512C0
+
+data/field/bg/acre/grd_s_r3_4/grd_s_r3_4_evw_anime.c:
 	.data       start:0x007512C0 end:0x007512D0
+
+data/field/bg/acre/grd_s_r3_4/grd_s_r3_4.c:
 	.data       start:0x007512D0 end:0x00752120
+
+data/field/bg/acre/grd_s_r3_b_1/grd_s_r3_b_1_evw_anime.c:
 	.data       start:0x00752120 end:0x00752130
+
+data/field/bg/acre/grd_s_r3_b_1/grd_s_r3_b_1.c:
 	.data       start:0x00752130 end:0x00753318
+
+data/field/bg/acre/grd_s_r3_b_2/grd_s_r3_b_2_evw_anime.c:
 	.data       start:0x00753318 end:0x00753328
+
+data/field/bg/acre/grd_s_r3_b_2/grd_s_r3_b_2.c:
 	.data       start:0x00753328 end:0x00754840
+
+data/field/bg/acre/grd_s_r3_b_3/grd_s_r3_b_3_evw_anime.c:
 	.data       start:0x00754840 end:0x00754850
+
+data/field/bg/acre/grd_s_r3_b_3/grd_s_r3_b_3.c:
 	.data       start:0x00754850 end:0x00755C70
+
+data/field/bg/acre/grd_s_r3_p_1/grd_s_r3_p_1_evw_anime.c:
 	.data       start:0x00755C70 end:0x00755C80
+
+data/field/bg/acre/grd_s_r3_p_1/grd_s_r3_p_1.c:
 	.data       start:0x00755C80 end:0x00757320
+
+data/field/bg/acre/grd_s_r4_1/grd_s_r4_1_evw_anime.c:
 	.data       start:0x00757320 end:0x00757330
+
+data/field/bg/acre/grd_s_r4_1/grd_s_r4_1.c:
 	.data       start:0x00757330 end:0x00758258
+
+data/field/bg/acre/grd_s_r4_2/grd_s_r4_2_evw_anime.c:
 	.data       start:0x00758258 end:0x00758268
+
+data/field/bg/acre/grd_s_r4_2/grd_s_r4_2.c:
 	.data       start:0x00758268 end:0x007591D0
+
+data/field/bg/acre/grd_s_r4_3/grd_s_r4_3_evw_anime.c:
 	.data       start:0x007591D0 end:0x007591E0
+
+data/field/bg/acre/grd_s_r4_3/grd_s_r4_3.c:
 	.data       start:0x007591E0 end:0x00759FF8
+
+data/field/bg/acre/grd_s_r4_b_1/grd_s_r4_b_1_evw_anime.c:
 	.data       start:0x00759FF8 end:0x0075A008
+
+data/field/bg/acre/grd_s_r4_b_1/grd_s_r4_b_1.c:
 	.data       start:0x0075A008 end:0x0075ACF8
+
+data/field/bg/acre/grd_s_r4_b_2/grd_s_r4_b_2_evw_anime.c:
 	.data       start:0x0075ACF8 end:0x0075AD08
+
+data/field/bg/acre/grd_s_r4_b_2/grd_s_r4_b_2.c:
 	.data       start:0x0075AD08 end:0x0075BED8
+
+data/field/bg/acre/grd_s_r4_p_1/grd_s_r4_p_1_evw_anime.c:
 	.data       start:0x0075BED8 end:0x0075BEE8
+
+data/field/bg/acre/grd_s_r4_p_1/grd_s_r4_p_1.c:
 	.data       start:0x0075BEE8 end:0x0075D428
+
+data/field/bg/acre/grd_s_r5_1/grd_s_r5_1_evw_anime.c:
 	.data       start:0x0075D428 end:0x0075D438
+
+data/field/bg/acre/grd_s_r5_1/grd_s_r5_1.c:
 	.data       start:0x0075D438 end:0x0075E420
+
+data/field/bg/acre/grd_s_r5_2/grd_s_r5_2_evw_anime.c:
 	.data       start:0x0075E420 end:0x0075E430
+
+data/field/bg/acre/grd_s_r5_2/grd_s_r5_2.c:
 	.data       start:0x0075E430 end:0x0075F510
+
+data/field/bg/acre/grd_s_r5_3/grd_s_r5_3_evw_anime.c:
 	.data       start:0x0075F510 end:0x0075F520
+
+data/field/bg/acre/grd_s_r5_3/grd_s_r5_3.c:
 	.data       start:0x0075F520 end:0x007605C8
+
+data/field/bg/acre/grd_s_r5_b_1/grd_s_r5_b_1_evw_anime.c:
 	.data       start:0x007605C8 end:0x007605D8
+
+data/field/bg/acre/grd_s_r5_b_1/grd_s_r5_b_1.c:
 	.data       start:0x007605D8 end:0x00761898
+
+data/field/bg/acre/grd_s_r5_b_2/grd_s_r5_b_2_evw_anime.c:
 	.data       start:0x00761898 end:0x007618A8
+
+data/field/bg/acre/grd_s_r5_b_2/grd_s_r5_b_2.c:
 	.data       start:0x007618A8 end:0x00762BA0
+
+data/field/bg/acre/grd_s_r5_p_1/grd_s_r5_p_1_evw_anime.c:
 	.data       start:0x00762BA0 end:0x00762BB0
+
+data/field/bg/acre/grd_s_r5_p_1/grd_s_r5_p_1.c:
 	.data       start:0x00762BB0 end:0x00764030
+
+data/field/bg/acre/grd_s_r6_1/grd_s_r6_1_evw_anime.c:
 	.data       start:0x00764030 end:0x00764040
+
+data/field/bg/acre/grd_s_r6_1/grd_s_r6_1.c:
 	.data       start:0x00764040 end:0x00764D58
+
+data/field/bg/acre/grd_s_r6_2/grd_s_r6_2_evw_anime.c:
 	.data       start:0x00764D58 end:0x00764D68
+
+data/field/bg/acre/grd_s_r6_2/grd_s_r6_2.c:
 	.data       start:0x00764D68 end:0x00765AE8
+
+data/field/bg/acre/grd_s_r6_3/grd_s_r6_3_evw_anime.c:
 	.data       start:0x00765AE8 end:0x00765AF8
+
+data/field/bg/acre/grd_s_r6_3/grd_s_r6_3.c:
 	.data       start:0x00765AF8 end:0x00766860
+
+data/field/bg/acre/grd_s_r6_b_1/grd_s_r6_b_1_evw_anime.c:
 	.data       start:0x00766860 end:0x00766870
+
+data/field/bg/acre/grd_s_r6_b_1/grd_s_r6_b_1.c:
 	.data       start:0x00766870 end:0x007676D8
+
+data/field/bg/acre/grd_s_r6_b_2/grd_s_r6_b_2_evw_anime.c:
 	.data       start:0x007676D8 end:0x007676E8
+
+data/field/bg/acre/grd_s_r6_b_2/grd_s_r6_b_2.c:
 	.data       start:0x007676E8 end:0x00768C28
+
+data/field/bg/acre/grd_s_r6_p_1/grd_s_r6_p_1_evw_anime.c:
 	.data       start:0x00768C28 end:0x00768C38
+
+data/field/bg/acre/grd_s_r6_p_1/grd_s_r6_p_1.c:
 	.data       start:0x00768C38 end:0x0076A2A8
+
+data/field/bg/acre/grd_s_r7_1/grd_s_r7_1_evw_anime.c:
 	.data       start:0x0076A2A8 end:0x0076A2B8
+
+data/field/bg/acre/grd_s_r7_1/grd_s_r7_1.c:
 	.data       start:0x0076A2B8 end:0x0076B1A0
+
+data/field/bg/acre/grd_s_r7_2/grd_s_r7_2_evw_anime.c:
 	.data       start:0x0076B1A0 end:0x0076B1B0
+
+data/field/bg/acre/grd_s_r7_2/grd_s_r7_2.c:
 	.data       start:0x0076B1B0 end:0x0076BFB0
+
+data/field/bg/acre/grd_s_r7_3/grd_s_r7_3_evw_anime.c:
 	.data       start:0x0076BFB0 end:0x0076BFC0
+
+data/field/bg/acre/grd_s_r7_3/grd_s_r7_3.c:
 	.data       start:0x0076BFC0 end:0x0076CD58
+
+data/field/bg/acre/grd_s_r7_b_1/grd_s_r7_b_1_evw_anime.c:
 	.data       start:0x0076CD58 end:0x0076CD68
+
+data/field/bg/acre/grd_s_r7_b_1/grd_s_r7_b_1.c:
 	.data       start:0x0076CD68 end:0x0076DD18
+
+data/field/bg/acre/grd_s_r7_b_2/grd_s_r7_b_2_evw_anime.c:
 	.data       start:0x0076DD18 end:0x0076DD28
+
+data/field/bg/acre/grd_s_r7_b_2/grd_s_r7_b_2.c:
 	.data       start:0x0076DD28 end:0x0076F2C0
+
+data/field/bg/acre/grd_s_r7_p_1/grd_s_r7_p_1_evw_anime.c:
 	.data       start:0x0076F2C0 end:0x0076F2D0
+
+data/field/bg/acre/grd_s_r7_p_1/grd_s_r7_p_1.c:
 	.data       start:0x0076F2D0 end:0x007706E8
+
+data/field/bg/acre/grd_s_t_1/grd_s_t_1_evw_anime.c:
 	.data       start:0x007706E8 end:0x007706F8
+
+data/field/bg/acre/grd_s_t_1/grd_s_t_1.c:
 	.data       start:0x007706F8 end:0x00771358
+
+data/field/bg/acre/grd_s_t_10/grd_s_t_10.c:
 	.data       start:0x00771358 end:0x007723F8
+
+data/field/bg/acre/grd_s_t_2/grd_s_t_2.c:
 	.data       start:0x007723F8 end:0x00773308
+
+data/field/bg/acre/grd_s_t_3/grd_s_t_3.c:
 	.data       start:0x00773308 end:0x00773E68
+
+data/field/bg/acre/grd_s_t_4/grd_s_t_4_evw_anime.c:
 	.data       start:0x00773E68 end:0x00773E78
+
+data/field/bg/acre/grd_s_t_4/grd_s_t_4.c:
 	.data       start:0x00773E78 end:0x00774FF0
+
+data/field/bg/acre/grd_s_t_5/grd_s_t_5_evw_anime.c:
 	.data       start:0x00774FF0 end:0x00775000
+
+data/field/bg/acre/grd_s_t_5/grd_s_t_5.c:
 	.data       start:0x00775000 end:0x00776270
+
+data/field/bg/acre/grd_s_t_6/grd_s_t_6.c:
 	.data       start:0x00776270 end:0x00777678
+
+data/field/bg/acre/grd_s_t_7/grd_s_t_7.c:
 	.data       start:0x00777678 end:0x00778A48
+
+data/field/bg/acre/grd_s_t_8/grd_s_t_8.c:
 	.data       start:0x00778A48 end:0x007798A8
+
+data/field/bg/acre/grd_s_t_9/grd_s_t_9.c:
 	.data       start:0x007798A8 end:0x0077A788
+
+data/field/bg/acre/grd_s_t_po_1/grd_s_t_po_1.c:
 	.data       start:0x0077A788 end:0x0077B418
+
+data/field/bg/acre/grd_s_t_po_2/grd_s_t_po_2.c:
 	.data       start:0x0077B418 end:0x0077C068
+
+data/field/bg/acre/grd_s_t_po_3/grd_s_t_po_3_evw_anime.c:
 	.data       start:0x0077C068 end:0x0077C078
+
+data/field/bg/acre/grd_s_t_po_3/grd_s_t_po_3.c:
 	.data       start:0x0077C078 end:0x0077D1D0
+
+data/field/bg/acre/grd_s_t_r1_1/grd_s_t_r1_1_evw_anime.c:
 	.data       start:0x0077D1D0 end:0x0077D1E0
+
+data/field/bg/acre/grd_s_t_r1_1/grd_s_t_r1_1.c:
 	.data       start:0x0077D1E0 end:0x0077E3D8
+
+data/field/bg/acre/grd_s_t_r1_2/grd_s_t_r1_2_evw_anime.c:
 	.data       start:0x0077E3D8 end:0x0077E3E8
+
+data/field/bg/acre/grd_s_t_r1_2/grd_s_t_r1_2.c:
 	.data       start:0x0077E3E8 end:0x0077F868
+
+data/field/bg/acre/grd_s_t_r1_3/grd_s_t_r1_3_evw_anime.c:
 	.data       start:0x0077F868 end:0x0077F878
+
+data/field/bg/acre/grd_s_t_r1_3/grd_s_t_r1_3.c:
 	.data       start:0x0077F878 end:0x00780D20
+
+data/field/bg/acre/grd_s_t_r1_4/grd_s_t_r1_4_evw_anime.c:
 	.data       start:0x00780D20 end:0x00780D30
+
+data/field/bg/acre/grd_s_t_r1_4/grd_s_t_r1_4.c:
 	.data       start:0x00780D30 end:0x00782078
+
+data/field/bg/acre/grd_s_t_r1_5/grd_s_t_r1_5_evw_anime.c:
 	.data       start:0x00782078 end:0x00782088
+
+data/field/bg/acre/grd_s_t_r1_5/grd_s_t_r1_5.c:
 	.data       start:0x00782088 end:0x00783538
+
+data/field/bg/acre/grd_s_t_sh_1/grd_s_t_sh_1.c:
 	.data       start:0x00783538 end:0x00784168
+
+data/field/bg/acre/grd_s_t_sh_2/grd_s_t_sh_2_evw_anime.c:
 	.data       start:0x00784168 end:0x00784178
+
+data/field/bg/acre/grd_s_t_sh_2/grd_s_t_sh_2.c:
 	.data       start:0x00784178 end:0x00785110
+
+data/field/bg/acre/grd_s_t_sh_3/grd_s_t_sh_3.c:
 	.data       start:0x00785110 end:0x00785D70
+
+data/field/bg/acre/grd_s_t_st1_1/grd_s_t_st1_1.c:
 	.data       start:0x00785D70 end:0x00786BF0
+
+data/field/bg/acre/grd_s_t_st1_2/grd_s_t_st1_2.c:
 	.data       start:0x00786BF0 end:0x00787D80
+
+data/field/bg/acre/grd_s_t_st1_3/grd_s_t_st1_3.c:
 	.data       start:0x00787D80 end:0x00788CA0
+
+dataobject/dataobject_788CA0.o:
 	.data       start:0x00788CA0 end:0x00789CA0
 	.data       start:0x00789CA0 end:0x0078ACA0
 	.data       start:0x0078ACA0 end:0x0078BCA0
@@ -6293,7 +7847,6 @@ dataobject.obj:
 	.data       start:0x008B3360 end:0x008B3EE0
 	.data       start:0x008B3EE0 end:0x008B4B80
 	.data       start:0x008B4B80 end:0x008B59E0
-	.data       start:0x008B59E0 end:0x008B59E0
 	.data       start:0x008B59E0 end:0x008B6640
 	.data       start:0x008B6640 end:0x008B7080
 	.data       start:0x008B7080 end:0x008B7B80
@@ -6301,31 +7854,55 @@ dataobject.obj:
 	.data       start:0x008B87C0 end:0x008B9200
 	.data       start:0x008B9200 end:0x008B9FC0
 	.data       start:0x008B9FC0 end:0x008BB020
+
+data/field/bg/acre/rom_toudai/rom_toudai.c:
 	.data       start:0x008BB020 end:0x008BDB20
+
+data/submenu/map/kan_tizu.c:
 	.data       start:0x008BDB20 end:0x008C4720
+
+data/submenu/map/kan_tizu2.c:
 	.data       start:0x008C4720 end:0x008C6520
-	.data       start:0x008C6520 end:0x008C6520
+
+dataobject/dataobject_8C6520.o:
 	.data       start:0x008C6520 end:0x008C65A0
+
+data/field/bg/acre/rom_museum1/rom_museum1.c:
 	.data       start:0x008C65A0 end:0x008CC868
+
+dataobject/dataobject_8CC868.o:
 	.data       start:0x008CC868 end:0x008CC8C0
+
+data/field/bg/acre/rom_museum5/rom_museum5.c:
 	.data       start:0x008CC8C0 end:0x008CF7A0
+
+dataobject/dataobject_8CF7A0.o:
 	.data       start:0x008CF7A0 end:0x008D0088
 	.data       start:0x008D0088 end:0x008D00C0
+
+data/field/bg/acre/rom_museum2/rom_museum2.c:
 	.data       start:0x008D00C0 end:0x008D3658
+
+dataobject/dataobject_8D3658.o:
 	.data       start:0x008D3658 end:0x008D36A0
 	.data       start:0x008D36A0 end:0x008D6620
 	.data       start:0x008D6620 end:0x008D6908
 	.data       start:0x008D6908 end:0x008D6940
+
+data/field/bg/acre/rom_museum3/rom_museum3.c:
 	.data       start:0x008D6940 end:0x008DA918
+
+dataobject/dataobject_8DA918.o:
 	.data       start:0x008DA918 end:0x008DA960
 	.data       start:0x008DA960 end:0x008DB378
 	.data       start:0x008DB378 end:0x008DB380
 	.data       start:0x008DB380 end:0x008DBD60
+
+data/field/bg/acre/rom_tailor/rom_tailor.c:
 	.data       start:0x008DBD60 end:0x008E4AB0
-	.data       start:0x008E4AB0 end:0x008E4AB0
-	.data       start:0x008E4AB0 end:0x008E4AB0
+
+dataobject/dataobject_8E4AB0.o:
 	.data       start:0x008E4AB0 end:0x008E4B20
-	.data       start:0x008E4B20 end:0x008E4B20
 	.data       start:0x008E4B20 end:0x008E5A80
 	.data       start:0x008E5A80 end:0x008E67A0
 	.data       start:0x008E67A0 end:0x008E77A0
@@ -6439,18 +8016,29 @@ dataobject.obj:
 	.data       start:0x00936358 end:0x00936AE0
 	.data       start:0x00936AE0 end:0x00937268
 	.data       start:0x00937268 end:0x00937280
+
+data/field/bg/acre/myr_etc/myr_etc.c:
 	.data       start:0x00937280 end:0x00938220
+
+data/field/bg/acre/grd_player_select/grd_player_select_evw_anime.c:
 	.data       start:0x00938220 end:0x00938240
+
+data/field/bg/acre/grd_player_select/grd_player_select.c:
 	.data       start:0x00938240 end:0x00939AA0
+
+data/field/bg/acre/police_indoor/police_indoor.c:
 	.data       start:0x00939AA0 end:0x0093EDC8
+
+data/field/bg/rail_pal.c:
 	.data       start:0x0093EDC8 end:0x0093EF60
+
+dataobject/dataobject_93EF60.o:
 	.data       start:0x0093EF60 end:0x00940760
 	.data       start:0x00940760 end:0x00941F60
 	.data       start:0x00941F60 end:0x00942B60
 	.data       start:0x00942B60 end:0x00943760
 	.data       start:0x00943760 end:0x00944360
 	.data       start:0x00944360 end:0x00944F60
-	.data       start:0x00944F60 end:0x00944F60
 	.data       start:0x00944F60 end:0x00945830
 	.data       start:0x00945830 end:0x00947800
 	.data       start:0x00947800 end:0x00948850
@@ -6462,8 +8050,14 @@ dataobject.obj:
 	.data       start:0x0094C260 end:0x0094F3A0
 	.data       start:0x0094F3A0 end:0x0094F880
 	.data       start:0x0094F880 end:0x00952A80
+
+data/field/bg/acre/rom_shop4_1/rom_shop4_1.c:
 	.data       start:0x00952A80 end:0x00958F00
+
+data/field/bg/acre/rom_shop4_fuku/rom_shop4_fuku.c:
 	.data       start:0x00958F00 end:0x0095F920
+
+dataobject/dataobject_95F920.o:
 	.data       start:0x0095F920 end:0x00964830
 	.data       start:0x00964830 end:0x00964CA0
 	.data       start:0x00964CA0 end:0x00969A20
@@ -6485,7 +8079,6 @@ dataobject.obj:
 	.data       start:0x009810C0 end:0x00982230
 	.data       start:0x00982230 end:0x00982240
 	.data       start:0x00982240 end:0x00983140
-	.data       start:0x00983140 end:0x00983140
 	.data       start:0x00983140 end:0x00984520
 	.data       start:0x00984520 end:0x009855E0
 	.data       start:0x009855E0 end:0x00986560
@@ -6671,7 +8264,6 @@ dataobject.obj:
 	.data       start:0x00A127A0 end:0x00A13560
 	.data       start:0x00A13560 end:0x00A14340
 	.data       start:0x00A14340 end:0x00A153C0
-	.data       start:0x00A153C0 end:0x00A153C0
 	.data       start:0x00A153C0 end:0x00A15FA0
 	.data       start:0x00A15FA0 end:0x00A16AC0
 	.data       start:0x00A16AC0 end:0x00A17A20
@@ -6793,7 +8385,6 @@ dataobject.obj:
 	.data       start:0x00A72920 end:0x00A73860
 	.data       start:0x00A73860 end:0x00A74AE0
 	.data       start:0x00A74AE0 end:0x00A75720
-	.data       start:0x00A75720 end:0x00A75720
 	.data       start:0x00A75720 end:0x00A76738
 	.data       start:0x00A76738 end:0x00A76740
 	.data       start:0x00A76740 end:0x00A774C0
@@ -6870,15 +8461,30 @@ dataobject.obj:
 	.data       start:0x00AAEFA0 end:0x00AB02A0
 	.data       start:0x00AB02A0 end:0x00AB1AA0
 	.data       start:0x00AB1AA0 end:0x00AB32A0
+
+data/field/bg/acre/rom_tent/rom_tent.c:
 	.data       start:0x00AB32A0 end:0x00AB7AE0
+
+data/field/bg/acre/room01/room01.c:
 	.data       start:0x00AB7AE0 end:0x00AB9768
-	.data       start:0x00AB9768 end:0x00AB9768
+
+dataobject/dataobject_AB9768.o:
 	.data       start:0x00AB9768 end:0x00AB9840
+
+data/field/bg/acre/rom_train_in/rom_train_in.c:
 	.data       start:0x00AB9840 end:0x00ABF900
+
+dataobject/dataobject_ABF900.o:
 	.data       start:0x00ABF900 end:0x00AC1100
 	.data       start:0x00AC1100 end:0x00AC2100
+
+data/field/bg/acre/rom_uranai/rom_uranai_evw_anime.c:
 	.data       start:0x00AC2100 end:0x00AC2120
+
+data/field/bg/acre/rom_uranai/rom_uranai.c:
 	.data       start:0x00AC2120 end:0x00AC8368
+
+dataobject/dataobject_AC8368.o:
 	.data       start:0x00AC8368 end:0x00AC8468
 	.data       start:0x00AC8468 end:0x00AC84F0
 	.data       start:0x00AC84F0 end:0x00AC86F0
