@@ -40,190 +40,52 @@ static u16 rom_tailor_ent_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_ent_pal.inc"
 };
 
-static u8 rom_tailor_wallA_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_wallA_tex.inc"
-};
-
-static u8 rom_tailor_wallB_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_wallB_tex.inc"
-};
-
-static u8 rom_tailor_floorA_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_floorA_tex.inc"
-};
-
-static u8 rom_tailor_floorB_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_floorB_tex.inc"
-};
-
-static u8 rom_tailor_floorC_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_floorC_tex.inc"
-};
-
-static u8 rom_tailor_floorD_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_floorD_tex.inc"
-};
-
-static u8 rom_tailor_kage1_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_kage1_tex.inc"
-};
-
-static u8 rom_tailor_mado_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_mado_tex.inc"
-};
-
-static u8 rom_tailor_pic1_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_pic1_tex.inc"
-};
-
-static u8 rom_tailor_pic2_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_pic2_tex.inc"
-};
-
-static u8 rom_tailor_pic3_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_pic3_tex.inc"
-};
-
-static u8 rom_tailor_pic4_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_pic4_tex.inc"
-};
-
-static u8 rom_tailor_pic5_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_pic5_tex.inc"
-};
-
-static u8 rom_tailor_pic6_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_pic6_tex.inc"
-};
-
-static u8 rom_tailor_pic7_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_pic7_tex.inc"
-};
-
-static u8 rom_tailor_pic8_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_pic8_tex.inc"
-};
-
-static u8 rom_tailor_tyoki_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_tyoki_tex.inc"
-};
-
-static u8 rom_tailor_cloth1_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_cloth1_tex.inc"
-};
-
-static u8 rom_tailor_misin2_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_misin2_tex.inc"
-};
-
-static u8 rom_tailor_table_mae_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_table_mae_tex.inc"
-};
-
-static u8 rom_tailor_table_yoko_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_table_yoko_tex.inc"
-};
-
-static u8 rom_tailor_table_ue_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_table_ue_tex.inc"
-};
-
-static u8 rom_tailor_ito_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_ito_tex.inc"
-};
-
-static u8 rom_tailor_table_reji_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_table_reji_tex.inc"
-};
-
-static u8 rom_tailor_misin1_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_misin1_tex.inc"
-};
-
-static u8 rom_tailor_misindai_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_misindai_tex.inc"
-};
-
-static u8 rom_tailor_table_misin1_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_table_misin1_tex.inc"
-};
-
-static u8 rom_tailor_reji_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_reji_tex.inc"
-};
-
-static u8 rom_tailor_table_misin2_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_table_misin2_tex.inc"
-};
-
-static u8 rom_tailor_box_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_box_tex.inc"
-};
-
-static u8 rom_tailor_box1_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_box1_tex.inc"
-};
-
-static u8 rom_tailor_box2_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_box2_tex.inc"
-};
-
-static u8 rom_tailor_box3_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_box3_tex.inc"
-};
-
-static u8 rom_tailor_box4_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_box4_tex.inc"
-};
-
-static u8 rom_tailor_box5_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_box5_tex.inc"
-};
-
-static u8 rom_tailor_box6_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_box6_tex.inc"
-};
-
-static u8 rom_tailor_box7_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_box7_tex.inc"
-};
-
-static u8 rom_tailor_box8_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_box8_tex.inc"
-};
-
-static u8 rom_tailor_kage2_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_kage2_tex.inc"
-};
-
-static u8 rom_tailor_quilt_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_quilt_tex.inc"
-};
-
-static u8 rom_tailor_ent_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_ent_tex.inc"
-};
-
-static u8 rom_tailor_misinbari1_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_misinbari1_tex.inc"
-};
-
-static u8 rom_tailor_misinbari2_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_misinbari2_tex.inc"
-};
-
-static u8 rom_tailor_tape_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_tape_tex.inc"
-};
-
-static u8 rom_tailor_dogu1_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_dogu1_tex.inc"
-};
-
-static u8 rom_tailor_dogu2_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tailor_dogu2_tex.inc"
-};
-
 static Vtx rom_tailor_v[] = {
 #include "assets/field/bg/rom_tailor_v.inc"
 };

@@ -24,98 +24,29 @@ static u16 rom_koban_roc_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_koban_roc_pal.inc"
 };
 
-static u8 rom_koban_tel[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_koban_tel.inc"
-};
-
-static u8 rom_koban_win[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_koban_win.inc"
-};
-
-static u8 rom_koban_desk_front[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_koban_desk_front.inc"
-};
-
-static u8 rom_koban_desk_side[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_koban_desk_side.inc"
-};
-
-static u8 rom_koban_desk_top[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_koban_desk_top.inc"
-};
-
-static u8 rom_koban_yuka[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_koban_yuka.inc"
-};
-
-static u8 rom_koban_us_pos1[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_koban_us_pos1.inc"
-};
-
-static u8 rom_koban_us_pos2[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_koban_us_pos2.inc"
-};
-
-static u8 rom_koban_kage1[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_koban_kage1.inc"
-};
-
-static u8 rom_koban_kage2[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_koban_kage2.inc"
-};
-
-static u8 rom_koban_ent[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_koban_ent.inc"
-};
-
-static u8 rom_koban_jim_front[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_koban_jim_front.inc"
-};
-
-static u8 rom_koban_jim_side[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_koban_jim_side.inc"
-};
-
-static u8 rom_koban_jim_top[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_koban_jim_top.inc"
-};
-
-static u8 rom_koban_kabe1[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_koban_kabe1.inc"
-};
-
-static u8 rom_koban_telcode[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_koban_telcode.inc"
-};
-
-static u8 rom_koban_book[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_koban_book.inc"
-};
-
-static u8 rom_koban_roc_s[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_koban_roc_s.inc"
-};
-
-static u8 rom_koban_roc_t[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_koban_roc_t.inc"
-};
-
-static u8 rom_koban_kabe3[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_koban_kabe3.inc"
-};
-
-static u8 rom_koban_isu[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_koban_isu.inc"
-};
-
-static u8 rom_koban_roc_i[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_koban_roc_i.inc"
-};
-
-static u8 rom_koban_roc_f3[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_koban_roc_f3.inc"
-};
-
 static Vtx police_indoor_v[] = {
 #include "assets/field/bg/police_indoor_v.inc"
 };

@@ -1,10 +1,7 @@
 #include "libforest/gbi_extensions.h"
 
 // clang-format off
-
-static u8 obj_flower_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/flower/obj_flower_tex.inc"
-};
 
 static Vtx obj_flower_a_v[] = {
 #include "assets/flower/obj_flower_a_v.inc"

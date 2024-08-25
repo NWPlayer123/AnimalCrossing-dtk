@@ -8,18 +8,9 @@ static u16 grd_s_earth_pal[] = {
 #include "assets/field/bg/grd_s_earth_pal.inc"
 };
 
-static u8 grd_s_cliff_tex[] = {
 #include "assets/field/bg/grd_s_cliff_tex.inc"
-};
-
-static u8 grd_s_earth_tex[] = {
 #include "assets/field/bg/grd_s_earth_tex.inc"
-};
-
-static u8 grd_s_grass_tex[] = {
 #include "assets/field/bg/grd_s_grass_tex.inc"
-};
-
 static Vtx tmp2_v[] = {
 #include "assets/field/bg/tmp2_v.inc"
 };

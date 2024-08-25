@@ -16,54 +16,18 @@ static u16 rom_museum1_wall_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_museum1_wall_pal.inc"
 };
 
-static u8 rom_museum1_mado1_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_museum1_mado1_tex.inc"
-};
-
-static u8 rom_museum1_step1_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_museum1_step1_tex.inc"
-};
-
-static u8 rom_museum1_step2_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_museum1_step2_tex.inc"
-};
-
-static u8 rom_museum1_floorA_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_museum1_floorA_tex.inc"
-};
-
-static u8 rom_museum1_floorB_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_museum1_floorB_tex.inc"
-};
-
-static u8 rom_museum1_mado2_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_museum1_mado2_tex.inc"
-};
-
-static u8 rom_museum1_sign1_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_museum1_sign1_tex.inc"
-};
-
-static u8 rom_museum1_wallA_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_museum1_wallA_tex.inc"
-};
-
-static u8 rom_museum1_wallB_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_museum1_wallB_tex.inc"
-};
-
-static u8 rom_museum1_sign2_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_museum1_sign2_tex.inc"
-};
-
-static u8 rom_museum1_sign3_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_museum1_sign3_tex.inc"
-};
-
-static u8 rom_museum1_sign4_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_museum1_sign4_tex.inc"
-};
-
 static Vtx rom_museum1_v[] = {
 #include "assets/field/bg/rom_museum1_v.inc"
 };

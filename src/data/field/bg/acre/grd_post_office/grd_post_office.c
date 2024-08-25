@@ -40,114 +40,33 @@ static u16 yubin_us_card_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/yubin_us_card_pal.inc"
 };
 
-static u8 yuibn_kaunta01_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/yuibn_kaunta01_tex.inc"
-};
-
-static u8 yuibn_kaunta02_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/yuibn_kaunta02_tex.inc"
-};
-
-static u8 yuibn_desk01_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/yuibn_desk01_tex.inc"
-};
-
-static u8 yubin_ark01_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/yubin_ark01_tex.inc"
-};
-
-static u8 yuibn_kaunta03_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/yuibn_kaunta03_tex.inc"
-};
-
-static u8 yuibn_kaunta04_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/yuibn_kaunta04_tex.inc"
-};
-
-static u8 yubin_floor01_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/yubin_floor01_tex.inc"
-};
-
-static u8 yubin_floor02_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/yubin_floor02_tex.inc"
-};
-
-static u8 yubin_floor03_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/yubin_floor03_tex.inc"
-};
-
-static u8 yubin_hakari01_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/yubin_hakari01_tex.inc"
-};
-
-static u8 yubin_hakari02_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/yubin_hakari02_tex.inc"
-};
-
-static u8 yubin_hakari03_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/yubin_hakari03_tex.inc"
-};
-
-static u8 yubin_wall04_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/yubin_wall04_tex.inc"
-};
-
-static u8 yubin_letter01_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/yubin_letter01_tex.inc"
-};
-
-static u8 yubin_window_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/yubin_window_tex.inc"
-};
-
-static u8 yubin_us_bag_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/yubin_us_bag_tex.inc"
-};
-
-static u8 yubin_tree2_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/yubin_tree2_tex.inc"
-};
-
-static u8 yubin_tree_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/yubin_tree_tex.inc"
-};
-
-static u8 yubin_tree3_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/yubin_tree3_tex.inc"
-};
-
-static u8 yubin_tree4_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/yubin_tree4_tex.inc"
-};
-
-static u8 yubin_step_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/yubin_step_tex.inc"
-};
-
-static u8 rom_yubinkyoku_akril_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_yubinkyoku_akril_tex.inc"
-};
-
-static u8 rom_yubinkyoku_shede_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_yubinkyoku_shede_tex.inc"
-};
-
-static u8 yubin_us_card_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/yubin_us_card_tex.inc"
-};
-
-static u8 yubin_us_mat_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/yubin_us_mat_tex.inc"
-};
-
-static u8 rom_yubinkyoku_shadow_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_yubinkyoku_shadow_tex.inc"
-};
-
-static u8 yubin_us_card2_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/yubin_us_card2_tex.inc"
-};
-
 static Vtx grd_post_office_v[] = {
 #include "assets/field/bg/grd_post_office_v.inc"
 };

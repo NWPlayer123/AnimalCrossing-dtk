@@ -12,26 +12,11 @@ static u16 rom_museum2_step1_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_museum2_step1_pal.inc"
 };
 
-static u8 rom_museum2_wallA_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_museum2_wallA_tex.inc"
-};
-
-static u8 rom_museum2_wallB_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_museum2_wallB_tex.inc"
-};
-
-static u8 rom_museum2_floorA_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_museum2_floorA_tex.inc"
-};
-
-static u8 rom_museum2_step1_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_museum2_step1_tex.inc"
-};
-
-static u8 rom_museum2_plate_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_museum2_plate_tex.inc"
-};
-
 static Vtx rom_museum2_v[] = {
 #include "assets/field/bg/rom_museum2_v.inc"
 };

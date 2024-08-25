@@ -16,58 +16,19 @@ static u16 rom_tent_gas_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tent_gas_pal.inc"
 };
 
-static u8 rom_tent_enter[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tent_enter.inc"
-};
-
-static u8 rom_tent_floor[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tent_floor.inc"
-};
-
-static u8 rom_tent_wall1[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tent_wall1.inc"
-};
-
-static u8 rom_tent_wall2[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tent_wall2.inc"
-};
-
-static u8 rom_tent_bou[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tent_bou.inc"
-};
-
-static u8 rom_tent_mono1[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tent_mono1.inc"
-};
-
-static u8 rom_tent_can[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tent_can.inc"
-};
-
-static u8 rom_tent_conpas[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tent_conpas.inc"
-};
-
-static u8 rom_tent_box[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tent_box.inc"
-};
-
-static u8 rom_tent_kage_m[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tent_kage_m.inc"
-};
-
-static u8 rom_tent_gas[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tent_gas.inc"
-};
-
-static u8 rom_tent_kage_s[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tent_kage_s.inc"
-};
-
-static u8 rom_tent_kage_b[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_tent_kage_b.inc"
-};
-
 static Vtx rom_tent_v[] = {
 #include "assets/field/bg/rom_tent_v.inc"
 };

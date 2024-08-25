@@ -12,42 +12,15 @@ static u16 rom_train_3_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_train_3_pal.inc"
 };
 
-static u8 rom_train_seat1_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_train_seat1_tex.inc"
-};
-
-static u8 rom_train_seat2_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_train_seat2_tex.inc"
-};
-
-static u8 rom_train_floor_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_train_floor_tex.inc"
-};
-
-static u8 rom_train_wall1_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_train_wall1_tex.inc"
-};
-
-static u8 rom_train_roof_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_train_roof_tex.inc"
-};
-
-static u8 rom_train_wall2_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_train_wall2_tex.inc"
-};
-
-static u8 rom_train_net_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_train_net_tex.inc"
-};
-
-static u8 rom_train_glass_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_train_glass_tex.inc"
-};
-
-static u8 rom_train_light_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_train_light_tex.inc"
-};
-
 static Vtx rom_train_in_v[] = {
 #include "assets/field/bg/rom_train_in_v.inc"
 };

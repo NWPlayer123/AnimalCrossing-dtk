@@ -12,34 +12,13 @@ static u16 rom_museum3_floor_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_museum3_floor_pal.inc"
 };
 
-static u8 rom_museum3_wallA_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_museum3_wallA_tex.inc"
-};
-
-static u8 rom_museum3_wallB_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_museum3_wallB_tex.inc"
-};
-
-static u8 rom_museum3_back_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_museum3_back_tex.inc"
-};
-
-static u8 rom_museum3_floorA_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_museum3_floorA_tex.inc"
-};
-
-static u8 rom_museum3_step_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_museum3_step_tex.inc"
-};
-
-static u8 rom_museum3_hasira_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_museum3_hasira_tex.inc"
-};
-
-static u8 rom_museum3_backside_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_museum3_backside_tex.inc"
-};
-
 static Vtx rom_museum3_v[] = {
 #include "assets/field/bg/rom_museum3_v.inc"
 };

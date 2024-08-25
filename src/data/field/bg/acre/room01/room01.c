@@ -4,18 +4,9 @@ static u16 room[] = {
 #include "assets/field/bg/room.inc"
 };
 
-static u8 room_floor[] = {
 #include "assets/field/bg/room_floor.inc"
-};
-
-static u8 room_wall[] = {
 #include "assets/field/bg/room_wall.inc"
-};
-
-static u8 room_window[] = {
 #include "assets/field/bg/room_window.inc"
-};
-
 static Vtx room01_v[] = {
 #include "assets/field/bg/room01_v.inc"
 };

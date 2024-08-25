@@ -4,22 +4,10 @@ static u16 rom_open_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_open_pal.inc"
 };
 
-static u8 rom_open_floor_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_open_floor_tex.inc"
-};
-
-static u8 rom_open_shade_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_open_shade_tex.inc"
-};
-
-static u8 rom_open_spot2_tex_rgb_i4[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_open_spot2_tex_rgb_i4.inc"
-};
-
-static u8 rom_open_spot_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_open_spot_tex.inc"
-};
-
 static Vtx grd_player_select_v[] = {
 #include "assets/field/bg/grd_player_select_v.inc"
 };

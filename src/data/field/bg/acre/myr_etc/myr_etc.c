@@ -4,14 +4,8 @@ static u16 myr_kotei_pal[] = {
 #include "assets/field/bg/myr_kotei_pal.inc"
 };
 
-static u8 myr_enter[] = {
 #include "assets/field/bg/myr_enter.inc"
-};
-
-static u8 myr_window[] = {
 #include "assets/field/bg/myr_window.inc"
-};
-
 static Vtx myr_kotei_v[] = {
 #include "assets/field/bg/myr_kotei_v.inc"
 };

@@ -44,66 +44,21 @@ static u16 rom_yami_tama_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_yami_tama_pal.inc"
 };
 
-static u8 rom_yami_wall_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_yami_wall_tex.inc"
-};
-
-static u8 rom_yami_floor_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_yami_floor_tex.inc"
-};
-
-static u8 rom_yami_poll_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_yami_poll_tex.inc"
-};
-
-static u8 rom_yami_box01_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_yami_box01_tex.inc"
-};
-
-static u8 rom_yami_box02_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_yami_box02_tex.inc"
-};
-
-static u8 rom_yami_mono01_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_yami_mono01_tex.inc"
-};
-
-static u8 rom_yami_mono02_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_yami_mono02_tex.inc"
-};
-
-static u8 rom_yami_mono03_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_yami_mono03_tex.inc"
-};
-
-static u8 rom_yami_qup_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_yami_qup_tex.inc"
-};
-
-static u8 rom_yami_hyou_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_yami_hyou_tex.inc"
-};
-
-static u8 rom_yami_hyou02_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_yami_hyou02_tex.inc"
-};
-
-static u8 rom_yami_step_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_yami_step_tex.inc"
-};
-
-static u8 rom_yami_hugu_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_yami_hugu_tex.inc"
-};
-
-static u8 rom_yami_tama_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_yami_tama_tex.inc"
-};
-
-static u8 rom_yami_shadow01_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_yami_shadow01_tex.inc"
-};
-
 static Vtx grd_yamishop_v[] = {
 #include "assets/field/bg/grd_yamishop_v.inc"
 };

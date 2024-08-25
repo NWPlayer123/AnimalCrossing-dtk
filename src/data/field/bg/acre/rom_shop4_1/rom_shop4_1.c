@@ -52,106 +52,31 @@ static u16 rom_shop4_1_reji_tex_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_shop4_1_reji_tex_pal.inc"
 };
 
-static u8 rom_shop4_1_floor01_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_shop4_1_floor01_tex.inc"
-};
-
-static u8 rom_shop4_1_lamp_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_shop4_1_lamp_tex.inc"
-};
-
-static u8 rom_shop4_1_base_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_shop4_1_base_tex.inc"
-};
-
-static u8 rom_shop4_1_stair01_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_shop4_1_stair01_tex.inc"
-};
-
-static u8 rom_shop4_1_table01_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_shop4_1_table01_tex.inc"
-};
-
-static u8 rom_shop4_1_table02_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_shop4_1_table02_tex.inc"
-};
-
-static u8 rom_shop4_1_wall01_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_shop4_1_wall01_tex.inc"
-};
-
-static u8 rom_shop4_1_wall02_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_shop4_1_wall02_tex.inc"
-};
-
-static u8 rom_shop4_1_sign05_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_shop4_1_sign05_tex.inc"
-};
-
-static u8 rom_shop4_1_kaunta01_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_shop4_1_kaunta01_tex.inc"
-};
-
-static u8 rom_shop4_1_kaunta02_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_shop4_1_kaunta02_tex.inc"
-};
-
-static u8 rom_shop4_1_us_sign01_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_shop4_1_us_sign01_tex.inc"
-};
-
-static u8 rom_shop4_1_us_sign02_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_shop4_1_us_sign02_tex.inc"
-};
-
-static u8 rom_shop4_1_us_sign03_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_shop4_1_us_sign03_tex.inc"
-};
-
-static u8 rom_shop4_1_sign04_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_shop4_1_sign04_tex.inc"
-};
-
-static u8 rom_shop4_1_reji01_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_shop4_1_reji01_tex.inc"
-};
-
-static u8 rom_shop4_1_reji02_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_shop4_1_reji02_tex.inc"
-};
-
-static u8 rom_shop4_1_reji03_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_shop4_1_reji03_tex.inc"
-};
-
-static u8 rom_shop4_1_floor02_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_shop4_1_floor02_tex.inc"
-};
-
-static u8 rom_shop4_1_floor03_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_shop4_1_floor03_tex.inc"
-};
-
-static u8 rom_shop4_1_floor04_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_shop4_1_floor04_tex.inc"
-};
-
-static u8 rom_shop4_1_shadow01_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_shop4_1_shadow01_tex.inc"
-};
-
-static u8 rom_shop4_1_shadow02_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_shop4_1_shadow02_tex.inc"
-};
-
-static u8 rom_shop4_1_lamp02_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_shop4_1_lamp02_tex.inc"
-};
-
-static u8 rom_shop4_1_shadow03_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_shop4_1_shadow03_tex.inc"
-};
-
 static Vtx rom_shop4_1_v[] = {
 #include "assets/field/bg/rom_shop4_1_v.inc"
 };

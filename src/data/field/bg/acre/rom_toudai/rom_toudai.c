@@ -20,42 +20,15 @@ static u16 rom_toudai_ukiwa_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_toudai_ukiwa_pal.inc"
 };
 
-static u8 rom_toudai_yuka_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_toudai_yuka_tex.inc"
-};
-
-static u8 rom_toudai_kabeA_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_toudai_kabeA_tex.inc"
-};
-
-static u8 rom_toudai_kabeB_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_toudai_kabeB_tex.inc"
-};
-
-static u8 rom_toudai_step_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_toudai_step_tex.inc"
-};
-
-static u8 rom_toudai_mekaA_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_toudai_mekaA_tex.inc"
-};
-
-static u8 rom_toudai_ukiwa_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_toudai_ukiwa_tex.inc"
-};
-
-static u8 rom_toudai_kage1_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_toudai_kage1_tex.inc"
-};
-
-static u8 rom_toudai_mekaC_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_toudai_mekaC_tex.inc"
-};
-
-static u8 rom_toudai_kage2_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_toudai_kage2_tex.inc"
-};
-
 static Vtx rom_toudai_v[] = {
 #include "assets/field/bg/rom_toudai_v.inc"
 };

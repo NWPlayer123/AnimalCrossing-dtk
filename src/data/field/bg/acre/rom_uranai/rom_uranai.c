@@ -32,90 +32,27 @@ static u16 rom_uranai_card_tex_pal[] = {
 #include "assets/field/bg/rom_uranai_card_tex_pal.inc"
 };
 
-static u8 rom_uranai_floor_tex[] = {
 #include "assets/field/bg/rom_uranai_floor_tex.inc"
-};
-
-static u8 rom_uranai_wall01_tex[] = {
 #include "assets/field/bg/rom_uranai_wall01_tex.inc"
-};
-
-static u8 rom_uranai_wall02_tex[] = {
 #include "assets/field/bg/rom_uranai_wall02_tex.inc"
-};
-
-static u8 rom_uranai_wall03_tex[] = {
 #include "assets/field/bg/rom_uranai_wall03_tex.inc"
-};
-
-static u8 rom_uranai_table01_tex[] = {
 #include "assets/field/bg/rom_uranai_table01_tex.inc"
-};
-
-static u8 rom_uranai_table02_tex[] = {
 #include "assets/field/bg/rom_uranai_table02_tex.inc"
-};
-
-static u8 rom_uranai_tubo_tex[] = {
 #include "assets/field/bg/rom_uranai_tubo_tex.inc"
-};
-
-static u8 rom_uranai_shadow01_tex[] = {
 #include "assets/field/bg/rom_uranai_shadow01_tex.inc"
-};
-
-static u8 rom_uranai_vell_tex[] = {
 #include "assets/field/bg/rom_uranai_vell_tex.inc"
-};
-
-static u8 rom_uranai_vell02_tex[] = {
 #include "assets/field/bg/rom_uranai_vell02_tex.inc"
-};
-
-static u8 rom_uranai_stand01_tex[] = {
 #include "assets/field/bg/rom_uranai_stand01_tex.inc"
-};
-
-static u8 rom_uranai_nuno01_tex[] = {
 #include "assets/field/bg/rom_uranai_nuno01_tex.inc"
-};
-
-static u8 rom_uranai_nuno02_tex[] = {
 #include "assets/field/bg/rom_uranai_nuno02_tex.inc"
-};
-
-static u8 rom_uranai_bace_tex[] = {
 #include "assets/field/bg/rom_uranai_bace_tex.inc"
-};
-
-static u8 rom_uranai_card01_tex[] = {
 #include "assets/field/bg/rom_uranai_card01_tex.inc"
-};
-
-static u8 rom_uranai_shadow02_tex[] = {
 #include "assets/field/bg/rom_uranai_shadow02_tex.inc"
-};
-
-static u8 rom_uranai_card02_tex[] = {
 #include "assets/field/bg/rom_uranai_card02_tex.inc"
-};
-
-static u8 rom_uranai_cris02_tex[] = {
 #include "assets/field/bg/rom_uranai_cris02_tex.inc"
-};
-
-static u8 rom_uranai_cris01_tex_rgb_ia8[] = {
 #include "assets/field/bg/rom_uranai_cris01_tex_rgb_ia8.inc"
-};
-
-static u8 rom_uranai_hi02_tex_rgb_i4[] = {
 #include "assets/field/bg/rom_uranai_hi02_tex_rgb_i4.inc"
-};
-
-static u8 rom_uranai_hi03_tex_rgb_i4[] = {
 #include "assets/field/bg/rom_uranai_hi03_tex_rgb_i4.inc"
-};
-
 static Vtx rom_uranai_v[] = {
 #include "assets/field/bg/rom_uranai_v.inc"
 };

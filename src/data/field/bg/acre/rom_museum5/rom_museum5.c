@@ -16,30 +16,12 @@ static u16 rom_museum5_step_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_museum5_step_pal.inc"
 };
 
-static u8 rom_museum5_ki_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_museum5_ki_tex.inc"
-};
-
-static u8 rom_museum5_wallA_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_museum5_wallA_tex.inc"
-};
-
-static u8 rom_museum5_floor_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_museum5_floor_tex.inc"
-};
-
-static u8 rom_museum5_step_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_museum5_step_tex.inc"
-};
-
-static u8 rom_museum5_isi_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_museum5_isi_tex.inc"
-};
-
-static u8 rom_museum5_plate_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/field/bg/rom_museum5_plate_tex.inc"
-};
-
 static Vtx rom_museum5_v[] = {
 #include "assets/field/bg/rom_museum5_v.inc"
 };

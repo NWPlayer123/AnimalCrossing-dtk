@@ -6,10 +6,11 @@ def convert_binary_to_vtx_c_source(src_path, dest_path):
     with open(src_path, "rb") as binary_file:
         # Obtain file size, iterate in 0x20 byte chunks
         file_size = binary_file.seek(0, 2)
+        binary_file.seek(0, 0)
         for i in range(0, file_size, 0x20):
             # Split the dest_path into multiple files depending on how many chunks there are
             name, ext = os.path.splitext(dest_path)
-            file_name = f"{name}_{i}{ext}"
+            file_name = f"{name}_{i // 0x20}{ext}"
             with open(file_name, "w") as c_file:
                 # Iterate each chunk and parse out the data
                 for j in range(0, 0x20, 2):
